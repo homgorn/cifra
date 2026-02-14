@@ -22,6 +22,13 @@ class PickedFile:
     size_bytes: int
 
 
+@dataclass
+class SkipStats:
+    skipped_by_file_size: int = 0
+    skipped_by_total_size: int = 0
+    skipped_by_folder_limit: int = 0
+
+
 def bytes_to_mb(value: int) -> float:
     return value / (1024 * 1024)
 
@@ -48,31 +55,56 @@ def pick_with_limits(
     images: list[Path],
     max_total_bytes: int,
     max_per_folder: int,
-) -> list[PickedFile]:
+    max_file_bytes: int,
+) -> tuple[list[PickedFile], SkipStats, list[dict[str, str]]]:
     picked: list[PickedFile] = []
     folder_counters: dict[str, int] = {}
     used_bytes = 0
+    stats = SkipStats()
+    skipped_examples: list[dict[str, str]] = []
 
     for img in images:
         rel = img.relative_to(source_root)
         top_folder = rel.parts[0] if rel.parts else ""
+        size = img.stat().st_size
 
         count = folder_counters.get(top_folder, 0)
         if max_per_folder and count >= max_per_folder:
+            stats.skipped_by_folder_limit += 1
             continue
 
-        size = img.stat().st_size
+        if max_file_bytes and size > max_file_bytes:
+            stats.skipped_by_file_size += 1
+            if len(skipped_examples) < 20:
+                skipped_examples.append(
+                    {
+                        "relative": str(rel),
+                        "reason": "file_too_large",
+                        "size_mb": f"{bytes_to_mb(size):.2f}",
+                    }
+                )
+            continue
+
         if used_bytes + size > max_total_bytes:
+            stats.skipped_by_total_size += 1
             continue
 
         picked.append(PickedFile(source=img, relative=rel, size_bytes=size))
         folder_counters[top_folder] = count + 1
         used_bytes += size
 
-    return picked
+    return picked, stats, skipped_examples
 
 
-def write_output(picked: list[PickedFile], source_root: Path, output_dir: Path) -> None:
+def write_output(
+    picked: list[PickedFile],
+    output_dir: Path,
+    stats: SkipStats,
+    skipped_examples: list[dict[str, str]],
+    source_root: Path,
+    max_file_bytes: int,
+    max_total_bytes: int,
+) -> None:
     if output_dir.exists():
         shutil.rmtree(output_dir)
     output_dir.mkdir(parents=True, exist_ok=True)
@@ -83,6 +115,19 @@ def write_output(picked: list[PickedFile], source_root: Path, output_dir: Path) 
         shutil.copy2(item.source, dest)
 
     manifest = {
+        "source_root": str(source_root),
+        "limits": {
+            "max_total_mb": round(bytes_to_mb(max_total_bytes), 2),
+            "max_file_mb": round(bytes_to_mb(max_file_bytes), 2),
+        },
+        "stats": {
+            "file_count": len(picked),
+            "total_size_bytes": sum(f.size_bytes for f in picked),
+            "skipped_by_file_size": stats.skipped_by_file_size,
+            "skipped_by_total_size": stats.skipped_by_total_size,
+            "skipped_by_folder_limit": stats.skipped_by_folder_limit,
+        },
+        "skipped_examples": skipped_examples,
         "files": [
             {
                 "source": str(item.source),
@@ -91,8 +136,6 @@ def write_output(picked: list[PickedFile], source_root: Path, output_dir: Path) 
             }
             for item in picked
         ],
-        "file_count": len(picked),
-        "total_size_bytes": sum(f.size_bytes for f in picked),
     }
 
     (output_dir / "manifest.json").write_text(
@@ -106,6 +149,7 @@ def main() -> int:
     parser.add_argument("--source-root", type=Path, required=True, help="Root with original category folders")
     parser.add_argument("--output-dir", type=Path, default=Path("sample_data"), help="Where to place copied sample")
     parser.add_argument("--max-mb", type=float, default=50.0, help="Max total size in MB (default: 50)")
+    parser.add_argument("--max-file-mb", type=float, default=8.0, help="Max single image size in MB (default: 8)")
     parser.add_argument("--max-per-folder", type=int, default=20, help="Max files per top-level folder (default: 20)")
     parser.add_argument(
         "--include-folders",
@@ -123,22 +167,37 @@ def main() -> int:
         raise SystemExit("No images found with supported extensions.")
 
     max_total_bytes = int(args.max_mb * 1024 * 1024)
-    picked = pick_with_limits(
+    max_file_bytes = int(args.max_file_mb * 1024 * 1024)
+    picked, stats, skipped_examples = pick_with_limits(
         source_root=args.source_root,
         images=images,
         max_total_bytes=max_total_bytes,
         max_per_folder=args.max_per_folder,
+        max_file_bytes=max_file_bytes,
     )
 
     if not picked:
-        raise SystemExit("No files selected. Increase --max-mb or adjust folder filters.")
+        raise SystemExit(
+            "No files selected. Increase --max-mb/--max-file-mb, or adjust --include-folders/--max-per-folder."
+        )
 
-    write_output(picked=picked, source_root=args.source_root, output_dir=args.output_dir)
+    write_output(
+        picked=picked,
+        output_dir=args.output_dir,
+        stats=stats,
+        skipped_examples=skipped_examples,
+        source_root=args.source_root,
+        max_file_bytes=max_file_bytes,
+        max_total_bytes=max_total_bytes,
+    )
 
     total = sum(p.size_bytes for p in picked)
     print(f"Selected files: {len(picked)}")
     print(f"Total size: {bytes_to_mb(total):.2f} MB")
+    print(f"Skipped by file size: {stats.skipped_by_file_size}")
+    print(f"Skipped by total size: {stats.skipped_by_total_size}")
     print(f"Output dir: {args.output_dir}")
+    print(f"Manifest: {args.output_dir / 'manifest.json'}")
     return 0
 
 
