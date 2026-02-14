@@ -67,3 +67,35 @@ python3 scripts/prepare_test_dataset.py \
 2. Уменьшите `--max-file-mb` (например до 5).
 3. Пересоберите `sample_data` и перезапишите коммит.
 4. Если большой файл уже попал в историю, удалите его из истории перед push.
+
+---
+
+## Тест сортировки для "россыпью" файлов (без папок)
+Если вы добавили, например, флешки/пауэрбанки не по папкам, можно разложить их в `media/`:
+
+```bash
+python3 scripts/sort_loose_media.py \
+  --source-dir "/path/to/loose_files" \
+  --media-root media \
+  --dry-run
+```
+
+Потом реальный перенос:
+
+```bash
+python3 scripts/sort_loose_media.py \
+  --source-dir "/path/to/loose_files" \
+  --media-root media
+```
+
+### Нужен ли Gemini ключ?
+- Нет, для первичного теста не нужен (работает по ключевым словам имени файла).
+- Да, нужен если имена файлов неинформативны. Тогда:
+
+```bash
+python3 scripts/sort_loose_media.py \
+  --source-dir "/path/to/loose_files" \
+  --media-root media \
+  --use-gemini \
+  --gemini-api-key "YOUR_KEY"
+```
