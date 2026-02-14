@@ -1,0 +1,18 @@
+# Python
+__pycache__/
+*.py[cod]
+
+# Local virtual envs
+.venv/
+venv/
+
+# ML/model caches
+models_cache/
+.cache/
+
+# Generated outputs
+*.log
+*.tmp
+
+# Keep sample_data explicit (remove this ignore if you intentionally commit sample data)
+sample_data/
