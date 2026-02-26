@@ -216,6 +216,31 @@ class ValidatePortfolioCSVTests(unittest.TestCase):
         self.assertEqual(result.returncode, 0, msg=result.stdout + result.stderr)
         self.assertEqual(result.stdout.strip(), "")
 
+    def test_strict_all_enables_all_strict_checks(self) -> None:
+        csv_text = textwrap.dedent(
+            """\
+            post_type,post_status,post_title,post_name,post_content,tax_category,tax_post_tag,featured_image_primary_url,file_path_local
+            portfolio,draft,,dup,<p>x</p>,Cat,tag,,
+            portfolio,draft,Title 2,dup,<p>y</p>,Cat,tag,,local/2.jpg
+            """
+        )
+        result = self.run_validator(csv_text, "--strict-all")
+        self.assertEqual(result.returncode, 1, msg=result.stdout + result.stderr)
+        self.assertIn("ERROR: duplicate post_name values detected at lines: 3", result.stdout)
+        self.assertIn("ERROR: empty featured_image_primary_url values detected at lines: 2, 3", result.stdout)
+        self.assertIn("ERROR: empty values in required columns", result.stdout)
+
+    def test_json_and_quiet_are_mutually_exclusive(self) -> None:
+        csv_text = textwrap.dedent(
+            """\
+            post_type,post_status,post_title,post_name,post_content,tax_category,tax_post_tag,featured_image_primary_url,file_path_local
+            portfolio,draft,Title,slug,<p>x</p>,Cat,tag,https://example.com/a.jpg,local/path.jpg
+            """
+        )
+        result = self.run_validator(csv_text, "--json", "--quiet")
+        self.assertEqual(result.returncode, 2, msg=result.stdout + result.stderr)
+        self.assertIn("--json and --quiet cannot be used together", result.stderr)
+
 
 if __name__ == "__main__":
     unittest.main()

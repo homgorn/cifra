@@ -31,7 +31,13 @@ CLI-валидатор: `scripts/validate_portfolio_csv.py`.
 python3 scripts/validate_portfolio_csv.py templates/wp_portfolio_template.csv
 ```
 
-Строгий режим для CI:
+Строгий режим для CI (коротко через `--strict-all`):
+
+```bash
+python3 scripts/validate_portfolio_csv.py templates/wp_portfolio_template.csv --strict-all
+```
+
+Эквивалентно ручному набору strict-флагов:
 
 ```bash
 python3 scripts/validate_portfolio_csv.py templates/wp_portfolio_template.csv \
@@ -69,5 +75,9 @@ python3 scripts/validate_portfolio_csv.py templates/wp_portfolio_template.csv \
 
 - агрегирование нескольких ошибок за один запуск;
 - `line:column` диагностика для пустых обязательных полей;
+- `--strict-all` как быстрый включатель всех строгих проверок;
 - JSON-режим вывода, `--report-path` и `--quiet` для интеграции в CI-пайплайны;
 - расширенные CLI-регрессионные тесты для edge-cases.
+
+
+> Примечание: `--json` и `--quiet` взаимоисключающие флаги.

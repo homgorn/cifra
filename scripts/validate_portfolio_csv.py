@@ -199,6 +199,11 @@ def main() -> int:
         help="Return non-zero if any required cell is empty",
     )
     parser.add_argument(
+        "--strict-all",
+        action="store_true",
+        help="Enable all strict validation checks",
+    )
+    parser.add_argument(
         "--json",
         action="store_true",
         help="Print machine-readable JSON output",
@@ -215,11 +220,18 @@ def main() -> int:
     )
     args = parser.parse_args()
 
+    if args.json and args.quiet:
+        parser.error("--json and --quiet cannot be used together")
+
+    strict_duplicate_slug = args.strict_all or args.fail_on_duplicate_slug
+    strict_empty_primary = args.strict_all or args.fail_on_empty_primary_url
+    strict_empty_required = args.strict_all or args.fail_on_empty_required
+
     result = validate_csv(
         args.csv_path,
-        fail_on_duplicate_slug=args.fail_on_duplicate_slug,
-        fail_on_empty_primary_url=args.fail_on_empty_primary_url,
-        fail_on_empty_required=args.fail_on_empty_required,
+        fail_on_duplicate_slug=strict_duplicate_slug,
+        fail_on_empty_primary_url=strict_empty_primary,
+        fail_on_empty_required=strict_empty_required,
     )
 
     if args.report_path:
