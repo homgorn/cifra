@@ -12,6 +12,7 @@ CLI-валидатор: `scripts/validate_portfolio_csv.py`.
 ## Что проверяется
 
 - наличие обязательных колонок в header;
+- отсутствие дублирующихся заголовков CSV;
 - malformed строки (extra/missing columns);
 - дубли `post_name` (опционально strict);
 - пустой `featured_image_primary_url` (опционально strict);
@@ -75,6 +76,7 @@ python3 scripts/validate_portfolio_csv.py templates/wp_portfolio_template.csv \
 
 - агрегирование нескольких ошибок за один запуск;
 - `line:column` диагностика для пустых обязательных полей;
+- детект дублированных заголовков CSV до проверки строк;
 - `--strict-all` как быстрый включатель всех строгих проверок;
 - JSON-режим вывода, `--report-path` и `--quiet` для интеграции в CI-пайплайны;
 - расширенные CLI-регрессионные тесты для edge-cases.

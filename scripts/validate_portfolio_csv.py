@@ -134,9 +134,16 @@ def validate_csv(
 
     with path.open("r", encoding="utf-8-sig", newline="") as fh:
         reader = csv.DictReader(fh)
-        missing = [c for c in REQUIRED_COLUMNS if c not in (reader.fieldnames or [])]
-        if missing:
-            errors = ["ERROR: missing required columns:"] + [f"  - {col}" for col in missing]
+        fieldnames = reader.fieldnames or []
+        missing = [c for c in REQUIRED_COLUMNS if c not in fieldnames]
+        duplicate_headers = sorted({name for name in fieldnames if name and fieldnames.count(name) > 1})
+
+        if missing or duplicate_headers:
+            errors: list[str] = []
+            if missing:
+                errors.extend(["ERROR: missing required columns:"] + [f"  - {col}" for col in missing])
+            if duplicate_headers:
+                errors.extend(["ERROR: duplicate CSV headers detected:"] + [f"  - {col}" for col in duplicate_headers])
             return ValidationResult(exit_code=EXIT_VALIDATION_ERROR, errors=errors)
 
         stats = ValidationStats()

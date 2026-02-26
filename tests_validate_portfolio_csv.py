@@ -60,6 +60,19 @@ class ValidatePortfolioCSVTests(unittest.TestCase):
         self.assertIn("ERROR: missing required columns:", result.stdout)
         self.assertIn("featured_image_primary_url", result.stdout)
 
+
+    def test_duplicate_headers_fail(self) -> None:
+        csv_text = textwrap.dedent(
+            """\
+            post_type,post_status,post_title,post_name,post_content,tax_category,tax_post_tag,featured_image_primary_url,file_path_local,post_name
+            portfolio,draft,Title,slug,<p>x</p>,Cat,tag,https://example.com/a.jpg,local/path.jpg,slug-2
+            """
+        )
+        result = self.run_validator(csv_text)
+        self.assertEqual(result.returncode, 1, msg=result.stdout + result.stderr)
+        self.assertIn("ERROR: duplicate CSV headers detected:", result.stdout)
+        self.assertIn("post_name", result.stdout)
+
     def test_extra_columns_fail(self) -> None:
         csv_text = textwrap.dedent(
             """\
