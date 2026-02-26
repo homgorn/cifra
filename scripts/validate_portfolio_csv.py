@@ -208,6 +208,11 @@ def main() -> int:
         type=Path,
         help="Optional path to write JSON validation report",
     )
+    parser.add_argument(
+        "--quiet",
+        action="store_true",
+        help="Suppress human-readable stdout (useful with --report-path)",
+    )
     args = parser.parse_args()
 
     result = validate_csv(
@@ -223,13 +228,14 @@ def main() -> int:
     if args.json:
         _print_json(result)
     else:
-        if result.errors and result.stats.rows_checked == 0 and result.stats.empty_required_cells == 0:
-            for error in result.errors:
-                print(error)
-        else:
-            _print_summary(result.stats)
-            for error in result.errors:
-                print(error)
+        if not args.quiet:
+            if result.errors and result.stats.rows_checked == 0 and result.stats.empty_required_cells == 0:
+                for error in result.errors:
+                    print(error)
+            else:
+                _print_summary(result.stats)
+                for error in result.errors:
+                    print(error)
 
     return result.exit_code
 

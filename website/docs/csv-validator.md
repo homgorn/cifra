@@ -56,9 +56,18 @@ python3 scripts/validate_portfolio_csv.py templates/wp_portfolio_template.csv \
   --report-path reports/validator-report.json
 ```
 
+Тихий режим (без stdout, только exit code + optional report file):
+
+```bash
+python3 scripts/validate_portfolio_csv.py templates/wp_portfolio_template.csv \
+  --fail-on-empty-required \
+  --report-path reports/validator-report.json \
+  --quiet
+```
+
 ## Что улучшено в последних ревизиях
 
 - агрегирование нескольких ошибок за один запуск;
 - `line:column` диагностика для пустых обязательных полей;
-- JSON-режим вывода и `--report-path` для интеграции в CI-пайплайны;
+- JSON-режим вывода, `--report-path` и `--quiet` для интеграции в CI-пайплайны;
 - расширенные CLI-регрессионные тесты для edge-cases.

@@ -1,3 +1,4 @@
+import json
 import subprocess
 import tempfile
 import textwrap
@@ -148,8 +149,10 @@ class ValidatePortfolioCSVTests(unittest.TestCase):
         )
         result = self.run_validator(csv_text, "--json")
         self.assertEqual(result.returncode, 0, msg=result.stdout + result.stderr)
-        self.assertIn('"exit_code": 0', result.stdout)
-        self.assertIn('"rows_checked": 1', result.stdout)
+        payload = json.loads(result.stdout)
+        self.assertEqual(payload["exit_code"], 0)
+        self.assertEqual(payload["stats"]["rows_checked"], 1)
+        self.assertEqual(payload["errors"], [])
 
     def test_json_output_reports_missing_file(self) -> None:
         missing = Path("/tmp/definitely-missing-cifra-file.json.csv")
@@ -160,12 +163,14 @@ class ValidatePortfolioCSVTests(unittest.TestCase):
             check=False,
         )
         self.assertEqual(result.returncode, 2, msg=result.stdout + result.stderr)
-        self.assertIn('"exit_code": 2', result.stdout)
-        self.assertIn('ERROR: file not found', result.stdout)
+        payload = json.loads(result.stdout)
+        self.assertEqual(payload["exit_code"], 2)
+        self.assertIn("ERROR: file not found", payload["errors"][0])
 
     def test_report_path_writes_json_file(self) -> None:
         csv_text = textwrap.dedent(
-            """            post_type,post_status,post_title,post_name,post_content,tax_category,tax_post_tag,featured_image_primary_url,file_path_local
+            """\
+            post_type,post_status,post_title,post_name,post_content,tax_category,tax_post_tag,featured_image_primary_url,file_path_local
             portfolio,draft,Title,slug,<p>x</p>,Cat,tag,https://example.com/a.jpg,local/path.jpg
             """
         )
@@ -174,9 +179,9 @@ class ValidatePortfolioCSVTests(unittest.TestCase):
             result = self.run_validator(csv_text, "--report-path", str(report_path))
             self.assertEqual(result.returncode, 0, msg=result.stdout + result.stderr)
             self.assertTrue(report_path.exists())
-            payload = report_path.read_text(encoding="utf-8")
-            self.assertIn('"exit_code": 0', payload)
-            self.assertIn('"rows_checked": 1', payload)
+            payload = json.loads(report_path.read_text(encoding="utf-8"))
+            self.assertEqual(payload["exit_code"], 0)
+            self.assertEqual(payload["stats"]["rows_checked"], 1)
 
     def test_report_path_writes_json_for_missing_file(self) -> None:
         with tempfile.TemporaryDirectory() as tmp_dir:
@@ -196,9 +201,20 @@ class ValidatePortfolioCSVTests(unittest.TestCase):
             )
             self.assertEqual(result.returncode, 2, msg=result.stdout + result.stderr)
             self.assertTrue(report_path.exists())
-            payload = report_path.read_text(encoding="utf-8")
-            self.assertIn('"exit_code": 2', payload)
-            self.assertIn('ERROR: file not found', payload)
+            payload = json.loads(report_path.read_text(encoding="utf-8"))
+            self.assertEqual(payload["exit_code"], 2)
+            self.assertIn("ERROR: file not found", payload["errors"][0])
+
+    def test_quiet_mode_suppresses_stdout(self) -> None:
+        csv_text = textwrap.dedent(
+            """\
+            post_type,post_status,post_title,post_name,post_content,tax_category,tax_post_tag,featured_image_primary_url,file_path_local
+            portfolio,draft,Title,slug,<p>x</p>,Cat,tag,https://example.com/a.jpg,local/path.jpg
+            """
+        )
+        result = self.run_validator(csv_text, "--quiet")
+        self.assertEqual(result.returncode, 0, msg=result.stdout + result.stderr)
+        self.assertEqual(result.stdout.strip(), "")
 
 
 if __name__ == "__main__":
