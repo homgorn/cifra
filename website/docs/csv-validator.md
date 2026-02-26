@@ -46,9 +46,19 @@ Machine-readable вывод (для CI/автоматизации):
 python3 scripts/validate_portfolio_csv.py templates/wp_portfolio_template.csv --json
 ```
 
+Запись JSON-отчета в файл (удобно для артефактов CI):
+
+```bash
+python3 scripts/validate_portfolio_csv.py templates/wp_portfolio_template.csv \
+  --fail-on-duplicate-slug \
+  --fail-on-empty-primary-url \
+  --fail-on-empty-required \
+  --report-path reports/validator-report.json
+```
+
 ## Что улучшено в последних ревизиях
 
 - агрегирование нескольких ошибок за один запуск;
 - `line:column` диагностика для пустых обязательных полей;
-- JSON-режим вывода для интеграции в CI-пайплайны;
+- JSON-режим вывода и `--report-path` для интеграции в CI-пайплайны;
 - расширенные CLI-регрессионные тесты для edge-cases.

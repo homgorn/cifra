@@ -93,6 +93,14 @@ def _build_error_messages(
     return errors
 
 
+def _result_payload(result: ValidationResult) -> dict[str, object]:
+    return {
+        "exit_code": result.exit_code,
+        "stats": asdict(result.stats),
+        "errors": result.errors,
+    }
+
+
 def _print_summary(stats: ValidationStats) -> None:
     print(f"Rows checked: {stats.rows_checked}")
     print(f"Duplicate post_name: {stats.duplicate_slugs}")
@@ -103,12 +111,12 @@ def _print_summary(stats: ValidationStats) -> None:
 
 
 def _print_json(result: ValidationResult) -> None:
-    payload = {
-        "exit_code": result.exit_code,
-        "stats": asdict(result.stats),
-        "errors": result.errors,
-    }
-    print(json.dumps(payload, ensure_ascii=False, indent=2))
+    print(json.dumps(_result_payload(result), ensure_ascii=False, indent=2))
+
+
+def _write_json_report(path: Path, result: ValidationResult) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(json.dumps(_result_payload(result), ensure_ascii=False, indent=2), encoding="utf-8")
 
 
 def validate_csv(
@@ -195,6 +203,11 @@ def main() -> int:
         action="store_true",
         help="Print machine-readable JSON output",
     )
+    parser.add_argument(
+        "--report-path",
+        type=Path,
+        help="Optional path to write JSON validation report",
+    )
     args = parser.parse_args()
 
     result = validate_csv(
@@ -203,6 +216,9 @@ def main() -> int:
         fail_on_empty_primary_url=args.fail_on_empty_primary_url,
         fail_on_empty_required=args.fail_on_empty_required,
     )
+
+    if args.report_path:
+        _write_json_report(args.report_path, result)
 
     if args.json:
         _print_json(result)

@@ -163,6 +163,43 @@ class ValidatePortfolioCSVTests(unittest.TestCase):
         self.assertIn('"exit_code": 2', result.stdout)
         self.assertIn('ERROR: file not found', result.stdout)
 
+    def test_report_path_writes_json_file(self) -> None:
+        csv_text = textwrap.dedent(
+            """            post_type,post_status,post_title,post_name,post_content,tax_category,tax_post_tag,featured_image_primary_url,file_path_local
+            portfolio,draft,Title,slug,<p>x</p>,Cat,tag,https://example.com/a.jpg,local/path.jpg
+            """
+        )
+        with tempfile.TemporaryDirectory() as tmp_dir:
+            report_path = Path(tmp_dir) / "reports" / "validator-report.json"
+            result = self.run_validator(csv_text, "--report-path", str(report_path))
+            self.assertEqual(result.returncode, 0, msg=result.stdout + result.stderr)
+            self.assertTrue(report_path.exists())
+            payload = report_path.read_text(encoding="utf-8")
+            self.assertIn('"exit_code": 0', payload)
+            self.assertIn('"rows_checked": 1', payload)
+
+    def test_report_path_writes_json_for_missing_file(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp_dir:
+            missing = Path("/tmp/definitely-missing-cifra-file.report.csv")
+            report_path = Path(tmp_dir) / "validator-missing.json"
+            result = subprocess.run(
+                [
+                    "python3",
+                    str(VALIDATOR),
+                    str(missing),
+                    "--report-path",
+                    str(report_path),
+                ],
+                capture_output=True,
+                text=True,
+                check=False,
+            )
+            self.assertEqual(result.returncode, 2, msg=result.stdout + result.stderr)
+            self.assertTrue(report_path.exists())
+            payload = report_path.read_text(encoding="utf-8")
+            self.assertIn('"exit_code": 2', payload)
+            self.assertIn('ERROR: file not found', payload)
+
 
 if __name__ == "__main__":
     unittest.main()
