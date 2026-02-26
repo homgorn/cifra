@@ -1,0 +1,56 @@
+:root {
+  --ifm-color-primary: #2563eb;
+  --ifm-color-primary-dark: #1d4ed8;
+  --ifm-color-primary-darker: #1e40af;
+  --ifm-color-primary-light: #3b82f6;
+  --ifm-background-color: #0b1220;
+  --ifm-font-family-base: Inter, system-ui, -apple-system, sans-serif;
+}
+
+html[data-theme='light'] {
+  --ifm-background-color: #f8fbff;
+}
+
+.heroWrap {
+  background: radial-gradient(circle at top, #152a52, #0b1220 60%);
+  min-height: calc(100vh - 64px);
+  display: grid;
+  align-items: center;
+}
+
+.heroSection {
+  padding: 4rem 1rem;
+}
+
+.heroSection h1 {
+  max-width: 18ch;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  line-height: 1.1;
+}
+
+.heroSection p {
+  max-width: 65ch;
+  font-size: 1.05rem;
+}
+
+.kicker {
+  display: inline-block;
+  border: 1px solid rgba(147, 197, 253, 0.5);
+  border-radius: 999px;
+  padding: 0.3rem 0.7rem;
+  color: #bfdbfe;
+}
+
+.heroButtons {
+  display: flex;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+}
+
+@media (max-width: 768px) {
+  .heroSection {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+}
