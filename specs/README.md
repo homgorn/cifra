@@ -26,6 +26,7 @@ spec.md → plan.md → tasks.md → implement → validate → done
 | 005 | `005-yandex-api/` — OAuth + рабочие экспорты API Метрики/Вебмастера | done (токен, 5+8 выгрузок, вики обновлены) |
 | 006 | `006-homepage-mega/` — главная-витрина с живыми данными API | done |
 | 007 | `007-datalens-dashboards/` — дашборды себе + витрина клиенту | planned |
+| 008 | `008-github/` — git, Pages, Actions-автообновление | in progress (ждёт remote) |
 
 ## Definition of Done (общий)
 

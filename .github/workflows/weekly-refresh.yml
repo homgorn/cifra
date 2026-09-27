@@ -1,0 +1,61 @@
+name: weekly-refresh
+
+on:
+  schedule:
+    - cron: "0 6 * * 1"  # понедельники 06:00 UTC
+  workflow_dispatch: {}  # ручной запуск из вкладки Actions
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - run: pip install requests
+      - name: Export Yandex APIs
+        env:
+          YANDEX_OAUTH_TOKEN: ${{ secrets.YANDEX_OAUTH_TOKEN }}
+          YANDEX_CLIENT_ID: ${{ secrets.YANDEX_CLIENT_ID }}
+          YANDEX_CLIENT_SECRET: ${{ secrets.YANDEX_CLIENT_SECRET }}
+          METRIKA_COUNTER_ID: "50863157"
+        run: |
+          printf 'YANDEX_CLIENT_ID=%s\nYANDEX_CLIENT_SECRET=%s\nYANDEX_OAUTH_TOKEN=%s\nMETRIKA_COUNTER_ID=50863157\n' \
+            "$YANDEX_CLIENT_ID" "$YANDEX_CLIENT_SECRET" "$YANDEX_OAUTH_TOKEN" > .env
+          python scripts/export/metrica_api_export.py || true
+          python scripts/export/yw_api_export.py || true
+      - name: Rebuild site data
+        run: |
+          python scripts/export/build_site_data.py || true
+          python scripts/export/validate_report.py
+      - name: Commit refreshed data
+        run: |
+          git config user.name "audit-bot"
+          git config user.email "audit-bot@local"
+          git add -A
+          git diff --cached --quiet || git commit -m "weekly refresh: api data $(date -u +%F)"
+          git push origin main || true
+
+  deploy-pages:
+    needs: refresh
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: reports/cifra18-audit
+      - id: deployment
+        uses: actions/deploy-pages@v4
