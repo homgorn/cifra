@@ -66,6 +66,9 @@ if errorlevel 1 goto authfail
 :rebase
 git merge-base HEAD origin/main >nul 2>&1
 if not errorlevel 1 goto push
+for /f "delims=" %%h in ('git rev-parse HEAD') do set "HEADBEFORE=%%h"
+if exist ".git\rebase-merge" goto stalerebase
+if exist ".git\rebase-apply" goto stalerebase
 echo No shared history with origin/main. Rebasing local commits on top...
 rem The wrangler cache is gitignored, so a rebase that restores its old
 rem copy aborts. Drop the cache; it regenerates. Never use git clean -X here:
@@ -73,6 +76,32 @@ rem that would delete .env with the Yandex token.
 if exist "reports\cifra18-audit\.wrangler" rmdir /s /q "reports\cifra18-audit\.wrangler"
 git rebase --root --onto origin/main
 if errorlevel 1 goto rebasefail
+
+:stalerebase
+echo Stale rebase directory found. Clearing it.
+git rebase --abort >nul 2>&1
+if exist ".git\rebase-merge" rmdir /s /q ".git\rebase-merge"
+if exist ".git\rebase-apply" rmdir /s /q ".git\rebase-apply"
+goto rebase
+
+:rebasefail
+rem A stale rebase dir makes "git rebase --abort" move HEAD back further than
+rem where we started. Undo that, otherwise local commits vanish silently.
+git rebase --abort >nul 2>&1
+for /f "delims=" %%h in ('git rev-parse HEAD') do set "HEADNOW=%%h"
+if "%HEADBEFORE%"=="%HEADNOW%" goto rebasefailmsg
+echo Restoring HEAD, the abort moved it to an older commit.
+git reset --hard "%HEADBEFORE%"
+:rebasefailmsg
+echo.
+echo REBASE CONFLICT, aborted, repo left intact.
+echo Remote main and local history diverged. Resolve it by hand:
+echo   git fetch origin
+echo   git rebase --root --onto origin/main
+echo resolve conflicts, then: git rebase --continue
+echo.
+pause
+exit /b 5
 
 :push
 git push origin main
