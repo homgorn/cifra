@@ -5,7 +5,9 @@
 - [x] `README.md`
 - [x] `deploy_github_pages.bat` (ASCII-only, проверен)
 - [x] `.github/workflows/weekly-refresh.yml`
-- [ ] Создать пустой репозиторий на GitHub
-- [ ] `deploy_github_pages.bat <url>` → push + gh-pages
+- [x] Создан репозиторий на GitHub (homgorn/cifra), remote добавлен
+- [x] `.wrangler/cache` удалён из репозитория + в `.gitignore`
+- [ ] Авторизация для push: PAT (`repo` + `workflow`) или интерактивный логин
+- [ ] `pull --rebase` (в remote есть README) → push main → gh-pages
 - [ ] Включить Pages, проверить URL
 - [ ] Положить `YANDEX_OAUTH_TOKEN` в Secrets, прогнать Actions
