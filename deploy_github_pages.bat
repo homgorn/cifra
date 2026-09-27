@@ -12,6 +12,9 @@ rem ----------------------------------------------------------------------
 
 if /i "%~1"=="--login" goto login
 if not "%~1"=="" goto setremote
+rem Fail fast instead of waiting on a hidden credential dialog.
+set GIT_TERMINAL_PROMPT=0
+set GCM_INTERACTIVE=never
 git remote get-url origin >nul 2>&1
 if errorlevel 1 goto noremote
 
@@ -86,7 +89,6 @@ echo   2) create a classic PAT with repo + workflow, then send it once
 echo.
 pause
 exit /b 3
-
 :fail
 echo.
 echo FAILED above. Read the message, fix, run again.

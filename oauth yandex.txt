@@ -1,0 +1,1 @@
+https://oauth.yandex.ru/authorize?response_type=code&client_id=bd171b3086d947918c19269247c50040&redirect_uri=https%3A%2F%2Foauth.yandex.ru%2Fverification_code
