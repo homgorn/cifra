@@ -10,55 +10,21 @@
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/main.css">
 <link rel="stylesheet" href="css/report.css">
+<link rel="stylesheet" href="css/nav.css">
 </head>
 <body>
 <header class="site-header">
   <div class="header-inner">
     <a class="logo" href="index.html"><span class="logo-mark">Ц18</span><span>Цифра. Аудит</span></a>
     <nav class="main-nav" id="mainNav">
-      <a class="nav-link active" href="index.html"><span class="nav-indicator"></span>Резюме</a>
-      <a class="nav-link" href="pages/technical.html"><span class="nav-indicator"></span>Техника</a>
-      <a class="nav-link" href="pages/content.html"><span class="nav-indicator"></span>Контент</a>
-      <a class="nav-link" href="pages/competitors.html"><span class="nav-indicator"></span>Конкуренты</a>
-      <a class="nav-link" href="pages/local.html"><span class="nav-indicator"></span>Регионы</a>
-      <a class="nav-link" href="pages/geo.html"><span class="nav-indicator"></span>GEO</a>
-      <a class="nav-link" href="pages/knowledge.html"><span class="nav-indicator"></span>База знаний</a>
-      <a class="nav-link" href="pages/roadmap.html"><span class="nav-indicator"></span>План</a>
-      <div class="nav-dropdown">
-        <button class="nav-link nav-drop-btn" aria-haspopup="true">Вебмастер <span class="drop-arrow">▾</span></button>
-        <div class="nav-drop-menu">
-          <a href="pages/wm-overview.html">Сводка Вебмастера <span class="drop-hint">717 URL</span></a>
-          <a href="pages/wm-indexing.html">Индексация по разделам <span class="drop-hint">6%</span></a>
-          <a href="pages/wm-duplicates.html">Дубли <span class="drop-hint">128</span></a>
-          <a href="pages/wm-errors.html">Ошибки и качество <span class="drop-hint">286</span></a>
-          <a href="pages/wm-redirects.html">Редиректы <span class="drop-hint">89</span></a>
-          <a href="pages/wm-queries.html">Запросы и позиции <span class="drop-hint">535</span></a>
-          <a href="pages/wm-clusters.html">Кластеры <span class="drop-hint">8 групп</span></a>
-          <a href="pages/wm-gaps.html">Пробелы контента <span class="drop-hint">топ-10</span></a>
-          <a href="pages/wm-links.html">Внутренние ссылки <span class="drop-hint">62 битых</span></a>
-          <a href="pages/wm-plan.html">План по Вебмастеру <span class="drop-hint">ICE</span></a>
-        </div>
-      </div>
-      <div class="nav-dropdown">
-        <button class="nav-link nav-drop-btn" aria-haspopup="true">Дашборды <span class="drop-arrow">▾</span></button>
-        <div class="nav-drop-menu">
-          <a href="dash-visibility.html">Видимость <span class="drop-hint">SQI 220</span></a>
-          <a href="dash-audience.html">Аудитория <span class="drop-hint">21 110 визитов</span></a>
-          <a href="dash-money.html">Деньги <span class="drop-hint">e-commerce</span></a>
-          <a href="dash-maps.html">Карта в Яндекс Картах <span class="drop-hint">409 звонков</span></a>
-        </div>
-      </div>
-      <div class="nav-dropdown">
-        <button class="nav-link nav-drop-btn" aria-haspopup="true">Еще <span class="drop-arrow">▾</span></button>
-        <div class="nav-drop-menu">
-          <a href="pages/prices.html">Цены и сравнения <span class="drop-hint">50 точек</span></a>
-          <a href="pages/season.html">Сезонный календарь <span class="drop-hint">год</span></a>
-          <a href="pages/marketing.html">Маркетинг план <span class="drop-hint">KPI</span></a>
-          <a href="pages/methodology.html">Методика <span class="drop-hint">как считал</span></a>
-        </div>
-      </div>
+      <a class="nav-link active" href="index.html" aria-current="page">Резюме</a>
+      <a class="nav-link" href="pages/wm-overview.html">Вебмастер</a>
+      <a class="nav-link" href="pages/dash-visibility.html">Дашборды</a>
+      <a class="nav-link" href="pages/competitors.html">Анализ</a>
+      <a class="nav-link" href="pages/plan-3m.html">План</a>
+      <a class="nav-link" href="pages/methodology.html">Методика</a>
+      <a class="nav-link nav-link-all" href="index.html#toc">Все страницы</a>
     </nav>
-    <button class="mobile-menu-btn" id="menuBtn" aria-label="Меню">Меню</button>
   </div>
 </header>
 
@@ -282,24 +248,240 @@
   </div>
 
 </div>
+  <section id="toc" data-section style="margin-top:3rem;">
+    <div class="page-title-block">
+      <h2>Карта отчёта</h2>
+      <p>Все 27 страниц, сгруппированные по разделам. Каждая карточка ведёт на страницу, номер совпадает с нумерацией в подвале.</p>
+    </div>
+      <div class="toc-group">
+        <h3 class="toc-group-title">Вебмастер</h3>
+        <div class="toc-grid">
+        <a class="toc-card" href="pages/wm-overview.html">
+          <span class="toc-num">13</span>
+          <span class="toc-body">
+            <span class="toc-title">Сводка</span>
+            <span class="toc-desc">Сводка: 708 страниц в поиске, SQI 220, 22 графика</span>
+          </span>
+        </a>
+        <a class="toc-card" href="pages/wm-indexing.html">
+          <span class="toc-num">14</span>
+          <span class="toc-body">
+            <span class="toc-title">Индексация</span>
+            <span class="toc-desc">Индексация по разделам: где в поиске, где нет</span>
+          </span>
+        </a>
+        <a class="toc-card" href="pages/wm-duplicates.html">
+          <span class="toc-num">15</span>
+          <span class="toc-body">
+            <span class="toc-title">Дубли</span>
+            <span class="toc-desc">128 дублей: шаблоны, параметры, легаси</span>
+          </span>
+        </a>
+        <a class="toc-card" href="pages/wm-errors.html">
+          <span class="toc-num">16</span>
+          <span class="toc-body">
+            <span class="toc-title">Ошибки</span>
+            <span class="toc-desc">Ошибки разбора и качество: 251 страница с PARSE_ERROR</span>
+          </span>
+        </a>
+        <a class="toc-card" href="pages/wm-redirects.html">
+          <span class="toc-num">17</span>
+          <span class="toc-body">
+            <span class="toc-title">Редиректы</span>
+            <span class="toc-desc">Редиректы: куда уходят 89 страниц</span>
+          </span>
+        </a>
+        <a class="toc-card" href="pages/wm-queries.html">
+          <span class="toc-num">18</span>
+          <span class="toc-body">
+            <span class="toc-title">Запросы</span>
+            <span class="toc-desc">492 запроса: позиции, ТОП-1, ТОП-3, ТОП-10</span>
+          </span>
+        </a>
+        <a class="toc-card" href="pages/wm-clusters.html">
+          <span class="toc-num">19</span>
+          <span class="toc-body">
+            <span class="toc-title">Кластеры</span>
+            <span class="toc-desc">13 групп запросов и покрытие страницами</span>
+          </span>
+        </a>
+        <a class="toc-card" href="pages/wm-gaps.html">
+          <span class="toc-num">20</span>
+          <span class="toc-body">
+            <span class="toc-title">Пробелы</span>
+            <span class="toc-desc">Топ-10 пробелов контента с приоритетом</span>
+          </span>
+        </a>
+        <a class="toc-card" href="pages/wm-links.html">
+          <span class="toc-num">21</span>
+          <span class="toc-body">
+            <span class="toc-title">Ссылки</span>
+            <span class="toc-desc">Внутренние ссылки: 62 битых из 134</span>
+          </span>
+        </a>
+        </div>
+      </div>
+      <div class="toc-group">
+        <h3 class="toc-group-title">Дашборды</h3>
+        <div class="toc-grid">
+        <a class="toc-card" href="pages/dash-visibility.html">
+          <span class="toc-num">23</span>
+          <span class="toc-body">
+            <span class="toc-title">Видимость</span>
+            <span class="toc-desc">SQI по годам, индексация по разделам, важные URL</span>
+          </span>
+        </a>
+        <a class="toc-card" href="pages/dash-audience.html">
+          <span class="toc-num">24</span>
+          <span class="toc-body">
+            <span class="toc-title">Аудитория</span>
+            <span class="toc-desc">Визиты, устройства, города, пол, возраст, источники</span>
+          </span>
+        </a>
+        <a class="toc-card" href="pages/dash-money.html">
+          <span class="toc-num">25</span>
+          <span class="toc-body">
+            <span class="toc-title">Деньги</span>
+            <span class="toc-desc">Заказы, выручка, цели, страницы входа</span>
+          </span>
+        </a>
+        <a class="toc-card" href="pages/dash-maps.html">
+          <span class="toc-num">26</span>
+          <span class="toc-body">
+            <span class="toc-title">Карта в Картах</span>
+            <span class="toc-desc">Карточка в Яндекс Картах: просмотры, звонки, маршруты</span>
+          </span>
+        </a>
+        </div>
+      </div>
+      <div class="toc-group">
+        <h3 class="toc-group-title">Анализ</h3>
+        <div class="toc-grid">
+        <a class="toc-card" href="pages/technical.html">
+          <span class="toc-num">2</span>
+          <span class="toc-body">
+            <span class="toc-title">Техника</span>
+            <span class="toc-desc">Техническое состояние: индексация, дубли, ошибки, скорость</span>
+          </span>
+        </a>
+        <a class="toc-card" href="pages/content.html">
+          <span class="toc-num">3</span>
+          <span class="toc-body">
+            <span class="toc-title">Контент</span>
+            <span class="toc-desc">Контент по страницам: заголовки, описания, объём, пробелы</span>
+          </span>
+        </a>
+        <a class="toc-card" href="pages/competitors.html">
+          <span class="toc-num">4</span>
+          <span class="toc-body">
+            <span class="toc-title">Конкуренты</span>
+            <span class="toc-desc">17 конкурентов из Ижевска: ниши, цены, стратегии, дыры</span>
+          </span>
+        </a>
+        <a class="toc-card" href="pages/local.html">
+          <span class="toc-num">5</span>
+          <span class="toc-body">
+            <span class="toc-title">Регионы</span>
+            <span class="toc-desc">Регионы: где ищут типографию и как распределить спрос</span>
+          </span>
+        </a>
+        <a class="toc-card" href="pages/geo.html">
+          <span class="toc-num">6</span>
+          <span class="toc-body">
+            <span class="toc-title">GEO</span>
+            <span class="toc-desc">Видимость в AI-поиске и ответы, которые читает машина</span>
+          </span>
+        </a>
+        <a class="toc-card" href="pages/knowledge.html">
+          <span class="toc-num">7</span>
+          <span class="toc-body">
+            <span class="toc-title">Знания</span>
+            <span class="toc-desc">База знаний: термины, сущности, связи, готовые блоки</span>
+          </span>
+        </a>
+        <a class="toc-card" href="pages/prices.html">
+          <span class="toc-num">9</span>
+          <span class="toc-body">
+            <span class="toc-title">Цены</span>
+            <span class="toc-desc">Цены рынка и сравнения: 50 точек по услугам</span>
+          </span>
+        </a>
+        <a class="toc-card" href="pages/season.html">
+          <span class="toc-num">10</span>
+          <span class="toc-body">
+            <span class="toc-title">Сезон</span>
+            <span class="toc-desc">Сезонный календарь спроса: когда готовить контент</span>
+          </span>
+        </a>
+        </div>
+      </div>
+      <div class="toc-group">
+        <h3 class="toc-group-title">План</h3>
+        <div class="toc-grid">
+        <a class="toc-card" href="pages/roadmap.html">
+          <span class="toc-num">8</span>
+          <span class="toc-body">
+            <span class="toc-title">90 дней</span>
+            <span class="toc-desc">План на 90 дней по неделям, быстрые победы, доступы</span>
+          </span>
+        </a>
+        <a class="toc-card" href="pages/marketing.html">
+          <span class="toc-num">11</span>
+          <span class="toc-body">
+            <span class="toc-title">Маркетинг</span>
+            <span class="toc-desc">Маркетинг-план и KPI продвижения</span>
+          </span>
+        </a>
+        <a class="toc-card" href="pages/wm-plan.html">
+          <span class="toc-num">22</span>
+          <span class="toc-body">
+            <span class="toc-title">План ВМ</span>
+            <span class="toc-desc">Спринты по Вебмастеру и критерии приёмки</span>
+          </span>
+        </a>
+        <a class="toc-card" href="pages/plan-3m.html">
+          <span class="toc-num">27</span>
+          <span class="toc-body">
+            <span class="toc-title">3 месяца</span>
+            <span class="toc-desc">План работ на 3 месяца: расчистка, семантика, деньги</span>
+          </span>
+        </a>
+        </div>
+      </div>
+      <div class="toc-group">
+        <h3 class="toc-group-title">Методика</h3>
+        <div class="toc-grid">
+        <a class="toc-card" href="pages/methodology.html">
+          <span class="toc-num">12</span>
+          <span class="toc-body">
+            <span class="toc-title">Методика</span>
+            <span class="toc-desc">Откуда взяты все цифры и как они считались</span>
+          </span>
+        </a>
+        </div>
+      </div>
+  </section>
 </main>
 
 <footer class="site-footer">
   <div class="container container-wide">
     <div class="footer-grid">
-      <div class="footer-brand"><a class="logo" href="index.html"><span class="logo-mark">Ц18</span><span>Цифра. Аудит</span></a><p>Отчет по продвижению цифра18.рф. Техника, контент, конкуренты, регионы, GEO, Вебмастер, дашборды. Сентябрь 2026.</p></div>
-      <div class="footer-nav"><h4>Отчет</h4><ul><li><a href="index.html">Резюме</a></li><li><a href="technical.html">Техника</a></li><li><a href="content.html">Контент</a></li><li><a href="roadmap.html">План</a></li></ul></div>
-      <div class="footer-nav"><h4>Анализ</h4><ul><li><a href="competitors.html">Конкуренты</a></li><li><a href="local.html">Регионы</a></li><li><a href="geo.html">GEO</a></li><li><a href="knowledge.html">База знаний</a></li></ul></div>
-      <div class="footer-nav"><h4>Вебмастер</h4><ul><li><a href="wm-overview.html">Сводка</a></li><li><a href="wm-queries.html">Запросы</a></li><li><a href="wm-gaps.html">Пробелы</a></li><li><a href="wm-plan.html">План</a></li></ul></div>
-      <div class="footer-nav"><h4>Дашборды</h4><ul><li><a href="dash-visibility.html">Видимость</a></li><li><a href="dash-audience.html">Аудитория</a></li><li><a href="dash-money.html">Деньги</a></li><li><a href="dash-maps.html">Карта в Картах</a></li></ul></div>
-      <div class="footer-nav"><h4>Файлы</h4><ul><li><a href="methodology.html">Методика</a></li><li><a href="plan-3m.html">План 3 месяца</a></li><li><a href="roadmap.html">Наверх</a></li></ul></div>
+      <div class="footer-brand"><a class="logo" href="index.html"><span class="logo-mark">Ц18</span><span>Цифра. Аудит</span></a><p>Проверка и план продвижения цифра18.рф. Техника, контент, конкуренты, регионы, GEO, Вебмастер, дашборды. Сентябрь 2026.</p><a class="footer-toc" href="index.html#toc">Карта отчёта, все 27 страниц</a></div>
+      <div class="footer-nav"><h4>Отчёт</h4><ul><li><a href="index.html" aria-current="page"><span class="fnum">1</span>Главная</a></li><li><a href="pages/roadmap.html"><span class="fnum">8</span>90 дней</a></li><li><a href="pages/plan-3m.html"><span class="fnum">27</span>3 месяца</a></li><li><a href="pages/marketing.html"><span class="fnum">11</span>Маркетинг</a></li></ul></div>
+      <div class="footer-nav"><h4>Анализ</h4><ul><li><a href="pages/technical.html"><span class="fnum">2</span>Техника</a></li><li><a href="pages/content.html"><span class="fnum">3</span>Контент</a></li><li><a href="pages/competitors.html"><span class="fnum">4</span>Конкуренты</a></li><li><a href="pages/local.html"><span class="fnum">5</span>Регионы</a></li><li><a href="pages/geo.html"><span class="fnum">6</span>GEO</a></li><li><a href="pages/knowledge.html"><span class="fnum">7</span>Знания</a></li><li><a href="pages/prices.html"><span class="fnum">9</span>Цены</a></li><li><a href="pages/season.html"><span class="fnum">10</span>Сезон</a></li></ul></div>
+      <div class="footer-nav"><h4>Вебмастер</h4><ul><li><a href="pages/wm-overview.html"><span class="fnum">13</span>Сводка</a></li><li><a href="pages/wm-indexing.html"><span class="fnum">14</span>Индексация</a></li><li><a href="pages/wm-duplicates.html"><span class="fnum">15</span>Дубли</a></li><li><a href="pages/wm-errors.html"><span class="fnum">16</span>Ошибки</a></li><li><a href="pages/wm-redirects.html"><span class="fnum">17</span>Редиректы</a></li><li><a href="pages/wm-queries.html"><span class="fnum">18</span>Запросы</a></li><li><a href="pages/wm-clusters.html"><span class="fnum">19</span>Кластеры</a></li><li><a href="pages/wm-gaps.html"><span class="fnum">20</span>Пробелы</a></li><li><a href="pages/wm-links.html"><span class="fnum">21</span>Ссылки</a></li><li><a href="pages/wm-plan.html"><span class="fnum">22</span>План ВМ</a></li></ul></div>
+      <div class="footer-nav"><h4>Дашборды</h4><ul><li><a href="pages/dash-visibility.html"><span class="fnum">23</span>Видимость</a></li><li><a href="pages/dash-audience.html"><span class="fnum">24</span>Аудитория</a></li><li><a href="pages/dash-money.html"><span class="fnum">25</span>Деньги</a></li><li><a href="pages/dash-maps.html"><span class="fnum">26</span>Карта в Картах</a></li></ul></div>
+      <div class="footer-nav"><h4>Методика</h4><ul><li><a href="pages/methodology.html"><span class="fnum">12</span>Методика</a></li></ul></div>
     </div>
-    <div class="footer-bottom"><span>Цифра18 • Ижевск • сентябрь 2026</span><span>Страница 1 из 27 • Резюме</span></div>
+    <div class="footer-bottom"><span>Цифра18, Ижевск, сентябрь 2026</span><span>Страница 1 из 27, раздел Резюме</span></div>
   </div>
 </footer>
 <script src="js/vendor/chart.umd.min.js"></script>
 <script>if(typeof Chart==="undefined"){document.write("<script src='https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js'><\/script>")}</script>
 <script src="js/site-data.js"></script>
+<script src="js/page-index.js"></script>
+<script src="js/nav.js"></script>
+<script src="js/search.js"></script>
 <script src="js/main.js"></script>
 </body>
 </html>

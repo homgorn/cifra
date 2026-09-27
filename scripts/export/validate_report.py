@@ -56,14 +56,15 @@ for p in EXPECTED_PAGES:
     full = os.path.join(SITE, p) if p == "index.html" else os.path.join(PAGES, p)
     if not os.path.isfile(full):
         missing.append(p)
-for asset in ["css/main.css", "css/report.css", "js/main.js", "js/wm-data.js",
-              "js/site-data.js", "js/dash-data.js", "js/vendor/chart.umd.min.js"]:
+for asset in ["css/main.css", "css/report.css", "css/nav.css", "js/main.js", "js/nav.js",
+              "js/search.js", "js/page-index.js", "js/wm-data.js", "js/site-data.js",
+              "js/dash-data.js", "js/vendor/chart.umd.min.js"]:
     if not os.path.isfile(os.path.join(SITE, asset)):
         missing.append(asset)
 if missing:
     fail("missing files: %s" % missing)
 else:
-    ok("%d html + 7 assets present" % TOTAL_PAGES)
+    ok("%d html + 11 assets present" % TOTAL_PAGES)
 
 
 def read(p):
@@ -144,16 +145,48 @@ for p, h in html.items():
 ok("tokens pass (see fails above if any)")
 
 # 7. nav/footer/numbering
+NAV_SECTIONS = ["Резюме", "Вебмастер", "Дашборды", "Анализ", "План", "Методика"]
+footer_slugs = set()
 for p, h in html.items():
     nav = h.split("</nav>")[0]
-    if "wm-overview.html" not in nav:
-        fail("no Вебмастер dropdown in nav: %s" % p)
-    if "dash-visibility.html" not in nav:
-        fail("no Дашборды dropdown in nav: %s" % p)
-    if (" из %d" % TOTAL_PAGES) not in h:
-        fail("footer/kicker not 'из %d': %s" % (TOTAL_PAGES, p))
+    if "nav-dropdown" in h or 'id="menuBtn"' in h:
+        fail("выпадающий список остался в: %s" % p)
+    for s in NAV_SECTIONS:
+        if ">%s<" % s not in nav:
+            fail("нет пункта '%s' в меню: %s" % (s, p))
+    if "nav-link-all" not in nav:
+        fail("нет ссылки «Все страницы»: %s" % p)
+    if "css/nav.css" not in h or "js/nav.js" not in h or "js/search.js" not in h:
+        fail("не подключены nav.css, nav.js или search.js: %s" % p)
     if re.search(r"Страница \d+ из (22|12|23|26)\b", h):
         fail("stale numbering in: %s" % p)
+    foot = h.split("</footer>")[0]
+    for m in re.finditer(r'<footer class="site-footer">.*?</footer>', h, re.DOTALL):
+        for href in re.findall(r'href="([^"#]+?\.html)"', m.group(0)):
+            base = "" if p == "index.html" else "pages/"
+            slug = os.path.normpath(os.path.join(base, href)).replace("\\", "/")
+            footer_slugs.add(slug)
+
+expect_slugs = {"index.html"} | {"pages/" + p for p in EXPECTED_PAGES if p != "index.html"}
+if footer_slugs != expect_slugs:
+    only_footer = sorted(footer_slugs - expect_slugs)
+    only_pages = sorted(expect_slugs - footer_slugs)
+    fail("футер не совпадает со списком страниц: лишнее %s, нет %s" % (only_footer, only_pages))
+else:
+    ok("в футере все %d страниц" % len(expect_slugs))
+
+# подшапка: есть в разделах, нет на главной и методике
+for p, h in html.items():
+    has_sub = 'class="subnav"' in h
+    should = p not in ("index.html", "methodology.html")
+    if has_sub != should:
+        fail("подшапка %s там, где её быть не должно: %s" % ("есть" if has_sub else "нет", p))
+if 'id="toc"' not in html.get("index.html", ""):
+    fail("на главной нет карты отчёта")
+elif html["index.html"].count('class="toc-card"') < 20:
+    fail("карта отчёта на главной собрана не полностью")
+else:
+    ok("карта отчёта на главной: %d карточек" % html["index.html"].count('class="toc-card"'))
 nums = {}
 for p, h in html.items():
     m = re.search(r"Страница (\d+) из %d" % TOTAL_PAGES, h)
@@ -181,7 +214,8 @@ port = server.server_address[1]
 t = threading.Thread(target=server.serve_forever, daemon=True)
 t.start()
 bad = []
-urls = ["index.html", "css/main.css", "css/report.css", "js/main.js", "js/wm-data.js",
+urls = ["index.html", "css/main.css", "css/report.css", "css/nav.css", "js/main.js",
+        "js/nav.js", "js/search.js", "js/page-index.js", "js/wm-data.js",
         "js/site-data.js", "js/dash-data.js", "js/vendor/chart.umd.min.js"]
 urls += ["pages/" + p for p in EXPECTED_PAGES if p != "index.html"]
 for u in urls:

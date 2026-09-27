@@ -10,57 +10,39 @@
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../css/main.css">
 <link rel="stylesheet" href="../css/report.css">
+<link rel="stylesheet" href="../css/nav.css">
 </head>
 <body>
 <header class="site-header">
   <div class="header-inner">
     <a class="logo" href="../index.html"><span class="logo-mark">Ц18</span><span>Цифра. Аудит</span></a>
     <nav class="main-nav" id="mainNav">
-      <a class="nav-link" href="../index.html"><span class="nav-indicator"></span>Резюме</a>
-      <a class="nav-link" href="technical.html"><span class="nav-indicator"></span>Техника</a>
-      <a class="nav-link" href="content.html"><span class="nav-indicator"></span>Контент</a>
-      <a class="nav-link" href="competitors.html"><span class="nav-indicator"></span>Конкуренты</a>
-      <a class="nav-link" href="local.html"><span class="nav-indicator"></span>Регионы</a>
-      <a class="nav-link" href="geo.html"><span class="nav-indicator"></span>GEO</a>
-      <a class="nav-link" href="knowledge.html"><span class="nav-indicator"></span>База знаний</a>
-      <a class="nav-link" href="roadmap.html"><span class="nav-indicator"></span>План</a>
-      <div class="nav-dropdown">
-        <button class="nav-link nav-drop-btn active" aria-haspopup="true">Вебмастер <span class="drop-arrow">▾</span></button>
-        <div class="nav-drop-menu">
-          <a href="wm-overview.html">Сводка Вебмастера <span class="drop-hint">717 URL</span></a>
-          <a href="wm-indexing.html">Индексация по разделам <span class="drop-hint">6%</span></a>
-          <a href="wm-duplicates.html">Дубли <span class="drop-hint">128</span></a>
-          <a href="wm-errors.html">Ошибки и качество <span class="drop-hint">286</span></a>
-          <a href="wm-redirects.html">Редиректы <span class="drop-hint">89</span></a>
-          <a href="wm-queries.html">Запросы и позиции <span class="drop-hint">535</span></a>
-          <a href="wm-clusters.html">Кластеры <span class="drop-hint">8 групп</span></a>
-          <a href="wm-gaps.html">Пробелы контента <span class="drop-hint">топ-10</span></a>
-          <a href="wm-links.html">Внутренние ссылки <span class="drop-hint">62 битых</span></a>
-          <a href="wm-plan.html">План по Вебмастеру <span class="drop-hint">ICE</span></a>
-        </div>
-      </div>
-      <div class="nav-dropdown">
-        <button class="nav-link nav-drop-btn" aria-haspopup="true">Дашборды <span class="drop-arrow">▾</span></button>
-        <div class="nav-drop-menu">
-          <a href="dash-visibility.html">Видимость <span class="drop-hint">SQI 220</span></a>
-          <a href="dash-audience.html">Аудитория <span class="drop-hint">21 110 визитов</span></a>
-          <a href="dash-money.html">Деньги <span class="drop-hint">e-commerce</span></a>
-          <a href="dash-maps.html">Карта в Яндекс Картах <span class="drop-hint">409 звонков</span></a>
-        </div>
-      </div>
-      <div class="nav-dropdown">
-        <button class="nav-link nav-drop-btn" aria-haspopup="true">Еще <span class="drop-arrow">▾</span></button>
-        <div class="nav-drop-menu">
-          <a href="prices.html">Цены и сравнения <span class="drop-hint">50 точек</span></a>
-          <a href="season.html">Сезонный календарь <span class="drop-hint">год</span></a>
-          <a href="marketing.html">Маркетинг план <span class="drop-hint">KPI</span></a>
-          <a href="methodology.html">Методика <span class="drop-hint">как считал</span></a>
-        </div>
-      </div>
+      <a class="nav-link" href="../index.html">Резюме</a>
+      <a class="nav-link active" href="wm-overview.html">Вебмастер</a>
+      <a class="nav-link" href="dash-visibility.html">Дашборды</a>
+      <a class="nav-link" href="competitors.html">Анализ</a>
+      <a class="nav-link" href="plan-3m.html">План</a>
+      <a class="nav-link" href="methodology.html">Методика</a>
+      <a class="nav-link nav-link-all" href="../index.html#toc">Все страницы</a>
     </nav>
-    <button class="mobile-menu-btn" id="menuBtn" aria-label="Меню">Меню</button>
   </div>
 </header>
+  <div class="subnav" id="subnav">
+    <div class="subnav-inner">
+      <span class="subnav-title">Вебмастер</span>
+      <a class="subnav-link" href="wm-overview.html">Сводка</a>
+      <a class="subnav-link" href="wm-indexing.html">Индексация</a>
+      <a class="subnav-link" href="wm-duplicates.html">Дубли</a>
+      <a class="subnav-link active" href="wm-errors.html" aria-current="page">Ошибки</a>
+      <a class="subnav-link" href="wm-redirects.html">Редиректы</a>
+      <a class="subnav-link" href="wm-queries.html">Запросы</a>
+      <a class="subnav-link" href="wm-clusters.html">Кластеры</a>
+      <a class="subnav-link" href="wm-gaps.html">Пробелы</a>
+      <a class="subnav-link" href="wm-links.html">Ссылки</a>
+    </div>
+  </div>
+
+
 
 <main class="page">
 <div class="container container-wide">
@@ -154,19 +136,22 @@
 <footer class="site-footer">
   <div class="container container-wide">
     <div class="footer-grid">
-      <div class="footer-brand"><a class="logo" href="../index.html"><span class="logo-mark">Ц18</span><span>Цифра. Аудит</span></a><p>Отчет по продвижению цифра18.рф. Техника, контент, конкуренты, регионы, GEO, Вебмастер, дашборды. Сентябрь 2026.</p></div>
-      <div class="footer-nav"><h4>Отчет</h4><ul><li><a href="../index.html">Резюме</a></li><li><a href="technical.html">Техника</a></li><li><a href="content.html">Контент</a></li><li><a href="roadmap.html">План</a></li></ul></div>
-      <div class="footer-nav"><h4>Анализ</h4><ul><li><a href="competitors.html">Конкуренты</a></li><li><a href="local.html">Регионы</a></li><li><a href="geo.html">GEO</a></li><li><a href="knowledge.html">База знаний</a></li></ul></div>
-      <div class="footer-nav"><h4>Вебмастер</h4><ul><li><a href="wm-overview.html">Сводка</a></li><li><a href="wm-queries.html">Запросы</a></li><li><a href="wm-gaps.html">Пробелы</a></li><li><a href="wm-plan.html">План</a></li></ul></div>
-      <div class="footer-nav"><h4>Дашборды</h4><ul><li><a href="dash-visibility.html">Видимость</a></li><li><a href="dash-audience.html">Аудитория</a></li><li><a href="dash-money.html">Деньги</a></li><li><a href="dash-maps.html">Карта в Картах</a></li></ul></div>
-      <div class="footer-nav"><h4>Файлы</h4><ul><li><a href="methodology.html">Методика</a></li><li><a href="plan-3m.html">План 3 месяца</a></li><li><a href="roadmap.html">Наверх</a></li></ul></div>
+      <div class="footer-brand"><a class="logo" href="../index.html"><span class="logo-mark">Ц18</span><span>Цифра. Аудит</span></a><p>Проверка и план продвижения цифра18.рф. Техника, контент, конкуренты, регионы, GEO, Вебмастер, дашборды. Сентябрь 2026.</p><a class="footer-toc" href="../index.html#toc">Карта отчёта, все 27 страниц</a></div>
+      <div class="footer-nav"><h4>Отчёт</h4><ul><li><a href="../index.html"><span class="fnum">1</span>Главная</a></li><li><a href="roadmap.html"><span class="fnum">8</span>90 дней</a></li><li><a href="plan-3m.html"><span class="fnum">27</span>3 месяца</a></li><li><a href="marketing.html"><span class="fnum">11</span>Маркетинг</a></li></ul></div>
+      <div class="footer-nav"><h4>Анализ</h4><ul><li><a href="technical.html"><span class="fnum">2</span>Техника</a></li><li><a href="content.html"><span class="fnum">3</span>Контент</a></li><li><a href="competitors.html"><span class="fnum">4</span>Конкуренты</a></li><li><a href="local.html"><span class="fnum">5</span>Регионы</a></li><li><a href="geo.html"><span class="fnum">6</span>GEO</a></li><li><a href="knowledge.html"><span class="fnum">7</span>Знания</a></li><li><a href="prices.html"><span class="fnum">9</span>Цены</a></li><li><a href="season.html"><span class="fnum">10</span>Сезон</a></li></ul></div>
+      <div class="footer-nav"><h4>Вебмастер</h4><ul><li><a href="wm-overview.html"><span class="fnum">13</span>Сводка</a></li><li><a href="wm-indexing.html"><span class="fnum">14</span>Индексация</a></li><li><a href="wm-duplicates.html"><span class="fnum">15</span>Дубли</a></li><li><a href="wm-errors.html" aria-current="page"><span class="fnum">16</span>Ошибки</a></li><li><a href="wm-redirects.html"><span class="fnum">17</span>Редиректы</a></li><li><a href="wm-queries.html"><span class="fnum">18</span>Запросы</a></li><li><a href="wm-clusters.html"><span class="fnum">19</span>Кластеры</a></li><li><a href="wm-gaps.html"><span class="fnum">20</span>Пробелы</a></li><li><a href="wm-links.html"><span class="fnum">21</span>Ссылки</a></li><li><a href="wm-plan.html"><span class="fnum">22</span>План ВМ</a></li></ul></div>
+      <div class="footer-nav"><h4>Дашборды</h4><ul><li><a href="dash-visibility.html"><span class="fnum">23</span>Видимость</a></li><li><a href="dash-audience.html"><span class="fnum">24</span>Аудитория</a></li><li><a href="dash-money.html"><span class="fnum">25</span>Деньги</a></li><li><a href="dash-maps.html"><span class="fnum">26</span>Карта в Картах</a></li></ul></div>
+      <div class="footer-nav"><h4>Методика</h4><ul><li><a href="methodology.html"><span class="fnum">12</span>Методика</a></li></ul></div>
     </div>
-    <div class="footer-bottom"><span>Цифра18 • Ижевск • сентябрь 2026</span><span>Страница 16 из 27 • Ошибки и качество</span></div>
+    <div class="footer-bottom"><span>Цифра18, Ижевск, сентябрь 2026</span><span>Страница 16 из 27, раздел Вебмастер</span></div>
   </div>
 </footer>
 <script src="../js/vendor/chart.umd.min.js"></script>
 <script>if(typeof Chart==="undefined"){document.write("<script src='https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js'><\/script>")}</script>
 <script src="../js/wm-data.js"></script>
+<script src="../js/page-index.js"></script>
+<script src="../js/nav.js"></script>
+<script src="../js/search.js"></script>
 <script src="../js/main.js"></script>
 </body>
 </html>
