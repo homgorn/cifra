@@ -108,9 +108,7 @@ def main():
     if not TOKEN:
         print("Нет токена. Сначала: yandex_oauth.py auth-url -> exchange.")
         return 2
-    # NOTE 2026-09-27: каталог data/exports/metrika повреждён на уровне ФС
-    # (фантомная запись: видна в листинге, недоступна). Пишем в metrika_api/.
-    out = Path(ROOT) / "data" / "exports" / "metrika_api" / DATE2
+    out = Path(ROOT) / "data" / "exports" / "metrica" / DATE2
     out.mkdir(parents=True, exist_ok=True)
 
     jobs = [

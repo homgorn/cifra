@@ -16,7 +16,7 @@ sys.stdout.reconfigure(encoding="utf-8")
 
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 WM_API = os.path.join(ROOT, "data", "exports", "yandex_webmaster", "2026-09-27")
-MT_API = os.path.join(ROOT, "data", "exports", "metrika_api", "2026-09-27")
+MT_API = os.path.join(ROOT, "data", "exports", "metrica", "2026-09-27")
 WM_WIKI = os.path.join(ROOT, "brain", "wiki", "webmaster_analytics", "exports")
 MT_WIKI = os.path.join(ROOT, "brain", "wiki", "metrika_analytics", "exports")
 OUT = os.path.join(ROOT, "reports", "cifra18-audit", "js", "site-data.js")
