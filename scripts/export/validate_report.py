@@ -2,15 +2,20 @@
 """Validate the cifra18 audit report site (reports/cifra18-audit).
 
 Checks:
- 1. all expected files exist (22 html + css/js)
- 2. no em-dash anywhere in report html/js
+ 1. all expected files exist (27 html + css/js)
+ 2. no em-dash in shipped html/js and CLIENT_REPORT.md, counted in the wiki
  3. title + h1 + meta description on every page
  4. every <canvas id> has mk('id') in main.js and vice versa
  5. internal .html links resolve to files; #anchors resolve to ids
  6. forbidden tokens (name, 1st person, Google) with methodology allowlist
- 7. Вебмастер dropdown present in every nav; footer 'из 22'; kicker coverage 1-22
+ 7. nav/footer present everywhere, footer lists all 27, numbering 1-27
  8. local HTTP server returns 200 for every page/asset
  9. node smoke test for charts/tables passes
+10. theme: one scheme, tokens only, contrast in range
+11. layout in a real browser: canvas sizes, overflow, JS errors
+12. numbers in client docs match facts from data
+13. client report blocks are generated, not hand-typed
+14. Russian pluralisation helper is not inverted
 Exit code 0 = all green, 1 = failures (listed).
 """
 import os
@@ -50,6 +55,10 @@ EXPECTED_PAGES = ["index.html"] + sorted(
      "plan-3m.html"])
 TOTAL_PAGES = len(EXPECTED_PAGES)
 
+# Папки вики, файлы из которых клиент получает как приложение к отчёту.
+# Именно они обязаны быть чистыми от em-dash, см. проверку 2.
+CLIENT_WIKI_DIRS = {"webmaster_analytics", "metrika_analytics"}
+
 # 1. files exist
 missing = []
 for p in EXPECTED_PAGES:
@@ -79,14 +88,45 @@ def page_path(p):
 html = {p: read(page_path(p)) for p in EXPECTED_PAGES}
 main_js = read(os.path.join(SITE, "js", "main.js"))
 
-# 2. em-dash
-emd = [p for p, h in html.items() if "\u2014" in h]
-if "\u2014" in main_js:
-    emd.append("js/main.js")
+# 2. em-dash. Проверялось раньше только main.js, и знак проехал в
+# site-data.js, который собирается отдельным скриптом. Список файлов
+# берётся с диска, новый js не может добавиться незамеченным.
+#
+# Порог разделён. Жёстко проверяется то, что клиент читает как готовый
+# документ: сайт и CLIENT_REPORT.md. Файлы вики, названные в приложении
+# отчёта, считаются и печатаются, но не блокируют деплой.
+#
+# Причина не в снисхождении. В вики 402 em-dash, и они стоят в трёх ролях
+# сразу: связка между частями фразы, двоеточие в заголовке, маркер
+# списка. Слепая замена даёт «После, масштабирование» и превращает
+# четыреста правок в шум, в котором не видно содержательных. Это работа
+# для редакторского прохода по каждому файлу, а не для регулярки и не
+# для гейта перед деплоем. Пока помечено, а не спрятано: число видно в
+# каждом прогоне.
+EMDASH = "\u2014"
+shipped = []
+for dirpath, _dirnames, filenames in os.walk(SITE):
+    if "_qa" in dirpath or "vendor" in dirpath:
+        continue
+    for fn in filenames:
+        if fn.endswith((".html", ".js", ".css")):
+            shipped.append(os.path.join(dirpath, fn))
+shipped.sort()
+emd = [os.path.relpath(f, ROOT) for f in shipped if EMDASH in read(f)]
+report_md = os.path.join(ROOT, "CLIENT_REPORT.md")
+if EMDASH in read(report_md):
+    emd.append("CLIENT_REPORT.md")
+
+WIKI = os.path.join(ROOT, "brain", "wiki")
+wiki_md = sum(1 for dp, _d, fns in os.walk(WIKI) for fn in fns
+              if fn.endswith(".md") and os.path.isfile(os.path.join(dp, fn))
+              and EMDASH in read(os.path.join(dp, fn)))
+
 if emd:
-    fail("em-dash found in: %s" % emd)
+    fail("em-dash in client-facing files: %s" % emd[:12])
 else:
-    ok("no em-dash")
+    ok("no em-dash in %d shipped files + CLIENT_REPORT.md "
+       "(wiki md with em-dash, non-blocking: %d)" % (len(shipped), wiki_md))
 
 # 3. title/h1/meta
 for p, h in html.items():
@@ -260,18 +300,88 @@ if r.returncode != 0:
 else:
     ok("layout: canvases sized, no overflow, no JS errors, both schemes")
 
-# 12. числа кластеров в документах совпадают с данными. На сайте числа
-# считаются скриптом, а в плане и клиентском отчёте были зашиты руками:
-# после расширения классификатора с 8 групп до 22 там осталось «8 групп».
+# 12. числа в документах совпадают с фактами из данных
 r = subprocess.run([sys.executable, "scripts/export/sync_cluster_counts.py", "--check"],
                    cwd=ROOT, capture_output=True, text=True,
                    encoding="utf-8", errors="replace")
 if r.returncode != 0:
-    fail("stale cluster counts in docs: %s"
+    fail("stale numbers in docs: %s"
          % " | ".join([ln.strip() for ln in (r.stdout or "").splitlines()
                        if ln.startswith("FAIL")][:2]))
 else:
-    ok("doc counts: cluster numbers match wm-data.js")
+    ok("doc counts: numbers match facts from data")
+
+# 13. блоки клиентского отчёта собраны скриптом, а не вписаны руками.
+# Проверяется не текст, а способ его получения: если блок разошёлся с
+# данными, пересобери скриптом, иначе он так и останется врать.
+r = subprocess.run([sys.executable, "scripts/export/build_client_report.py", "--check"],
+                   cwd=ROOT, capture_output=True, text=True,
+                   encoding="utf-8", errors="replace")
+if r.returncode != 0:
+    fail("client report out of sync: %s"
+         % " | ".join([ln.strip() for ln in (r.stdout or "").splitlines()
+                       if ln.startswith("FAIL")][:3]))
+else:
+    ok("client report: blocks generated from data, no em-dash")
+
+# 14. склонение по числу. Функция печатает текст клиенту и не падает при
+# ошибке, поэтому проверяется таблицей, а не вызовом на одном числе.
+sys.path.insert(0, os.path.join(ROOT, "scripts", "export"))
+try:
+    import facts as _facts
+    cases = {1: "запрос", 2: "запроса", 4: "запроса", 5: "запросов",
+             11: "запросов", 12: "запросов", 14: "запросов", 21: "запрос",
+             22: "запроса", 25: "запросов", 53: "запроса", 111: "запросов",
+             492: "запроса", 535: "запросов"}
+    wrong = {n: _facts.plural(n, "запрос", "запроса", "запросов")
+             for n, want in cases.items()
+             if _facts.plural(n, "запрос", "запроса", "запросов") != want}
+    if wrong:
+        fail("plural() is wrong: %s" % wrong)
+    else:
+        ok("plural: 14 cases correct")
+finally:
+    pass
+
+# 15. счётчик Метрики в данных совпадает со счётчиком сайта. Путаница
+# между сайтом и карточкой в Яндекс Картах уже случалась дважды: сначала
+# в тексте отчёта, потом в самих данных, где metrikaVisits был 79 002 от
+# карточки. Здесь проверяется идентификатор, а не значение: значение
+# меняется каждый день, а счётчик не должен меняться никогда.
+env = {}
+if os.path.isfile(os.path.join(ROOT, ".env")):
+    for ln in open(os.path.join(ROOT, ".env"), encoding="utf-8"):
+        ln = ln.strip()
+        if ln and not ln.startswith("#") and "=" in ln:
+            k, v = ln.split("=", 1)
+            env[k.strip()] = v.strip()
+want_counter = env.get("METRIKA_COUNTER_ID", "")
+maps_counter = env.get("METRIKA_MAPS_COUNTER_ID", "")
+site_data = os.path.join(SITE, "js", "site-data.js")
+if want_counter and os.path.isfile(site_data):
+    sd = read(site_data)
+    m = re.search(r'"metrikaCounter"\s*:\s*"?(\d+)"?', sd)
+    got = m.group(1) if m else ""
+    if got == maps_counter:
+        fail("site-data.js built from the Maps card counter %s, not the site %s"
+             % (got, want_counter))
+    elif got != want_counter:
+        fail("site-data.js has no verified site counter "
+             "(found %r, expected %s)" % (got or "nothing", want_counter))
+    else:
+        ok("metrika counter is the site counter %s" % got)
+else:
+    print("skip: METRIKA_COUNTER_ID not set in .env, counter not verified")
+
+# 16. В собранных страницах не должно быть незакрытых «%%». Строка с
+# «60%%» в шаблоне, который не проходит через %-форматирование, попадает
+# в страницу буквально, и это видно только глазами на отрендеренной
+# странице, но ловится текстом за секунду.
+pct = [p for p, h in html.items() if "%%" in h]
+if pct:
+    fail("unescaped %% in: %s" % pct)
+else:
+    ok("no unescaped %% in page text")
 
 print("---")
 if fails:

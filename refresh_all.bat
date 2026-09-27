@@ -37,22 +37,25 @@ if errorlevel 1 goto warn
 echo.
 echo [3/5] Rebuild report data
 python scripts\export\build_wm_data.py
-python scripts\export\build_metrika_data.py
+python scripts\export\build_metrika_site_exports.py
 python scripts\export\build_site_data.py
 python scripts\export\build_dashboard_data.py
 if errorlevel 1 goto fail
 goto validate
 
 :data
-echo [1/2] Yandex APIs
+echo [1/3] Yandex APIs
 python scripts\export\yw_api_export.py
 python scripts\export\metrica_api_export.py
 python scripts\export\metrica_cuts_export.py
-echo [2/2] Rebuild data
+echo [2/3] Rebuild data
 python scripts\export\build_wm_data.py
-python scripts\export\build_metrika_data.py
+python scripts\export\build_metrika_site_exports.py
 python scripts\export\build_site_data.py
 python scripts\export\build_dashboard_data.py
+if errorlevel 1 goto fail
+echo [3/3] Client report from data
+python scripts\export\build_client_report.py
 if errorlevel 1 goto fail
 goto done
 

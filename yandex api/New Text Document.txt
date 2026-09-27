@@ -1,3 +1,0 @@
-bd171b3086d947918c19269247c50040  cliend id
-9a23505713494f289037a7ccd521e392  client secret
-https://oauth.yandex.ru/verification_code  redirect

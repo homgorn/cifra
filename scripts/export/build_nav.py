@@ -291,17 +291,13 @@ def patch(slug):
         else:
             print("  ВНИМАНИЕ: на главной нет </main>, карта отчёта не вставлена")
 
-    # 5. подключить стили и скрипт навигации
+    # 5. подключить стили и скрипты навигации
     if 'css/nav.css' not in html:
         pre = "" if is_index else "../"
         html = html.replace('<link rel="stylesheet" href="%scss/report.css">' % pre,
                             '<link rel="stylesheet" href="%scss/report.css">\n'
                             '<link rel="stylesheet" href="%scss/nav.css">' % (pre, pre), 1)
-    if 'js/search.js' not in html:
-        pre = "" if is_index else "../"
-        html = html.replace('<script src="%sjs/nav.js"></script>' % pre,
-                            '<script src="%sjs/nav.js"></script>\n'
-                            '<script src="%sjs/search.js"></script>' % (pre, pre), 1)
+    html = ensure_scripts(html, is_index)
 
     if html != orig:
         with open(path, "w", encoding="utf-8") as f:
@@ -353,20 +349,44 @@ def main():
     return 0
 
 
+SCRIPTS_IN_ORDER = ["page-index.js", "nav.js", "search.js"]
+
+
+def ensure_scripts(html, is_index):
+    """Гарантирует наличие page-index.js, nav.js и search.js.
+
+    Раньше search.js вставлялся заменой сразу после тега nav.js. Страница,
+    собранная с нуля генератором контента, тега nav.js не содержит, замена
+    не срабатывала, и страница оставалась без поиска и без скрипта
+    навигации: меню на месте, а оно не работает. Молча, потому что
+    проверка искала подстроку, которой не стало, и ничего не добавила.
+
+    Поэтому каждый тег проверяется отдельно, и всё недостающее
+    дописывается после main.css/main.js блока.
+    """
+    pre = "" if is_index else "../"
+    missing = [s for s in SCRIPTS_IN_ORDER if ('js/%s' % s) not in html]
+    if not missing:
+        return html
+    tags = "".join('<script src="%sjs/%s"></script>\n' % (pre, s) for s in missing)
+    # Вставляем перед main.js, а не после: порядок загрузки на сайте
+    # исторически такой, и менять его вместе с починкой не нужно.
+    anchor = '<script src="%sjs/main.js"></script>' % pre
+    if anchor in html:
+        return html.replace(anchor, tags.rstrip("\n") + "\n" + anchor, 1)
+    return html.replace("</body>", tags + "</body>", 1)
+
+
 def patch_assets(slug):
     """Отдельный проход: подключение page-index.js идёт после nav.js,
     поэтому проверяем после всех правок разметки."""
     path = os.path.join(SITE, slug.replace("/", os.sep))
     with open(path, encoding="utf-8") as f:
         html = f.read()
-    if "js/page-index.js" in html:
-        return
-    pre = "" if slug == "index.html" else "../"
-    html = html.replace('<script src="%sjs/nav.js"></script>' % pre,
-                        '<script src="%sjs/page-index.js"></script>\n'
-                        '<script src="%sjs/nav.js"></script>' % (pre, pre), 1)
-    with open(path, "w", encoding="utf-8") as f:
-        f.write(html)
+    new = ensure_scripts(html, slug == "index.html")
+    if new != html:
+        with open(path, "w", encoding="utf-8") as f:
+            f.write(new)
 
 
 if __name__ == "__main__":

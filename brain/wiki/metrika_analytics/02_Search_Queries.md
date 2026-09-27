@@ -1,8 +1,8 @@
 # 02. Поисковые запросы сайта
 
-**Период:** 2025-09-27 — 2026-09-27, счётчик сайта 50863157
+**Период:** с 2025-09-27 по 2026-09-27, счётчик сайта 50863157
 
-Поисковый трафик сайта: **9 083 визитов (43.0% всех)**.
+Поисковый трафик сайта: **9 088 визитов (43.0% всех)**.
 Запросы в Метрике и в Вебмастере почти не пересекаются: в Метрике видны только
 переходы, дошедшие до сайта, в Вебмастере все 500+ запросов, включая те, где
 показы есть, а клика нет. Кросс делается в файле 04.
@@ -53,8 +53,8 @@
 
 | Источник | Визиты |
 |---|---|
-| google.com/ | 4 626 |
-| yandex.ru/ | 3 563 |
+| google.com/ | 4 629 |
+| yandex.ru/ | 3 565 |
 | цифра18.рф/bitrix/admin/index.php | 812 |
 | цифра18.рф/ | 372 |
 | ya.ru/ | 350 |
@@ -66,7 +66,7 @@
 | цифра18.рф/catalog/inzhenernaya-pechat/ | 123 |
 | цифра18.рф/catalog/poligrafiya/pechat-na-samokleyashchikhsya | 99 |
 | цифра18.рф/catalog/poligrafiya/tsifrovaya-pechat/ | 98 |
-| цифра18.рф/catalog/suvenirnaya-produktsiya/pechat-na-kruzhka | 94 |
+| цифра18.рф/catalog/suvenirnaya-produktsiya/pechat-na-kruzhka | 95 |
 | http://cifra.salelib3.beget.tech/bitrix/admin/index.php | 92 |
 | цифра18.рф/bitrix/admin/iblock_element_admin.php?IBLOCK_ID=8 | 85 |
 | цифра18.рф/catalog/stendy/tablichki/ | 85 |

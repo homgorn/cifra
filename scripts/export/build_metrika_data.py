@@ -1,10 +1,23 @@
 #!/usr/bin/env python3
-"""Полный разбор выгрузок Яндекс.Метрики → вики-аналитика + экспорты.
+"""Полный разбор выгрузок Яндекс.Метрики, вики-аналитика и экспорты.
 
-Читает metrika/*.csv (период 2023-01-12 — 2026-09-23), считает агрегаты и пишет:
+Читает metrika/*.csv, считает агрегаты и пишет:
   brain/wiki/metrika_analytics/exports/*.csv + metrika_summary.json
 
-Кросс-анализ с Вебмастером: поисковые фразы Метрики ↔ позиции Вебмастера.
+ОСТОРОЖНО, счётчик. Ручная выгрузка из панели Метрики не несёт
+идентификатора счётчика: скачал ты карточку в Яндекс Картах или сайт,
+видно только по цифрам. Именно так здесь и получилось: файлы в metrika/
+оказались выгрузкой карточки (79 002 визита, поиск 2,7%), а назывались и
+лежали так, будто это сайт. Дальше эти числа уехали в site-data.js как
+«визиты сайта», и ошибка была не видна, потому что никто не сверял их с
+отчётом.
+
+Поэтому скрипт требует явного объявления счётчика в metrika/COUNTER и
+отказывается работать, если там счётчик карточки. Правильный источник
+для сайта — API-срез в data/exports/metrica/<дата>/cuts, где счётчик
+записан в _index.json. Смотри site_cuts_from_api в build_site_data.py.
+
+Кросс-анализ с Вебмастером: поисковые фразы Метрики и позиции Вебмастера.
 Строка 'Итого и средние' из деталей исключается (идёт в summary отдельно).
 
 Запуск из корня проекта: python scripts/export/build_metrika_data.py
@@ -21,8 +34,47 @@ sys.stdout.reconfigure(encoding="utf-8")
 
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 META = os.path.join(ROOT, "metrika")
-OUT = os.path.join(ROOT, "brain", "wiki", "metrika_analytics", "exports")
+EXPORTS = os.path.join(ROOT, "brain", "wiki", "metrika_analytics", "exports")
+
+ENV = {}
+if os.path.isfile(os.path.join(ROOT, ".env")):
+    for _ln in open(os.path.join(ROOT, ".env"), encoding="utf-8"):
+        _ln = _ln.strip()
+        if _ln and not _ln.startswith("#") and "=" in _ln:
+            _k, _v = _ln.split("=", 1)
+            ENV[_k.strip()] = _v.strip()
+SITE_COUNTER = ENV.get("METRIKA_COUNTER_ID", "50863157")
+MAPS_COUNTER = ENV.get("METRIKA_MAPS_COUNTER_ID", "59102713")
+
+# Откуда взяты файлы в metrika/. У ручной выгрузки из панели нет
+# идентификатора счётчика: скачал ты карточку в Яндекс Картах или сайт,
+# видно только по цифрам. Именно так здесь и получилось: файлы в metrika/
+# оказались выгрузкой карточки (79 002 визита, поиск 2,7%), а назывались
+# и лежали так, будто это сайт. Дальше эти числа уехали в site-data.js
+# как «визиты сайта», и ошибка была не видна, потому что никто не
+# сверял их с отчётом.
+#
+# Поэтому счётчик объявляется явно, а выгрузка карточки кладётся в
+# отдельную папку. Общее имя файла плюс чужие числа это ловушка, и
+# проверка на счётчик в validate_report.py её теперь ловит.
+DECLARED = os.path.join(META, "COUNTER")
+if not os.path.isfile(DECLARED):
+    raise SystemExit(
+        "нет metrika/COUNTER.\n"
+        "Укажи, с какого счётчика выгрузка: сайт или карточка в Картах.\n"
+        "  echo %s > metrika/COUNTER   (или %s для карточки)\n"
+        "Без этого нельзя знать, чьи это числа, а перепутать счётчики уже\n"
+        "приходилось: сайт %s, карточка %s."
+        % (SITE_COUNTER, MAPS_COUNTER, SITE_COUNTER, MAPS_COUNTER))
+source_counter = open(DECLARED, encoding="utf-8").read().strip()
+IS_MAPS = source_counter == MAPS_COUNTER
+OUT = os.path.join(EXPORTS, "maps_card") if IS_MAPS else EXPORTS
 os.makedirs(OUT, exist_ok=True)
+print("источник: счётчик %s (%s) -> %s"
+      % (source_counter,
+         "карточка в Яндекс Картах" if IS_MAPS else
+         ("сайт" if source_counter == SITE_COUNTER else "НЕИЗВЕСТНЫЙ"),
+         os.path.relpath(OUT, ROOT)))
 
 F_SRC = "Источники, сводка-2023-01-12-2026-09-23.csv"
 F_Q = "Поисковые запросы-2023-01-12-2026-09-23.csv"
@@ -238,6 +290,9 @@ print("cross: metrika_queries=%d matched_wm=%d" % (len(cross), matched))
 
 # ---------- 6. summary ----------
 summary = {
+    "counter": source_counter,
+    "kind": "yandex_maps_card" if IS_MAPS else
+            ("yandex_metrica_site" if source_counter == SITE_COUNTER else "unknown"),
     "period": "2023-01-12 — 2026-09-23",
     "visits_total": src_total["visits"],
     "visitors_total": src_total["visitors"],
@@ -255,5 +310,31 @@ summary = {
 }
 with open(os.path.join(OUT, "metrika_summary.json"), "w", encoding="utf-8") as f:
     json.dump(summary, f, ensure_ascii=False, indent=2)
+
+# Счётчик пишется отдельным файлом рядом с CSV. Имя файла не говорит, чьи
+# это числа, а счётчик говорит, и читать его проще, чем гадать по имени.
+with open(os.path.join(OUT, "PROVENANCE.md"), "w", encoding="utf-8") as f:
+    f.write("""# Происхождение файлов в %s
+
+Счётчик: `%s` (%s)
+Источник: ручная выгрузка из панели Метрики, папка `metrika/`
+Сайт: `%s`, карточка в Яндекс Картах: `%s`
+
+Счётчик сайта: 21 110 визитов за 12 месяцев, поиск 43,0%%
+Счётчик карточки: 79 002 визита, поиск 2,7%%
+
+Если числа в этих CSV не сходятся с отчётом клиенту, сначала проверь
+счётчик, потом дату. Раньше счётчик не был записан нигде, и выгрузка
+карточки лежала под общим именем, из-за чего 79 002 визита карточки
+ушли в сайт как «визиты сайта».
+
+Данные сайта собираются отдельно, из API-среза
+`data/exports/metrica/<дата>/cuts/`, где счётчик записан в `_index.json`
+при выгрузке: `build_metrika_site_exports.py`.
+""" % ("exports/maps_card/" if IS_MAPS else "exports/",
+       source_counter,
+       "карточка в Яндекс Картах" if IS_MAPS else
+       ("сайт" if source_counter == SITE_COUNTER else "НЕИЗВЕСТНЫЙ, проверь"),
+       SITE_COUNTER, MAPS_COUNTER))
 print("summary:", json.dumps(summary, ensure_ascii=False))
 print("DONE")

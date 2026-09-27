@@ -11,3 +11,11 @@ KP_na_prodvizhenie_sayta_Tsifra18_1.pdf
 __pycache__/
 *.pyc
 reports/cifra18-audit/_qa/
+
+# OAuth-данные Яндекса. client_secret из oauth.yandex.ru попал в публичный
+# репозиторий в коммите 362e84f, поэтому файл удалён, а не просто скрыт.
+# Идентификатор приложения берётся из .env, auth-url собирает
+# scripts/export/yandex_oauth.py. Ничего из этого не коммитим.
+oauth*.txt
+yandex api/
+*.client_secret

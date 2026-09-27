@@ -1,0 +1,402 @@
+city,counter,visits
+Izhevsk,50863157,12516
+Moscow,50863157,1127
+Samara,50863157,841
+Saint Petersburg,50863157,335
+Singapore,50863157,265
+Nizhny Novgorod,50863157,175
+Amsterdam,50863157,164
+Ufa,50863157,155
+Yekaterinburg,50863157,141
+Kazan,50863157,90
+Novosibirsk,50863157,85
+Sarapul,50863157,80
+Votkinsk,50863157,77
+Perm,50863157,70
+Helsinki,50863157,66
+Bishkek,50863157,64
+Frankfurt am Main,50863157,63
+Chelyabinsk,50863157,59
+Domodedovo,50863157,51
+Almaty,50863157,48
+Rostov-na-Donu,50863157,44
+Kirov,50863157,44
+Glazov,50863157,42
+London,50863157,38
+Mytischi,50863157,35
+Karakol,50863157,34
+New York,50863157,31
+Paris,50863157,27
+Tver,50863157,25
+Warsaw,50863157,24
+Omsk,50863157,23
+Tashkent,50863157,23
+Naberezhnye Chelny,50863157,22
+Krasnodar,50863157,20
+Hanoi,50863157,19
+Khabarovsk,50863157,19
+Minsk,50863157,19
+Mozhga,50863157,18
+Stavropol,50863157,17
+Haarlem,50863157,15
+Magnitogorsk,50863157,15
+Tyumen,50863157,15
+Voronezh,50863157,15
+Chaikovsky,50863157,14
+Krasnoyarsk,50863157,14
+Ho Chi Minh,50863157,13
+Irkutsk,50863157,13
+Orenburg,50863157,13
+Berlin,50863157,12
+Vienna,50863157,12
+Vladivostok,50863157,12
+Bryansk,50863157,11
+Nephtekamsk,50863157,11
+Simferopol,50863157,11
+Astana,50863157,10
+Hong Kong,50863157,10
+Saratov,50863157,10
+Tula,50863157,10
+Baku,50863157,9
+Barnaul,50863157,9
+Cheboksary,50863157,9
+Kaliningrad,50863157,9
+Penza,50863157,9
+Nuremberg,50863157,8
+Stockholm,50863157,8
+Valuyki,50863157,8
+Wuhan,50863157,8
+Yerevan,50863157,8
+Astrahan,50863157,7
+Balashiha,50863157,7
+Himki,50863157,7
+Nizhnekamsk,50863157,7
+Oslo,50863157,7
+Volgograd,50863157,7
+Dushanbe,50863157,6
+Ivanovo,50863157,6
+Kishinev,50863157,6
+Nizhnevartovsk,50863157,6
+Taganrog,50863157,6
+Tomsk,50863157,6
+Vologda,50863157,6
+Dublin,50863157,5
+Kambarka,50863157,5
+Karaganda,50863157,5
+Lipetsk,50863157,5
+Lubercy,50863157,5
+Murmansk,50863157,5
+Tbilisi,50863157,5
+Togliatti,50863157,5
+Tokyo,50863157,5
+Ulyanovsk,50863157,5
+Vidnoe,50863157,5
+Yakutsk,50863157,5
+Yaroslavl,50863157,5
+Aktau,50863157,4
+Antalya,50863157,4
+Aramil,50863157,4
+Atyrau,50863157,4
+Belfast,50863157,4
+Copenhagen,50863157,4
+Ivanteevka,50863157,4
+Kaluga,50863157,4
+Kashira,50863157,4
+Kirovo-Chepetsk,50863157,4
+Korolev,50863157,4
+Makhachkala,50863157,4
+Milan,50863157,4
+Montreal,50863157,4
+Orel,50863157,4
+Plymouth,50863157,4
+Podolsk,50863157,4
+Prague,50863157,4
+Pushkino,50863157,4
+Saransk,50863157,4
+Sofia,50863157,4
+Syktyvkar,50863157,4
+Tønsberg,50863157,4
+Vilnius,50863157,4
+Washington,50863157,4
+Yuzhno-Sakhalinsk,50863157,4
+Budapest,50863157,3
+Buzuluk,50863157,3
+Cairo,50863157,3
+Casablanca,50863157,3
+Chernushka,50863157,3
+Chimkent,50863157,3
+Dresden,50863157,3
+Dronten,50863157,3
+Dubai,50863157,3
+Dusseldorf,50863157,3
+Elektrostal,50863157,3
+Engels,50863157,3
+Gomel,50863157,3
+Istanbul,50863157,3
+Kemerovo,50863157,3
+Kostanai,50863157,3
+Lobnja,50863157,3
+Pskov,50863157,3
+Ryazan,50863157,3
+Serov,50863157,3
+Shanghai,50863157,3
+Slough,50863157,3
+Smolensk,50863157,3
+Tambov,50863157,3
+Toronto,50863157,3
+Ulan-Ude,50863157,3
+Yalta,50863157,3
+Zurich,50863157,3
+Abakan,50863157,2
+Abu Dhabi,50863157,2
+Almetyevsk,50863157,2
+Arkhangelsk,50863157,2
+Baghdad,50863157,2
+Bangkok,50863157,2
+Barcelona,50863157,2
+Belgorod,50863157,2
+Belgrade,50863157,2
+Belorechensk,50863157,2
+Birmingham,50863157,2
+Bordeaux,50863157,2
+Brest,50863157,2
+Bucharest,50863157,2
+Buenos Aires,50863157,2
+Can Tho,50863157,2
+Cherepovets,50863157,2
+Cologne,50863157,2
+Da Nang,50863157,2
+Dhaka,50863157,2
+Dolgoprudniy,50863157,2
+Dubna,50863157,2
+Edinburgh,50863157,2
+Enschede,50863157,2
+Erbil,50863157,2
+Evpatoria,50863157,2
+Graz,50863157,2
+Jinjiang,50863157,2
+Kungur,50863157,2
+Kurgan,50863157,2
+Kursk,50863157,2
+Kyzylorda,50863157,2
+Luton,50863157,2
+Magadan,50863157,2
+Manchester,50863157,2
+Mezgdurechensk,50863157,2
+Mumbai,50863157,2
+Murom,50863157,2
+Nalchik,50863157,2
+Nanjing,50863157,2
+Nha Trang,50863157,2
+Noviy Urengoy,50863157,2
+Novocheboksarsk,50863157,2
+Novokuznetsk,50863157,2
+Novorossiysk,50863157,2
+Pavlodar,50863157,2
+Pavlovskiy Posad,50863157,2
+Podgorica,50863157,2
+Putian,50863157,2
+Razgrad,50863157,2
+Rzhev,50863157,2
+Sacramento,50863157,2
+Santiago,50863157,2
+Sergiev Posad,50863157,2
+Shauljaj,50863157,2
+Shelkovo,50863157,2
+Sochi,50863157,2
+Sosnoviy Bor,50863157,2
+Tirana,50863157,2
+Vladikavkaz,50863157,2
+Vladimir,50863157,2
+Yoshkar-Ola,50863157,2
+Zagreb,50863157,2
+Zheleznogorsk,50863157,2
+Mexico,50863157,2
+Aachen,50863157,1
+Alanya,50863157,1
+Aleksanldrovsk-Sahalinskiy,50863157,1
+Alekseevka,50863157,1
+Alicante,50863157,1
+Amarah,50863157,1
+Anapa,50863157,1
+Angarsk,50863157,1
+Angren,50863157,1
+Apatity,50863157,1
+Arequipa,50863157,1
+Armavir,50863157,1
+Assen,50863157,1
+Athens,50863157,1
+Baltiysk,50863157,1
+Bandar Seri Begawan,50863157,1
+Beirut,50863157,1
+Belém,50863157,1
+Benguela,50863157,1
+Berdsk,50863157,1
+Bern,50863157,1
+Beyoglu,50863157,1
+Biysk,50863157,1
+Blagoveshchensk,50863157,1
+Bogdanovich,50863157,1
+Brussels,50863157,1
+Busan,50863157,1
+Ca Mau,50863157,1
+Calp,50863157,1
+Campo Grande,50863157,1
+Ceske Budejovice,50863157,1
+Chalong,50863157,1
+Charlotte,50863157,1
+Chita,50863157,1
+Chonburi,50863157,1
+Ciudad Ojeda,50863157,1
+Constantine,50863157,1
+Criciuma,50863157,1
+Dakar,50863157,1
+Dallas,50863157,1
+Derby,50863157,1
+Dimitrovgrad,50863157,1
+Divnogorsk,50863157,1
+Doha,50863157,1
+Dzerzhinsk,50863157,1
+El Segundo,50863157,1
+Esquel,50863157,1
+Feodosia,50863157,1
+Frankfurt,50863157,1
+Fuzhou,50863157,1
+Galich,50863157,1
+Gatchina,50863157,1
+Glasgow,50863157,1
+Groningen,50863157,1
+Guaruja,50863157,1
+Guatemala City,50863157,1
+Guayaquil,50863157,1
+Gubakha,50863157,1
+Heredia,50863157,1
+Houston,50863157,1
+Huế,50863157,1
+Iași,50863157,1
+Indore,50863157,1
+Istra,50863157,1
+Jammu,50863157,1
+Jinan,50863157,1
+Johannesburg,50863157,1
+Kamensk-Uralskiy,50863157,1
+Kamyshlov,50863157,1
+Kansk,50863157,1
+Khamis Mushayt,50863157,1
+Kingston upon Hull,50863157,1
+Kiselevsk,50863157,1
+Kislovodsk,50863157,1
+Klerksdorp,50863157,1
+Kotlas,50863157,1
+Krasnogorsk,50863157,1
+Krasnoslobodsk,50863157,1
+Krasnoznamensk,50863157,1
+Kuala Lumpur,50863157,1
+Kurlovo,50863157,1
+Leeds,50863157,1
+Limassol,50863157,1
+Lipki,50863157,1
+Lisky,50863157,1
+Liverpool,50863157,1
+Ljudinovo,50863157,1
+Loreto,50863157,1
+Los Angeles,50863157,1
+Lytkarino,50863157,1
+Lào Cai,50863157,1
+Lạng Sơn,50863157,1
+Maastricht,50863157,1
+Madrid,50863157,1
+Manila,50863157,1
+Marseilles,50863157,1
+Maykop,50863157,1
+Mechernich,50863157,1
+Merano,50863157,1
+Miami,50863157,1
+Mikhaylovsk,50863157,1
+Milton Keynes,50863157,1
+Mineralniye Vodi,50863157,1
+Montijo,50863157,1
+Murino,50863157,1
+Nablus,50863157,1
+Nahariya,50863157,1
+New Berlin,50863157,1
+New Bern,50863157,1
+Nicosia,50863157,1
+Nizhniy Tagil,50863157,1
+Novocherkassk,50863157,1
+Novomoskovsk,50863157,1
+Novouralsk,50863157,1
+Obninsk,50863157,1
+Orehovo-Zuevo,50863157,1
+Osh,50863157,1
+Panama,50863157,1
+Pattaya,50863157,1
+Petropavlovsk,50863157,1
+Petrozavodsk,50863157,1
+Petuhovo,50863157,1
+Pocos de Caldas,50863157,1
+Pohang,50863157,1
+Pokrov,50863157,1
+Puebla,50863157,1
+Pyatigorsk,50863157,1
+Quedlinburg,50863157,1
+Reutov,50863157,1
+Rezh,50863157,1
+Ribeirao Preto,50863157,1
+Rishon LeZion,50863157,1
+Rudny,50863157,1
+Rybinsk,50863157,1
+Saint-Denis,50863157,1
+Salem,50863157,1
+San José del Guaviare,50863157,1
+Sarov,50863157,1
+Semey,50863157,1
+Serpuhov,50863157,1
+Sinop,50863157,1
+Skopin,50863157,1
+Stafford,50863157,1
+Stariy Oskol,50863157,1
+Sterlitamak,50863157,1
+Stevensville,50863157,1
+Strasbourg,50863157,1
+Subotica,50863157,1
+Sukhoi Log,50863157,1
+Surat Thani,50863157,1
+Surgut,50863157,1
+Svetlogorsk,50863157,1
+Swindon,50863157,1
+Syzran,50863157,1
+Szczecin,50863157,1
+Taldikorgan,50863157,1
+Tampere,50863157,1
+Tarlac City,50863157,1
+Thanh Hoa,50863157,1
+Thessaloniki,50863157,1
+Thulusdhoo,50863157,1
+Torzgok,50863157,1
+Trabzon,50863157,1
+Trenton,50863157,1
+Tuapse,50863157,1
+Tunis,50863157,1
+Tuy Hòa,50863157,1
+Uglich,50863157,1
+Ugnouralsk,50863157,1
+Ugorsk,50863157,1
+Ulan Bator,50863157,1
+Usole-Sibirskoe,50863157,1
+Ust-Kamenogorsk,50863157,1
+Valencia,50863157,1
+Valparaiso,50863157,1
+Veliky Novgorod,50863157,1
+Verhnyaya Pyshma,50863157,1
+Volhov,50863157,1
+Volzhskiy,50863157,1
+Vorkuta,50863157,1
+Wiesbaden,50863157,1
+Wigan,50863157,1
+Yarovoe,50863157,1
+Yelets,50863157,1
+Zarechny,50863157,1
+Zenica,50863157,1
+Zhanaozen,50863157,1
+Zhukovskiy,50863157,1
