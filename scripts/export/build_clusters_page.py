@@ -183,6 +183,12 @@ def main():
         % (len(clusters), plural(len(clusters), "группа", "группы", "групп"),
            stats["total"]),
         "meta description")
+    html = replace_block(
+        html,
+        r"<title>[^<]*</title>",
+        "<title>Кластеры запросов: %d %s. цифра18</title>"
+        % (len(clusters), plural(len(clusters), "группа", "группы", "групп")),
+        "title")
 
     # Заголовок и подпись графика описывали метрику покрытия, которой
     # больше нет: вместо неё реальные страницы из выгрузки панели.
