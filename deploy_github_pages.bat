@@ -72,7 +72,7 @@ rem copy aborts. Drop the cache; it regenerates. Never use git clean -X here:
 rem that would delete .env with the Yandex token.
 if exist "reports\cifra18-audit\.wrangler" rmdir /s /q "reports\cifra18-audit\.wrangler"
 git rebase --root --onto origin/main
-if errorlevel 1 goto fail
+if errorlevel 1 goto rebasefail
 
 :push
 git push origin main
@@ -85,6 +85,18 @@ echo Site: https://homgorn.github.io/cifra/
 echo.
 pause
 exit /b 0
+
+:rebasefail
+git rebase --abort >nul 2>&1
+echo.
+echo REBASE CONFLICT, aborted, repo left intact.
+echo Remote main and local history diverged. Resolve it by hand:
+echo   git fetch origin
+echo   git rebase --root --onto origin/main
+echo resolve conflicts, then: git rebase --continue
+echo.
+pause
+exit /b 5
 
 :authfail
 echo.
