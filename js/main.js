@@ -679,6 +679,17 @@
           return '<tr><td>' + esc(e.d) + '</td><td>' + esc(e.e) + '</td><td><code>' + esc(e.u) + '</code></td></tr>';
         }).join('');
       }
+      var sb = document.getElementById('dashSerpBody');
+      if (sb) {
+        if (!T.serp || !T.serp.length) {
+          sb.innerHTML = '<tr><td colspan="6" class="text-muted">Выгрузка ещё считается на стороне Вебмастера, запустите refresh_all.bat</td></tr>';
+        } else {
+          sb.innerHTML = T.serp.map(function (r) {
+            return '<tr><td>' + esc(r.q) + '</td><td>' + fmtNum(r.i) + '</td><td>' + fmtNum(r.c) +
+              '</td><td>' + r.ctr + '%</td><td>' + r.p + '</td><td><code>' + esc(r.u) + '</code></td></tr>';
+          }).join('');
+        }
+      }
     })();
 
     // --- Аудитория
