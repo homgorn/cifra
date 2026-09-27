@@ -36,12 +36,25 @@ CLUSTER_TARGETS = {
     "Визитки": "/catalog/poligrafiya/vizitki/",
     "Кружки и магниты": "/catalog/suvenirnaya-produktsiya/pechat-na-kruzhkakh",
     "Календари": "/catalog/poligrafiya/kalendari/",
-    "Листовки и флаеры": "/catalog/poligrafiya/listovki/",
-    "Широкоформатная печать": "/catalog/poligrafiya/shirokoformatnaya-pechat/",
-    "Широкоформат": "/catalog/poligrafiya/shirokoformatnaya-pechat/",
+    "Листовки и флаеры": "/catalog/poligrafiya/listovki-tsifrovaya-pechat/",
+    "Широкоформатная печать": "/catalog/reklama/",
+    "Широкоформат": "/catalog/reklama/",
     "Мобильные стенды": "/catalog/mobilnye-stendy/",
     "Сувенирка и мерч": "/catalog/suvenirnaya-produktsiya/",
-    "Инженерная печать": "/inzhenernaya-pechat/",
+    "Инженерная печать": "/catalog/inzhenernaya-pechat/",
+    "УФ-печать и спецпечать": "/catalog/poligrafiya/uf-pechat1/",
+    "Плоттерная резка и ризография": "/catalog/poligrafiya/plotternaya-rezka/",
+    "Форматы и плоттерная печать": "/catalog/poligrafiya/tsifrovaya-pechat/",
+    "Ламинирование": "/catalog/poligrafiya/laminirovanie/",
+    "Пакеты и упаковка": "/catalog/poligrafiya/pakety/",
+    "Наклейки и плёнки": "/catalog/poligrafiya/pechat-na-samokleyashchikhsya-materialakh/",
+    "Фотопечать": "/catalog/suvenirnaya-produktsiya/fotopaneli",
+    "Конверты": "/catalog/poligrafiya/konverty/",
+    "Пластиковые карты": "/catalog/poligrafiya/karty-plastikovye/",
+    "Цифровая печать": "/catalog/poligrafiya/tsifrovaya-pechat/",
+    "Блокноты": "/catalog/poligrafiya/bloknoty/",
+    "Бейджи": "/catalog/poligrafiya/beydzhi/",
+    "Общий спрос": "/catalog/poligrafiya/",
     "Бренд": "/",
     "Информационные": "",
     "Сравнения": "",
@@ -49,7 +62,10 @@ CLUSTER_TARGETS = {
     "Прочие": "",
 }
 # Кластеры, у которых нет своей страницы: под них нужно создавать.
-NEEDS_PAGE = {"Сравнения", "Локальные", "Информационные"}
+# «Локальные» попал сюда 2026-09-27: 51 запрос вида «печать ижевск»,
+# «типография в ижевске» не имеет посадочной, весь локальный спрос
+# размазан по продуктовым страницам без городского сигнала.
+NEEDS_PAGE = {"Сравнения", "Локальные", "Информационные", "Общий спрос"}
 
 # Классификатор берём тот же, что и в build_wm_data.py, иначе группы в
 # Topvisor и на сайте разойдутся.
@@ -115,22 +131,32 @@ def core():
 def webmaster_queries():
     """Запросы из API Вебмастера: за год по кликам и по показам.
 
-    Их не импортируем подряд: это 1000+ строк, проверка позиций по ним съест
-    весь баланс Topvisor. Берём только те, что уже видны в ядре, плюс первые
-    200 из годового топа по показам с порогом отсечения."""
+    Больше не берём срезом `[:200]`. Срез без проверки был источником
+    мусора: в первые 200 попадали внутренний поиск, синтаксис операторов
+    и URL чужих сайтов, вбитые в поисковую строку. Теперь годовой топ
+    проходит через filter_topvisor_queries.py, и решает он, а не
+    порядок строк в файле."""
     out = []
     base = WM
     if not base.is_dir():
         return out
     import json
-    day = sorted(p.name for p in base.iterdir() if p.is_dir())[-1]
-    f = base / day / "queries_12m" / "q_popular_shows_12m.json"
-    if f.is_file():
-        data = json.load(open(f, encoding="utf-8"))
-        for q in data.get("queries", [])[:200]:
-            t = (q.get("query_text") or "").strip()
-            if t:
-                out.append(t)
+    days = sorted(p.name for p in base.iterdir() if p.is_dir())
+    if not days:
+        return out
+    f = base / days[-1] / "queries_12m" / "q_popular_shows_12m.json"
+    if not f.is_file():
+        return out
+    data = json.load(open(f, encoding="utf-8"))
+
+    from filter_topvisor_queries import classify_phrase
+    for q in data.get("queries", []):
+        t = (q.get("query_text") or "").strip()
+        if not t:
+            continue
+        verdict, _code, _reason = classify_phrase(t)
+        if verdict == "KEEP":
+            out.append(t)
     return out
 
 
@@ -164,29 +190,61 @@ def main():
     for s in serp:
         serp_by_q[s["q"]].append(s)
 
-    # 1. Импорт: всё ядро плюс запросы из Вебмастера, которых в ядре нет
+    # Сколько фраз отсеяно и почему. Считаем здесь же, чтобы план
+    # показывал правду, а не только то, что решили загрузить.
+    from filter_topvisor_queries import (classify_phrase, load_queries,
+                                        read_classifier)
+    all_rows = load_queries()
+    cluster_fn = read_classifier()
+    blocked, review = [], []
+    for r in all_rows:
+        verdict, code, reason = classify_phrase(r["phrase"])
+        if verdict == "KEEP":
+            g = r.get("group") or cluster_fn(r["phrase"])
+            if g == "Прочие":
+                verdict, code, reason = "REVIEW", "R10", "релевантна, но без кластера"
+        if verdict == "BLOCK":
+            blocked.append((r["phrase"], code, reason))
+        elif verdict == "REVIEW":
+            review.append((r["phrase"], code, reason))
+
+    # 1. Импорт: всё ядро плюс запросы из Вебмастера, которых в ядре нет.
+    # Фильтр релевантности обязателен: ядро тоже содержит мусор из панели
+    # (внутренний поиск, операторы, чужие организации), а «Прочие» грузить
+    # в Topvisor нельзя, это свалка.
+    from filter_topvisor_queries import classify_phrase
     import_rows = []
     seen = set()
     for r in rows:
         q = (r.get("Query") or "").strip()
         if not q or q in seen:
             continue
+        verdict, _c, _rs = classify_phrase(q)
+        if verdict != "KEEP":
+            continue
+        group = r.get("Cluster_L1") or "Прочие"
+        if group == "Прочие":
+            group = classify(q)
+        if group == "Прочие":
+            continue
         seen.add(q)
         import_rows.append({
             "phrase": q,
-            "group": r.get("Cluster_L1") or "Прочие",
+            "group": group,
             "avg_position": r.get("Avg_Position") or "",
             "in_topvisor": "да" if q in have else "нет",
-            "target_url": r.get("Target_Page") or "",
+            "target_url": r.get("Target_Page") or CLUSTER_TARGETS.get(group, ""),
         })
     extra = 0
     for q in webmaster_queries():
         q = q.strip()
         if not q or q in seen:
             continue
+        c = classify(q)
+        if c == "Прочие":
+            continue
         seen.add(q)
         extra += 1
-        c = classify(q)
         import_rows.append({"phrase": q, "group": c, "avg_position": "",
                             "in_topvisor": "да" if q in have else "нет",
                             "target_url": CLUSTER_TARGETS.get(c, "")})
@@ -196,27 +254,27 @@ def main():
         w.writeheader()
         w.writerows(import_rows)
 
-    # 2. Целевые страницы: из кластера плюс фактические пути из SERP-выгрузки
+    # 2. Целевые страницы. Строим по import_rows, а не по ядру: раньше файл
+    # покрывал только 492 строки ядра, а в Core попадали ещё и годовые
+    # запросы, из-за чего 122 фразы импорта оставались без цели.
     tgt = []
-    for r in rows:
-        q = (r.get("Query") or "").strip()
-        if not q:
-            continue
-        cluster = r.get("Cluster_L1") or "Прочие"
+    for r in import_rows:
+        q = r["phrase"]
+        cluster = r["group"]
         actual = serp_by_q.get(q)
         if actual:
             best = min(actual, key=lambda s: s["p"] or 999)
             url = best["path"]
             source = "факт из Вебмастера"
         else:
-            url = r.get("Target_Page") or CLUSTER_TARGETS.get(cluster, "")
+            url = r.get("target_url") or CLUSTER_TARGETS.get(cluster, "")
             source = "по кластеру" if url else "нужна новая страница"
         tgt.append({
             "phrase": q,
             "group": cluster,
             "target_url": url,
             "target_source": source,
-            "avg_position": r.get("Avg_Position") or "",
+            "avg_position": r.get("avg_position") or "",
             "needs_page": "да" if (not url and cluster in NEEDS_PAGE) else "нет",
         })
     tf = OUT / "keyword_targets.csv"
@@ -251,11 +309,38 @@ def main():
 |---|---|---|
 | `topvisor/exports/import_queries.csv` | Фразы, группа, средняя позиция, целевая страница, отметка «уже в сервисе» | {len(import_rows)} строк, новых {fresh} |
 | `topvisor/exports/keyword_targets.csv` | Фраза, группа, целевая страница, источник цели, нужна ли новая страница | {len(tgt)} строк |
+| `topvisor/exports/review_queries.csv` | Не грузим, ждут решения, с причиной | {len(review)} строк |
+| `topvisor/exports/blocked_queries.csv` | Точно не наш спрос, с причиной | {len(blocked)} строк |
 
 Из запросов Вебмастера добавлено {extra} фраз, которых не было в ядре.
 Целевая страница определена у {with_target} из {len(tgt)} фраз: там, где есть
 фактические данные из beta-выгрузки Вебмастера, берётся реальный URL, остальные
 получают страницу по кластеру.
+
+## Почему файла три, а не один
+
+Первая версия пакета грузила всё подряд: 626 фраз, из них 165 в группе
+«Прочие» и часть мусора внутри осмысленных групп. Причин было три,
+и все три лечатся по-разному.
+
+1. **Годовой топ брался срезом.** Первые 200 строк выгрузки по показам
+   шли в импорт без единой проверки. Туда попали внутренний поиск сайта
+   («1 рекл»), синтаксис операторов Яндекса («<принт> в ижевске»), чужие
+   домены, вбитые в поисковую строку, и запросы других типографий.
+2. **«Прочие» не разбирали.** Это свалка всего, что не описано правилом.
+   Грузить её в сервис бессмысленно: аналитика нечитаемая, проверка
+   позиций платная.
+3. **Кластеризация отвечает на другой вопрос.** Она говорит «о чём фраза»,
+   но не «наша ли она». Релевантность проверяется отдельно, и порядок
+   проверок важен: сначала ищется маркер услуги, и только потом чужие
+   отрасли. В обратном порядке «визитки для стоматолога» вылетает как
+   запрос к стоматологу.
+
+Сейчас в Core не попадает ни одна фраза из файлов `review_` и `blocked_`.
+Любую строку из них можно вернуть в импорт, исправив одну строку кода.
+
+{table_reasons(review, "REVIEW: ждут решения человека")}
+{table_reasons(blocked, "BLOCK: точно не наш спрос")}
 
 ## Порядок действий
 
@@ -313,6 +398,20 @@ def table_groups(grp):
     out = ["| Группа | Фраз |", "|---|---|"]
     for g, c in grp.most_common():
         out.append("| %s | %d |" % (g, c))
+    return "\n".join(out) + "\n"
+
+
+def table_reasons(items, title):
+    """Сводка отсева по причинам: сколько фраз и почему."""
+    if not items:
+        return ""
+    by = Counter((code, reason) for _p, code, reason in items)
+    out = ["### %s" % title, "", "| Код | Причина | Фраз | Примеры |",
+           "|---|---|---|---|"]
+    for (code, reason), n in by.most_common():
+        ex = [p for p, c, _r in items if c == code and _r == reason][:3]
+        out.append("| %s | %s | %d | %s |"
+                   % (code, reason, n, ", ".join("«%s»" % e for e in ex)))
     return "\n".join(out) + "\n"
 
 

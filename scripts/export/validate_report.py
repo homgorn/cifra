@@ -240,6 +240,14 @@ if r.returncode != 0:
 else:
     ok("node smoke test green")
 
+# 10. тема и контраст
+r = subprocess.run([sys.executable, "scripts/export/validate_theme.py"], cwd=ROOT,
+                   capture_output=True, text=True, encoding="utf-8", errors="replace")
+if r.returncode != 0:
+    fail("theme validation failed: %s" % (r.stdout or "").strip()[-400:])
+else:
+    ok("theme: one scheme, tokens only, contrast in range")
+
 print("---")
 if fails:
     print("VALIDATION FAILED: %d problem(s)" % len(fails))

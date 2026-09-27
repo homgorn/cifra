@@ -65,7 +65,7 @@
 .sign-ava {
   width: 44px; height: 44px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #1e2a3a, #2a3a4f);
+  background: var(--gradient-card);
   border: 1px solid var(--color-border-light);
   display: flex; align-items: center; justify-content: center;
   font-weight: 700;

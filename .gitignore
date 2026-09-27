@@ -10,3 +10,4 @@ KP_na_prodvizhenie_sayta_Tsifra18_1.pdf
 .wrangler/
 __pycache__/
 *.pyc
+reports/cifra18-audit/_qa/

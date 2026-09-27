@@ -46,7 +46,7 @@ REGISTRY = [
     (16, "pages/wm-errors.html", "Вебмастер", "Ошибки разбора и качество: 251 страница с PARSE_ERROR"),
     (17, "pages/wm-redirects.html", "Вебмастер", "Редиректы: куда уходят 89 страниц"),
     (18, "pages/wm-queries.html", "Вебмастер", "492 запроса: позиции, ТОП-1, ТОП-3, ТОП-10"),
-    (19, "pages/wm-clusters.html", "Вебмастер", "13 групп запросов и покрытие страницами"),
+    (19, "pages/wm-clusters.html", "Вебмастер", None),
     (20, "pages/wm-gaps.html", "Вебмастер", "Топ-10 пробелов контента с приоритетом"),
     (21, "pages/wm-links.html", "Вебмастер", "Внутренние ссылки: 62 битых из 134"),
     (22, "pages/wm-plan.html", "План", "Спринты по Вебмастеру и критерии приёмки"),
@@ -86,10 +86,37 @@ FOOTER_COLS = [
 ]
 
 TOTAL = len(REGISTRY)
+
+
+def cluster_facts():
+    """Числа для описания страницы кластеров берём из wm-data.js.
+
+    Раньше в реестре стояло «13 групп» вручную, и после расширения
+    классификатора до 22 групп описание разошлось с данными.
+    """
+    p = os.path.join(SITE, "js", "wm-data.js")
+    if not os.path.isfile(p):
+        return "Кластеры запросов и страницы разделов"
+    import json
+    t = open(p, encoding="utf-8").read()
+    d = json.loads(t[t.index("{"):].rstrip().rstrip(";"))
+    n = len(d.get("clusters") or [])
+    total = (d.get("queryStats") or {}).get("total", 0)
+    return "%d %s запросов и страницы разделов в поиске" % (
+        n, plural(n, "группа", "группы", "групп"))
+
+
+def plural(n, one, few, many):
+    if n % 10 == 1 and n % 100 != 11:
+        return one
+    if 2 <= n % 10 <= 4 and not 12 <= n % 100 <= 14:
+        return few
+    return many
+
+
+REGISTRY = [(num, slug, section, desc if desc is not None else cluster_facts())
+            for num, slug, section, desc in REGISTRY]
 BY_SLUG = {slug: (num, section, desc) for num, slug, section, desc in REGISTRY}
-TITLE_BY_SLUG = {}
-for _num, _slug, _section, _desc in REGISTRY:
-    TITLE_BY_SLUG[_slug] = _desc.split(":")[0].split(" с ")[0][:28]
 
 
 def h1_by_slug(slug):
@@ -250,10 +277,16 @@ def patch(slug):
     html = re.sub(r'<footer class="site-footer">.*?</footer>',
                   lambda m: footer_html(slug), html, count=1, flags=re.DOTALL)
 
-    # 4. карта отчёта на главной
-    if is_index and 'id="toc"' not in html:
+    # 4. карта отчёта на главной. Секция вставляется один раз, но описания
+    # внутри должны обновляться: иначе после смены числа кластеров
+    # главная продолжает показывать прежнее. Поэтому при повторном запуске
+    # секция вырезается и собирается заново.
+    if is_index:
         toc = toc_html()
-        if "</main>" in html:
+        if 'id="toc"' in html:
+            html = re.sub(r'  <section id="toc" data-section.*?</section>\n',
+                          lambda m: toc, html, count=1, flags=re.DOTALL)
+        elif "</main>" in html:
             html = html.replace("</main>", toc + "</main>", 1)
         else:
             print("  ВНИМАНИЕ: на главной нет </main>, карта отчёта не вставлена")

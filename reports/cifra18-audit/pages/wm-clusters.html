@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Кластеры запросов: 8 групп. Цифра18</title>
-<meta name="description" content="8 семантических кластеров цифра18.рф: визитки, календари, мерч, стенды, широкоформат. Запросы, позиции, покрытие страницами.">
+<meta name="description" content="22 группы запросов, 492 запросов ядра, страницы разделов в поиске по данным цифра18.рф: визитки, широкоформат, сувенирка, ламинация, УФ-печать, ризография.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -51,7 +51,7 @@
   <div class="sidebar-title">На этой странице</div>
   <nav class="sidebar-nav">
     <a class="sidebar-link" href="#map"><span class="link-number">1</span>Карта кластеров</a>
-    <a class="sidebar-link" href="#coverage"><span class="link-number">2</span>Покрытие страницами</a>
+    <a class="sidebar-link" href="#coverage"><span class="link-number">2</span>Страницы в поиске</a>
     <a class="sidebar-link" href="#queries"><span class="link-number">3</span>Запросы по кластерам</a>
     <a class="sidebar-link" href="#next"><span class="link-number">4</span>Что дальше</a>
   </nav>
@@ -60,9 +60,10 @@
 <div>
   <div class="page-title-block animate-slide-up">
     <div class="page-kicker">Страница 19 из 27 • Вебмастер</div>
-    <h1>Кластеры запросов: 8 групп</h1>
-    <p>535 запросов сгруппированы в 8 коммерческих кластеров по смыслу: визитки, календари, кружки и магниты, листовки, широкоформат, стенды, сувенирка, инженерная печать. По каждому кластеру видно число запросов, среднюю позицию и долю запросов, под которые есть целевая страница.</p>
-  </div>
+    <h1>Кластеры запросов: 22 группы</h1>
+    <p class="page-lead">492 запросов ядра разложены по тем же группам по смыслу. Правила кластеризации живут в коде, таблица и графики строятся из тех же данных, поэтому текст и числа не расходятся.</p>
+    <p>Крупнейшие группы: Локальные, Форматы и плоттерная печать, Общий спрос, Бренд, Визитки, Кружки и магниты. Остальные мельче, но это не значит, что они не нужны: у узкого кластера дешевле довести позицию, и он даёт запросы с высокой покупательской готовностью.</p>
+    </div>
 
   <section id="map" data-section>
     <div class="card">
@@ -70,24 +71,26 @@
       <div class="card-body"><div class="chart-container"><canvas id="wmClusterBar"></canvas></div></div>
     </div>
     <div class="table-wrapper" style="margin-top:1.5rem;"><table>
-      <thead><tr><th>Кластер</th><th>Запросов</th><th>Ср. позиция</th><th>В ТОП-10</th><th>Страниц</th><th>Покрытие</th></tr></thead>
+      <thead><tr><th>Кластер</th><th>Запросов</th><th>Ср. позиция</th><th>В ТОП-10</th><th>Страниц</th><th>Состояние раздела</th></tr></thead>
       <tbody id="wmClusterBody"><tr><td colspan="6" class="text-muted">Загрузка данных...</td></tr></tbody>
     </table></div>
   </section>
 
   <section id="coverage" data-section style="margin-top:2.5rem;">
-    <h2>Покрытие страницами: где тонко</h2>
+    <h2>Страницы разделов в поиске: где тонко</h2>
+        <p>Тонкие места видно сразу: Форматы и плоттерная печать (2 страницы против 68), Фотопечать (0 страниц против 16). Запросов много, страниц раздела в поиске почти нет, поэтому одна страница тянет на себя весь модификатор спроса.</p>
+    <p>Отдельно: у 3 групп (Локальные, Общий спрос, Информационные) нет своей посадочной страницы, их запросы уходят на главную и общие разделы каталога. Городской спрос в первую очередь: под него нужна страница с услугами и городом в заголовке, иначе он не виден и в геозапросах, и в обычной выдаче.</p>
     <div class="card">
-      <div class="card-header"><div><div class="card-title">Доля запросов с целевой страницей</div><div class="card-subtitle">Остальные запросы ведут на общие разделы или в никуда</div></div></div>
+      <div class="card-header"><div><div class="card-title">Страниц раздела в поиске</div><div class="card-subtitle">Считается по выгрузке статусов Вебмастера, а не назначением цели по кластеру</div></div></div>
       <div class="card-body"><div class="chart-container"><canvas id="wmCoverageBar"></canvas></div>
-      <p class="text-muted" style="font-size:0.8125rem; margin-top:1rem; margin-bottom:0;">Худшее покрытие у кружек и магнитов (33%) и сувенирки (33%): запросы есть и позиции рядом, а точных страниц нет. Лучшее у календарей (67%) и инженерной печати (65%), эти разделы структурированы аккуратнее.</p></div>
+      <p class="text-muted" style="font-size:0.8125rem; margin-top:1rem; margin-bottom:0;">Красным отмечены разделы, которых в поиске нет вообще, жёлтым: страниц заметно меньше, чем запросов. Страницы у 18 из 19 разделов с целевой. Нет страниц в поиске у: Фотопечать.</p></div>
     </div>
     <div class="callout"><div class="callout-title">Принцип один запрос, одна страница</div><p>Под каждый коммерческий запрос из ядра должна существовать страница, которая отвечает именно на него: подвид товара, услуга с модификатором, локальный лендинг. Общие разделы проигрывают точным страницам конкурентов.</p></div>
   </section>
 
   <section id="queries" data-section style="margin-top:2.5rem;">
     <h2>Разбивка запросов по кластерам</h2>
-    <p>Кластеры посчитаны по тексту запроса, без ручных правок, поэтому таблица и график выше всегда совпадают. Из 535 строк выгрузки 43 оказались мусором: телефоны и длинные описания товаров, их отсеяли. Показан первые 120 запросов, полный список с целевыми страницами лежит в файле <code>topvisor/exports/keyword_targets.csv</code>.</p>
+    <p>Из 535 строк выгрузки 43 оказались мусором: телефоны, длинные описания товаров и обрывки, их отсеяли. Ещё 53 запроса не попали ни в один кластер и ждут разбора: они не мусор, но и не ложатся под существующие правила. Список лежит в <code>topvisor/exports/review_queries.csv</code> вместе с причиной по каждой строке.</p>
     <div class="table-wrapper" style="margin-top:1.25rem;"><table>
       <thead><tr><th>Запрос</th><th>Кластер</th><th>Ср. позиция</th><th>Целевая страница</th></tr></thead>
       <tbody id="wmClusterQueriesBody"><tr><td colspan="4" class="text-muted">Загрузка данных...</td></tr></tbody>
