@@ -16,6 +16,7 @@
   python scripts/export/yw_serp_export.py limits    квоты и доступные даты
 """
 import csv
+import gzip
 import io
 import json
 import os
@@ -184,7 +185,7 @@ def cmd_status():
         return 1
     file_url = d["url"]
     print("качаю отчёт...")
-    blob = requests.get(file_url, timeout=300).content
+    blob = requests.get(file_url, headers={"User-Agent": "curl/8"}, timeout=300).content
     OUT.mkdir(parents=True, exist_ok=True)
     raw = OUT / ("serp_raw_%s.bin" % datetime.now().strftime("%Y%m%d_%H%M"))
     raw.write_bytes(blob)
@@ -195,6 +196,11 @@ def cmd_status():
                 if nm.lower().endswith(".csv"):
                     with z.open(nm) as f:
                         rows.extend(csv.reader(io.TextIOWrapper(f, encoding="utf-8-sig")))
+    elif blob[:2] == b"\x1f\x8b":
+        # Яндекс отдаёт gzip, не zip
+        text = gzip.decompress(blob).decode("utf-8-sig", errors="replace")
+        delim = "\t" if text.count("\t") > text.count(",") else ","
+        rows = list(csv.reader(io.StringIO(text), delimiter=delim))
     else:
         text = blob.decode("utf-8-sig", errors="replace")
         delim = "\t" if text.count("\t") > text.count(",") else ","

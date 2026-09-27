@@ -15,8 +15,10 @@
 Запуск из корня проекта:
   python scripts/export/build_dashboard_data.py
 """
+import csv
 import json
 import os
+import re
 import sys
 from collections import defaultdict
 from datetime import datetime
@@ -130,6 +132,48 @@ def source_series(cut, top=5):
     return out
 
 
+MOJIBAKE = re.compile(r"^[\x00-\x7F\s]{20,}$")
+
+
+def serp_rows():
+    """Выгрузка pro/serp/queries/download: дата, URL, запрос, регион, клики,
+    показы, позиция. Это единственный источник показов и CTR по запросам:
+    обычный search-queries отдаёт тексты без метрик. Мусор с latin-символами
+    (следы неверной кодировки на стороне Яндекса) выбрасываем."""
+    import csv as _csv
+    out = WM / "serp_queries" / "serp_queries_raw.csv"
+    if not out.is_file():
+        return [], 0
+    agg = defaultdict(lambda: {"clicks": 0, "imp": 0, "pos": [], "paths": set()})
+    total = 0
+    with open(out, encoding="utf-8-sig", newline="") as f:
+        for r in _csv.DictReader(f):
+            total += 1
+            q = (r.get("query") or "").strip()
+            if not q or MOJIBAKE.match(q):
+                continue
+            a = agg[q]
+            a["clicks"] += int(r.get("clicks") or 0)
+            a["imp"] += int(r.get("impressions") or 0)
+            try:
+                a["pos"].append(float(r.get("position") or 0))
+            except ValueError:
+                pass
+            a["paths"].add((r.get("path") or "").replace("https://xn--18-6kc5a3bxam.xn--p1ai", ""))
+    rows = []
+    for q, a in agg.items():
+        rows.append({
+            "q": q,
+            "c": a["clicks"],
+            "i": a["imp"],
+            "p": round(sum(a["pos"]) / len(a["pos"]), 1) if a["pos"] else 0,
+            "ctr": round(a["clicks"] / a["imp"] * 100, 1) if a["imp"] else 0,
+            "u": ", ".join(sorted(a["paths"])[:2]),
+        })
+    rows.sort(key=lambda x: (-x["i"], -x["c"]))
+    return rows[:40], total
+
+
 DASH = {"generated": DATE}
 
 # ---------------------------------------------------------------- Вебмастер
@@ -180,6 +224,8 @@ for s in (jload(WM / "indexing_samples.json", {}) or {}).get("samples", []):
 q12 = jload(WM / "queries_12m" / "q_popular_click_12m.json", {}) or {}
 queries_12m = [q.get("query_text") for q in q12.get("queries", [])[:60] if q.get("query_text")]
 
+serp, serp_total = serp_rows()
+
 DASH["tech"] = {
     "sqi": summary.get("sqi", 0),
     "sqiSeries": sqi_series,
@@ -193,6 +239,8 @@ DASH["tech"] = {
     "events": events[:40],
     "http": http[:40],
     "queries12m": queries_12m,
+    "serp": serp,
+    "serpTotal": serp_total,
 }
 
 # ---------------------------------------------------------------- Метрика: сайт
@@ -296,6 +344,7 @@ size = OUT.stat().st_size
 print("Wrote %s (%.1f KB)" % (OUT, size / 1024))
 print("sqi=%s series=%d sites=%s important=%d" % (DASH["tech"]["sqi"], len(sqi_series),
                                                  DASH["site"]["visitsTotal"], len(important)))
+print("serp: rows=%d из %d сырых строк" % (len(serp), serp_total))
 print("money: revenue=%s purchases=%s goals=%s" % (DASH["money"]["revenue"],
                                                   DASH["money"]["purchases"], DASH["money"]["goalsActive"]))
 print("maps: views=%s calls=%s routes=%s" % (DASH["maps"]["viewsTotal"],

@@ -20,8 +20,18 @@ python scripts\export\yw_api_export.py
 if errorlevel 1 goto warn
 
 echo.
+echo [1b/5] Yearly query stats (beta tool, quota 100 URL-days per day)
+python scripts\export\yw_serp_export.py status
+if errorlevel 1 echo Task is still being prepared by Yandex, this is normal.
+
+echo.
 echo [2/5] Yandex Metrika API
 python scripts\export\metrica_api_export.py
+if errorlevel 1 goto warn
+
+echo.
+echo [2b/5] Metrika cuts, site and Maps card
+python scripts\export\metrica_cuts_export.py
 if errorlevel 1 goto warn
 
 echo.
@@ -29,6 +39,7 @@ echo [3/5] Rebuild report data
 python scripts\export\build_wm_data.py
 python scripts\export\build_metrika_data.py
 python scripts\export\build_site_data.py
+python scripts\export\build_dashboard_data.py
 if errorlevel 1 goto fail
 goto validate
 
@@ -36,10 +47,12 @@ goto validate
 echo [1/2] Yandex APIs
 python scripts\export\yw_api_export.py
 python scripts\export\metrica_api_export.py
+python scripts\export\metrica_cuts_export.py
 echo [2/2] Rebuild data
 python scripts\export\build_wm_data.py
 python scripts\export\build_metrika_data.py
 python scripts\export\build_site_data.py
+python scripts\export\build_dashboard_data.py
 if errorlevel 1 goto fail
 goto done
 
