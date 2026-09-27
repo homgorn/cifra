@@ -69,6 +69,7 @@ function loadAsGlobal(file, constName) {
 }
 loadAsGlobal(path.join(SITE_DIR, 'js', 'wm-data.js'), 'WM');
 loadAsGlobal(path.join(SITE_DIR, 'js', 'site-data.js'), 'SITE');
+loadAsGlobal(path.join(SITE_DIR, 'js', 'dash-data.js'), 'DASH');
 eval(fs.readFileSync(path.join(SITE_DIR, 'js', 'main.js'), 'utf8'));
 
 // 4. assertions
@@ -80,7 +81,13 @@ for (const c of createdCharts) {
   // constructs when element exists. We count constructions per config label set.
   charted.add(JSON.stringify((c.data.labels || []).slice(0, 3)));
 }
-if (createdCharts.length < 34) fail('expected >=34 charts total, got ' + createdCharts.length);
+if (createdCharts.length < 54) fail('expected >=54 charts total, got ' + createdCharts.length);
+
+const DASH_IDS = ['dashSqiLine', 'dashSectionBar', 'dashHttpBar', 'dashSiteLine',
+  'dashBounceLine', 'dashDevicesDonut', 'dashBrowsersBar', 'dashCitiesBar',
+  'dashGenderDonut', 'dashAgeBar', 'dashInterestBar', 'dashSourceLine', 'dashRefsBar',
+  'dashRevLine', 'dashRevDayBar', 'dashLandingBar', 'dashPhraseBar', 'dashMapsLine',
+  'dashMapsActionBar', 'dashMapsEntryBar', 'dashMapsSearchBar', 'dashMapsSourceDonut'];
 
 const EXPECT_WM = ['wmStatusDonut', 'wmTopShareBar', 'wmSectionBar', 'wmRateBar',
   'wmDupPatternsBar', 'wmParsePatternsBar', 'wmErrorBar', 'wmRedirectDonut',
@@ -105,8 +112,37 @@ const OLD_IDS = ['healthChart', 'lossChart', 'severityChart', 'imageChart', 'ser
 for (const id of canvasIds) {
   if (!mainSrc.includes("mk('" + id + "'")) fail('canvas without mk(): ' + id);
 }
-for (const id of [...EXPECT_WM, ...OLD_IDS, ...HOME_IDS]) {
+for (const id of DASH_IDS) {
+  if (!mainSrc.includes("mk('" + id + "'")) fail('main.js missing mk(' + id + ')');
+  if (!canvasIds.has(id)) fail('no <canvas id="' + id + '" in html');
+}
+for (const id of [...EXPECT_WM, ...OLD_IDS, ...HOME_IDS, ...DASH_IDS]) {
   if (!canvasIds.has(id)) fail('mk() target canvas missing in html: ' + id);
+}
+// DASH keys used by main.js exist
+const DG = global.DASH;
+if (!DG) fail('DASH global missing');
+for (const k of ['generated', 'tech', 'site', 'money', 'maps']) {
+  if (!(k in DG)) fail('DASH missing key: ' + k);
+}
+for (const k of ['sqi', 'sqiSeries', 'searchable', 'recrawlDaily', 'sections', 'important',
+  'events', 'http', 'queries12m']) {
+  if (!(k in DG.tech)) fail('DASH.tech missing key: ' + k);
+}
+for (const k of ['visitsTotal', 'usersTotal', 'monthly', 'bounce', 'devices', 'browsers',
+  'cities', 'gender', 'age', 'interests', 'bots', 'referers', 'sources', 'landing', 'phrases']) {
+  if (!(k in DG.site)) fail('DASH.site missing key: ' + k);
+}
+for (const k of ['revenue', 'purchases', 'revByMonth', 'topDays', 'goals', 'goalsActive']) {
+  if (!(k in DG.money)) fail('DASH.money missing key: ' + k);
+}
+for (const k of ['viewsTotal', 'monthly', 'entries', 'sources', 'actions', 'goals', 'search']) {
+  if (!(k in DG.maps)) fail('DASH.maps missing key: ' + k);
+}
+if (!Array.isArray(DG.site.sources) || !DG.site.sources.length) fail('DASH.site.sources empty');
+for (const id of ['kpiSqi', 'kpiRecrawl', 'kpiVisits', 'kpiBots', 'kpiRevenue', 'kpiMapCalls']) {
+  const el = elements[id];
+  if (!el || !el.textContent) fail('KPI not filled: ' + id);
 }
 // SITE keys used by main.js exist
 const SITEG = global.SITE;

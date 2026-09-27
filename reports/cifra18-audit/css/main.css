@@ -725,7 +725,7 @@ tbody tr:hover td {
 
 .footer-grid {
   display: grid;
-  grid-template-columns: 2fr repeat(3, 1fr);
+  grid-template-columns: 2fr repeat(5, 1fr);
   gap: var(--space-8);
   margin-bottom: var(--space-8);
 }

@@ -24,6 +24,11 @@ AUTH_URL = "https://oauth.yandex.ru/authorize"
 TOKEN_URL = "https://oauth.yandex.ru/token"
 REDIRECT = "https://oauth.yandex.ru/verification_code"
 
+# Права, которые запрашиваем явно. Полный набор прав API Вебмастера
+# (внешние ссылки, webmaster:hostinfo) выдаётся в настройках приложения на
+# oauth.yandex.ru, а здесь нужен только явный scope, чтобы токен их помнил.
+SCOPES = "login:info,login:email"
+
 
 def load_env():
     env = {}
@@ -69,6 +74,7 @@ def cmd_auth_url(env):
         "response_type": "code",
         "client_id": cid,
         "redirect_uri": REDIRECT,
+        "scope": SCOPES,
     })
     print("Откройте в браузере, подтвердите доступ, скопируйте код со страницы:")
     print(AUTH_URL + "?" + q)
@@ -133,9 +139,22 @@ def cmd_test(env):
     # Вебмастер: кто я
     try:
         st, data = api_get("https://api.webmaster.yandex.net/v4/user", token)
-        print("Вебмастер API: OK, user_id=%s" % data.get("user_id", "?"))
+        uid = data.get("user_id", "?")
+        print("Вебмастер API: OK, user_id=%s" % uid)
     except Exception as e:
         print("Вебмастер API: НЕДОСТУПЕН (%s) — проверьте права приложения." % e)
+        return 0
+    # Права на внешние ссылки: без webmaster:hostinfo API отдаёт 403
+    try:
+        st, _ = api_get("https://api.webmaster.yandex.net/v4/user/%s/hosts/"
+                        "https:xn--18-6kc5a3bxam.xn--p1ai:443/links/external/history"
+                        "?indicator=LINKS_TOTAL_COUNT" % uid, token)
+        print("Внешние ссылки: доступны (права выданы)")
+    except Exception as e:
+        print("Внешние ссылки: НЕТ прав. Требуется scope EXTERNAL_LINKS")
+        print("  Что сделать: oauth.yandex.ru -> приложение -> Права доступа ->")
+        print("  добавить «Получение информации о внешних ссылках на сайт», затем")
+        print("  пройти auth-url -> exchange заново.")
     return 0
 
 

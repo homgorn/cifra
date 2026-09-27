@@ -84,10 +84,12 @@ def main():
     out.mkdir(parents=True, exist_ok=True)
 
     # Нюанс API: indexing/events без дат отдают полную историю (с датами — пусто),
-    # per-query/all query history пустые при любых параметрах — не тянем.
-    # Вместо истории запросов — queries_popular (ранжированный список за неделю).
+    # search-queries/* отдают тексты, но indicators всегда пустые (нужен beta-инструмент
+    # pro/serp/queries/download, см. yw_serp_export.py). Внешние ссылки требуют
+    # права webmaster:hostinfo, поэтому их отсутствие не считаем ошибкой.
     jobs = [
         ("summary", base + "/summary", None),
+        ("sqi_history", base + "/sqi-history", None),
         ("queries_popular", base + "/search-queries/popular",
          {"order_by": "TOTAL_CLICKS", "limit": 500}),
         ("indexing_history", base + "/indexing/history", None),
@@ -96,7 +98,17 @@ def main():
         ("events_history", base + "/search-urls/events/history", None),
         ("sitemaps", base + "/sitemaps", None),
         ("diagnostics", base + "/diagnostics", None),
+        ("recrawl_quota", base + "/recrawl/quota", None),
+        ("important_urls", base + "/important-urls", None),
+        ("indexing_samples", base + "/indexing/samples", None),
+        ("insearch_samples", base + "/search-urls/in-search/samples", None),
+        ("events_samples", base + "/search-urls/events/samples", None),
+        ("external_links_history", base + "/links/external/history",
+         {"indicator": "LINKS_TOTAL_COUNT"}),
     ]
+    # Эти эндпоинты недоступны на текущем API/правах, но проверка нужна:
+    # если Яндекс их включит, выгрузка подхватится сама.
+    soft = {"external_links_history"}
     failed = 0
     for name, path, params in jobs:
         try:
@@ -105,9 +117,13 @@ def main():
                 json.dump(data, f, ensure_ascii=False, indent=1)
             print("ok: %s" % name)
         except requests.HTTPError as e:
-            body = e.response.text[:300] if e.response is not None else "?"
-            print("ОШИБКА %s: HTTP %s — %s" % (name, e, body))
-            failed += 1
+            code = e.response.status_code if e.response is not None else "?"
+            body = e.response.text[:200] if e.response is not None else "?"
+            if name in soft:
+                print("нет прав: %s (HTTP %s) — %s" % (name, code, body))
+            else:
+                print("ОШИБКА %s: HTTP %s — %s" % (name, code, body))
+                failed += 1
         except RuntimeError as e:
             print("ОШИБКА: %s" % e)
             return 1

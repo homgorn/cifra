@@ -604,6 +604,263 @@
     });
   }
 
+  // Dashboards: data from js/dash-data.js, built by scripts/export/build_dashboard_data.py
+  var D = (typeof DASH !== 'undefined') ? DASH : null;
+  if (D) {
+    var T = D.tech, S = D.site, M = D.money, MP = D.maps;
+    var dLabels = function (arr) { return arr.map(function (x) { return x.m.slice(2); }); };
+    var dValues = function (arr, k) { return arr.map(function (x) { return k ? x[k] : x.v; }); };
+    var kvBars = function (arr, top, colorList) {
+      var sl = arr.slice(0, top);
+      var colors = colorList || [accent, info, warn, danger, '#9b8cff', '#ff9d6b', muted, '#5ad1e6'];
+      return {
+        labels: sl.map(function (x) { return x.k; }),
+        data: sl.map(function (x) { return x.v; }),
+        colors: sl.map(function (x, i) { return colors[i % colors.length]; })
+      };
+    };
+
+    // --- Видимость
+    setText('kpiSqi', fmtNum(T.sqi));
+    if (T.sqiFirst) {
+      setText('kpiSqiGrowth', '+' + (T.sqi - T.sqiFirst.v) + ' с ' + T.sqiFirst.m.slice(0, 4));
+    }
+    setText('kpiSearchable', fmtNum(T.searchable));
+    setText('kpiRecrawl', fmtNum(T.recrawlDaily));
+    mk('dashSqiLine', {
+      type: 'line',
+      data: {
+        labels: T.sqiSeries.map(function (x) { return x.m; }),
+        datasets: [{ label: 'SQI', data: dValues(T.sqiSeries), borderColor: accent, backgroundColor: accentDim, fill: true, tension: 0.3, pointRadius: 0 }]
+      },
+      options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } }, scales: { y: { min: 0, max: 300, grid: { color: 'rgba(42,58,79,0.4)' } }, x: { grid: { display: false }, ticks: { maxTicksLimit: 10 } } } }
+    });
+    (function () {
+      var sl = T.sections.slice().sort(function (a, b) { return b.i - a.i; });
+      mk('dashSectionBar', {
+        type: 'bar',
+        data: {
+          labels: sl.map(function (x) { return x.p; }),
+          datasets: [
+            { label: 'Проиндексировано', data: sl.map(function (x) { return x.i; }), backgroundColor: info, borderRadius: 4 },
+            { label: 'В поиске', data: sl.map(function (x) { return x.s; }), backgroundColor: accent, borderRadius: 4 }
+          ]
+        },
+        options: { responsive: true, maintainAspectRatio: false, indexAxis: 'y', plugins: { legend: { position: 'bottom' } }, scales: { x: { grid: { color: 'rgba(42,58,79,0.4)' } }, y: { grid: { display: false }, ticks: { autoSkip: false } } } }
+      });
+      var tb = document.getElementById('dashSectionBody');
+      if (tb) {
+        tb.innerHTML = sl.map(function (x) {
+          var pct = x.i ? Math.round(x.s / x.i * 100) : 0;
+          return '<tr><td><code>' + esc(x.p) + '</code></td><td>' + fmtNum(x.i) + '</td><td>' + fmtNum(x.s) +
+            '</td><td>' + pct + '%</td></tr>';
+        }).join('');
+      }
+    })();
+    (function () {
+      var codes = {};
+      T.http.forEach(function (h) { codes[h.code] = (codes[h.code] || 0) + 1; });
+      var ks = Object.keys(codes).sort();
+      mk('dashHttpBar', {
+        type: 'doughnut',
+        data: { labels: ks.map(function (k) { return 'HTTP ' + k; }), datasets: [{ data: ks.map(function (k) { return codes[k]; }), backgroundColor: [danger, warn, info, accent, muted, '#9b8cff'], borderWidth: 2, borderColor: '#0a0e14' }] },
+        options: { responsive: true, maintainAspectRatio: false, cutout: '58%', plugins: { legend: { position: 'bottom' } } }
+      });
+      var tb = document.getElementById('dashImportantBody');
+      if (tb) {
+        tb.innerHTML = T.important.map(function (u) {
+          return '<tr><td><code>' + esc(u.url) + '</code></td><td>' + u.code + '</td><td>' + esc(u.status) +
+            '</td><td>' + esc(u.access) + '</td><td>' + esc(u.chg) + '</td></tr>';
+        }).join('');
+      }
+      var eb = document.getElementById('dashEventBody');
+      if (eb) {
+        eb.innerHTML = T.events.map(function (e) {
+          return '<tr><td>' + esc(e.d) + '</td><td>' + esc(e.e) + '</td><td><code>' + esc(e.u) + '</code></td></tr>';
+        }).join('');
+      }
+    })();
+
+    // --- Аудитория
+    setText('kpiVisits', fmtNum(S.visitsTotal));
+    setText('kpiUsers', fmtNum(S.usersTotal));
+    var lastBounce = S.bounce.length ? S.bounce[S.bounce.length - 1].v : 0;
+    setText('kpiBounce', lastBounce + '%');
+    setText('kpiBots', S.bots.share + '%');
+    mk('dashSiteLine', {
+      type: 'line',
+      data: {
+        labels: dLabels(S.monthly),
+        datasets: [
+          { label: 'Визиты', data: dValues(S.monthly), borderColor: accent, backgroundColor: accentDim, fill: true, tension: 0.35, pointRadius: 0 },
+          { label: 'Посетители', data: dValues(S.monthlyUsers), borderColor: info, backgroundColor: 'transparent', fill: false, tension: 0.35, pointRadius: 0 }
+        ]
+      },
+      options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { position: 'bottom' } }, scales: { y: { grid: { color: 'rgba(42,58,79,0.4)' } }, x: { grid: { display: false }, ticks: { maxTicksLimit: 12 } } } }
+    });
+    mk('dashBounceLine', {
+      type: 'line',
+      data: {
+        labels: dLabels(S.bounce),
+        datasets: [{ label: 'Отказы, %', data: dValues(S.bounce), borderColor: warn, backgroundColor: 'transparent', fill: false, tension: 0.3, pointRadius: 0 }]
+      },
+      options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } }, scales: { y: { grid: { color: 'rgba(42,58,79,0.4)' } }, x: { grid: { display: false }, ticks: { maxTicksLimit: 12 } } } }
+    });
+    (function () {
+      var d = kvBars(S.devices, 4);
+      mk('dashDevicesDonut', {
+        type: 'doughnut',
+        data: { labels: d.labels, datasets: [{ data: d.data, backgroundColor: d.colors, borderWidth: 2, borderColor: '#0a0e14' }] },
+        options: { responsive: true, maintainAspectRatio: false, cutout: '60%', plugins: { legend: { position: 'bottom' } } }
+      });
+      var b = kvBars(S.browsers, 8);
+      mk('dashBrowsersBar', {
+        type: 'bar',
+        data: { labels: b.labels, datasets: [{ label: 'Визиты', data: b.data, backgroundColor: b.colors, borderRadius: 4 }] },
+        options: { responsive: true, maintainAspectRatio: false, indexAxis: 'y', plugins: { legend: { display: false } }, scales: { x: { grid: { color: 'rgba(42,58,79,0.4)' } }, y: { grid: { display: false } } } }
+      });
+      var c = kvBars(S.cities, 12);
+      mk('dashCitiesBar', {
+        type: 'bar',
+        data: { labels: c.labels, datasets: [{ label: 'Визиты', data: c.data, backgroundColor: accent, borderRadius: 4 }] },
+        options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } }, scales: { y: { grid: { color: 'rgba(42,58,79,0.4)' } }, x: { grid: { display: false }, ticks: { maxRotation: 60, minRotation: 45 } } } }
+      });
+      var g = kvBars(S.gender, 3);
+      mk('dashGenderDonut', {
+        type: 'doughnut',
+        data: { labels: g.labels.map(function (k) { return k === 'male' ? 'Мужчины' : (k === 'female' ? 'Женщины' : k); }), datasets: [{ data: g.data, backgroundColor: [info, '#9b8cff', muted], borderWidth: 2, borderColor: '#0a0e14' }] },
+        options: { responsive: true, maintainAspectRatio: false, cutout: '60%', plugins: { legend: { position: 'bottom' } } }
+      });
+      var ag = kvBars(S.age, 8);
+      mk('dashAgeBar', {
+        type: 'bar',
+        data: { labels: ag.labels.map(function (k) { return k + ' лет'; }), datasets: [{ label: 'Визиты', data: ag.data, backgroundColor: warn, borderRadius: 4 }] },
+        options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } }, scales: { y: { grid: { color: 'rgba(42,58,79,0.4)' } }, x: { grid: { display: false } } } }
+      });
+      var it = kvBars(S.interests, 10);
+      mk('dashInterestBar', {
+        type: 'bar',
+        data: { labels: it.labels, datasets: [{ label: 'Визиты', data: it.data, backgroundColor: info, borderRadius: 4 }] },
+        options: { responsive: true, maintainAspectRatio: false, indexAxis: 'y', plugins: { legend: { display: false } }, scales: { x: { grid: { color: 'rgba(42,58,79,0.4)' } }, y: { grid: { display: false } } } }
+      });
+      (function () {
+        var series = S.sources || [];
+        var months = [];
+        series.forEach(function (s) {
+          s.data.forEach(function (p) { if (months.indexOf(p.m) < 0) months.push(p.m); });
+        });
+        months.sort();
+        var pal = [accent, info, warn, '#9b8cff', danger];
+        mk('dashSourceLine', {
+          type: 'line',
+          data: {
+            labels: months.map(function (m) { return m.slice(2); }),
+            datasets: series.map(function (s, i) {
+              var bym = {};
+              s.data.forEach(function (p) { bym[p.m] = p.v; });
+              return {
+                label: s.name,
+                data: months.map(function (m) { return bym[m] || 0; }),
+                borderColor: pal[i % pal.length],
+                backgroundColor: 'transparent',
+                fill: false,
+                tension: 0.3,
+                pointRadius: 0
+              };
+            })
+          },
+          options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { position: 'bottom' } }, scales: { y: { grid: { color: 'rgba(42,58,79,0.4)' } }, x: { grid: { display: false }, ticks: { maxTicksLimit: 12 } } } }
+        });
+      })();
+      var refs = kvBars(S.referers, 20);
+      mk('dashRefsBar', {
+        type: 'bar',
+        data: { labels: refs.labels, datasets: [{ label: 'Визиты', data: refs.data, backgroundColor: '#9b8cff', borderRadius: 4 }] },
+        options: { responsive: true, maintainAspectRatio: false, indexAxis: 'y', plugins: { legend: { display: false } }, scales: { x: { grid: { color: 'rgba(42,58,79,0.4)' } }, y: { grid: { display: false }, ticks: { autoSkip: false, font: { size: 10 } } } } }
+      });
+    })();
+
+    // --- Деньги
+    setText('kpiRevenue', fmtNum(M.revenue) + ' ₽');
+    setText('kpiPurchases', fmtNum(M.purchases));
+    setText('kpiGoals', fmtNum(M.goalsActive));
+    setText('kpiAvg', M.purchases ? fmtNum(Math.round(M.revenue / M.purchases)) + ' ₽' : 'нет данных');
+    mk('dashRevLine', {
+      type: 'bar',
+      data: {
+        labels: M.revByMonth.map(function (x) { return x.m; }),
+        datasets: [{ label: 'Выручка, ₽', data: M.revByMonth.map(function (x) { return x.v; }), backgroundColor: accent, borderRadius: 4 }]
+      },
+      options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false }, tooltip: { callbacks: { label: function (c) { return fmtNum(c.raw) + ' ₽'; } } } }, scales: { y: { grid: { color: 'rgba(42,58,79,0.4)' } }, x: { grid: { display: false } } } }
+    });
+    (function () {
+      var t = M.topDays;
+      mk('dashRevDayBar', {
+        type: 'bar',
+        data: { labels: t.map(function (x) { return x.d.slice(5); }), datasets: [{ label: 'Выручка, ₽', data: t.map(function (x) { return x.v; }), backgroundColor: [accent, info, warn, danger, muted, '#9b8cff', '#ff9d6b', '#5ad1e6'], borderRadius: 4 }] },
+        options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false }, tooltip: { callbacks: { label: function (c) { return fmtNum(c.raw) + ' ₽, заказов ' + (t[c.dataIndex].p); } } } }, scales: { y: { grid: { color: 'rgba(42,58,79,0.4)' } }, x: { grid: { display: false } } } }
+      });
+      var gb = document.getElementById('dashGoalBody');
+      if (gb) {
+        gb.innerHTML = M.goals.map(function (g) {
+          return '<tr><td>' + esc(g.n) + '</td><td>' + esc(g.t) + '</td><td>' + esc(g.s) + '</td></tr>';
+        }).join('');
+      }
+      var lp = kvBars(S.landing, 15);
+      mk('dashLandingBar', {
+        type: 'bar',
+        data: { labels: lp.labels, datasets: [{ label: 'Визиты', data: lp.data, backgroundColor: info, borderRadius: 4 }] },
+        options: { responsive: true, maintainAspectRatio: false, indexAxis: 'y', plugins: { legend: { display: false } }, scales: { x: { grid: { color: 'rgba(42,58,79,0.4)' } }, y: { grid: { display: false }, ticks: { font: { size: 10 } } } } }
+      });
+      var ph = kvBars(S.phrases, 20);
+      mk('dashPhraseBar', {
+        type: 'bar',
+        data: { labels: ph.labels, datasets: [{ label: 'Визиты', data: ph.data, backgroundColor: warn, borderRadius: 4 }] },
+        options: { responsive: true, maintainAspectRatio: false, indexAxis: 'y', plugins: { legend: { display: false } }, scales: { x: { grid: { color: 'rgba(42,58,79,0.4)' } }, y: { grid: { display: false }, ticks: { font: { size: 10 } } } } }
+      });
+    })();
+
+    // --- Карточка в Яндекс Картах
+    setText('kpiMapViews', fmtNum(MP.viewsTotal));
+    setText('kpiMapCalls', fmtNum(MP.goals.calls || 0));
+    setText('kpiMapRoutes', fmtNum(MP.goals.routes || 0));
+    setText('kpiMapSite', fmtNum(MP.goals.site || 0));
+    mk('dashMapsLine', {
+      type: 'line',
+      data: {
+        labels: dLabels(MP.monthly),
+        datasets: [{ label: 'Просмотры карточки', data: dValues(MP.monthly), borderColor: info, backgroundColor: 'rgba(77,163,255,0.15)', fill: true, tension: 0.35, pointRadius: 0 }]
+      },
+      options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } }, scales: { y: { grid: { color: 'rgba(42,58,79,0.4)' } }, x: { grid: { display: false }, ticks: { maxTicksLimit: 12 } } } }
+    });
+    (function () {
+      var a = kvBars(MP.actions, 12);
+      mk('dashMapsActionBar', {
+        type: 'bar',
+        data: { labels: a.labels, datasets: [{ label: 'События', data: a.data, backgroundColor: a.colors, borderRadius: 4 }] },
+        options: { responsive: true, maintainAspectRatio: false, indexAxis: 'y', plugins: { legend: { display: false } }, scales: { x: { grid: { color: 'rgba(42,58,79,0.4)' } }, y: { grid: { display: false }, ticks: { font: { size: 10 } } } } }
+      });
+      var e = kvBars(MP.entries, 12);
+      mk('dashMapsEntryBar', {
+        type: 'bar',
+        data: { labels: e.labels, datasets: [{ label: 'Просмотры', data: e.data, backgroundColor: accent, borderRadius: 4 }] },
+        options: { responsive: true, maintainAspectRatio: false, indexAxis: 'y', plugins: { legend: { display: false } }, scales: { x: { grid: { color: 'rgba(42,58,79,0.4)' } }, y: { grid: { display: false }, ticks: { font: { size: 10 } } } } }
+      });
+      var s = kvBars(MP.search, 12);
+      mk('dashMapsSearchBar', {
+        type: 'bar',
+        data: { labels: s.labels, datasets: [{ label: 'Просмотры', data: s.data, backgroundColor: '#9b8cff', borderRadius: 4 }] },
+        options: { responsive: true, maintainAspectRatio: false, indexAxis: 'y', plugins: { legend: { display: false } }, scales: { x: { grid: { color: 'rgba(42,58,79,0.4)' } }, y: { grid: { display: false }, ticks: { font: { size: 10 } } } } }
+      });
+      var so = kvBars(MP.sources, 8);
+      mk('dashMapsSourceDonut', {
+        type: 'doughnut',
+        data: { labels: so.labels, datasets: [{ data: so.data, backgroundColor: so.colors, borderWidth: 2, borderColor: '#0a0e14' }] },
+        options: { responsive: true, maintainAspectRatio: false, cutout: '60%', plugins: { legend: { position: 'bottom' } } }
+      });
+    })();
+  }
+
   // Interactive checklists (quick wins) with localStorage
   var interactiveLists = document.querySelectorAll('.checklist.interactive');
   interactiveLists.forEach(function (list) {

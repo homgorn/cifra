@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Карта в Картах. Цифра18</title>
+<meta name="description" content="Дашборд карточки типографии в Яндекс Картах: просмотры по месяцам, клики позвонить, построенные маршруты, переходы на сайт, источники и поисковые запросы карточки.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/main.css">
+<link rel="stylesheet" href="../css/report.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="header-inner">
+<a class="logo" href="../index.html"><span class="logo-mark">Ц18</span><span>Цифра. Аудит</span></a>
+<nav class="main-nav" id="mainNav">
+      <a class="nav-link" href="../index.html"><span class="nav-indicator"></span>Резюме</a>
+      <a class="nav-link" href="../technical.html"><span class="nav-indicator"></span>Техника</a>      <a class="nav-link" href="../content.html"><span class="nav-indicator"></span>Контент</a>      <a class="nav-link" href="../competitors.html"><span class="nav-indicator"></span>Конкуренты</a>      <a class="nav-link" href="../local.html"><span class="nav-indicator"></span>Регионы</a>      <a class="nav-link" href="../geo.html"><span class="nav-indicator"></span>GEO</a>      <a class="nav-link" href="../knowledge.html"><span class="nav-indicator"></span>База знаний</a>      <a class="nav-link" href="../roadmap.html"><span class="nav-indicator"></span>План</a>
+      <div class="nav-dropdown">
+        <button class="nav-link nav-drop-btn" aria-haspopup="true">Вебмастер <span class="drop-arrow">▾</span></button>
+        <div class="nav-drop-menu">
+          <a href="../wm-overview.html">Сводка Вебмастера <span class="drop-hint">717 URL</span></a>
+          <a href="../wm-indexing.html">Индексация по разделам <span class="drop-hint">6%</span></a>
+          <a href="../wm-queries.html">Запросы и позиции <span class="drop-hint">535</span></a>
+          <a href="../wm-gaps.html">Пробелы контента <span class="drop-hint">топ-10</span></a>
+          <a href="../wm-plan.html">План по Вебмастера <span class="drop-hint">ICE</span></a>
+        </div>
+      </div>
+
+      <div class="nav-dropdown">
+        <button class="nav-link nav-drop-btn active" aria-haspopup="true">Дашборды <span class="drop-arrow">▾</span></button>
+        <div class="nav-drop-menu">
+          <a href="../dash-visibility.html">Видимость <span class="drop-hint">SQI 220</span></a>
+          <a href="../dash-audience.html">Аудитория <span class="drop-hint">21 110 визитов</span></a>
+          <a href="../dash-money.html">Деньги <span class="drop-hint">e-commerce</span></a>
+          <a href="../dash-maps.html" class="active">Карта в Яндекс Картах <span class="drop-hint">409 звонков</span></a>
+        </div>
+      </div>
+
+      <div class="nav-dropdown">
+        <button class="nav-link nav-drop-btn" aria-haspopup="true">Еще <span class="drop-arrow">▾</span></button>
+        <div class="nav-drop-menu">
+          <a href="../prices.html">Цены и сравнения</a>
+          <a href="../season.html">Сезонный календарь</a>
+          <a href="../marketing.html">Маркетинг план</a>
+          <a href="../methodology.html">Методика</a>
+        </div>
+      </div>
+    </nav>
+    <button class="mobile-menu-btn" id="menuBtn" aria-label="Меню">Меню</button>
+  </div>
+</header>
+<main class="page">
+<div class="container container-wide">
+<div class="report-layout">
+<aside class="sidebar">
+  <div class="sidebar-title">На этой странице</div>
+  <nav class="sidebar-nav">
+    <a class="sidebar-link active" href="#maps"><span class="link-number">1</span>Просмотры карточки</a>
+    <a class="sidebar-link" href="#actions"><span class="link-number">2</span>Действия в карточке</a>
+    <a class="sidebar-link" href="#maps-search"><span class="link-number">3</span>Поиск и источники</a>
+  </nav>
+</aside>
+<div>
+  <div class="page-title-block animate-slide-up">
+    <div class="page-kicker">Страница 26 из 26 • Дашборды</div>
+    <h1>Карточка в Яндекс Картах: просмотры, звонки, маршруты</h1>
+    <p>Карточка в Яндекс Картах работает как отдельный канал: показывает больше просмотров, чем сайт, и даёт звонки. Здесь её собственные цифры, ранее смешанные с трафиком сайта.</p>
+  </div>
+
+  <section id="maps" data-section>
+    <h2>Карточка в Яндекс Картах</h2>
+  <div class="grid grid-4 metric-grid">
+    <div class="card metric-card animate-slide-up">
+      <div class="metric-value"><span id="kpiMapViews">-</span></div>
+      <div class="metric-label">Просмотров карточки</div>
+      <div class="metric-delta neutral">счётчик карточки</div>
+    </div>
+    <div class="card metric-card animate-slide-up delay-1">
+      <div class="metric-value"><span id="kpiMapCalls">-</span></div>
+      <div class="metric-label">Кликов позвонить</div>
+      <div class="metric-delta neutral">из карточки</div>
+    </div>
+    <div class="card metric-card animate-slide-up delay-2">
+      <div class="metric-value"><span id="kpiMapRoutes">-</span></div>
+      <div class="metric-label">Построено маршрутов</div>
+      <div class="metric-delta neutral">из карточки</div>
+    </div>
+    <div class="card metric-card animate-slide-up delay-3">
+      <div class="metric-value"><span id="kpiMapSite">-</span></div>
+      <div class="metric-label">Переходов на сайт</div>
+      <div class="metric-delta neutral">из карточки</div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header"><div><div class="card-title">Просмотры карточки по месяцам</div><div class="card-subtitle">счётчик карточки в Яндекс Картах</div></div></div>
+    <div class="card-body"><div class="chart-container" style="height:320px"><canvas id="dashMapsLine"></canvas></div></div>
+  </div>
+  </section>
+
+  <section id="actions" data-section style="margin-top:2.5rem;">
+    <h2>Действия в карточке</h2>
+  <div class="card">
+    <div class="card-header"><div><div class="card-title">Звонки, маршруты, переходы</div><div class="card-subtitle">события целей карточки</div></div></div>
+    <div class="card-body"><div class="chart-container" style="height:300px"><canvas id="dashMapsActionBar"></canvas></div></div>
+  </div>
+  <div class="card">
+    <div class="card-header"><div><div class="card-title">Откуда смотрят карточку, топ-12</div><div class="card-subtitle">страницы входа счётчика карточки</div></div></div>
+    <div class="card-body"><div class="chart-container" style="height:380px"><canvas id="dashMapsEntryBar"></canvas></div></div>
+  </div>
+  </section>
+
+  <section id="maps-search" data-section style="margin-top:2.5rem;">
+    <h2>Поиск и источники карточки</h2>
+  <div class="card">
+    <div class="card-header"><div><div class="card-title">Поисковые запросы карточки, топ-12</div><div class="card-subtitle">как ищут типографию в Картах</div></div></div>
+    <div class="card-body"><div class="chart-container" style="height:340px"><canvas id="dashMapsSearchBar"></canvas></div></div>
+  </div>
+  <div class="card">
+    <div class="card-header"><div><div class="card-title">Источники переходов в карточку</div><div class="card-subtitle">по просмотрам</div></div></div>
+    <div class="card-body"><div class="chart-container" style="height:300px"><canvas id="dashMapsSourceDonut"></canvas></div></div>
+  </div>
+    <div class="callout"><div class="callout-title">Почему это важно</div><p>Карточка в Картах даёт больше просмотров, чем сайт, и из неё идут звонки. Раньше эти данные попадали в отчёт как «визиты сайта», из-за чего картина трафика была неверной: 70% отказов в отчёте belonged карточке, а не сайту.</p></div>
+  </section>
+
+</div>
+</div>
+</div>
+</main>
+
+<div class="pager"><a href="../dash-money.html"><span class="pager-label">Назад</span><span class="pager-title">Деньги</span></a></div>
+<footer class="site-footer">
+  <div class="container container-wide">
+    <div class="footer-grid">
+      <div class="footer-brand"><a class="logo" href="../index.html"><span class="logo-mark">Ц18</span><span>Цифра. Аудит</span></a><p>Отчет по продвижению цифра18.рф. Техника, контент, конкуренты, регионы, GEO, Вебмастер, дашборды. Сентябрь 2026.</p></div>
+      <div class="footer-nav"><h4>Отчет</h4><ul><li><a href="../index.html">Резюме</a></li><li><a href="../technical.html">Техника</a></li><li><a href="../content.html">Контент</a></li><li><a href="../roadmap.html">План</a></li></ul></div>
+      <div class="footer-nav"><h4>Анализ</h4><ul><li><a href="../competitors.html">Конкуренты</a></li><li><a href="../local.html">Регионы</a></li><li><a href="../geo.html">GEO</a></li><li><a href="../knowledge.html">База знаний</a></li></ul></div>
+      <div class="footer-nav"><h4>Вебмастер</h4><ul><li><a href="../wm-overview.html">Сводка</a></li><li><a href="../wm-queries.html">Запросы</a></li><li><a href="../wm-gaps.html">Пробелы</a></li><li><a href="../wm-plan.html">План</a></li></ul></div>
+      <div class="footer-nav"><h4>Дашборды</h4><ul><li><a href="../dash-visibility.html">Видимость</a></li><li><a href="../dash-audience.html">Аудитория</a></li><li><a href="../dash-money.html">Деньги</a></li><li><a href="../dash-maps.html">Карта в Картах</a></li></ul></div>
+      <div class="footer-nav"><h4>Файлы</h4><ul><li><a href="../methodology.html">Методика</a></li><li><a href="../season.html">Сроки</a></li><li><a href="../roadmap.html">Наверх</a></li></ul></div>
+    </div>
+    <div class="footer-bottom"><span>Цифра18 • Ижевск • сентябрь 2026</span><span>Страница 26 из 26 • Карта в Картах</span></div>
+  </div>
+</footer>
+<script src="../js/vendor/chart.umd.min.js"></script>
+<script>if(typeof Chart==="undefined"){document.write("<script src='https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js'><\/script>")}</script>
+<script src="../js/wm-data.js"></script>
+<script src="../js/site-data.js"></script>
+<script src="../js/dash-data.js"></script>
+<script src="../js/main.js"></script>
+</body>
+</html>
+

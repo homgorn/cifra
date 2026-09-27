@@ -45,7 +45,9 @@ EXPECTED_PAGES = ["index.html"] + sorted(
      "knowledge.html", "roadmap.html", "prices.html", "season.html", "marketing.html",
      "methodology.html", "wm-overview.html", "wm-indexing.html", "wm-duplicates.html",
      "wm-errors.html", "wm-redirects.html", "wm-queries.html", "wm-clusters.html",
-     "wm-gaps.html", "wm-links.html", "wm-plan.html"])
+     "wm-gaps.html", "wm-links.html", "wm-plan.html",
+     "dash-visibility.html", "dash-audience.html", "dash-money.html", "dash-maps.html"])
+TOTAL_PAGES = len(EXPECTED_PAGES)
 
 # 1. files exist
 missing = []
@@ -54,13 +56,13 @@ for p in EXPECTED_PAGES:
     if not os.path.isfile(full):
         missing.append(p)
 for asset in ["css/main.css", "css/report.css", "js/main.js", "js/wm-data.js",
-               "js/site-data.js", "js/vendor/chart.umd.min.js"]:
+              "js/site-data.js", "js/dash-data.js", "js/vendor/chart.umd.min.js"]:
     if not os.path.isfile(os.path.join(SITE, asset)):
         missing.append(asset)
 if missing:
     fail("missing files: %s" % missing)
 else:
-    ok("22 html + 6 assets present")
+    ok("%d html + 7 assets present" % TOTAL_PAGES)
 
 
 def read(p):
@@ -145,13 +147,15 @@ for p, h in html.items():
     nav = h.split("</nav>")[0]
     if "wm-overview.html" not in nav:
         fail("no Вебмастер dropdown in nav: %s" % p)
-    if " из 22" not in h:
-        fail("footer/kicker not 'из 22': %s" % p)
-    if " из 12" in h or " из 23" in h:
+    if "dash-visibility.html" not in nav:
+        fail("no Дашборды dropdown in nav: %s" % p)
+    if (" из %d" % TOTAL_PAGES) not in h:
+        fail("footer/kicker not 'из %d': %s" % (TOTAL_PAGES, p))
+    if " из 22" in h or " из 12" in h or " из 23" in h:
         fail("stale numbering in: %s" % p)
 nums = {}
 for p, h in html.items():
-    m = re.search(r"Страница (\d+) из 22", h)
+    m = re.search(r"Страница (\d+) из %d" % TOTAL_PAGES, h)
     if not m:
         fail("no page number: %s" % p)
     else:
@@ -159,11 +163,11 @@ for p, h in html.items():
 dupes = {k: v for k, v in nums.items() if len(v) > 1}
 if dupes:
     fail("duplicate page numbers: %s" % dupes)
-missing_nums = [n for n in range(1, 23) if n not in nums]
+missing_nums = [n for n in range(1, TOTAL_PAGES + 1) if n not in nums]
 if missing_nums:
     fail("missing page numbers: %s" % missing_nums)
 if not dupes and not missing_nums:
-    ok("numbering 1-22 contiguous, nav+footer everywhere")
+    ok("numbering 1-%d contiguous, nav+footer everywhere" % TOTAL_PAGES)
 
 # 8. local server 200
 class Quiet(SimpleHTTPRequestHandler):
@@ -177,7 +181,7 @@ t = threading.Thread(target=server.serve_forever, daemon=True)
 t.start()
 bad = []
 urls = ["index.html", "css/main.css", "css/report.css", "js/main.js", "js/wm-data.js",
-        "js/site-data.js", "js/vendor/chart.umd.min.js"]
+        "js/site-data.js", "js/dash-data.js", "js/vendor/chart.umd.min.js"]
 urls += ["pages/" + p for p in EXPECTED_PAGES if p != "index.html"]
 for u in urls:
     try:
