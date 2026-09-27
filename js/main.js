@@ -425,7 +425,7 @@
       }).join('');
     })();
 
-    // wm-clusters: queries per cluster + coverage
+    // wm-clusters: queries per cluster + pages of that section in search
     mk('wmClusterBar', {
       type: 'bar',
       data: {
@@ -434,13 +434,17 @@
       },
       options: { indexAxis: 'y', responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false }, tooltip: { callbacks: { label: function (c) { return c.raw + ' запросов'; } } } }, scales: { x: { grid: { color: 'rgba(42,58,79,0.4)' } }, y: { grid: { display: false } } } }
     });
+    // Второй график показывает реальные страницы раздела в поиске, а не
+    // вычисленное покрытие. Прежняя доля «% запросов с целевой страницей»
+    // всегда была 100%: цель назначалась по кластеру автоматически, и
+    // метрика измеряла работу классификатора, а не состояние сайта.
     mk('wmCoverageBar', {
       type: 'bar',
       data: {
         labels: W.clusters.map(function (c) { return c.name; }),
-        datasets: [{ data: W.clusters.map(function (c) { return c.coverage; }), backgroundColor: W.clusters.map(function (c) { return c.coverage >= 60 ? accent : (c.coverage >= 40 ? warn : danger); }), borderRadius: 6 }]
+        datasets: [{ data: W.clusters.map(function (c) { return c.pages; }), backgroundColor: W.clusters.map(function (c) { return c.pages === 0 ? danger : (c.pages < c.queries / 8 ? warn : accent); }), borderRadius: 6 }]
       },
-      options: { indexAxis: 'y', responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false }, tooltip: { callbacks: { label: function (c) { return c.raw + '% запросов с целевой страницей'; } } } }, scales: { x: { min: 0, max: 100, grid: { color: 'rgba(42,58,79,0.4)' } }, y: { grid: { display: false } } } }
+      options: { indexAxis: 'y', responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false }, tooltip: { callbacks: { label: function (c) { return c.raw === 0 ? 'страниц в поиске нет' : c.raw + ' страниц в поиске'; } } } }, scales: { x: { beginAtZero: true, grid: { color: 'rgba(42,58,79,0.4)' }, ticks: { precision: 0 } }, y: { grid: { display: false } } } }
     });
 
     // wm-clusters: table
@@ -448,8 +452,12 @@
       var tb = document.getElementById('wmClusterBody');
       if (!tb) return;
       tb.innerHTML = W.clusters.map(function (c) {
-        var badge = c.coverage >= 60 ? 'badge-success' : (c.coverage >= 40 ? 'badge-warning' : 'badge-danger');
-        return '<tr><td><strong>' + esc(c.name) + '</strong></td><td>' + c.queries + '</td><td>' + c.avg + '</td><td>' + c.top10 + '%</td><td>' + c.pages + '</td><td><span class="badge ' + badge + '">' + c.coverage + '%</span></td></tr>';
+        var status, badge;
+        if (!c.target) { status = 'нужна страница'; badge = 'badge-danger'; }
+        else if (c.pages === 0) { status = 'в поиске нет'; badge = 'badge-danger'; }
+        else if (c.pages < c.queries / 8) { status = 'тонко'; badge = 'badge-warning'; }
+        else { status = 'нормально'; badge = 'badge-success'; }
+        return '<tr><td><strong>' + esc(c.name) + '</strong></td><td>' + c.queries + '</td><td>' + c.avg + '</td><td>' + c.top10 + '%</td><td>' + c.pages + '</td><td><span class="badge ' + badge + '">' + status + '</span></td></tr>';
       }).join('');
     })();
 

@@ -239,7 +239,7 @@ h2:hover .section-anchor, h3:hover .section-anchor { opacity: 1; }
 .search-panel {
   position: fixed;
   inset: 0;
-  background: rgba(5, 8, 12, 0.86);
+  background: var(--overlay-bg);
   backdrop-filter: blur(6px);
   z-index: 200;
   padding: 12vh var(--space-5) var(--space-5);
@@ -269,6 +269,14 @@ h2:hover .section-anchor, h3:hover .section-anchor { opacity: 1; }
   outline: none;
 }
 .search-input::placeholder { color: var(--color-fg-subtle); }
+/* Системный крестик в type="search" рисуется синим и выбивается из палитры.
+   Свою очистку не делаем: поле закрывается по Esc или повторному нажатию. */
+.search-input::-webkit-search-cancel-button,
+.table-filter::-webkit-search-cancel-button,
+.table-filter::-webkit-search-decoration {
+  -webkit-appearance: none;
+  appearance: none;
+}
 .search-close {
   font-family: var(--font-mono);
   font-size: var(--text-xs);

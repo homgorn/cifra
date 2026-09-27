@@ -92,25 +92,21 @@
   --z-sticky: 200;
   --z-modal: 300;
   --z-toast: 400;
+
+  /* Полупрозрачные поверхности. Держать здесь, а не писать литералом
+     в компонентах: литерал не меняется вместе с темой и ломает контраст.
+     Ошибка 2026-09-27: шапка была rgba(10, 14, 20, 0.9), тело брало
+     var(--color-bg), и при светлой схеме ОС логотип становился нечитаемым. */
+  --surface-header: rgba(10, 14, 20, 0.9);
+  --overlay-bg: rgba(5, 8, 12, 0.86);
+  --gradient-card: linear-gradient(135deg, #1e2a3a, #2a3a4f);
 }
 
-/* Light mode (optional) */
-@media (prefers-color-scheme: light) {
-  :root {
-    --color-bg: #f8fafc;
-    --color-bg-elevated: #ffffff;
-    --color-bg-card: #ffffff;
-    --color-border: #e2e8f0;
-    --color-border-light: #cbd5e1;
-    --color-fg: #0f172a;
-    --color-fg-muted: #475569;
-    --color-fg-subtle: #94a3b8;
-    --color-accent: #00a884;
-    --color-accent-dim: #009675;
-    --color-accent-bg: rgba(0, 168, 132, 0.1);
-    --color-accent-border: rgba(0, 168, 132, 0.2);
-  }
-}
+/* Тема одна, тёмная, намеренно.
+   Светлый вариант не включён намеренно: цвета графиков заданы в main.js
+   от тёмной палитры (сетка rgba(42,58,79), обводка легенды #0a0e14),
+   поэтому светлая схема ОС давала светлое тело с тёмной шапкой.
+   Тема переключается одной переменной --color-bg и её парами, а не системой ОС. */
 
 /* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
@@ -229,7 +225,7 @@ pre code {
   top: 0;
   z-index: var(--z-sticky);
   height: var(--header-height);
-  background: rgba(10, 14, 20, 0.9);
+  background: var(--surface-header);
   backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--color-border);
   transition: background var(--transition-base), border-color var(--transition-base);
