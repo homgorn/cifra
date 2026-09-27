@@ -39,10 +39,18 @@ node scripts/export/smoke_wm_js.js         # smoke графиков и табл�
 
 ## Деплой сайта
 
+Деплоит GitHub Actions из ветки `main` (Settings → Pages → Source: GitHub Actions).
+Локально достаточно запустить:
+
 ```bat
-rem GitHub Pages (нужен remote origin + доступ на запись)
-deploy_github_pages.bat
+deploy_github_pages.bat                        REM push в origin main
+deploy_github_pages.bat --login                REM вход браузером, без токена
+deploy_github_pages.bat <repo-url>             REM сменить remote
 ```
+
+Дальше Actions сам валидирует сайт и публикует его на
+`https://homgorn.github.io/cifra/`. Секрет `YANDEX_OAUTH_TOKEN` в
+Settings → Secrets → Actions нужен еженедельной выгрузке (ротация раз в ~180 дней).
 
 ## SDD
 

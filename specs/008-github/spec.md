@@ -13,21 +13,34 @@
 - Локально: `git init`, `.gitignore` (секреты, `data/exports/`, `*.db`, `*.rar`,
   большой PDF), `.gitattributes`, ветка `main`, первый коммит (done).
 - `README.md` — лицо репозитория (done).
-- `deploy_github_pages.bat` — push main + subtree push сайта в `gh-pages` (done, проверен без remote).
-- `.github/workflows/weekly-refresh.yml` — cron Пн 06:00 UTC + ручной запуск:
-  экспорты API → пересборка данных → валидация → коммит → деплой Pages
-  официальными экшенами (done, ждёт прогона в облаке).
+- `deploy_github_pages.bat` — один деплой-путь: проверка чистоты дерева, fetch,
+  rebase при отсутствии общей истории, push main, при неудаче авторизации вход
+  браузером (done, проверен: dirty-guard, usage, auth-fail).
+- `.github/workflows/weekly-refresh.yml` — триггеры `push` в `main`, cron Пн 06:00
+  UTC, ручной запуск. На push: только валидация и деплой. На расписании: экспорт
+  API → пересборка → валидация → коммит → деплой официальными экшенами
+  (`configure-pages`, `upload-pages-artifact`, `deploy-pages`), commit из
+  `refresh` не плодит цикл (done, YAML провалидирован).
 - Секреты Actions: `YANDEX_OAUTH_TOKEN` (+ client id/secret), ротация ~180 дней.
+
+## Решение по двум путям деплоя
+
+Ветка `gh-pages` и официальные экшены дублировали публикацию. Оставлен один путь:
+Actions публикует из `main`, батник только пушит. Иначе сайт может разъехаться
+между двумя источниками, а диагностика «почему старая версия» станет невозможной.
 
 ## Вне скоупа
 
 - Issues как трекер (спеки живут в `specs/`; перенос — по запросу).
-- Приватность: репозиторий можно сделать private — Pages работает и на нём.
+- Приватность: репозиторий private, Pages с ним работает, но публичной ссылки
+  на исходники не будет.
 
 ## Критерии приёмки
 
 - [x] Коммит без секретов и без `data/exports/`, дерево чистое
-- [x] Батник проверен (usage + exit 2)
-- [ ] Remote добавлен, push main прошёл
-- [ ] Pages включены, сайт открывается по `https://USER.github.io/REPO/`
+- [x] Батник проверен (dirty-guard exit 4, usage exit 2)
+- [x] Один путь деплоя, YAML валиден
+- [ ] Авторизация push (вход браузером или рабочий PAT)
+- [ ] Push main прошёл
+- [ ] Pages включены (Source: GitHub Actions), сайт открывается
 - [ ] Первый прогон Actions зелёный
