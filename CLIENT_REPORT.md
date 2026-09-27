@@ -267,7 +267,7 @@
 - `01_Methodology.md` — методология по справке Яндекс.Вебмастера
 - `02_Page_Analysis.md` — детальный разбор 717 страниц
 - `03_Query_Analysis.md` — 535 запросов, позиции, кластеры
-- `04_Semantic_Clusters.md` — 8 кластеров L1, иерархия L2/L3
+- `04_Semantic_Clusters.md` — 22 группы L1, иерархия L2/L3
 - `05_Knowledge_Graph.md` — 85 энтити, JSON-LD, llms.txt
 - `06_Content_Gaps.md` — 200+ пробелов с приоритетами
 - `07_Landing_Page_Plan.md` — 30 лендингов, SEO-шаблоны, брифы

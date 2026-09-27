@@ -260,6 +260,19 @@ if r.returncode != 0:
 else:
     ok("layout: canvases sized, no overflow, no JS errors, both schemes")
 
+# 12. числа кластеров в документах совпадают с данными. На сайте числа
+# считаются скриптом, а в плане и клиентском отчёте были зашиты руками:
+# после расширения классификатора с 8 групп до 22 там осталось «8 групп».
+r = subprocess.run([sys.executable, "scripts/export/sync_cluster_counts.py", "--check"],
+                   cwd=ROOT, capture_output=True, text=True,
+                   encoding="utf-8", errors="replace")
+if r.returncode != 0:
+    fail("stale cluster counts in docs: %s"
+         % " | ".join([ln.strip() for ln in (r.stdout or "").splitlines()
+                       if ln.startswith("FAIL")][:2]))
+else:
+    ok("doc counts: cluster numbers match wm-data.js")
+
 print("---")
 if fails:
     print("VALIDATION FAILED: %d problem(s)" % len(fails))
