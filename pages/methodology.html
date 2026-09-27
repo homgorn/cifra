@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Методика. Цифра18</title>
+<meta name="description" content="Как проводился аудит цифра18.рф: инструменты, даты, ограничения, как перепроверить.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/main.css">
+<link rel="stylesheet" href="../css/report.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="header-inner">
+    <a class="logo" href="../index.html"><span class="logo-mark">Ц18</span><span>Цифра. Аудит</span></a>
+    <nav class="main-nav" id="mainNav">
+      <a class="nav-link" href="../index.html"><span class="nav-indicator"></span>Резюме</a>
+      <a class="nav-link" href="technical.html"><span class="nav-indicator"></span>Техника</a>
+      <a class="nav-link" href="content.html"><span class="nav-indicator"></span>Контент</a>
+      <a class="nav-link" href="competitors.html"><span class="nav-indicator"></span>Конкуренты</a>
+      <a class="nav-link" href="local.html"><span class="nav-indicator"></span>Регионы</a>
+      <a class="nav-link" href="geo.html"><span class="nav-indicator"></span>GEO</a>
+      <a class="nav-link" href="knowledge.html"><span class="nav-indicator"></span>База знаний</a>
+      <a class="nav-link" href="roadmap.html"><span class="nav-indicator"></span>План</a>
+      <div class="nav-dropdown">
+        <button class="nav-link nav-drop-btn" aria-haspopup="true">Вебмастер <span class="drop-arrow">▾</span></button>
+        <div class="nav-drop-menu">
+          <a href="wm-overview.html">Сводка Вебмастера <span class="drop-hint">717 URL</span></a>
+          <a href="wm-indexing.html">Индексация по разделам <span class="drop-hint">6%</span></a>
+          <a href="wm-duplicates.html">Дубли <span class="drop-hint">128</span></a>
+          <a href="wm-errors.html">Ошибки и качество <span class="drop-hint">286</span></a>
+          <a href="wm-redirects.html">Редиректы <span class="drop-hint">89</span></a>
+          <a href="wm-queries.html">Запросы и позиции <span class="drop-hint">535</span></a>
+          <a href="wm-clusters.html">Кластеры <span class="drop-hint">8 групп</span></a>
+          <a href="wm-gaps.html">Пробелы контента <span class="drop-hint">топ-10</span></a>
+          <a href="wm-links.html">Внутренние ссылки <span class="drop-hint">62 битых</span></a>
+          <a href="wm-plan.html">План по Вебмастеру <span class="drop-hint">ICE</span></a>
+        </div>
+      </div>
+      <div class="nav-dropdown">
+        <button class="nav-link nav-drop-btn active" aria-haspopup="true">Еще <span class="drop-arrow">▾</span></button>
+        <div class="nav-drop-menu">
+          <a href="prices.html">Цены и сравнения <span class="drop-hint">50 точек</span></a>
+          <a href="season.html">Сезонный календарь <span class="drop-hint">год</span></a>
+          <a href="marketing.html">Маркетинг план <span class="drop-hint">KPI</span></a>
+          <a href="methodology.html" class="active">Методика <span class="drop-hint">как считал</span></a>
+        </div>
+      </div>
+    </nav>
+    <button class="mobile-menu-btn" id="menuBtn" aria-label="Меню">Меню</button>
+  </div>
+</header>
+<main class="page">
+<div class="container container-wide">
+<div class="report-layout">
+<aside class="sidebar">
+  <div class="sidebar-title">На этой странице</div>
+  <nav class="sidebar-nav">
+    <a class="sidebar-link active" href="#how"><span class="link-number">1</span>Как смотрел</a>
+    <a class="sidebar-link" href="#limits"><span class="link-number">2</span>Паспорт сайта</a>
+    <a class="sidebar-link" href="#access"><span class="link-number">3</span>Доступы</a>
+    <a class="sidebar-link" href="#glossary"><span class="link-number">4</span>Глоссарий Вебмастера</a>
+    <a class="sidebar-link" href="#recheck"><span class="link-number">5</span>Как перепроверить</a>
+  </nav>
+</aside>
+<div>
+  <div class="page-title-block animate-slide-up">
+    <div class="page-kicker">Страница 9 из 22 • Методика</div>
+    <h1>Как проводилась проверка</h1>
+    <p>Чтобы отчету можно было доверять, ниже раскрыты инструменты, даты и ограничения. Все цифры воспроизводятся по шагам, методология статусов приведена по справке Вебмастера.</p>
+  </div>
+  <section id="how" data-section>
+    <h2>Инструменты и даты</h2>
+    <div class="table-wrapper"><table>
+      <thead><tr><th>Что</th><th>Чем</th><th>Когда</th><th>Результат</th></tr></thead>
+      <tbody>
+        <tr><td>Обход сайта</td><td>Скрипт seo_audit.py, ручной просмотр</td><td>12 сентября вечером</td><td>88 услуг, 5 блокеров, legacy адреса карты в robots.txt отдают 404 (актуальная карта подключена в панели Вебмастера)</td></tr>
+        <tr><td>Скорость и картинки</td><td>Chrome DevTools, замер 15 картинок</td><td>12 сентября</td><td>GIF 3.4 МБ, 11 из 15 тяжелее 200 КБ</td></tr>
+        <tr><td>Конкуренты</td><td>Ручной просмотр 17 сайтов, 2ГИС отзывы</td><td>12-13 сентября</td><td>Таблица сравнения, уровни угроз</td></tr>
+        <tr><td>Семантика</td><td>Подсказки Яндекса, без платных баз</td><td>13 сентября</td><td>6 кластеров, структуры страниц</td></tr>
+        <tr><td>Вебмастер</td><td>Экспорты панели: страницы, запросы, ссылки</td><td>23 сентября</td><td>717 URL, 535 запросов, 134 ссылки, 10 страниц разбора</td></tr>
+        <tr><td>GEO</td><td>Ручные промпты в ChatGPT и Perplexity, 50 запросов</td><td>13 сентября</td><td>Упоминаний около 2%</td></tr>
+        <tr><td>База знаний</td><td>Скрипты combine и extract, валидация</td><td>13 сентября</td><td>239 сущностей, 387 связей</td></tr>
+      </tbody>
+    </table></div>
+  </section>
+  <section id="limits" data-section style="margin-top:2.5rem;">
+    <h2>Паспорт сайта, что зафиксировано</h2>
+    <p>Все ниже снято 12 сентября напрямую со страниц и кода.</p>
+    <div class="table-wrapper"><table>
+      <thead><tr><th>Параметр</th><th>Значение</th></tr></thead>
+      <tbody>
+        <tr><td>Домен</td><td>цифра18.рф, Битрикс 23.300, шаблон cifra_new</td></tr>
+        <tr><td>Компания</td><td>ИП Данилов К. Л., ИНН 182501416864</td></tr>
+        <tr><td>Адрес</td><td>426069, Ижевск, ул. 7-я Подлесная, 34</td></tr>
+        <tr><td>Телефоны</td><td>+7 (965) 842-32-41, +7 (3412) 32-32-41</td></tr>
+        <tr><td>Почта</td><td>izhcifra@yandex.ru</td></tr>
+        <tr><td>Счетчик</td><td>Яндекс.Метрика 50863157, ecommerce через dataLayer</td></tr>
+        <tr><td>Каталог</td><td>7 разделов, 93 подкатегории: полиграфия 28, сувенирка 28, инженерка 5, широкоформат 10, стенды 5, интерьер 6, мобильные стенды 11</td></tr>
+        <tr><td>Блог</td><td>22 статьи, последняя 17.07.26, часть ссылок отдает 404</td></tr>
+        <tr><td>Карта сайта</td><td>Подключена в панели Вебмастера, 23 legacy адреса /shop/ в robots.txt отдают 404 и подлежат удалению</td></tr>
+      </tbody>
+    </table></div>
+  </section>
+
+  <section id="access" data-section style="margin-top:2.5rem;">
+    <h2>Недостающие данные и доступы</h2>
+    <div class="callout warn"><div class="callout-title">Принято: только Яндекс, без Google</div><p>Search Console не используется, направление закрывают Вебмастер Яндекса и Топвизор. Этого достаточно для Ижевска и регионов, где Яндекс дает больше половины спроса. Точный трафик, позиции и заявки не приводятся до доступов, дается структура проблем и прогноз вилкой.</p></div>
+    <div class="table-wrapper"><table>
+      <thead><tr><th>Данные</th><th>Зачем</th><th>Статус</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Яндекс.Метрика</strong></td><td>Реальный трафик, источники, цели, база роста</td><td><span class="badge badge-warning">Нужен доступ</span></td></tr>
+        <tr><td><strong>Яндекс.Вебмастер</strong></td><td>Индексация, ошибки, запросы, переобход</td><td><span class="badge badge-warning">Нужен доступ</span></td></tr>
+        <tr><td><strong>Топвизор</strong></td><td>Позиции, конкуренты, динамика по неделям</td><td><span class="badge badge-warning">Нужен доступ</span></td></tr>
+        <tr><td><strong>CRM или заявки</strong></td><td>Настоящий ROI, а не только трафик</td><td><span class="badge badge-info">По возможности</span></td></tr>
+        <tr><td><strong>Search Console</strong></td><td>Не используем по договоренности</td><td><span class="badge badge-neutral">Не нужен</span></td></tr>
+      </tbody>
+    </table></div>
+    <ul class="checklist" style="margin-top:1.25rem;">
+      <li><span class="checkbox done">✓</span><span>Техника, контент, конкуренты, GEO проверены и воспроизводятся</span></li>
+    </ul>
+  </section>
+  <section id="glossary" data-section style="margin-top:2.5rem;">
+    <h2>Глоссарий статусов Вебмастера</h2>
+    <p>Значения статусов приведены по справке Яндекс.Вебмастера. Именно эти статусы используются на десяти страницах раздела.</p>
+    <div class="table-wrapper"><table>
+      <thead><tr><th>Статус</th><th>Значение</th><th>Действие</th></tr></thead>
+      <tbody>
+        <tr><td><span class="badge badge-success">SEARCHABLE</span></td><td>Страница в поиске</td><td>Поддерживать, улучшать сниппеты</td></tr>
+        <tr><td><span class="badge badge-danger">DUPLICATE</span></td><td>Дубль уже проиндексированной страницы</td><td>Канонический адрес или 301 редирект</td></tr>
+        <tr><td><span class="badge badge-danger">PARSE_ERROR</span></td><td>Робот скачал, но не разобрал контент</td><td>Проверка HTML, кодировки, доступности ресурсов</td></tr>
+        <tr><td><span class="badge badge-danger">HTTP_ERROR</span></td><td>Ошибка сервера при обходе</td><td>Логи сервера, мониторинг доступности</td></tr>
+        <tr><td><span class="badge badge-warning">REDIRECT_NOTSEARCHABLE</span></td><td>Редирект, в поиске цель</td><td>Проверка цели, устранение цепочек</td></tr>
+        <tr><td><span class="badge badge-warning">BAD_QUALITY</span></td><td>Исключена алгоритмом качества</td><td>Глубокая переработка контента</td></tr>
+        <tr><td><span class="badge badge-info">LOW_DEMAND</span></td><td>Низкий спрос по оценке алгоритма</td><td>Уникальность, польза, переобход</td></tr>
+        <tr><td><span class="badge badge-info">OTHER</span></td><td>Нет актуальных данных у робота</td><td>Запрос переобхода</td></tr>
+      </tbody>
+    </table></div>
+  </section>
+  <section id="recheck" data-section style="margin-top:2.5rem;">
+    <h2>Как перепроверить за 15 минут</h2>
+    <p>Откройте robots.txt, скопируйте строки Sitemap и откройте каждую. Откройте главную, посмотрите исходный код: найдите meta description и посчитайте теги h1. Откройте DevTools, вкладка Network, перезагрузите и посмотрите вес картинок. Все сойдется с отчетом.</p>
+    <div class="pager"><a href="wm-plan.html"><span class="pager-label">Назад</span><span class="pager-title">План по Вебмастеру</span></a><a href="../index.html" style="text-align:right;"><span class="pager-label">В начало</span><span class="pager-title">Резюме</span></a></div>
+  </section>
+</div>
+</div>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="container container-wide">
+    <div class="footer-grid">
+      <div class="footer-brand"><a class="logo" href="../index.html"><span class="logo-mark">Ц18</span><span>Цифра. Аудит</span></a><p>Отчет по продвижению цифра18.рф. Техника, контент, конкуренты, регионы, GEO, Вебмастер. Сентябрь 2026.</p></div>
+      <div class="footer-nav"><h4>Отчет</h4><ul><li><a href="../index.html">Резюме</a></li><li><a href="technical.html">Техника</a></li><li><a href="content.html">Контент</a></li><li><a href="roadmap.html">План</a></li></ul></div>
+      <div class="footer-nav"><h4>Анализ</h4><ul><li><a href="competitors.html">Конкуренты</a></li><li><a href="local.html">Регионы</a></li><li><a href="geo.html">GEO</a></li><li><a href="knowledge.html">База знаний</a></li></ul></div>
+      <div class="footer-nav"><h4>Вебмастер</h4><ul><li><a href="wm-overview.html">Сводка</a></li><li><a href="wm-queries.html">Запросы</a></li><li><a href="wm-gaps.html">Пробелы</a></li><li><a href="wm-plan.html">План</a></li></ul></div>
+      <div class="footer-nav"><h4>Файлы</h4><ul><li><a href="methodology.html">Методика</a></li><li><a href="roadmap.html">Сроки</a></li><li><a href="methodology.html">Наверх</a></li></ul></div>
+    </div>
+    <div class="footer-bottom"><span>Цифра18 • Ижевск • сентябрь 2026</span><span>Страница 9 из 22 • Методика</span></div>
+  </div>
+</footer>
+<script src="../js/vendor/chart.umd.min.js"></script>
+<script>if(typeof Chart==="undefined"){document.write("<script src='https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js'><\/script>")}</script>
+<script src="../js/main.js"></script>
+</body>
+</html>

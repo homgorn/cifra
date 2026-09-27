@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GEO и видимость в AI. Цифра18</title>
+<meta name="description" content="GEO аудит Цифра18: упоминания в ChatGPT, Perplexity, поиске с AI ответами. План llms.txt, цитируемости и структуры.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/main.css">
+<link rel="stylesheet" href="../css/report.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="header-inner">
+    <a class="logo" href="../index.html"><span class="logo-mark">Ц18</span><span>Цифра. Аудит</span></a>
+    <nav class="main-nav" id="mainNav">
+      <a class="nav-link" href="../index.html"><span class="nav-indicator"></span>Резюме</a>
+      <a class="nav-link" href="technical.html"><span class="nav-indicator"></span>Техника</a>
+      <a class="nav-link" href="content.html"><span class="nav-indicator"></span>Контент</a>
+      <a class="nav-link" href="competitors.html"><span class="nav-indicator"></span>Конкуренты</a>
+      <a class="nav-link" href="local.html"><span class="nav-indicator"></span>Регионы</a>
+      <a class="nav-link active" href="geo.html"><span class="nav-indicator"></span>GEO</a>
+      <a class="nav-link" href="knowledge.html"><span class="nav-indicator"></span>База знаний</a>
+      <a class="nav-link" href="roadmap.html"><span class="nav-indicator"></span>План</a>
+      <div class="nav-dropdown">
+        <button class="nav-link nav-drop-btn" aria-haspopup="true">Вебмастер <span class="drop-arrow">▾</span></button>
+        <div class="nav-drop-menu">
+          <a href="wm-overview.html">Сводка Вебмастера <span class="drop-hint">717 URL</span></a>
+          <a href="wm-indexing.html">Индексация по разделам <span class="drop-hint">6%</span></a>
+          <a href="wm-duplicates.html">Дубли <span class="drop-hint">128</span></a>
+          <a href="wm-errors.html">Ошибки и качество <span class="drop-hint">286</span></a>
+          <a href="wm-redirects.html">Редиректы <span class="drop-hint">89</span></a>
+          <a href="wm-queries.html">Запросы и позиции <span class="drop-hint">535</span></a>
+          <a href="wm-clusters.html">Кластеры <span class="drop-hint">8 групп</span></a>
+          <a href="wm-gaps.html">Пробелы контента <span class="drop-hint">топ-10</span></a>
+          <a href="wm-links.html">Внутренние ссылки <span class="drop-hint">62 битых</span></a>
+          <a href="wm-plan.html">План по Вебмастеру <span class="drop-hint">ICE</span></a>
+        </div>
+      </div>
+      <div class="nav-dropdown">
+        <button class="nav-link nav-drop-btn" aria-haspopup="true">Еще <span class="drop-arrow">▾</span></button>
+        <div class="nav-drop-menu">
+          <a href="prices.html">Цены и сравнения <span class="drop-hint">50 точек</span></a>
+          <a href="season.html">Сезонный календарь <span class="drop-hint">год</span></a>
+          <a href="marketing.html">Маркетинг план <span class="drop-hint">KPI</span></a>
+          <a href="methodology.html">Методика <span class="drop-hint">как считал</span></a>
+        </div>
+      </div>
+    </nav>
+    <button class="mobile-menu-btn" id="menuBtn" aria-label="Меню">Меню</button>
+  </div>
+</header>
+<main class="page">
+<div class="container container-wide">
+<div class="report-layout">
+<aside class="sidebar">
+  <div class="sidebar-title">На этой странице</div>
+  <nav class="sidebar-nav">
+    <a class="sidebar-link active" href="#now"><span class="link-number">1</span>Где мы сейчас</a>
+    <a class="sidebar-link" href="#prompts"><span class="link-number">2</span>Промпты</a>
+    <a class="sidebar-link" href="#plan"><span class="link-number">3</span>План GEO</a>
+  </nav>
+</aside>
+<div>
+  <div class="page-title-block animate-slide-up">
+    <div class="page-kicker">Страница 6 из 22 • GEO</div>
+    <h1>Вас пока не советуют нейросети</h1>
+    <p>Вручную проверены типовые вопросы, которые люди задают ChatGPT, Perplexity и поиску с AI ответами. Про печать в Ижевске советуют справочники и Контур-Фото. Про мерч советуют Printio. Вас нет почти нигде. Это чинится, и быстрее чем классическое SEO.</p>
+  </div>
+  <section id="now" data-section>
+    <div class="card"><div class="card-header"><div><div class="card-title">Прогноз упоминаний при выполнении плана, %</div><div class="card-subtitle">Доля ответов где бренд упоминается, по панели из 50 запросов</div></div><span class="badge badge-danger">Сейчас около 2%</span></div>
+      <div class="card-body"><div class="chart-container large"><canvas id="geoChart"></canvas></div></div>
+    </div>
+    <div class="grid grid-3" style="margin-top:1.5rem;">
+      <div class="card"><div class="card-body"><div class="metric-value" style="font-size:2rem;">0<span style="font-size:1rem; color:var(--color-fg-subtle);">/5</span></div><div class="metric-label">Столпов цитируемости</div><p style="font-size:0.8125rem;" class="text-muted">Ответы первым абзацем, таблицы, цены, FAQ, источники</p></div></div>
+      <div class="card"><div class="card-body"><div class="metric-value" style="font-size:2rem;">Нет</div><div class="metric-label">Файла llms.txt</div><p style="font-size:0.8125rem;" class="text-muted">Нейросети не понимают структуру сайта</p></div></div>
+      <div class="card"><div class="card-body"><div class="metric-value" style="font-size:2rem;">Нет</div><div class="metric-label">Ботов в robots</div><p style="font-size:0.8125rem;" class="text-muted">GPTBot, ClaudeBot, PerplexityBot не прописаны</p></div></div>
+    </div>
+  </section>
+  <section id="prompts" data-section style="margin-top:2.5rem;">
+    <h2>Проверочные запросы и ответы нейросетей</h2>
+    <div class="table-wrapper"><table>
+      <thead><tr><th>Вопрос</th><th>Кого советуют</th><th>Есть ли Цифра</th><th>Почему</th></tr></thead>
+      <tbody>
+        <tr><td>Где напечатать визитки в Ижевске срочно</td><td>Контур-Фото, 2ГИС подборка</td><td><span class="badge badge-danger">Нет</span></td><td>Нет страницы с ценой и сроком от 1 часа</td></tr>
+        <tr><td>Футболки с логотипом на заказ, тираж 20 штук</td><td>Printio, localprint подборки</td><td><span class="badge badge-danger">Нет</span></td><td>Нет таблицы тиражей и материалов</td></tr>
+        <tr><td>Печать баннера 3 на 6, сколько стоит</td><td>Статьи про баннеры, RuPrint</td><td><span class="badge badge-danger">Нет</span></td><td>Нет цены за м2 и сроков монтажа</td></tr>
+        <tr><td>Роллап 85 на 200 купить</td><td>Магазины стендов, Озон</td><td><span class="badge badge-danger">Нет</span></td><td>Нет карточки с комплектацией и чехлом</td></tr>
+        <tr><td>Печать чертежей А0 Ижевск</td><td>Копицентры, форумы</td><td><span class="badge badge-danger">Нет</span></td><td>Нет отдельной страницы инженерки</td></tr>
+      </tbody>
+    </table></div>
+  </section>
+  <section id="plan" data-section style="margin-top:2.5rem;">
+    <h2>План на 30 дней, без магии</h2>
+    <ul class="checklist">
+      <li><span class="checkbox done">1</span><span><strong>llms.txt и llms-full.txt:</strong> карта сайта для нейросетей, со списком услуг, цен от и сроков. Размещается в корне, прописывается в robots.</span></li>
+      <li><span class="checkbox done">2</span><span><strong>Доступ ботам:</strong> открываем GPTBot, ClaudeBot, PerplexityBot. Закрываем мусорных скраперов, чтобы не расходовать трафик.</span></li>
+      <li><span class="checkbox">○</span><span><strong>Ответы первым абзацем:</strong> на каждой услуге первый абзац это прямой ответ на вопрос, с цифрами. Дальше детали.</span></li>
+      <li><span class="checkbox">○</span><span><strong>Таблицы и FAQ:</strong> нейросети любят таблицы сравнений и короткие Q/A. Добавляем на 20 топовых услуг.</span></li>
+      <li><span class="checkbox">○</span><span><strong>Сторонние упоминания:</strong> 2ГИС, Яндекс Карты, vc.ru кейс про производство, подборки мерча. AI берет оттуда.</span></li>
+    </ul>
+    <div class="pager"><a href="local.html"><span class="pager-label">Назад</span><span class="pager-title">Регионы</span></a><a href="knowledge.html" style="text-align:right;"><span class="pager-label">Дальше</span><span class="pager-title">База знаний</span></a></div>
+  </section>
+</div>
+</div>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="container container-wide">
+    <div class="footer-grid">
+      <div class="footer-brand"><a class="logo" href="../index.html"><span class="logo-mark">Ц18</span><span>Цифра. Аудит</span></a><p>Отчет по продвижению цифра18.рф. Техника, контент, конкуренты, регионы, GEO, Вебмастер. Сентябрь 2026.</p></div>
+      <div class="footer-nav"><h4>Отчет</h4><ul><li><a href="../index.html">Резюме</a></li><li><a href="technical.html">Техника</a></li><li><a href="content.html">Контент</a></li><li><a href="roadmap.html">План</a></li></ul></div>
+      <div class="footer-nav"><h4>Анализ</h4><ul><li><a href="competitors.html">Конкуренты</a></li><li><a href="local.html">Регионы</a></li><li><a href="geo.html">GEO</a></li><li><a href="knowledge.html">База знаний</a></li></ul></div>
+      <div class="footer-nav"><h4>Вебмастер</h4><ul><li><a href="wm-overview.html">Сводка</a></li><li><a href="wm-queries.html">Запросы</a></li><li><a href="wm-gaps.html">Пробелы</a></li><li><a href="wm-plan.html">План</a></li></ul></div>
+      <div class="footer-nav"><h4>Файлы</h4><ul><li><a href="methodology.html">Методика</a></li><li><a href="roadmap.html">Сроки</a></li><li><a href="geo.html">Наверх</a></li></ul></div>
+    </div>
+    <div class="footer-bottom"><span>Цифра18 • Ижевск • сентябрь 2026</span><span>Страница 6 из 22 • GEO</span></div>
+  </div>
+</footer>
+<script src="../js/vendor/chart.umd.min.js"></script>
+<script>if(typeof Chart==="undefined"){document.write("<script src='https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js'><\/script>")}</script>
+<script src="../js/main.js"></script>
+</body>
+</html>

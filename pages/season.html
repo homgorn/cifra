@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Сезонный календарь. Цифра18</title>
+<meta name="description" content="Сезонный план продаж Цифра18: Новый год, 8 Марта, выпускные, 1 Сентября. Что печатаем и когда запускаем.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/main.css">
+<link rel="stylesheet" href="../css/report.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="header-inner">
+    <a class="logo" href="../index.html"><span class="logo-mark">Ц18</span><span>Цифра. Аудит</span></a>
+    <nav class="main-nav" id="mainNav">
+      <a class="nav-link" href="../index.html"><span class="nav-indicator"></span>Резюме</a>
+      <a class="nav-link" href="technical.html"><span class="nav-indicator"></span>Техника</a>
+      <a class="nav-link" href="content.html"><span class="nav-indicator"></span>Контент</a>
+      <a class="nav-link" href="competitors.html"><span class="nav-indicator"></span>Конкуренты</a>
+      <a class="nav-link" href="local.html"><span class="nav-indicator"></span>Регионы</a>
+      <a class="nav-link" href="geo.html"><span class="nav-indicator"></span>GEO</a>
+      <a class="nav-link" href="knowledge.html"><span class="nav-indicator"></span>База знаний</a>
+      <a class="nav-link" href="roadmap.html"><span class="nav-indicator"></span>План</a>
+      <div class="nav-dropdown">
+        <button class="nav-link nav-drop-btn" aria-haspopup="true">Вебмастер <span class="drop-arrow">▾</span></button>
+        <div class="nav-drop-menu">
+          <a href="wm-overview.html">Сводка Вебмастера <span class="drop-hint">717 URL</span></a>
+          <a href="wm-indexing.html">Индексация по разделам <span class="drop-hint">6%</span></a>
+          <a href="wm-duplicates.html">Дубли <span class="drop-hint">128</span></a>
+          <a href="wm-errors.html">Ошибки и качество <span class="drop-hint">286</span></a>
+          <a href="wm-redirects.html">Редиректы <span class="drop-hint">89</span></a>
+          <a href="wm-queries.html">Запросы и позиции <span class="drop-hint">535</span></a>
+          <a href="wm-clusters.html">Кластеры <span class="drop-hint">8 групп</span></a>
+          <a href="wm-gaps.html">Пробелы контента <span class="drop-hint">топ-10</span></a>
+          <a href="wm-links.html">Внутренние ссылки <span class="drop-hint">62 битых</span></a>
+          <a href="wm-plan.html">План по Вебмастеру <span class="drop-hint">ICE</span></a>
+        </div>
+      </div>
+      <div class="nav-dropdown">
+        <button class="nav-link nav-drop-btn active" aria-haspopup="true">Еще <span class="drop-arrow">▾</span></button>
+        <div class="nav-drop-menu">
+          <a href="prices.html">Цены и сравнения <span class="drop-hint">50 точек</span></a>
+          <a href="season.html" class="active">Сезонный календарь <span class="drop-hint">год</span></a>
+          <a href="marketing.html">Маркетинг план <span class="drop-hint">KPI</span></a>
+          <a href="methodology.html">Методика <span class="drop-hint">как считал</span></a>
+        </div>
+      </div>
+    </nav>
+    <button class="mobile-menu-btn" id="menuBtn" aria-label="Меню">Меню</button>
+  </div>
+</header>
+<main class="page">
+<div class="container container-wide">
+<div class="report-layout">
+<aside class="sidebar">
+  <div class="sidebar-title">На этой странице</div>
+  <nav class="sidebar-nav">
+    <a class="sidebar-link active" href="#year"><span class="link-number">1</span>Год</a>
+    <a class="sidebar-link" href="#q1"><span class="link-number">2</span>Зима и весна</a>
+    <a class="sidebar-link" href="#q2"><span class="link-number">3</span>Лето</a>
+    <a class="sidebar-link" href="#q4"><span class="link-number">4</span>Осень и НГ</a>
+  </nav>
+</aside>
+<div>
+  <div class="page-title-block animate-slide-up">
+    <div class="page-kicker">Страница 11 из 22 • Сезон</div>
+    <h1>Когда что продавать</h1>
+    <p>Полиграфия и мерч живут сезонами. Четвертый квартал дает около 30 процентов годовой выручки за счет корпоративных подарков, первый около 25 за счет Нового года и весенних праздников. Ниже раскладка по кварталам с дедлайнами: заказы надо закрывать за 2-4 недели до даты, иначе СДЭК не довезет.</p>
+  </div>
+  <section id="year" data-section>
+    <div class="card"><div class="card-header"><div><div class="card-title">Доля годовой выручки по кварталам, %</div><div class="card-subtitle">Оценка по структуре спроса типографии и мерча</div></div></div>
+      <div class="card-body"><div class="chart-container"><canvas id="seasonChart"></canvas></div></div>
+    </div>
+  </section>
+  <section id="q1" data-section style="margin-top:2.5rem;">
+    <h2>Зима и весна: подарки нон стоп</h2>
+    <div class="table-wrapper"><table>
+      <thead><tr><th>Период</th><th>Повод</th><th>Что печатаем</th><th>Дедлайн заказа</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Декабрь</strong></td><td>Новый год</td><td>Наборы 500/1000/2000/5000 руб, календари, планнеры, шоколад с логотипом</td><td><span class="badge badge-danger">До 20.12</span></td></tr>
+        <tr><td><strong>Январь</strong></td><td>Старт года</td><td>Планнеры, дневники, блокноты, ручки для офисов</td><td>До 20.01</td></tr>
+        <tr><td><strong>Февраль</strong></td><td>23 Февраля</td><td>Термосы, мультитулы, брелки, флешки, кружки</td><td><span class="badge badge-danger">До 18.02</span></td></tr>
+        <tr><td><strong>Начало марта</strong></td><td>8 Марта</td><td>Кружки, сумки-тоты, шоколад, косметички, открытки</td><td><span class="badge badge-danger">До 25.02</span></td></tr>
+      </tbody>
+    </table></div>
+  </section>
+  <section id="q2" data-section style="margin-top:2.5rem;">
+    <h2>Лето: выпускные, свадьбы, патриотка</h2>
+    <div class="table-wrapper"><table>
+      <thead><tr><th>Период</th><th>Повод</th><th>Что печатаем</th><th>Дедлайн заказа</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Апрель</strong></td><td>Майские</td><td>Флаги, значки, бейджи, футболки, баффы</td><td>До 20.04</td></tr>
+        <tr><td><strong>Май</strong></td><td>Выпускные</td><td>Футболки и худи с годом выпуска, фотоальбомы, блокноты</td><td><span class="badge badge-warning">До 15.05</span></td></tr>
+        <tr><td><strong>Май-июнь</strong></td><td>Свадьбы</td><td>Приглашения, кружки гостям, магниты, шоколад, открытки</td><td>За 30 дней</td></tr>
+        <tr><td><strong>Июнь</strong></td><td>Лето</td><td>Кепки, баффы, бутылки, термосы, сумки-тоты</td><td>До 01.06</td></tr>
+      </tbody>
+    </table></div>
+  </section>
+  <section id="q4" data-section style="margin-top:2.5rem;">
+    <h2>Осень и Новый год: главный сезон</h2>
+    <div class="table-wrapper"><table>
+      <thead><tr><th>Период</th><th>Повод</th><th>Что печатаем</th><th>Дедлайн заказа</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Август</strong></td><td>1 Сентября</td><td>Дневники, блокноты, ручки, бейджи, роллапы для линеек</td><td><span class="badge badge-warning">До 15.08</span></td></tr>
+        <tr><td><strong>Сентябрь</strong></td><td>Выставки</td><td>Роллапы, пресс-воллы, бейджи, каталоги, мерч участникам</td><td>За 3 недели</td></tr>
+        <tr><td><strong>Октябрь-ноябрь</strong></td><td>Корп. подарки</td><td>Наборы, ежедневники на следующий год, календари, термосы</td><td><span class="badge badge-danger">До 20.11</span></td></tr>
+        <tr><td><strong>Ноябрь</strong></td><td>Черная пятница</td><td>Листовки, баннеры для витрин, ценники, POS</td><td>За 2 недели</td></tr>
+      </tbody>
+    </table></div>
+    <div class="callout"><div class="callout-title">Как это использовать</div><p>Под каждый сезон делаем подборку на сайте и один пост в блог за месяц до дедлайна. Люди ищут подарки заранее, а заказывают в последний момент. Кто показал дедлайн доставки СДЭК, тот забрал заказ.</p></div>
+    <div class="pager"><a href="content.html"><span class="pager-label">Назад</span><span class="pager-title">Контент</span></a><a href="roadmap.html" style="text-align:right;"><span class="pager-label">Дальше</span><span class="pager-title">План и бюджет</span></a></div>
+  </section>
+</div>
+</div>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="container container-wide">
+    <div class="footer-grid">
+      <div class="footer-brand"><a class="logo" href="../index.html"><span class="logo-mark">Ц18</span><span>Цифра. Аудит</span></a><p>Отчет по продвижению цифра18.рф. Техника, контент, конкуренты, регионы, GEO, Вебмастер. Сентябрь 2026.</p></div>
+      <div class="footer-nav"><h4>Отчет</h4><ul><li><a href="../index.html">Резюме</a></li><li><a href="technical.html">Техника</a></li><li><a href="content.html">Контент</a></li><li><a href="roadmap.html">План</a></li></ul></div>
+      <div class="footer-nav"><h4>Анализ</h4><ul><li><a href="competitors.html">Конкуренты</a></li><li><a href="local.html">Регионы</a></li><li><a href="geo.html">GEO</a></li><li><a href="knowledge.html">База знаний</a></li></ul></div>
+      <div class="footer-nav"><h4>Вебмастер</h4><ul><li><a href="wm-overview.html">Сводка</a></li><li><a href="wm-queries.html">Запросы</a></li><li><a href="wm-gaps.html">Пробелы</a></li><li><a href="wm-plan.html">План</a></li></ul></div>
+      <div class="footer-nav"><h4>Файлы</h4><ul><li><a href="methodology.html">Методика</a></li><li><a href="roadmap.html">Сроки</a></li><li><a href="season.html">Наверх</a></li></ul></div>
+    </div>
+    <div class="footer-bottom"><span>Цифра18 • Ижевск • сентябрь 2026</span><span>Страница 11 из 22 • Сезон</span></div>
+  </div>
+</footer>
+<script src="../js/vendor/chart.umd.min.js"></script>
+<script>if(typeof Chart==="undefined"){document.write("<script src='https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js'><\/script>")}</script>
+<script src="../js/main.js"></script>
+</body>
+</html>
