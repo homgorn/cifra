@@ -82,10 +82,51 @@
   var info = '#4da3ff';
   var muted = '#2a3a4f';
 
+  // Высота горизонтального графика подстраивается под число полос.
+  // Раньше стоял фиксированный 300px, и как только кластеров стало 22
+  // вместо 8, полосы начали наезжать друг на друга, а Chart.js стал
+  // пропускать подписи оси: бары и подписи разъехались, читать нельзя.
+  var BAR_MIN = 26;   // на одну полосу с подписью
+  var BAR_PAD = 24;   // поля сверху и снизу
+
+  function fitBars(el, n) {
+    if (!el || !n) return;
+    var want = Math.max(200, n * BAR_MIN + BAR_PAD);
+    var box = el.parentNode;
+    if (box && box.classList.contains('chart-container')) {
+      box.style.height = want + 'px';
+    } else {
+      el.style.height = want + 'px';
+    }
+  }
+
   function mk(id, cfg) {
     var el = document.getElementById(id);
     if (!el) return null;
+    // Подписи оси Y не пропускаем: у горизонтальных полос пропуск
+    // означает, что под половиной полос нет названия.
+    if (cfg && cfg.options && cfg.options.indexAxis === 'y') {
+      var n = (cfg.data && cfg.data.labels || []).length;
+      fitBars(el, n);
+      cfg.options.scales = cfg.options.scales || {};
+      var y = cfg.options.scales.y || {};
+      y.ticks = y.ticks || {};
+      y.ticks.autoSkip = false;
+      y.ticks.crossAlign = 'far';
+      cfg.options.scales.y = y;
+    }
     return new Chart(el.getContext('2d'), cfg);
+  }
+
+  // Палитра для длинных списков: цвета не должны повторяться подряд,
+  // иначе соседние полосы сливаются в одну. Имя не `palette`: ниже в том
+  // же теле есть `var palette` со списком цветов линий, и он перебивал
+  // функцию, графики падали с «palette is not a function».
+  var LONG_PALETTE = [accent, info, warn, '#9b8cff', '#ff9d6b', '#5ad1e6', danger, '#a3e635'];
+  function barColors(n) {
+    var out = [];
+    for (var i = 0; i < n; i++) out.push(LONG_PALETTE[i % LONG_PALETTE.length]);
+    return out;
   }
 
   // Index: health radar style bar
@@ -430,9 +471,9 @@
       type: 'bar',
       data: {
         labels: W.clusters.map(function (c) { return c.name; }),
-        datasets: [{ data: W.clusters.map(function (c) { return c.queries; }), backgroundColor: [accent, info, warn, '#9b8cff', '#ff9d6b', danger, muted, '#5ad1e6'], borderRadius: 6 }]
+        datasets: [{ data: W.clusters.map(function (c) { return c.queries; }), backgroundColor: barColors(W.clusters.length), borderRadius: 4, borderSkipped: false }]
       },
-      options: { indexAxis: 'y', responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false }, tooltip: { callbacks: { label: function (c) { return c.raw + ' запросов'; } } } }, scales: { x: { grid: { color: 'rgba(42,58,79,0.4)' } }, y: { grid: { display: false } } } }
+      options: { indexAxis: 'y', responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false }, tooltip: { callbacks: { label: function (c) { return c.raw + ' запросов'; } } } }, scales: { x: { beginAtZero: true, grid: { color: 'rgba(42,58,79,0.4)' }, ticks: { precision: 0 } }, y: { grid: { display: false } } } }
     });
     // Второй график показывает реальные страницы раздела в поиске, а не
     // вычисленное покрытие. Прежняя доля «% запросов с целевой страницей»
@@ -442,7 +483,7 @@
       type: 'bar',
       data: {
         labels: W.clusters.map(function (c) { return c.name; }),
-        datasets: [{ data: W.clusters.map(function (c) { return c.pages; }), backgroundColor: W.clusters.map(function (c) { return c.pages === 0 ? danger : (c.pages < c.queries / 8 ? warn : accent); }), borderRadius: 6 }]
+        datasets: [{ data: W.clusters.map(function (c) { return c.pages; }), backgroundColor: W.clusters.map(function (c) { return c.pages === 0 ? danger : (c.pages < c.queries / 8 ? warn : accent); }), borderRadius: 4, borderSkipped: false }]
       },
       options: { indexAxis: 'y', responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false }, tooltip: { callbacks: { label: function (c) { return c.raw === 0 ? 'страниц в поиске нет' : c.raw + ' страниц в поиске'; } } } }, scales: { x: { beginAtZero: true, grid: { color: 'rgba(42,58,79,0.4)' }, ticks: { precision: 0 } }, y: { grid: { display: false } } } }
     });

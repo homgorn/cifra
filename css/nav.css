@@ -236,28 +236,41 @@ h2:hover .section-anchor, h3:hover .section-anchor { opacity: 1; }
 }
 .nav-link-all { margin-left: 0; }
 
+/* Оверлей затемняет страницу, но не гасит её в чёрное: 0,86 непрозрачности
+   поверх уже тёмного фона давали чёрный прямоугольник без читаемости.
+   Теперь димма хватает, чтобы ушла рамка фокуса, а панель стоит на
+   собственной поверхности и читается как панель, а не как дыра. */
 .search-panel {
   position: fixed;
   inset: 0;
   background: var(--overlay-bg);
-  backdrop-filter: blur(6px);
   z-index: 200;
-  padding: 12vh var(--space-5) var(--space-5);
+  padding: 8vh var(--space-5) var(--space-5);
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: var(--space-3);
+  gap: 0;
 }
 .search-panel[hidden] { display: none; }
+
+/* Панель: одна поверхность на поле и на список результатов, иначе
+   результаты висели в пустоте и выглядели недоделанными. */
+.search-surface {
+  width: min(680px, 100%);
+  background: var(--color-bg-elevated);
+  border: 1px solid var(--color-border-light);
+  border-radius: 6px;
+  box-shadow: var(--overlay-shadow);
+  overflow: hidden;
+}
 .search-box {
-  width: min(640px, 100%);
+  width: 100%;
   display: flex;
   align-items: center;
   gap: var(--space-2);
-  background: var(--color-bg-elevated);
-  border: 1px solid var(--color-accent-border);
-  border-radius: 5px;
-  padding: 0.5rem 0.6rem 0.5rem 0.9rem;
+  background: transparent;
+  border-bottom: 1px solid var(--color-border);
+  padding: 0.7rem 0.7rem 0.7rem 1rem;
 }
 .search-input {
   flex: 1;
@@ -267,8 +280,10 @@ h2:hover .section-anchor, h3:hover .section-anchor { opacity: 1; }
   background: transparent;
   border: none;
   outline: none;
+  min-width: 0;
 }
 .search-input::placeholder { color: var(--color-fg-subtle); }
+.search-input:focus-visible { outline: none; }
 /* Системный крестик в type="search" рисуется синим и выбивается из палитры.
    Свою очистку не делаем: поле закрывается по Esc или повторному нажатию. */
 .search-input::-webkit-search-cancel-button,
@@ -291,29 +306,30 @@ h2:hover .section-anchor, h3:hover .section-anchor { opacity: 1; }
 .search-results {
   list-style: none;
   margin: 0;
-  padding: 0;
-  width: min(640px, 100%);
-  max-height: 52vh;
+  padding: 0.4rem;
+  width: 100%;
+  max-height: 56vh;
   overflow-y: auto;
 }
+.search-results li:first-child { border-top: 1px solid var(--color-border); }
 .search-results a {
   display: grid;
   grid-template-columns: 2.2em 1fr;
   gap: 0 0.6rem;
-  padding: 0.55rem 0.7rem;
+  padding: 0.55rem 0.6rem;
   border-radius: 4px;
   text-decoration: none;
   border: 1px solid transparent;
 }
 .search-results a:hover, .search-results li.on a {
-  background: var(--color-bg-card);
+  background: var(--color-accent-bg);
   border-color: var(--color-accent-border);
 }
 .sr-num { font-family: var(--font-mono); font-size: var(--text-xs); color: var(--color-fg-subtle); }
 .search-results li.on .sr-num, .search-results a:hover .sr-num { color: var(--color-accent); }
 .sr-t { color: var(--color-fg); font-size: var(--text-base); }
 .sr-s, .sr-d { grid-column: 2; color: var(--color-fg-muted); font-size: var(--text-sm); line-height: 1.4; }
-.search-empty { color: var(--color-fg-muted); font-size: var(--text-sm); }
+.search-empty { color: var(--color-fg-muted); font-size: var(--text-sm); padding: 0.8rem 1rem; margin: 0; }
 
 /* --- Печать: план и таблицы должны печататься ---------------------------- */
 @media print {
