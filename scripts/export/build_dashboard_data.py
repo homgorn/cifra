@@ -132,6 +132,51 @@ def source_series(cut, top=5):
     return out
 
 
+LEGACY_RE = re.compile(r"^/\d+\.html$")
+SEC_NAMES = {"/catalog": "Каталог", "/shop": "Магазин (legacy /shop/)",
+             "/product": "Товары (legacy /product/)", "/news": "Новости",
+             "/product-category": "Категории товаров (legacy)"}
+PREFIX = "https://xn--18-6kc5a3bxam.xn--p1ai"
+
+
+def _section(url):
+    path = url[len(PREFIX):] if url.startswith(PREFIX) else url
+    segs = [s for s in path.split("/") if s]
+    if not segs:
+        return "/"
+    first = "/" + segs[0]
+    if first in SEC_NAMES:
+        return first
+    return "/legacy_html" if LEGACY_RE.match(first) else "/other"
+
+
+def indexing_sample():
+    """Индексация по разделам из выборки панели (717 URL). Нужна, чтобы
+    отличать мёртвые разделы от рабочего каталога: общий процент 19,8%
+    тянет /shop, а каталог сам по себе на 59,8%."""
+    agg = defaultdict(lambda: {"urls": 0, "search": 0, "err": 0, "dup": 0})
+    for p in parsed.get("pages", []):
+        a = agg[_section(p.get("url") or "")]
+        a["urls"] += 1
+        st = p.get("status")
+        if st == "SEARCHABLE":
+            a["search"] += 1
+        elif st == "DUPLICATE":
+            a["dup"] += 1
+        elif st in ("PARSE_ERROR", "HTTP_ERROR", "BAD_QUALITY"):
+            a["err"] += 1
+    out = []
+    for key, a in agg.items():
+        out.append({
+            "k": SEC_NAMES.get(key, "Легаси .html" if key == "/legacy_html" else
+                              ("Главная" if key == "/" else "Прочие страницы")),
+            "u": a["urls"], "s": a["search"], "e": a["err"], "d": a["dup"],
+            "p": round(a["search"] / a["urls"] * 100, 1) if a["urls"] else 0,
+        })
+    out.sort(key=lambda x: -x["u"])
+    return out
+
+
 MOJIBAKE = re.compile(r"^[\x00-\x7F\s]{20,}$")
 
 
@@ -225,6 +270,8 @@ q12 = jload(WM / "queries_12m" / "q_popular_click_12m.json", {}) or {}
 queries_12m = [q.get("query_text") for q in q12.get("queries", [])[:60] if q.get("query_text")]
 
 serp, serp_total = serp_rows()
+indexing = indexing_sample()
+dead = sum(x["u"] for x in indexing if x["k"].startswith(("Магазин", "Легаси", "Товары", "Категории")))
 
 DASH["tech"] = {
     "sqi": summary.get("sqi", 0),
@@ -241,6 +288,8 @@ DASH["tech"] = {
     "queries12m": queries_12m,
     "serp": serp,
     "serpTotal": serp_total,
+    "indexing": indexing,
+    "dead": dead,
 }
 
 # ---------------------------------------------------------------- Метрика: сайт

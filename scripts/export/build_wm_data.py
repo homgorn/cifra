@@ -8,6 +8,7 @@ All numbers on the wm-* pages and charts come from this file.
 import csv
 import json
 import os
+import re
 import sys
 
 sys.stdout.reconfigure(encoding="utf-8")
@@ -202,17 +203,119 @@ for r in read_csv("internal_links_target_summary.csv")[:8]:
 image_hotlinks = count_rows("internal_links_image_hotlinks.csv")
 typos = count_rows("internal_links_typos.csv")
 
-# --- 6. Clusters (from 04_Semantic_Clusters.md metrics table) ---
-clusters = [
-    {"name": "Визитки", "queries": 35, "avg": 3.8, "top10": 95, "pages": 8, "coverage": 40},
-    {"name": "Календари", "queries": 22, "avg": 4.5, "top10": 85, "pages": 10, "coverage": 67},
-    {"name": "Кружки и магниты", "queries": 28, "avg": 6.2, "top10": 70, "pages": 6, "coverage": 33},
-    {"name": "Листовки и флаеры", "queries": 18, "avg": 6.8, "top10": 75, "pages": 5, "coverage": 38},
-    {"name": "Широкоформат", "queries": 25, "avg": 6.5, "top10": 65, "pages": 8, "coverage": 44},
-    {"name": "Мобильные стенды", "queries": 20, "avg": 7.2, "top10": 60, "pages": 8, "coverage": 40},
-    {"name": "Сувенирка и мерч", "queries": 30, "avg": 8.5, "top10": 50, "pages": 15, "coverage": 33},
-    {"name": "Инженерная печать", "queries": 22, "avg": 7.0, "top10": 65, "pages": 12, "coverage": 65},
+# --- 6. Clusters ---
+# Важно: раньше агрегаты по кластерам были вбиты руками в этом файле, а
+# пофразовая разбивка нигде не сохранялась. Из-за этого кластеризацию нельзя
+# было ни показать клиенту, ни загрузить в Topvisor. Теперь разбивка считается
+# правилами по тексту запроса, агрегаты выводятся из неё же.
+CLUSTER_RULES = [
+    # (кластер, слова-маркеры) — порядок важен: более специфичное раньше
+    ("Мобильные стенды", ["стенд", "стенда", "стенды", "стендов", "роллап", "рол-ап",
+                          "ролл", "пресс волл", "press wall", "павильон", "выставочн",
+                          "мобильн", "ротационный", "шторка"]),
+    ("Инженерная печать", ["инженерн", "чертёж", "чертёжн", "чертеж", "pli", "pli2",
+                            "чертёжей", "печать схем", "изготовление чертежей"]),
+    ("Кружки и магниты", ["кружк", "магнит", "керамическ", "бутылк"]),
+    ("Календари", ["календар", "ежедневник", "планинг", "недельник"]),
+    ("Визитки", ["визитк", "визитн", "визит"]),
+    ("Листовки и флаеры", ["листовк", "флаер", "флаеры", "буклет", "трафарет",
+                           "схема метро", "купоны", "обложка"]),
+    ("Широкоформат", ["широкоформат", "баннер", "растяжк", "холст", "постер", "афиш",
+                     "наклейк", "стикер", "световой", "объёмн", "лайтбокс"]),
+    ("Сувенирка и мерч", ["сувенир", "хенди", "мерч", "футболк", "экосумк", "папк",
+                          "блокнот", "ручк", "кружк-б", "бейдж", "значк", "магниты на"]),
+    ("Сравнения", [" или ", " vs ", "против", "чем отличается", "разница между",
+                   "сравнение"]),
+    ("Локальные", ["ижевск", "ижевска", "ижевке", "удмурт"]),
 ]
+INFO_MARKERS = ["что такое", "что значит", "как сделать", "как печатать", "своими руками",
+                "сколько стоит", "сколько времени", "какие требования", "как выбрать",
+                "как отличить", "зачем нужен", "где заказать", "чем отличается",
+                "как настроить", "как открыть", "как правильно", "нужно ли", "стоит ли"]
+
+
+def cluster_of(q):
+    t = (q or "").lower().strip()
+    if not t:
+        return "Прочие"
+    if "цифра" in t or "цифр" in t.split() or "типо" in t and "цифра" in t:
+        return "Бренд"
+    for name, marks in CLUSTER_RULES:
+        if any(m in t for m in marks):
+            return name
+    if any(m in t for m in INFO_MARKERS) or t.startswith("как ") or t.startswith("что "):
+        return "Информационные"
+    return "Прочие"
+
+
+def is_real_query(q):
+    """Отсев мусора из выгрузки панели.
+
+    В 535 строках ядра реально сидят телефоны («+7905874-00-85»), длинные
+    описания товаров и символьные свалки. Их нельзя ни показывать клиенту,
+    ни загружать в Topvisor: проверка позиций по ним стоит денег."""
+    t = (q or "").strip()
+    if len(t) < 2 or len(t) > 90:
+        return False
+    if t.count(" ") > 6:
+        return False
+    if re.match(r"^[\+\-\d\s()]+$", t):          # только цифры и символы
+        return False
+    letters = sum(ch.isalpha() for ch in t)
+    if letters < max(2, len(t) * 0.4):            # меньше 40% букв
+        return False
+    if re.search(r"[а-яa-z]{10,}\s*[а-яa-z]{10,}", t) and " " in t:
+        return False                             # склейка двух длинных слов
+    return True
+
+
+# Целевая страница по кластеру. Разделы взяты из структуры сайта в панели
+# Вебмастера; /shop исключён, он мёртвый.
+CLUSTER_PAGE = {
+    "Визитки": "/catalog/poligrafiya/vizitki/",
+    "Кружки и магниты": "/catalog/suvenirnaya-produktsiya/pechat-na-kruzhkakh",
+    "Календари": "/catalog/poligrafiya/kalendari/",
+    "Листовки и флаеры": "/catalog/poligrafiya/listovki/",
+    "Широкоформат": "/catalog/poligrafiya/shirokoformatnaya-pechat/",
+    "Мобильные стенды": "/catalog/mobilnye-stendy/",
+    "Сувенирка и мерч": "/catalog/suvenirnaya-produktsiya/",
+    "Инженерная печать": "/inzhenernaya-pechat/",
+    "Бренд": "/",
+    "Локальные": "",
+    "Сравнения": "",
+    "Информационные": "",
+}
+
+query_clusters = []
+_by_cluster = {}
+junk = 0
+for r in queries:
+    q = r.get("q") or ""
+    if not is_real_query(q):
+        junk += 1
+        continue
+    pos = r.get("avg") or 0.0
+    c = cluster_of(q)
+    _by_cluster.setdefault(c, []).append(pos)
+    query_clusters.append({"q": q, "c": c, "p": pos, "u": CLUSTER_PAGE.get(c, "")})
+
+_clusters_order = ["Визитки", "Кружки и магниты", "Календари", "Листовки и флаеры",
+                   "Широкоформат", "Мобильные стенды", "Сувенирка и мерч",
+                   "Инженерная печать"]
+clusters = []
+for name in _clusters_order:
+    pos = _by_cluster.get(name)
+    if not pos:
+        continue
+    in_top10 = sum(1 for p in pos if 0 < p <= 10)
+    clusters.append({
+        "name": name,
+        "queries": len(pos),
+        "avg": round(sum(pos) / len(pos), 1),
+        "top10": int(round(in_top10 / len(pos) * 100)),
+        "pages": 0,          # заполняется ниже по факту совпадений с SERP-выгрузкой
+        "coverage": 0,
+    })
 
 # --- 7. ICE top actions (from 10_Priority_Matrix.md; Yandex-only wording) ---
 ice = [
@@ -258,6 +361,7 @@ WM = {
     "imageHotlinks": image_hotlinks,
     "typos": typos,
     "clusters": clusters,
+    "queryClusters": query_clusters,
     "ice": ice,
     "forecast": forecast,
 }

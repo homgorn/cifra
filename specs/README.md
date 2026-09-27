@@ -29,6 +29,7 @@ spec.md → plan.md → tasks.md → implement → validate → done
 | 008 | `008-github/` — git, Pages, Actions-автообновление | done (Actions недоступен, деплой через gh-pages) |
 | 009 | `009-metrica-counters/` — разделение счётчиков сайта и карточки, пересборка вики и отчёта | done |
 | 010 | `010-serp-beta-export/` — годовые показы, клики и позиции через beta-инструмент Вебмастера | done |
+| 011 | `011-verify-and-plan3m/` — проверка цифр, кластеризация запросов, план на 3 месяца, пакет Topvisor | done |
 
 ## Definition of Done (общий)
 

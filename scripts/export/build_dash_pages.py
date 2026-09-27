@@ -100,7 +100,8 @@ def page(fname, num, title, h1, desc, kicker, intro, sidebar, body, prev, nxt):
     a('        <button class="nav-link nav-drop-btn" aria-haspopup="true">Еще <span class="drop-arrow">▾</span></button>')
     a('        <div class="nav-drop-menu">')
     for slug, t in [("prices", "Цены и сравнения"), ("season", "Сезонный календарь"),
-                    ("marketing", "Маркетинг план"), ("methodology", "Методика")]:
+                    ("marketing", "Маркетинг план"), ("plan-3m", "План на 3 месяца"),
+                    ("methodology", "Методика")]:
         a('          <a href="%s%s.html">%s</a>' % (prefix, slug, t))
     a('        </div>\n      </div>\n    </nav>')
     a('    <button class="mobile-menu-btn" id="menuBtn" aria-label="Меню">Меню</button>')
@@ -136,7 +137,7 @@ FOOTER_COLS = [
                    ("wm-gaps", "Пробелы"), ("wm-plan", "План")]),
     ("Дашборды", [("dash-visibility", "Видимость"), ("dash-audience", "Аудитория"),
                   ("dash-money", "Деньги"), ("dash-maps", "Карта в Картах")]),
-    ("Файлы", [("methodology", "Методика"), ("season", "Сроки"), ("roadmap", "Наверх")]),
+    ("Файлы", [("methodology", "Методика"), ("plan-3m", "План 3 месяца"), ("roadmap", "Наверх")]),
 ]
 
 
@@ -353,7 +354,7 @@ def patch_existing(skip):
                 html = html[:m.start(1)] + dash_dropdown("") + m.group(1) + html[m.end(1):]
             else:
                 print("  WARN no nav anchor: %s" % name)
-        mf = re.search(r'<div class="footer-bottom">.*?Страница (\d+) из 22 • ([^<]+)</span>', html, re.DOTALL)
+        mf = re.search(r'<div class="footer-bottom">.*?Страница (\d+) из \d+ • ([^<]+)</span>', html, re.DOTALL)
         if mf:
             num, title = mf.group(1), mf.group(2)
             home = "index.html" if name == "index.html" else "../index.html"
@@ -361,7 +362,7 @@ def patch_existing(skip):
             html = re.sub(r"<footer class=\"site-footer\">.*?</footer>",
                           lambda mm: footer_html(home, pre, num, title), html,
                           count=1, flags=re.DOTALL)
-        html = html.replace(" из 22", " из %d" % TOTAL)
+        html = html.replace(" из %d" % (TOTAL - 1), " из %d" % TOTAL)
         if html != orig:
             with open(path, "w", encoding="utf-8") as f:
                 f.write(html)

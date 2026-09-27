@@ -46,7 +46,8 @@ EXPECTED_PAGES = ["index.html"] + sorted(
      "methodology.html", "wm-overview.html", "wm-indexing.html", "wm-duplicates.html",
      "wm-errors.html", "wm-redirects.html", "wm-queries.html", "wm-clusters.html",
      "wm-gaps.html", "wm-links.html", "wm-plan.html",
-     "dash-visibility.html", "dash-audience.html", "dash-money.html", "dash-maps.html"])
+     "dash-visibility.html", "dash-audience.html", "dash-money.html", "dash-maps.html",
+     "plan-3m.html"])
 TOTAL_PAGES = len(EXPECTED_PAGES)
 
 # 1. files exist
@@ -151,7 +152,7 @@ for p, h in html.items():
         fail("no Дашборды dropdown in nav: %s" % p)
     if (" из %d" % TOTAL_PAGES) not in h:
         fail("footer/kicker not 'из %d': %s" % (TOTAL_PAGES, p))
-    if " из 22" in h or " из 12" in h or " из 23" in h:
+    if re.search(r"Страница \d+ из (22|12|23|26)\b", h):
         fail("stale numbering in: %s" % p)
 nums = {}
 for p, h in html.items():
