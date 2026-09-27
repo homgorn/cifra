@@ -2,43 +2,64 @@
 chcp 65001 >nul
 cd /d "%~dp0"
 rem ---------------------------------------------------------------------
-rem Push audit code + report site to GitHub. One deploy path: GitHub
-rem Actions publishes Pages from branch main, so this script only pushes.
+rem Push audit code + report site to GitHub. GitHub Actions publishes
+rem Pages from branch main, so this script only pushes.
 rem
-rem   deploy_github_pages.bat                        (remote already set)
-rem   deploy_github_pages.bat <repo-url>             (set or change remote)
-rem   deploy_github_pages.bat --login                (re-login browser)
+rem   deploy_github_pages.bat                 push (signs in on first run)
+rem   deploy_github_pages.bat <repo-url>      set or change remote
+rem   deploy_github_pages.bat --login         force a fresh browser sign-in
+rem
+rem No token copy-paste needed: Git Credential Manager opens a browser
+rem and stores the account for every repo on this machine.
 rem ----------------------------------------------------------------------
 
 if /i "%~1"=="--login" goto login
 if not "%~1"=="" goto setremote
-rem Fail fast instead of waiting on a hidden credential dialog.
 set GIT_TERMINAL_PROMPT=0
-set GCM_INTERACTIVE=never
-git remote get-url origin >nul 2>&1
-if errorlevel 1 goto noremote
 
 :checkclean
 git status --porcelain | findstr . >nul
 if not errorlevel 1 goto dirty
-echo Tree is clean.
+git remote get-url origin >nul 2>&1
+if errorlevel 1 goto noremote
+echo Tree is clean, remote OK.
 goto fetch
 
 :dirty
 echo.
-echo ERROR: uncommitted changes. Commit them first, or run:
+echo ERROR: uncommitted changes. Commit first:
 echo   git add -A
 echo   git commit -m "wip"
 echo.
 pause
 exit /b 4
 
+:noremote
+echo.
+echo No remote origin. Usage:
+echo   deploy_github_pages.bat https://github.com/homgorn/cifra.git
+echo   deploy_github_pages.bat --login
+echo.
+pause
+exit /b 2
+
 :setremote
 git remote remove origin >nul 2>&1
 git remote add origin %~1
 echo Remote set to %~1
+goto checkclean
+
+:login
+echo Forcing a fresh GitHub sign-in. A browser window will open.
+powershell -NoProfile -Command "'protocol=https','host=github.com','username=homgorn','' | git credential reject" >nul 2>&1
+goto fetch
 
 :fetch
+git fetch origin
+if not errorlevel 1 goto rebase
+echo.
+echo Not signed in yet. Opening a browser window, finish the login there.
+powershell -NoProfile -Command "'protocol=https','host=github.com','username=homgorn','' | git credential reject" >nul 2>&1
 git fetch origin
 if errorlevel 1 goto authfail
 
@@ -51,44 +72,26 @@ if errorlevel 1 goto fail
 
 :push
 git push origin main
-if errorlevel 1 goto authfail
+if errorlevel 1 goto fail
 
 echo.
-echo DONE. Code pushed. Pages deploys by Actions (Settings - Pages
-echo Source: GitHub Actions). Watch the run on the Actions tab.
+echo DONE. Code pushed. Actions deploys Pages from main
+echo (Settings - Pages - Source: GitHub Actions).
 echo Site: https://homgorn.github.io/cifra/
 echo.
 pause
 exit /b 0
 
-:login
-echo Re-login: GitHub opens a browser window, no token copy-paste needed.
-echo.
-(echo protocol=https& echo host=github.com& echo.) | git credential reject
-git fetch origin
-if errorlevel 1 goto authfail
-echo Login OK. Run deploy_github_pages.bat again to push.
-echo.
-pause
-exit /b 0
-
-:noremote
-echo.
-echo No remote origin. Usage:
-echo   deploy_github_pages.bat https://github.com/homgorn/cifra.git
-echo   deploy_github_pages.bat --login
-echo.
-pause
-exit /b 2
-
 :authfail
 echo.
-echo AUTH FAILED. Options:
-echo   1) deploy_github_pages.bat --login   (browser, recommended)
-echo   2) create a classic PAT with repo + workflow, then send it once
+echo AUTH FAILED after a browser sign-in. Check the GitHub account:
+echo   - repo homgorn/cifra exists and this account has access
+echo   - https://github.com/settings/tokens has no half-created token
+echo Then run: deploy_github_pages.bat --login
 echo.
 pause
 exit /b 3
+
 :fail
 echo.
 echo FAILED above. Read the message, fix, run again.
