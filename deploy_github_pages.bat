@@ -67,6 +67,10 @@ if errorlevel 1 goto authfail
 git merge-base HEAD origin/main >nul 2>&1
 if not errorlevel 1 goto push
 echo No shared history with origin/main. Rebasing local commits on top...
+rem The wrangler cache is gitignored, so a rebase that restores its old
+rem copy aborts. Drop the cache; it regenerates. Never use git clean -X here:
+rem that would delete .env with the Yandex token.
+if exist "reports\cifra18-audit\.wrangler" rmdir /s /q "reports\cifra18-audit\.wrangler"
 git rebase --root --onto origin/main
 if errorlevel 1 goto fail
 
