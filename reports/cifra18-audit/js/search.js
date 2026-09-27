@@ -39,12 +39,14 @@
     wrap.className = 'search-panel';
     wrap.setAttribute('hidden', 'hidden');
     wrap.innerHTML =
-      '<div class="search-box" role="search">' +
-      '  <input type="search" class="search-input" placeholder="Найти страницу: дубли, позиции, цены" aria-label="Поиск по отчёту">' +
-      '  <button class="search-close" type="button" aria-label="Закрыть">Esc</button>' +
-      '</div>' +
-      '<ul class="search-results"></ul>' +
-      '<p class="search-empty" hidden>Ничего не нашлось. Попробуйте «кластеры», «цены», «SQI».</p>';
+      '<div class="search-surface">' +
+      '  <div class="search-box" role="search">' +
+      '    <input type="search" class="search-input" placeholder="Найти страницу: дубли, позиции, цены" aria-label="Поиск по отчёту">' +
+      '    <button class="search-close" type="button" aria-label="Закрыть">Esc</button>' +
+      '  </div>' +
+      '  <ul class="search-results"></ul>' +
+      '  <p class="search-empty" hidden>Ничего не нашлось. Попробуйте «кластеры», «цены», «SQI».</p>' +
+      '</div>';
 
     var btn = document.createElement('button');
     btn.className = 'search-open';
@@ -96,6 +98,7 @@
       input.focus();
       input.select();
       render(input.value);
+      mark(0);
     }
     function close() {
       wrap.hidden = true;

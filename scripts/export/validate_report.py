@@ -248,6 +248,18 @@ if r.returncode != 0:
 else:
     ok("theme: one scheme, tokens only, contrast in range")
 
+# 11. раскладка и графики в браузере. Без этого гейта страница может
+# пройти все проверки и выглядеть разобранной: канвасы 300x150, полосы
+# наезжают, элементы уехали из колонки. Видно только рендером.
+r = subprocess.run([sys.executable, "scripts/export/check_layout.py"], cwd=ROOT,
+                   capture_output=True, text=True, encoding="utf-8", errors="replace")
+last = [ln for ln in (r.stdout or "").splitlines() if ln.strip()]
+if r.returncode != 0:
+    fail("layout failed in browser: %s"
+         % " | ".join([ln.strip() for ln in last if "FAIL" in ln or "LAYOUT" in ln][:4]))
+else:
+    ok("layout: canvases sized, no overflow, no JS errors, both schemes")
+
 print("---")
 if fails:
     print("VALIDATION FAILED: %d problem(s)" % len(fails))
