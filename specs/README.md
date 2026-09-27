@@ -25,8 +25,10 @@ spec.md → plan.md → tasks.md → implement → validate → done
 | 004 | `004-metrika-analytics/` — разбор выгрузок Метрики, вики, кросс с ВМ | done |
 | 005 | `005-yandex-api/` — OAuth + рабочие экспорты API Метрики/Вебмастера | done (токен, 5+8 выгрузок, вики обновлены) |
 | 006 | `006-homepage-mega/` — главная-витрина с живыми данными API | done |
-| 007 | `007-datalens-dashboards/` — дашборды себе + витрина клиенту | planned |
-| 008 | `008-github/` — git, Pages, Actions-автообновление | in progress (ждёт remote) |
+| 007 | `007-datalens-dashboards/` — дашборды себе + витрина клиенту | done (заменён на 4 страницы дашбордов на JS) |
+| 008 | `008-github/` — git, Pages, Actions-автообновление | done (Actions недоступен, деплой через gh-pages) |
+| 009 | `009-metrica-counters/` — разделение счётчиков сайта и карточки, пересборка вики и отчёта | done |
+| 010 | `010-serp-beta-export/` — годовые показы, клики и позиции через beta-инструмент Вебмастера | done |
 
 ## Definition of Done (общий)
 
@@ -37,6 +39,8 @@ spec.md → plan.md → tasks.md → implement → validate → done
 
 ## Связанные документы
 
-- Сайт отчёта: `reports/cifra18-audit/` (вход `index.html`, 22 страницы)
-- Аналитика: `brain/wiki/webmaster_analytics/` (12 MD + 22 CSV)
-- Отчёт клиенту: `CLIENT_REPORT.md`
+- Сайт отчёта: `reports/cifra18-audit/` (вход `index.html`, 26 страниц)
+- Аналитика: `brain/wiki/webmaster_analytics/` (12 MD + 22 CSV),
+  `brain/wiki/metrika_analytics/` (8 MD + 10 CSV)
+- Отчёт клиенту: `CLIENT_REPORT.md` и `CLIENT_REPORT.docx` (собирается скриптом)
+- Данные, которых до сих пор нет: `research/data-needs-deep-research.md` (статусы)
