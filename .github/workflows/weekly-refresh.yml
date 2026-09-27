@@ -39,15 +39,22 @@ jobs:
           YANDEX_CLIENT_SECRET: ${{ secrets.YANDEX_CLIENT_SECRET }}
           YANDEX_OAUTH_TOKEN: ${{ secrets.YANDEX_OAUTH_TOKEN }}
           METRIKA_COUNTER_ID: "50863157"
+          METRIKA_MAPS_COUNTER_ID: "59102713"
         run: |
-          printf 'YANDEX_CLIENT_ID=%s\nYANDEX_CLIENT_SECRET=%s\nYANDEX_OAUTH_TOKEN=%s\nMETRIKA_COUNTER_ID=50863157\n' \
+          printf 'YANDEX_CLIENT_ID=%s\nYANDEX_CLIENT_SECRET=%s\nYANDEX_OAUTH_TOKEN=%s\nMETRIKA_COUNTER_ID=50863157\nMETRIKA_MAPS_COUNTER_ID=59102713\n' \
             "$YANDEX_CLIENT_ID" "$YANDEX_CLIENT_SECRET" "$YANDEX_OAUTH_TOKEN" > .env
           python scripts/export/metrica_api_export.py || true
+          python scripts/export/metrica_cuts_export.py || true
           python scripts/export/yw_api_export.py || true
 
       - name: Rebuild site data
         run: |
-          python scripts/export/build_site_data.py || true
+          python scripts/export/build_wm_data.py || true
+          python scripts/export/build_metrika_site_exports.py
+          python scripts/export/build_site_data.py
+          python scripts/export/build_dashboard_data.py
+          python scripts/export/build_nav.py
+          python scripts/export/build_client_report.py
           python scripts/export/validate_report.py
 
       - name: Commit refreshed data

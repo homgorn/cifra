@@ -41,6 +41,11 @@ python scripts\export\build_metrika_site_exports.py
 python scripts\export\build_site_data.py
 python scripts\export\build_dashboard_data.py
 if errorlevel 1 goto fail
+
+echo.
+echo [3b/5] Client report from data
+python scripts\export\build_client_report.py
+if errorlevel 1 goto fail
 goto validate
 
 :data
