@@ -1,0 +1,342 @@
+/*
+  Навигация без выпадающих списков, карта отчёта и служебные элементы.
+  Дописывается в конец main.css скриптом build_nav_css.py, чтобы не терять
+  правки в основном файле.
+*/
+
+/* --- Полоса прогресса чтения ------------------------------------------- */
+.read-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 2px;
+  width: 0;
+  background: var(--color-accent);
+  z-index: 120;
+  transition: width 90ms linear;
+}
+
+/* --- Подшапка: все страницы раздела сразу видны ------------------------- */
+.subnav {
+  border-bottom: 1px solid var(--color-border);
+  background: var(--color-bg-elevated);
+  position: sticky;
+  top: var(--header-height);
+  z-index: 60;
+}
+.subnav-inner {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0.4rem var(--space-6);
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+  overflow-x: auto;
+  scrollbar-width: thin;
+}
+.subnav-title {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-fg-subtle);
+  padding-right: var(--space-3);
+  margin-right: var(--space-2);
+  border-right: 1px solid var(--color-border);
+  white-space: nowrap;
+  flex: 0 0 auto;
+}
+.subnav-link {
+  font-size: var(--text-sm);
+  color: var(--color-fg-muted);
+  text-decoration: none;
+  padding: 0.25rem 0.6rem;
+  border-radius: 3px;
+  white-space: nowrap;
+  flex: 0 0 auto;
+  transition: color 120ms ease, background-color 120ms ease;
+}
+.subnav-link:hover {
+  color: var(--color-fg);
+  background: var(--color-bg-card);
+}
+.subnav-link.active {
+  color: var(--color-accent);
+  background: var(--color-accent-bg);
+}
+
+/* --- Ссылка «Все страницы» в верхнем меню ------------------------------ */
+.nav-link-all {
+  margin-left: auto;
+  border: 1px solid var(--color-accent-border);
+  color: var(--color-accent);
+  padding-left: 0.85rem;
+  padding-right: 0.85rem;
+}
+.nav-link-all:hover,
+.nav-link-all.active {
+  background: var(--color-accent-bg);
+  color: var(--color-accent);
+}
+
+/* --- Футер: все страницы с номерами ------------------------------------ */
+.footer-toc {
+  display: inline-block;
+  margin-top: var(--space-3);
+  font-size: var(--text-sm);
+  color: var(--color-accent);
+  text-decoration: none;
+  border-bottom: 1px solid var(--color-accent-border);
+  padding-bottom: 1px;
+}
+.footer-toc:hover { border-bottom-color: var(--color-accent); }
+.footer-nav li { margin-bottom: 0.15rem; }
+.footer-nav a { display: flex; gap: 0.45rem; align-items: baseline; }
+.fnum {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--color-fg-subtle);
+  min-width: 1.4em;
+  text-align: right;
+  flex: 0 0 auto;
+}
+.footer-nav a:hover .fnum { color: var(--color-accent); }
+.footer-nav a[aria-current="page"] { color: var(--color-accent); }
+.footer-bottom span:last-child { font-family: var(--font-mono); font-size: var(--text-xs); }
+
+/* --- Карта отчёта на главной -------------------------------------------- */
+.toc-group { margin-top: var(--space-8); }
+.toc-group-title {
+  font-size: var(--text-sm);
+  font-family: var(--font-mono);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-fg-muted);
+  margin: 0 0 var(--space-3);
+  padding-bottom: var(--space-2);
+  border-bottom: 1px solid var(--color-border);
+}
+.toc-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: var(--space-2);
+}
+.toc-card {
+  display: flex;
+  gap: var(--space-3);
+  align-items: flex-start;
+  padding: var(--space-3);
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
+  background: var(--color-bg-card);
+  text-decoration: none;
+  transition: border-color 140ms ease, transform 140ms ease;
+}
+.toc-card:hover {
+  border-color: var(--color-accent-border);
+  transform: translateY(-1px);
+}
+.toc-num {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--color-fg-subtle);
+  padding-top: 0.15rem;
+  min-width: 1.6em;
+}
+.toc-card:hover .toc-num { color: var(--color-accent); }
+.toc-body { display: flex; flex-direction: column; gap: 0.2rem; }
+.toc-title { color: var(--color-fg); font-weight: 500; font-size: var(--text-base); }
+.toc-desc { color: var(--color-fg-muted); font-size: var(--text-sm); line-height: 1.45; }
+
+/* --- Кнопка «Наверх» ---------------------------------------------------- */
+.to-top {
+  position: fixed;
+  right: var(--space-5);
+  bottom: var(--space-5);
+  width: 38px;
+  height: 38px;
+  border-radius: 4px;
+  border: 1px solid var(--color-border-light);
+  background: var(--color-bg-elevated);
+  color: var(--color-fg-muted);
+  cursor: pointer;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 80;
+  font-size: var(--text-sm);
+  transition: color 140ms ease, border-color 140ms ease, opacity 140ms ease;
+}
+.to-top.show { display: flex; }
+.to-top:hover { color: var(--color-accent); border-color: var(--color-accent-border); }
+
+/* --- Фильтр длинных таблиц --------------------------------------------- */
+.table-tools {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin: var(--space-3) 0 var(--space-2);
+  flex-wrap: wrap;
+}
+.table-filter {
+  font-family: var(--font-sono, var(--font-sans));
+  font-size: var(--text-sm);
+  padding: 0.35rem 0.6rem;
+  min-width: 220px;
+  background: var(--color-bg);
+  color: var(--color-fg);
+  border: 1px solid var(--color-border-light);
+  border-radius: 3px;
+}
+.table-filter:focus { outline: none; border-color: var(--color-accent); }
+.table-filter::placeholder { color: var(--color-fg-subtle); }
+.table-count { font-size: var(--text-xs); color: var(--color-fg-subtle); font-family: var(--font-mono); }
+tr.row-hidden { display: none; }
+
+/* --- Ссылки-якоря у заголовков разделов --------------------------------- */
+.section-anchor {
+  opacity: 0;
+  margin-left: 0.4rem;
+  color: var(--color-fg-subtle);
+  text-decoration: none;
+  font-weight: 400;
+  transition: opacity 140ms ease, color 140ms ease;
+}
+h2:hover .section-anchor, h3:hover .section-anchor { opacity: 1; }
+.section-anchor:hover { color: var(--color-accent); }
+.section-anchor.copied { color: var(--color-accent); opacity: 1; }
+
+/* --- Подсветка активного раздела в боковом меню ------------------------- */
+.sidebar-link.current { color: var(--color-accent); border-left-color: var(--color-accent); }
+
+/* --- Поиск по отчёту ----------------------------------------------------- */
+.search-open {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-left: auto;
+  font-family: var(--font-sans);
+  font-size: var(--text-sm);
+  color: var(--color-fg-muted);
+  background: transparent;
+  border: 1px solid var(--color-border-light);
+  border-radius: 3px;
+  padding: 0.3rem 0.6rem;
+  cursor: pointer;
+  transition: color 140ms ease, border-color 140ms ease;
+}
+.search-open:hover { color: var(--color-accent); border-color: var(--color-accent-border); }
+.search-key {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--color-fg-subtle);
+  border: 1px solid var(--color-border);
+  border-radius: 2px;
+  padding: 0 0.25rem;
+}
+.nav-link-all { margin-left: 0; }
+
+.search-panel {
+  position: fixed;
+  inset: 0;
+  background: rgba(5, 8, 12, 0.86);
+  backdrop-filter: blur(6px);
+  z-index: 200;
+  padding: 12vh var(--space-5) var(--space-5);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-3);
+}
+.search-panel[hidden] { display: none; }
+.search-box {
+  width: min(640px, 100%);
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  background: var(--color-bg-elevated);
+  border: 1px solid var(--color-accent-border);
+  border-radius: 5px;
+  padding: 0.5rem 0.6rem 0.5rem 0.9rem;
+}
+.search-input {
+  flex: 1;
+  font-family: var(--font-sans);
+  font-size: var(--text-lg);
+  color: var(--color-fg);
+  background: transparent;
+  border: none;
+  outline: none;
+}
+.search-input::placeholder { color: var(--color-fg-subtle); }
+.search-close {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--color-fg-subtle);
+  background: transparent;
+  border: 1px solid var(--color-border);
+  border-radius: 3px;
+  padding: 0.15rem 0.4rem;
+  cursor: pointer;
+}
+.search-close:hover { color: var(--color-fg); }
+.search-results {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  width: min(640px, 100%);
+  max-height: 52vh;
+  overflow-y: auto;
+}
+.search-results a {
+  display: grid;
+  grid-template-columns: 2.2em 1fr;
+  gap: 0 0.6rem;
+  padding: 0.55rem 0.7rem;
+  border-radius: 4px;
+  text-decoration: none;
+  border: 1px solid transparent;
+}
+.search-results a:hover, .search-results li.on a {
+  background: var(--color-bg-card);
+  border-color: var(--color-accent-border);
+}
+.sr-num { font-family: var(--font-mono); font-size: var(--text-xs); color: var(--color-fg-subtle); }
+.search-results li.on .sr-num, .search-results a:hover .sr-num { color: var(--color-accent); }
+.sr-t { color: var(--color-fg); font-size: var(--text-base); }
+.sr-s, .sr-d { grid-column: 2; color: var(--color-fg-muted); font-size: var(--text-sm); line-height: 1.4; }
+.search-empty { color: var(--color-fg-muted); font-size: var(--text-sm); }
+
+/* --- Печать: план и таблицы должны печататься ---------------------------- */
+@media print {
+  .site-header, .subnav, .to-top, .read-progress, .sidebar, .footer-toc,
+  .table-tools, .pager { display: none !important; }
+  body { background: #fff; color: #000; }
+  .card, .callout, .table-wrapper { border-color: #999; break-inside: avoid; }
+  a { color: #000; text-decoration: none; }
+}
+
+/* --- Мобильный: подшапка прокручивается, меню плоское --------------------- */
+@media (max-width: 1024px) {
+  .main-nav { gap: var(--space-1); }
+  .nav-link { padding: 0.35rem 0.55rem; font-size: var(--text-sm); }
+  .nav-link-all { padding-left: 0.55rem; padding-right: 0.55rem; }
+  .subnav-inner { padding-left: var(--space-4); padding-right: var(--space-4); }
+}
+@media (max-width: 640px) {
+  .main-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.15rem;
+  }
+  .nav-link { font-size: var(--text-xs); padding: 0.3rem 0.45rem; }
+  .nav-link-all { margin-left: 0; }
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+  .toc-grid { grid-template-columns: 1fr; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .read-progress { transition: none; }
+  .toc-card, .to-top, .section-anchor { transition: none; }
+  .toc-card:hover { transform: none; }
+}
