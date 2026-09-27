@@ -1,0 +1,91 @@
+{
+  "@context": {
+    "cifra": "https://cifra18.ru/ontology#",
+    "schema": "https://schema.org/",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "owl": "http://www.w3.org/2002/07/owl#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#"
+  },
+  "@graph": [
+    {
+      "@id": "cifra:service_mobilnye_rollup_0_85x2",
+      "@type": "cifra:MobileStandService",
+      "rdfs:label": "ROLL-UP 0,85х2 м",
+      "rdfs:comment": "Роллап 0.85x2 м компактный, легкий, быстро собирается",
+      "schema:description": "Роллап (Roll-Up) 0.85x2 м — компактный мобильный стенд. Каркас алюминиевый, механизм пружинный. Печать на ткани/пленке. Чехол для переноски в комплекте. Вес 2.5-3 кг. Сборка за 30 секунд.",
+      "cifra:hasMaxFormat": "0.85x2 м"
+    },
+    {
+      "@id": "cifra:service_mobilnye_rollup_1x2",
+      "@type": "cifra:MobileStandService",
+      "rdfs:label": "ROLL-UP 1x2 м",
+      "rdfs:comment": "Роллап 1x2 м стандартный офисный/выставочный",
+      "schema:description": "Роллап (Roll-Up) 1x2 м — стандартный мобильный стенд для офисов, выставок, презентаций. Каркас алюминиевый, механизм пружинный. Печать на ткани/пленке. Чехол для переноски в комплекте. Вес 3-4 кг.",
+      "cifra:hasMaxFormat": "1x2 м"
+    },
+    {
+      "@id": "cifra:service_mobilnye_rollup_1_2x2",
+      "@type": "cifra:MobileStandService",
+      "rdfs:label": "ROLL-UP 1.2x2 м",
+      "rdfs:comment": "Роллап 1.2x2 м широкоформатный",
+      "schema:description": "Роллап (Roll-Up) 1.2x2 м — широкоформатный мобильный стенд для крупных выставок, презентаций. Устойчивый каркас, усиленная пружина. Печать на ткани/пленке. Чехол для переноски.",
+      "cifra:hasMaxFormat": "1.2x2 м"
+    },
+    {
+      "@id": "cifra:service_mobilnye_rollup_1_5x2",
+      "@type": "cifra:MobileStandService",
+      "rdfs:label": "ROLL-UP 1.5x2 м",
+      "rdfs:comment": "Роллап 1.5x2 м максимальная ширина стандартного роллапа",
+      "schema:description": "Роллап (Roll-Up) 1.5x2 м — максимальная ширина стандартного роллапа. Для крупных выставок, фото-зон, фона. Усиленный каркас, двойная пружина.",
+      "cifra:hasMaxFormat": "1.5x2 м"
+    },
+    {
+      "@id": "cifra:service_mobilnye_rollup_2x3",
+      "@type": "cifra:MobileStandService",
+      "rdfs:label": "ROLL-UP 2x3 м",
+      "rdfs:comment": "Роллап 2x3 м максимальный стандартный размер",
+      "schema:description": "Роллап (Roll-Up) 2x3 м — максимальный стандартный размер. Для крупных выставок, фото-зон, фона. Усиленный каркас, двойная пружина. Печать на ткани/пленке. Чехол для переноски.",
+      "cifra:hasMaxFormat": "2x3 м"
+    },
+    {
+      "@id": "cifra:service_mobilnye_kh_banner",
+      "@type": "cifra:MobileStandService",
+      "rdfs:label": "Х-banner",
+      "rdfs:comment": "Х-баннер (X-баннер) легкий, экономичный мобильный стенд",
+      "schema:description": "Х-баннер (X-banner) — легкий, экономичный мобильный стенд. Каркас пластиковый/металлический X-образный. Печать на баннерной ткани/пленке. Вес 1-1.5 кг. Сборка за 1 минуту.",
+      "cifra:hasMaxFormat": "0.6x1.6м / 0.8x1.8м"
+    },
+    {
+      "@id": "cifra:service_mobilnye_l_banner",
+      "@type": "cifra:MobileStandService",
+      "rdfs:label": "L-banner",
+      "rdfs:comment": "L-баннер (L-баннер) стабильный напольный стенд",
+      "schema:description": "L-баннер (L-banner) — стабильный напольный стенд L-образной формы. Основание тяжелое (металл/песок/вода). Печать на ткани/пленке. Устойчивый к ветру. Для улицы и помещений.",
+      "cifra:hasMaxFormat": "0.6x1.6м / 0.8x1.8м"
+    },
+    {
+      "@id": "cifra:service_mobilnye_shtender",
+      "@type": "cifra:MobileStandService",
+      "rdfs:label": "Штендер",
+      "rdfs:comment": "Штендер (настольный/напольный) для меню, ценников, информации",
+      "schema:description": "Штендер (настольный/напольный) — для меню ресторанов, ценников в магазинах, информации на выставках. Форматы А4, А5, А3. Каркас металл/акрил. Односторонний/двусторонний.",
+      "cifra:hasMaxFormat": "А4, А5, А3"
+    },
+    {
+      "@id": "cifra:service_mobilnye_press_voll",
+      "@type": "cifra:MobileStandService",
+      "rdfs:label": "Пресс-волл",
+      "rdfs:comment": "Пресс-волл (Press Wall) — медиа-стенд для фото-зон, интервью, бэкграунд",
+      "schema:description": "Пресс-волл (Press Wall) — медиа-стенд для фото-зон, интервью, бэкграунд на мероприятиях. Размеры: 2x2м, 3x2м, 3x3м, 4x3м, 6x3м. Каркас алюминиевый трубчатый (труба 32мм). Печать на ткани (блэкаут/флаж-материал). Быстрая сборка за 10-15 мин.",
+      "cifra:hasMaxFormat": "2x2м, 3x2м, 3x3м, 4x3м, 6x3м"
+    },
+    {
+      "@id": "cifra:service_mobilnye_arenda_press_voll",
+      "@type": "cifra:MobileStandService",
+      "rdfs:label": "Аренда Пресс-волл",
+      "rdfs:comment": "Аренда пресс-волла на мероприятия (сутки/неделя)",
+      "schema:description": "Аренда пресс-волла (Press Wall) на мероприятия: сутки, неделя, месяц. Включает: доставку, сборку, демонтаж, забор. Каркас алюминиевый, печать на ткани блэкаут. Размеры: 2x2м, 3x2м, 3x3м, 4x3м, 6x3м.",
+      "cifra:hasMaxFormat": "2x2м, 3x2м, 3x3м, 4x3м, 6x3м"
+    }
+  ]
+}

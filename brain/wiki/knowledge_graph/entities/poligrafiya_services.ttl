@@ -1,0 +1,244 @@
+{
+  "@context": {
+    "cifra": "https://cifra18.ru/ontology#",
+    "schema": "https://schema.org/",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "owl": "http://www.w3.org/2002/07/owl#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#"
+  },
+  "@graph": [
+    {
+      "@id": "cifra:service_poligrafiya_tsifrovaya_pechat",
+      "@type": "cifra:DigitalPrintService",
+      "rdfs:label": "Цифровая печать",
+      "rdfs:comment": "Цифровая печать малых тиражей от 1 часа",
+      "cifra:hasPrintMethod": "cifra:DigitalPrint",
+      "cifra:hasMinTirage": 1,
+      "cifra:hasMaxTirage": 500,
+      "cifra:hasProductionTime": "PT1H",
+      "schema:description": "Цифровая печать малых тиражей от 1 часа. Идеально для срочных заказов, пробных тиражей, персонализированной печати."
+    },
+    {
+      "@id": "cifra:service_poligrafiya_listovki_ofsetnaya_pechat",
+      "@type": "cifra:OffsetPrintService",
+      "rdfs:label": "Листовки офсетная печать",
+      "rdfs:comment": "Листовки офсетная печать",
+      "cifra:hasPrintMethod": "cifra:OffsetPrint",
+      "cifra:hasMinTirage": 500,
+      "cifra:hasMaxTirage": 100000,
+      "cifra:hasProductionTime": "P1D",
+      "schema:description": "Офсетная печать листовок для крупных тиражей. Высокое качество, низкая цена за экземпляр при больших тиражах."
+    },
+    {
+      "@id": "cifra:service_poligrafiya_listovki_tsifrovaya_pechat",
+      "@type": "cifra:DigitalPrintService",
+      "rdfs:label": "Листовки цифровая печать",
+      "rdfs:comment": "Листовки цифровая печать",
+      "cifra:hasPrintMethod": "cifra:DigitalPrint",
+      "cifra:hasMinTirage": 1,
+      "cifra:hasMaxTirage": 500,
+      "cifra:hasProductionTime": "PT1H",
+      "schema:description": "Цифровая печать листовок для малых тиражей и срочных заказов."
+    },
+    {
+      "@id": "cifra:service_poligrafiya_birki",
+      "@type": "cifra:PrintService",
+      "rdfs:label": "Бирки",
+      "rdfs:comment": "Бирки",
+      "cifra:hasPrintMethod": ["cifra:DigitalPrint", "cifra:OffsetPrint"],
+      "cifra:hasMinTirage": 100,
+      "schema:description": "Печать бирок на картоне, крафте, дизайнерском картоне, пластике. Для маркировки одежды, товаров, подарков."
+    },
+    {
+      "@id": "cifra:service_poligrafiya_vizitki",
+      "@type": "cifra:PrintService",
+      "rdfs:label": "Визитки",
+      "rdfs:comment": "Визитки",
+      "cifra:hasPrintMethod": ["cifra:DigitalPrint", "cifra:OffsetPrint"],
+      "cifra:hasMinTirage": 50,
+      "schema:description": "Печать визиток на крафте, дизайнерском картоне, прозрачном пластике, черном картоне, с ламинацией, фольгированием, скруглением углов."
+    },
+    {
+      "@id": "cifra:service_poligrafiya_kalendari",
+      "@type": "cifra:PrintService",
+      "rdfs:label": "Календари",
+      "rdfs:comment": "Календари",
+      "cifra:hasPrintMethod": ["cifra:DigitalPrint", "cifra:OffsetPrint"],
+      "cifra:hasMinTirage": 50,
+      "schema:description": "Календари квартальные, настольные, настенные, флип-календари, pocket-календари. Печать на меловке, дизайнерском картоне."
+    },
+    {
+      "@id": "cifra:service_poligrafiya_rizografiya",
+      "@type": "cifra:PrintService",
+      "rdfs:label": "Ризография",
+      "rdfs:comment": "Ризография",
+      "cifra:hasPrintMethod": "cifra:RisoPrint",
+      "cifra:hasMinTirage": 1000,
+      "schema:description": "Ризография — самый экономичный способ печати сверхкрупных тиражей (от 1000 экз.). Идеально для газет, объявлений, бюллетеней."
+    },
+    {
+      "@id": "cifra:service_poligrafiya_pechat_na_samokleyashchikhsya_materialakh",
+      "@type": "cifra:PrintService",
+      "rdfs:label": "Печать на самоклеящихся материалах",
+      "rdfs:comment": "Наклейки, стикеры, этикетки на самоклеящихся материалах",
+      "cifra:hasPrintMethod": ["cifra:DigitalPrint", "cifra:UVPrint"],
+      "cifra:hasMinTirage": 50,
+      "schema:description": "Печать наклеек, стикеров, этикеток на самоклеящейся бумаге и пленке. Контурная резка любой формы."
+    },
+    {
+      "@id": "cifra:service_poligrafiya_bloknoty",
+      "@type": "cifra:PrintService",
+      "rdfs:label": "Блокноты",
+      "rdfs:comment": "Блокноты А5, А6 с различными обложками",
+      "cifra:hasPrintMethod": ["cifra:DigitalPrint", "cifra:OffsetPrint"],
+      "cifra:hasMinTirage": 50,
+      "schema:description": "Блокноты А5, А6 с обложками из дизайнерского картона, крафта, кожи. Пружина, скрепка, клей. Брендирование обложки."
+    },
+    {
+      "@id": "cifra:service_poligrafiya_otkrytki_sertifikaty",
+      "@type": "cifra:PrintService",
+      "rdfs:label": "Открытки, сертификаты",
+      "rdfs:comment": "Открытки, сертификаты",
+      "cifra:hasPrintMethod": ["cifra:DigitalPrint", "cifra:OffsetPrint"],
+      "cifra:hasMinTirage": 50,
+      "schema:description": "Открытки и сертификаты на дизайнерском картоне с фольгированием, ламинацией, тиснением."
+    },
+    {
+      "@id": "cifra:service_poligrafiya_karty_plastikovye",
+      "@type": "cifra:PrintService",
+      "rdfs:label": "Карты пластиковые",
+      "rdfs:comment": "Карты пластиковые: дисконтные, клубные, подарочные, доступные",
+      "cifra:hasPrintMethod": ["cifra:DigitalPrint", "cifra:OffsetPrint"],
+      "cifra:hasMinTirage": 50,
+      "schema:description": "Пластиковые карты: дисконтные, клубные, подарочные, доступные. Персонализация, нумерация, баркод, QR-код."
+    },
+    {
+      "@id": "cifra:service_poligrafiya_beydzhi",
+      "@type": "cifra:PrintService",
+      "rdfs:label": "Бейджи",
+      "rdfs:comment": "Бейджи с логотипом: магнитные, на заколке, на шпильке",
+      "cifra:hasPrintMethod": ["cifra:DigitalPrint", "cifra:UVPrint"],
+      "cifra:hasMinTirage": 10,
+      "schema:description": "Бейджи с логотипом для сотрудников, мероприятий, конференций. Магнитные, на заколке, на шпильке, с ленярдом."
+    },
+    {
+      "@id": "cifra:service_poligrafiya_laminirovanie",
+      "@type": "cifra:PostPressService",
+      "rdfs:label": "Ламинирование",
+      "rdfs:comment": "Ламинирование глянцевое, матовое, софт-тач",
+      "cifra:hasFinishing": "cifra:Lamination",
+      "schema:description": "Ламинирование глянцевое, матовое, софт-тач. Защита печатной продукции от износа, влаги, выцветания."
+    },
+    {
+      "@id": "cifra:service_poligrafiya_plotternaya_rezka",
+      "@type": "cifra:PostPressService",
+      "rdfs:label": "Плоттерная резка",
+      "rdfs:comment": "Контурная резка пленки, бумаги, картона",
+      "schema:description": "Плоттерная резка (контурная резка) — высокоточная резка разных материалов: самоклеящаяся пленка ПВХ, бумага, картон. Вырезание по контуру любой сложности.",
+      "cifra:hasFinishing": "cifra:DieCutting"
+    },
+    {
+      "@id": "cifra:service_poligrafiya_pechat_belym_tonerom",
+      "@type": "cifra:PrintService",
+      "rdfs:label": "Печать белым тонером",
+      "rdfs:comment": "Печать белым тонером на темных материалах",
+      "cifra:hasPrintMethod": "cifra:WhiteTonerPrint",
+      "schema:description": "Уникальная технология печати белым тонером на темных и цветных материалах: крафте, черном картоне, цветной бумаге, тканях."
+    },
+    {
+      "@id": "cifra:service_poligrafiya_postpechatnye_raboty",
+      "@type": "cifra:PostPressService",
+      "rdfs:label": "Постпечатные работы",
+      "rdfs:comment": "Ламинирование, фольгирование, тиснение, конгрев, скругление углов, плоттерная резка",
+      "schema:description": "Полный спектр постпечатной обработки: ламиниция (глянцевая, матовая, софт-тач), фольгирование (золото, серебро, цветные фольги, голограмма), тиснение (слепое, фольгированное), конгрев, скругление углов, плоттерная резка."
+    },
+    {
+      "@id": "cifra:service_poligrafiya_uf_pechat",
+      "@type": "cifra:PrintService",
+      "rdfs:label": "УФ печать",
+      "rdfs:comment": "УФ-лакирование выборочное и сплошное",
+      "cifra:hasPrintMethod": "cifra:UVVarnish",
+      "cifra:hasFinishing": "cifra:UVVarnish",
+      "schema:description": "УФ-лакирование выборочное (локальное) и сплошное. Создает объемный эффект, защищает от выцветания и механических повреждений."
+    },
+    {
+      "@id": "cifra:service_poligrafiya_papki",
+      "@type": "cifra:PrintService",
+      "rdfs:label": "Папки",
+      "rdfs:comment": "Папки для документов с логотипом",
+      "cifra:hasPrintMethod": ["cifra:DigitalPrint", "cifra:OffsetPrint"],
+      "cifra:hasFinishing": ["cifra:Lamination", "cifra:UVVarnish"],
+      "schema:description": "Папки для документов с логотипом компании. Ламиниция, УФ-лакирование, фольгирование. Удобны для деловых встреч, презентаций."
+    },
+    {
+      "@id": "cifra:service_poligrafiya_bloki_dlya_zapisey_kubariki",
+      "@type": "cifra:PrintService",
+      "rdfs:label": "Блоки для записей, кубарики",
+      "rdfs:comment": "Блоки для записей и кубарики с логотипом",
+      "cifra:hasPrintMethod": ["cifra:DigitalPrint", "cifra:OffsetPrint"],
+      "schema:description": "Блоки для записей А5, А6, А4. Кубарики (книжная обложка + блок). Брендированная обложка, логотип на каждом листе."
+    },
+    {
+      "@id": "cifra:service_poligrafiya_vysechnaya_produktsiya",
+      "@type": "cifra:PrintService",
+      "rdfs:label": "Высечная продукция",
+      "rdfs:comment": "Высечные изделия: коробки, коробки для доставки, POS-материалы",
+      "cifra:hasPrintMethod": ["cifra:DigitalPrint", "cifra:OffsetPrint"],
+      "cifra:hasFinishing": ["cifra:DieCutting", "cifra:Gluing"],
+      "schema:description": "Высечные изделия: коробки вырубные, коробки для доставки, POS-материалы, столбики, таблетки, воблеры, диспенсеры."
+    },
+    {
+      "@id": "cifra:service_poligrafiya_konverty",
+      "@type": "cifra:PrintService",
+      "rdfs:label": "Конверты",
+      "rdfs:comment": "Конверты с логотипом: Е65, С5, С4, С6, DL",
+      "cifra:hasPrintMethod": ["cifra:DigitalPrint", "cifra:OffsetPrint"],
+      "schema:description": "Конверты европейских форматов с логотипом компании. Меховой клей, силиконовый клей. Белизна, крафт, дизайнерский картон."
+    },
+    {
+      "@id": "cifra:service_poligrafiya_korobki_vyrubnye",
+      "@type": "cifra:PrintService",
+      "rdfs:label": "Коробки вырубные",
+      "rdfs:comment": "Вырубные коробки из гофрокартона и микрогофрокартона",
+      "cifra:hasPrintMethod": ["cifra:OffsetPrint", "cifra:FlexoPrint"],
+      "cifra:hasFinishing": ["cifra:DieCutting", "cifra:Gluing", "cifra:Lamination"],
+      "schema:description": "Вырубные коробки из гофрокартона (Т-21, Т-22, Т-23, Т-24) и микрогофрокартона (Е-качество). Автоматические и ручные сборки."
+    },
+    {
+      "@id": "cifra:service_poligrafiya_lekala_vykroyki",
+      "@type": "cifra:PrintService",
+      "rdfs:label": "Лекала, выкройки",
+      "rdfs:comment": "Печать лекал и выкроек на трафаретной бумаге",
+      "schema:description": "Печать лекал и выкроек на трафаретной бумаге для производства одежды, обуви, мебели. Крупноформатная печать на рулоне.",
+      "cifra:hasPrintMethod": "cifra:WideFormatInkjet",
+      "cifra:hasMaxFormat": "1.6м",
+      "cifra:hasMinTirage": 1
+    },
+    {
+      "@id": "cifra:service_poligrafiya_pakety",
+      "@type": "cifra:PrintService",
+      "rdfs:label": "Пакеты",
+      "rdfs:comment": "Бумажные пакеты с логотипом: крафт, белые, мелованные",
+      "cifra:hasPrintMethod": ["cifra:OffsetPrint", "cifra:FlexoPrint"],
+      "cifra:hasFinishing": ["cifra:Lamination", "cifra:UVVarnish", "cifra:DieCutting"],
+      "schema:description": "Бумажные пакеты с логотипом: крафтовые, белые мелованные, подарочные. Ручные ручки, скрученные, с застежкой. Размеры от 18x22 до 50x60 см."
+    },
+    {
+      "@id": "cifra:service_poligrafiya_teybl_tent",
+      "@type": "cifra:PrintService",
+      "rdfs:label": "Тейбл-тент",
+      "rdfs:comment": "Настольные талончики-тенты для ресторанов, кафе, офисов",
+      "cifra:hasPrintMethod": ["cifra:DigitalPrint", "cifra:OffsetPrint"],
+      "cifra:hasFinishing": ["cifra:Lamination", "cifra:UVVarnish"],
+      "schema:description": "Настольные талончики-тенты (тент-карточки) для ресторанов, кафе, офисов. Двусторонняя печать, ламинация, складная конструкция."
+    },
+    {
+      "@id": "cifra:service_poligrafiya_folgirovanie",
+      "@type": "cifra:PostPressService",
+      "rdfs:label": "Фольгирование",
+      "rdfs:comment": "Фольгирование горячее и холодное: золото, серебро, голограмма, пигментные фольги",
+      "cifra:hasFinishing": "cifra:Foiling",
+      "schema:description": "Фольгирование горячее (золото, серебро, цветные фольги, голограмма) и холодное. Тиснение фольгой без пресса. Эффект металлического блеска."
+    }
+  ]
+}

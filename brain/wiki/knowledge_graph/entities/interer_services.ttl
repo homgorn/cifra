@@ -1,0 +1,77 @@
+{
+  "@context": {
+    "cifra": "https://cifra18.ru/ontology#",
+    "schema": "https://schema.org/",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "owl": "http://www.w3.org/2002/07/owl#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#"
+  },
+  "@graph": [
+    {
+      "@id": "cifra:service_interer_kartiny_na_kholste",
+      "@type": "cifra:PrintService",
+      "rdfs:label": "Картины на холсте",
+      "rdfs:comment": "Печать на холсте: художественные репродукции, фото на холсте",
+      "schema:description": "Печать на холсте (холст-холст, художественный холст): художественные репродукции, фото на холсте, модные постеры. Натяжка на подрамник (кель), багетирование. Размеры до 1.5х3м.",
+      "cifra:hasPrintMethod": "cifra:WideFormatInkjet",
+      "cifra:hasMaterial": "cifra:material_canvas",
+      "cifra:hasMaxFormat": "1.5x3 м",
+      "cifra:hasMinTirage": 1
+    },
+    {
+      "@id": "cifra:service_interer_postery",
+      "@type": "cifra:PrintService",
+      "rdfs:label": "Постеры",
+      "rdfs:comment": "Постеры на постерной бумаге, фото-бумаге, холсте",
+      "schema:description": "Постеры на постерной бумаге (меловка, фото-бумага), холсте, фото-бумаге. Постеры для интерьера, рекламы, событий. Ламинация, фрейминг.",
+      "cifra:hasPrintMethod": ["cifra:WideFormatInkjet", "cifra:UVPrint"],
+      "cifra:hasMaterial": "cifra:material_paper_poster",
+      "cifra:hasMaxFormat": "1.6м",
+      "cifra:hasMinTirage": 1
+    },
+    {
+      "@id": "cifra:service_interer_pechat_na_kholste_v_rulone",
+      "@type": "cifra:PrintService",
+      "rdfs:label": "Печать на холсте в рулоне",
+      "rdfs:comment": "Печать на холсте в рулоне для натяжки на подрамник",
+      "schema:description": "Печать на холсте в рулоне (ширина до 1.5м) для самостоятельной натяжки на подрамник или багетирования. Художественный холст, фото-холст, синтетический холст.",
+      "cifra:hasPrintMethod": "cifra:WideFormatInkjet",
+      "cifra:hasMaterial": "cifra:material_canvas",
+      "cifra:hasMaxFormat": "1.5м (ширина рулона)",
+      "cifra:hasMinTirage": 1
+    },
+    {
+      "@id": "cifra:service_interer_kartiny_na_kholste_individualnyy_razmer",
+      "@type": "cifra:PrintService",
+      "rdfs:label": "Картины на холсте индивидуальный размер",
+      "rdfs:comment": "Картины на холсте нестандартного размера под заказ",
+      "schema:description": "Картины на холсте нестандартного размера под заказ. Любой размер до 1.5х3м. Натяжка на подрамник, багетирование, рама. Готовые к подвешиванию.",
+      "cifra:hasPrintMethod": "cifra:WideFormatInkjet",
+      "cifra:hasMaterial": "cifra:material_canvas",
+      "cifra:hasMaxFormat": "1.5x3 м",
+      "cifra:hasMinTirage": 1
+    },
+    {
+      "@id": "cifra:service_interer_fotopostery_na_penokartone",
+      "@type": "cifra:PrintService",
+      "rdfs:label": "Фотопостеры на пенокартоне",
+      "rdfs:comment": "Фотопостеры на пенокартоне (пенопласт 3-5мм): легкие, жесткие, не деформируются",
+      "schema:description": "Фотопостеры на пенокартоне (пенопласт 3мм, 5мм): легкие, жесткие, не деформируются. Монтируются на стену на двусторонний скотч, магниты, кнопки. Идеально для временных выставок, офисов, дома.",
+      "cifra:hasPrintMethod": "cifra:UVPrint",
+      "cifra:hasMaterial": "cifra:material_penokarton",
+      "cifra:hasMaxFormat": "1.2x2.4 м",
+      "cifra:hasMinTirage": 1
+    },
+    {
+      "@id": "cifra:service_interer_fotooboi",
+      "@type": "cifra:PrintService",
+      "rdfs:label": "Фотообои и фрески бесшовные",
+      "rdfs:comment": "Фотообои и фрески бесшовные: печать на виниле, флизелине, ткани",
+      "schema:description": "Фотообои и фрески бесшовные: печать на виниле (виниловые обои), флизелине (флизелиновые обои), ткани (текстильные обои). Бесшовные панели до 3-5м ширины. Монтаж на клей, самоклеящиеся.",
+      "cifra:hasPrintMethod": ["cifra:UVPrint", "cifra:LatexPrint"],
+      "cifra:hasMaterial": ["cifra:material_vinyl_wallpaper", "cifra:material_fleece_wallpaper", "cifra:material_fabric_wallpaper"],
+      "cifra:hasMaxFormat": "3-5м (бесшовные панели)",
+      "cifra:hasMinTirage": 1
+    }
+  ]
+}

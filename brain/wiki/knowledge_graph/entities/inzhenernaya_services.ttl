@@ -1,0 +1,58 @@
+{
+  "@context": {
+    "cifra": "https://cifra18.ru/ontology#",
+    "schema": "https://schema.org/",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "owl": "http://www.w3.org/2002/07/owl#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#"
+  },
+  "@graph": [
+    {
+      "@id": "cifra:service_inzhenernaya_pechat_chertezhey",
+      "@type": "cifra:EngineeringPrintService",
+      "rdfs:label": "Печать чертежей, проектной документации",
+      "rdfs:comment": "Печать чертежей А0-А4, проектной документации, схем",
+      "cifra:hasPrintMethod": ["cifra:LargeFormatInkjet", "cifra:LEDPrint"],
+      "schema:description": "Печать чертежей А0-А4 форматов, проектной документации, схем, планов. Чертежи строительные, архитектурные, инженерные. Сканирование до А0+.",
+      "cifra:hasPrintMethod": ["cifra:LargeFormatInkjet", "cifra:LEDPrint"],
+      "cifra:hasMaxFormat": "А0",
+      "cifra:hasMinTirage": 1
+    },
+    {
+      "@id": "cifra:service_inzhenernaya_kserokopiya",
+      "@type": "cifra:EngineeringPrintService",
+      "rdfs:label": "Ксерокопия",
+      "rdfs:comment": "Ксерокопия А3, А4, А2, А1, А0 форматов",
+      "schema:description": "Ксерокопия чертежей и документов форматов А3, А4, А2, А1, А0. ЧБ и цветная. Скорость до 100 экз/мин.",
+      "cifra:hasPrintMethod": "cifra:Xerography",
+      "cifra:hasMaxFormat": "А0",
+      "cifra:hasMinTirage": 1
+    },
+    {
+      "@id": "cifra:service_inzhenernaya_skanirovanie",
+      "@type": "cifra:EngineeringPrintService",
+      "rdfs:label": "Сканирование",
+      "rdfs:comment": "Сканирование чертежей и документов до А0+",
+      "schema:description": "Сканирование чертежей, документов, карт, схем до формата А0+. Разрешение 300-600 dpi. Форматы: PDF, TIFF, JPEG, DWG. Распознавание текста (OCR).",
+      "cifra:hasPrintMethod": "cifra:LargeFormatScanning",
+      "cifra:hasMaxFormat": "А0+",
+      "cifra:hasMinTirage": 1
+    },
+    {
+      "@id": "cifra:service_inzhenernaya_faltsovka",
+      "@type": "cifra:EngineeringPrintService",
+      "rdfs:label": "Фальцовка",
+      "rdfs:comment": "Фальцовка чертежей и документов",
+      "schema:description": "Фальцовка чертежей и документов форматов А0-А4 в формат А4 для удобного хранения в папках, регистрации, архивирования. Параллельная, перпендикулярная, комбинированная фальцовка.",
+      "cifra:hasFinishing": "cifra:Folding"
+    },
+    {
+      "@id": "cifra:service_inzhenernaya_broshyurovka",
+      "@type": "cifra:EngineeringPrintService",
+      "rdfs:label": "Брошюровка",
+      "rdfs:comment": "Брошюровка документов и каталогов",
+      "schema:description": "Брошюровка: скобная (скрепка), клеевая (КБС), пружинная (Wire-O), твердая обложка (7БЦ), интегральная. Форматы А5, А4, А3. Тиражи от 1 экз.",
+      "cifra:hasFinishing": ["cifra:SaddleStitching", "cifra:PerfectBinding", "cifra:WireOBinding", "cifra:HardcoverBinding"]
+    }
+  ]
+}

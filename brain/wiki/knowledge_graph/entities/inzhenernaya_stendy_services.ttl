@@ -1,0 +1,112 @@
+{
+  "@context": {
+    "cifra": "https://cifra18.ru/ontology#",
+    "schema": "https://schema.org/",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "owl": "http://www.w3.org/2002/07/owl#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#"
+  },
+  "@graph": [
+    {
+      "@id": "cifra:service_inzhenernaya_pechat_chertezhey",
+      "@type": "cifra:EngineeringPrintService",
+      "rdfs:label": "Печать чертежей, проектной документации",
+      "rdfs:comment": "Печать чертежей А0-А4, проектной документации, схем",
+      "cifra:hasPrintMethod": ["cifra:LargeFormatInkjet", "cifra:LEDPrint"],
+      "schema:description": "Печать чертежей А0-А4 форматов, проектной документации, схем, планов. Чертежи строительные, архитектурные, инженерные. Сканирование до А0+.",
+      "cifra:hasPrintMethod": ["cifra:LargeFormatInkjet", "cifra:LEDPrint"],
+      "cifra:hasMaxFormat": "А0",
+      "cifra:hasMinTirage": 1
+    },
+    {
+      "@id": "cifra:service_inzhenernaya_kserokopiya",
+      "@type": "cifra:EngineeringPrintService",
+      "rdfs:label": "Ксерокопия",
+      "rdfs:comment": "Ксерокопия А3, А4, А2, А1, А0 форматов",
+      "schema:description": "Ксерокопия чертежей и документов форматов А3, А4, А2, А1, А0. ЧБ и цветная. Скорость до 100 экз/мин.",
+      "cifra:hasPrintMethod": "cifra:Xerography",
+      "cifra:hasMaxFormat": "А0",
+      "cifra:hasMinTirage": 1
+    },
+    {
+      "@id": "cifra:service_inzhenernaya_skanirovanie",
+      "@type": "cifra:EngineeringPrintService",
+      "rdfs:label": "Сканирование",
+      "rdfs:comment": "Сканирование чертежей и документов до А0+",
+      "schema:description": "Сканирование чертежей, документов, карт, схем до формата А0+. Разрешение 300-600 dpi. Форматы: PDF, TIFF, JPEG, DWG. Распознавание текста (OCR).",
+      "cifra:hasPrintMethod": "cifra:LargeFormatScanning",
+      "cifra:hasMaxFormat": "А0+",
+      "cifra:hasMinTirage": 1
+    },
+    {
+      "@id": "cifra:service_inzhenernaya_faltsovka",
+      "@type": "cifra:EngineeringPrintService",
+      "rdfs:label": "Фальцовка",
+      "rdfs:comment": "Фальцовка чертежей и документов",
+      "schema:description": "Фальцовка чертежей и документов форматов А0-А4 в формат А4 для удобного хранения в папках, регистрации, архивирования. Параллельная, перпендикулярная, комбинированная фальцовка.",
+      "cifra:hasFinishing": "cifra:Folding"
+    },
+    {
+      "@id": "cifra:service_inzhenernaya_broshyurovka",
+      "@type": "cifra:EngineeringPrintService",
+      "rdfs:label": "Брошюровка",
+      "rdfs:comment": "Брошюровка документов и каталогов",
+      "schema:description": "Брошюровка: скобная (скрепка), клеевая (КБС), пружинная (Wire-O), твердая обложка (7БЦ), интегральная. Форматы А5, А4, А3. Тиражи от 1 экз.",
+      "cifra:hasFinishing": ["cifra:SaddleStitching", "cifra:PerfectBinding", "cifra:WireOBinding", "cifra:HardcoverBinding"]
+    },
+    {
+      "@id": "cifra:service_stendy_stendy",
+      "@type": "cifra:PrintService",
+      "rdfs:label": "Стенд",
+      "rdfs:comment": "Напольные и настенные стенды: поп-ап, роллап, Х-стенд, Л-стенд, пресс-волл",
+      "schema:description": "Напольные и настенные стенды: поп-ап (Pop-Up), роллап (Roll-Up), Х-стенд, Л-стенд, пресс-волл, штендеры, стенды из оргстекла. Каркас: алюминий, пластик, композит. Печать на ткани, пленке, бумаге.",
+      "cifra:hasPrintMethod": ["cifra:WideFormatInkjet", "cifra:UVPrint"],
+      "cifra:hasMaxFormat": "2x3 м",
+      "cifra:hasMinTirage": 1
+    },
+    {
+      "@id": "cifra:service_stendy_karman_pet_ploskiy",
+      "@type": "cifra:PrintService",
+      "rdfs:label": "Карман ПЭТ плоский",
+      "rdfs:comment": "Плоский карман ПЭТ для визиток, буклетов, листовок",
+      "schema:description": "Плоский карман из ПЭТ для визиток, буклетов, листовок формата А5, А4, А6. Прозрачный, жесткий, самоклеящийся или с магнитами. Монтаж на стену, стол, стойку.",
+      "cifra:hasPrintMethod": "cifra:UVPrint",
+      "cifra:hasMaterial": "cifra:material_pet",
+      "cifra:hasMaxFormat": "А3",
+      "cifra:hasMinTirage": 10
+    },
+    {
+      "@id": "cifra:service_stendy_karman_pet_s_prozrachnym_skotchem",
+      "@type": "cifra:PrintService",
+      "rdfs:label": "Карман ПЭТ с прозрачным скотчем",
+      "rdfs:comment": "Карман ПЭТ с прозрачным скотчем для крепления",
+      "schema:description": "Карман ПЭТ с прозрачным двусторонним скотчем для быстрого монтажа на стекло, стену, стойку. Форматы А4, А5, А6, А3.",
+      "cifra:hasPrintMethod": "cifra:UVPrint",
+      "cifra:hasMaterial": "cifra:material_pet",
+      "cifra:hasMaxFormat": "А3",
+      "cifra:hasMinTirage": 10
+    },
+    {
+      "@id": "cifra:service_stendy_izdeliya_iz_orgstekla",
+      "@type": "cifra:PrintService",
+      "rdfs:label": "Изделия из оргстекла",
+      "rdfs:comment": "Стенды, таблички, подставки, подставки для визиток из оргстекла (акрил)",
+      "schema:description": "Изделия из оргстекла (акрила): стенды напольные и настольные, таблички на двери/стены, подставки для визиток/бумаг, коробки для сбора заявок, коробки для пожертвований. Лазерная резка, гравировка, склейка, термогнутое изделие.",
+      "cifra:hasPrintMethod": "cifra:UVPrint",
+      "cifra:hasMaterial": "cifra:material_orgsteklo",
+      "cifra:hasMaxFormat": "А3",
+      "cifra:hasMinTirage": 1
+    },
+    {
+      "@id": "cifra:service_stendy_tablichki",
+      "@type": "cifra:PrintService",
+      "rdfs:label": "Таблички",
+      "rdfs:comment": "Таблички на двери, столы, стены: оргстекло, металл, ПВХ, дерево",
+      "schema:description": "Таблички информационные и навигационные: оргстекло (акрил), металл (алюминий, нержавейка), ПВХ, дерево. Гравировка лазерная/механическая, УФ-печать, вырезание по контуру. Крепление: на шпурах, на клее, на магнитах, на шурупах.",
+      "cifra:hasPrintMethod": ["cifra:UVPrint", "cifra:LaserEngraving"],
+      "cifra:hasMaterial": ["cifra:material_orgsteklo", "cifra:material_metal", "cifra:material_pvc", "cifra:material_wood"],
+      "cifra:hasMaxFormat": "А3",
+      "cifra:hasMinTirage": 1
+    }
+  ]
+}

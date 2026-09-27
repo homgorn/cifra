@@ -1,0 +1,65 @@
+{
+  "@context": {
+    "cifra": "https://cifra18.ru/ontology#",
+    "schema": "https://schema.org/",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "owl": "http://www.w3.org/2002/07/owl#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#"
+  },
+  "@graph": [
+    {
+      "@id": "cifra:InformationalIntent",
+      "@type": "cifra:Intent",
+      "rdfs:label": "Информационное намерение",
+      "rdfs:comment": "Пользователь ищет информацию: как, что, почему, где, когда, сколько, гайд, инструкция"
+    },
+    {
+      "@id": "cifra:CommercialIntent",
+      "@type": "cifra:Intent",
+      "rdfs:label": "Коммерческое намерение",
+      "rdfs:comment": "Пользователь сравнивает, выбирает, ищет лучшее: лучшие, топ, рейтинг, сравнение, vs, альтернативы"
+    },
+    {
+      "@id": "cifra:TransactionalIntent",
+      "@type": "cifra:Intent",
+      "rdfs:label": "Транзакционное намерение",
+      "rdfs:comment": "Пользователь готов купить/заказать: купить, заказать, цена, стоимость, заказать, купить, доставка, СДЭК"
+    },
+    {
+      "@id": "cifra:NavigationalIntent",
+      "@type": "cifra:Intent",
+      "rdfs:label": "Навигационное намерение",
+      "rdfs:comment": "Пользователь ищет конкретный бренд/сайт: цифра18, типография цифра, контур-фото, принтио"
+    },
+    {
+      "@id": "cifra:LocalIntent",
+      "@type": "cifra:Intent",
+      "rdfs:label": "Локальное намерение",
+      "rdfs:comment": "Пользователь ищет в конкретном городе/регионе: Ижевск, Москва, СПб, доставка в город"
+    },
+    {
+      "@id": "cifra:SeasonalIntent",
+      "@type": "cifra:Intent",
+      "rdfs:label": "Сезонное намерение",
+      "rdfs:comment": "Сезонный спрос: Новый год, 8 Марта, 23 Февраля, 1 Сентября, Выпускные, Свадьбы, Лето"
+    },
+    {
+      "@id": "cifra:B2BIntent",
+      "@type": "cifra:Intent",
+      "rdfs:label": "B2B намерение",
+      "rdfs:comment": "B2B запрос: оптовые закупки, корп. подарки, франчайзи, тендеры, тендерная документация"
+    },
+    {
+      "@id": "cifra:UrgentIntent",
+      "@type": "cifra:Intent",
+      "rdfs:label": "Срочное намерение",
+      "rdfs:comment": "Срочность: срочно, вчера, до завтра, сегодня, экспресс, 1 час, срочная печать"
+    },
+    {
+      "@id": "cifra:LocalIntent",
+      "@type": "cifra:Intent",
+      "rdfs:label": "Локальное намерение",
+      "rdfs:comment": "Пользователь ищет в конкретном городе/регионе: Ижевск, Москва, СПб, доставка в город"
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+Priority,Query,Avg_Position,Cluster,Missing_Page_Type,Suggested_URL,Effort,Impact
+Critical,идеи календарей для производства на 2027 год,13,Календари,Статья,/blog/idei-kalendarey-2027/,Medium,High
+Critical,визитки на дизайнерском картоне,2.7,Визитки,Подкатегория,/catalog/poligrafiya/vizitki/dizaynerskie/,Low,High
+Critical,срочная печать визиток в ижевске,7,Визитки,Подкатегория,/catalog/poligrafiya/vizitki/srochnaya/,Low,High
+High,кружка хамелеон на заказ,6,Мерч,Товар,/catalog/suvenirnaya-produktsiya/pechat-na-kruzhkakh/chameleon/,Low,Medium
+High,аренда ролл апа ижевск,10,Стенды,Лендинг аренды,/catalog/mobilnye-stendy/arenda/roll-up/,Medium,Medium
+Critical,печать на баннере ижевск,5,Широкоформат,Подкатегория,/catalog/shirokoformatnaya-pechat/bannery/,Low,High
+Critical,печать на пленке ижевск,5,Широкоформат,Подкатегория,/catalog/shirokoformatnaya-pechat/plenka/,Low,High
+Critical,печать постеров ижевск,6,Широкоформат,Подкатегория,/catalog/shirokoformatnaya-pechat/postery/,Low,High
+High,сравнение ролл ап и х-баннер,0,Сравнения,Сравнение,/comparison/roll-up-vs-h-banner/,Low,High
+Critical,технические требования к макетам,0,Инфо,Статья (Pillar),/blog/tekhnicheskie-trebovaniya-maketov/,Medium,High

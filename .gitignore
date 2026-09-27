@@ -1,0 +1,11 @@
+.env
+*.token
+*.db
+*.rar
+data/exports/
+reports/cifra18-audit-worker.js
+reports/cifra18-audit/cifra18-audit.rar
+KP_na_prodvizhenie_sayta_Tsifra18_1.pdf
+.DS_Store
+__pycache__/
+*.pyc

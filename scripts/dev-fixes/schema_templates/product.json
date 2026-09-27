@@ -1,0 +1,100 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "@id": "https://xn--18-6kc5a3bxam.xn--p1ai/catalog/poligrafiya/vizitki/vizitki-na-krafte/#product",
+  "name": "Визитки на крафте",
+  "description": "Визитки на натуральном крафте 265/350 г/м². Цифровая и офсетная печать. Формат 90x50 мм. Цветность 4+0 / 4+4. Опции: скругление углов, ламинация софт-тач, фольгирование. Сроки от 1 часа. Доставка по Ижевску и Удмуртии.",
+  "image": [
+    "https://xn--18-6kc5a3bxam.xn--p1ai/upload/iblock/f04/ck902u78lge7unbyv82g0oecoii8f2lx/vizitki_na_krafte_tipografia_cifra18_izhevsk.jpg"
+  ],
+  "brand": {
+    "@type": "Brand",
+    "name": "Цифра",
+    "@id": "https://xn--18-6kc5a3bxam.xn--p1ai/#organization"
+  },
+  "sku": "vizitki-kraft-265",
+  "gtin13": "",
+  "mpn": "VIZ-KRAFT-265",
+  "category": "Полиграфия > Визитки > Крафт",
+  "material": "Крафт 265 г/м² / Крафт 350 г/м²",
+  "color": "Крафт (коричневый)",
+  "size": "90x50 мм",
+  "offers": {
+    "@type": "Offer",
+    "@id": "https://xn--18-6kc5a3bxam.xn--p1ai/catalog/poligrafiya/vizitki/vizitki-na-krafte/#offer",
+    "url": "https://xn--18-6kc5a3bxam.xn--p1ai/catalog/poligrafiya/vizitki/vizitki-na-krafte/",
+    "priceCurrency": "RUB",
+    "price": "4.50",
+    "priceValidUntil": "2026-12-31",
+    "availability": "https://schema.org/InStock",
+    "seller": {
+      "@type": "Organization",
+      "name": "Типография «Цифра»",
+      "@id": "https://xn--18-6kc5a3bxam.xn--p1ai/#organization"
+    },
+    "priceSpecification": {
+      "@type": "UnitPriceSpecification",
+      "priceCurrency": "RUB",
+      "price": "4.50",
+      "unitText": "шт",
+      "minQuantity": 100,
+      "maxQuantity": 10000
+    },
+    "shippingDetails": {
+      "@type": "OfferShippingDetails",
+      "shippingRate": {
+        "@type": "MonetaryAmount",
+        "value": "0",
+        "currency": "RUB"
+      },
+      "shippingDestination": {
+        "@type": "DefinedRegion",
+        "addressCountry": "RU",
+        "addressRegion": "Удмуртская Республика"
+      },
+      "deliveryTime": {
+        "@type": "ShippingDeliveryTime",
+        "businessDays": {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+          "opens": "09:00",
+          "closes": "18:00"
+        },
+        "cutOffTime": "14:00",
+        "handlingTime": {
+          "@type": "QuantitativeValue",
+          "minValue": 1,
+          "maxValue": 3,
+          "unitCode": "DAY"
+        }
+      }
+    }
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "@id": "https://xn--18-6kc5a3bxam.xn--p1ai/catalog/poligrafiya/vizitki/vizitki-na-krafte/#aggregateRating",
+    "ratingValue": "4.8",
+    "reviewCount": "127",
+    "bestRating": "5",
+    "worstRating": "1",
+    "ratingExplanation": "Оценка основана на 127 отзывах клиентов за 2024-2025 годы"
+  },
+  "review": [
+    {
+      "@type": "Review",
+      "author": {"@type": "Person", "name": "Дмитрий Рябов"},
+      "datePublished": "2025-03-15",
+      "reviewBody": "Уже несколько лет пользуемся услугами типографии «ЦИФРА». Благодаря новому оборудованию и профессионализму сотрудников всегда получаю все в срок. Главные показатели — скорость, низкая стоимость и высокое качество.",
+      "reviewRating": {"@type": "Rating", "ratingValue": "5", "bestRating": "5"}
+    }
+  ],
+  "additionalProperty": [
+    {"@type": "PropertyValue", "name": "Формат", "value": "90x50 мм"},
+    {"@type": "PropertyValue", "name": "Материал", "value": "Крафт 265 г/м² / 350 г/м²"},
+    {"@type": "PropertyValue", "name": "Цветность", "value": "4+0 / 4+4"},
+    {"@type": "PropertyValue", "name": "Метод печати", "value": "Цифровая / Офсетная"},
+    {"@type": "PropertyValue", "name": "Минимальный тираж", "value": "100 шт"},
+    {"@type": "PropertyValue", "name": "Сроки производства", "value": "от 1 часа"},
+    {"@type": "PropertyValue", "name": "Опции", "value": "Скругление углов, ламинация софт-тач, фольгирование"}
+  ]
+}

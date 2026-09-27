@@ -1,0 +1,403 @@
+{
+  "parsed_at": "2026-09-11T20:27:38.366867",
+  "base_url": "https://xn--18-6kc5a3bxam.xn--p1ai",
+  "categories": [
+    {
+      "name": "Полиграфия",
+      "url": "https://xn--18-6kc5a3bxam.xn--p1ai/catalog/poligrafiya/",
+      "subcategories": [
+        {
+          "name": "Цифровая печать",
+          "url": "https://xn--18-6kc5a3bxam.xn--p1ai/catalog/poligrafiya/tsifrovaya-pechat/"
+        },
+        {
+          "name": "Листовки офсетная печать",
+          "url": "https://xn--18-6kc5a3bxam.xn--p1ai/catalog/poligrafiya/listovki-ofsetnaya-pechat/"
+        },
+        {
+          "name": "Листовки цифровая печать",
+          "url": "https://xn--18-6kc5a3bxam.xn--p1ai/catalog/poligrafiya/listovki-tsifrovaya-pechat/"
+        },
+        {
+          "name": "Бирки",
+          "url": "https://xn--18-6kc5a3bxam.xn--p1ai/catalog/poligrafiya/birki/"
+        },
+        {
+          "name": "Визитки",
+          "url": "https://xn--18-6kc5a3bxam.xn--p1ai/catalog/poligrafiya/vizitki/"
+        },
+        {
+          "name": "Календари",
+          "url": "https://xn--18-6kc5a3bxam.xn--p1ai/catalog/poligrafiya/kalendari/"
+        },
+        {
+          "name": "Ризография",
+          "url": "https://xn--18-6kc5a3bxam.xn--p1ai/catalog/poligrafiya/rizografiya/"
+        },
+        {
+          "name": "Печать на самоклеящихся материалах",
+          "url": "https://xn--18-6kc5a3bxam.xn--p1ai/catalog/poligrafiya/pechat-na-samokleyashchikhsya-materialakh/"
+        },
+        {
+          "name": "Блокноты",
+          "url": "https://xn--18-6kc5a3bxam.xn--p1ai/catalog/poligrafiya/bloknoty/"
+        },
+        {
+          "name": "Открытки, сертификаты",
+          "url": "https://xn--18-6kc5a3bxam.xn--p1ai/catalog/poligrafiya/otkrytki-sertifikaty/"
+        },
+        {
+          "name": "Карты пластиковые",
+          "url": "https://xn--18-6kc5a3bxam.xn--p1ai/catalog/poligrafiya/karty-plastikovye/"
+        },
+        {
+          "name": "Бейджи",
+          "url": "https://xn--18-6kc5a3bxam.xn--p1ai/catalog/poligrafiya/beydzhi/"
+        },
+        {
+          "name": "Ламинирование",
+          "url": "https://xn--18-6kc5a3bxam.xn--p1ai/catalog/poligrafiya/laminirovanie/"
+        },
+        {
+          "name": "Плоттерная резка",
+          "url": "https://xn--18-6kc5a3bxam.xn--p1ai/catalog/poligrafiya/plotternaya-rezka/"
+        },
+        {
+          "name": "Печать белым тонером",
+          "url": "https://xn--18-6kc5a3bxam.xn--p1ai/catalog/poligrafiya/pechat-belym-tonerom/"
+        },
+        {
+          "name": "Постпечатные работы",
+          "url": "https://xn--18-6kc5a3bxam.xn--p1ai/catalog/poligrafiya/postpechatnye-raboty/"
+        },
+        {
+          "name": "УФ печать",
+          "url": "https://xn--18-6kc5a3bxam.xn--p1ai/catalog/poligrafiya/uf-pechat1/"
+        },
+        {
+          "name": "Папки",
+          "url": "https://xn--18-6kc5a3bxam.xn--p1ai/catalog/poligrafiya/papki-/"
+        },
+        {
+          "name": "Блоки для записей, кубарики",
+          "url": "https://xn--18-6kc5a3bxam.xn--p1ai/catalog/poligrafiya/bloki-dlya-zapisey-kubariki/"
+        },
+        {
+          "name": "Высечная продукция",
+          "url": "https://xn--18-6kc5a3bxam.xn--p1ai/catalog/poligrafiya/vysechnaya-produktsiya/"
+        },
+        {
+          "name": "Конверты",
+          "url": "https://xn--18-6kc5a3bxam.xn--p1ai/catalog/poligrafiya/konverty-/"
+        },
+        {
+          "name": "Коробки вырубные",
+          "url": "https://xn--18-6kc5a3bxam.xn--p1ai/catalog/poligrafiya/korobki-vyrubnye/"
+        },
+        {
+          "name": "Лекала, выкройки",
+          "url": "https://xn--18-6kc5a3bxam.xn--p1ai/catalog/poligrafiya/lekala-vykroyki/"
+        },
+        {
+          "name": "Пакеты",
+          "url": "https://xn--18-6kc5a3bxam.xn--p1ai/catalog/poligrafiya/pakety/"
+        },
+        {
+          "name": "Тейбл-тент",
+          "url": "https://xn--18-6kc5a3bxam.xn--p1ai/catalog/poligrafiya/teybl-tent/"
+        },
+        {
+          "name": "Фольгирование",
+          "url": "https://xn--18-6kc5a3bxam.xn--p1ai/catalog/poligrafiya/folgirovanie/"
+        }
+      ]
+    },
+    {
+      "name": "Сувенирная продукция",
+      "url": "https://xn--18-6kc5a3bxam.xn--p1ai/catalog/suvenirnaya-produktsiya/",
+      "subcategories": [
+        {
+          "name": "Печать на ручках",
+          "url": "https://xn--18-6kc5a3bxam.xn--p1ai/catalog/suvenirnaya-produktsiya/pechat-na-ruchkakh/"
+        },
+        {
+          "name": "Печать на крафт ручках",
+          "url": "https://xn--18-6kc5a3bxam.xn--p1ai/catalog/suvenirnaya-produktsiya/pechat-na-kraft-ruchkakh/"
+        },
+        {
+          "name": "Печать на карандашах",
+          "url": "https://xn--18-6kc5a3bxam.xn--p1ai/catalog/suvenirnaya-produktsiya/pechat-na-karandashakh/"
+        },
+        {
+          "name": "Чехлы для ручек",
+          "url": "https://xn--18-6kc5a3bxam.xn--p1ai/catalog/suvenirnaya-produktsiya/chekhly-dlya-ruchek/"
+        },
+        {
+          "name": "Брендирование одежды",
+          "url": "https://xn--18-6kc5a3bxam.xn--p1ai/catalog/suvenirnaya-produktsiya/brendirovanie-odezhdy/"
+        },
+        {
+          "name": "Кружки, термосы, термостаканы",
+          "url": "https://xn--18-6kc5a3bxam.xn--p1ai/catalog/suvenirnaya-produktsiya/pechat-na-kruzhkakh/"
+        },
+        {
+          "name": "Ежедневники",
+          "url": "https://xn--18-6kc5a3bxam.xn--p1ai/catalog/suvenirnaya-produktsiya/ezhednevniki1738/"
+        },
+        {
+          "name": "Значки закатные",
+          "url": "https://xn--18-6kc5a3bxam.xn--p1ai/catalog/suvenirnaya-produktsiya/znachki-zakatnye9558/"
+        },
+        {
+          "name": "Корпоративные подарки",
+          "url": "https://xn--18-6kc5a3bxam.xn--p1ai/catalog/suvenirnaya-produktsiya/korporativnye-podarki/"
+        },
+        {
+          "name": "Печать на usb-устройствах",
+          "url": "https://xn--18-6kc5a3bxam.xn--p1ai/catalog/suvenirnaya-produktsiya/pechat-na-usb-ustroystvakh/"
+        },
+        {
+          "name": "Магниты акриловые",
+          "url": "https://xn--18-6kc5a3bxam.xn--p1ai/catalog/suvenirnaya-produktsiya/magnity-akrilovye/"
+        },
+        {
+          "name": "Печать на пазлах",
+          "url": "https://xn--18-6kc5a3bxam.xn--p1ai/catalog/suvenirnaya-produktsiya/pechat-na-pazlakh/"
+        },
+        {
+          "name": "Магниты виниловые",
+          "url": "https://xn--18-6kc5a3bxam.xn--p1ai/catalog/suvenirnaya-produktsiya/magnity-vinilovye/"
+        },
+        {
+          "name": "Сувенирные часы",
+          "url": "https://xn--18-6kc5a3bxam.xn--p1ai/catalog/suvenirnaya-produktsiya/suvenirnye-chasy-na-zakaz/"
+        },
+        {
+          "name": "Кубик трансформер",
+          "url": "https://xn--18-6kc5a3bxam.xn--p1ai/catalog/suvenirnaya-produktsiya/kubik-transformer/"
+        },
+        {
+          "name": "Шоколад",
+          "url": "https://xn--18-6kc5a3bxam.xn--p1ai/catalog/suvenirnaya-produktsiya/shokolad/"
+        },
+        {
+          "name": "Лазерная гравировка/ маркировка",
+          "url": "https://xn--18-6kc5a3bxam.xn--p1ai/catalog/suvenirnaya-produktsiya/lazernaya-gravirovka-markirovka/"
+        },
+        {
+          "name": "Браслеты силиконовые",
+          "url": "https://xn--18-6kc5a3bxam.xn--p1ai/catalog/suvenirnaya-produktsiya/braslety-silikonovye/"
+        },
+        {
+          "name": "Брелоки",
+          "url": "https://xn--18-6kc5a3bxam.xn--p1ai/catalog/suvenirnaya-produktsiya/breloki/"
+        },
+        {
+          "name": "Игры и головоломки",
+          "url": "https://xn--18-6kc5a3bxam.xn--p1ai/catalog/suvenirnaya-produktsiya/igry-i-golovolomki/"
+        },
+        {
+          "name": "Медали, кубки. Наградная продукция",
+          "url": "https://xn--18-6kc5a3bxam.xn--p1ai/catalog/suvenirnaya-produktsiya/medali-kubki-nagradnaya-produktsiya/"
+        },
+        {
+          "name": "Плакетки",
+          "url": "https://xn--18-6kc5a3bxam.xn--p1ai/catalog/suvenirnaya-produktsiya/plaketki/"
+        },
+        {
+          "name": "Попсокеты",
+          "url": "https://xn--18-6kc5a3bxam.xn--p1ai/catalog/suvenirnaya-produktsiya/popsokety/"
+        },
+        {
+          "name": "Рюкзаки и сумки",
+          "url": "https://xn--18-6kc5a3bxam.xn--p1ai/catalog/suvenirnaya-produktsiya/ryukzaki-i-sumki/"
+        },
+        {
+          "name": "Табличка для оплаты с QR кодом",
+          "url": "https://xn--18-6kc5a3bxam.xn--p1ai/catalog/suvenirnaya-produktsiya/tablichka-dlya-oplaty-s-qr-kodom/"
+        },
+        {
+          "name": "Тубус брендированный",
+          "url": "https://xn--18-6kc5a3bxam.xn--p1ai/catalog/suvenirnaya-produktsiya/tubus-brendirovannyy/"
+        }
+      ]
+    },
+    {
+      "name": "Инженерная печать",
+      "url": "https://xn--18-6kc5a3bxam.xn--p1ai/catalog/inzhenernaya-pechat/",
+      "subcategories": [
+        {
+          "name": "Печать чертежей, проектной документации",
+          "url": "https://xn--18-6kc5a3bxam.xn--p1ai/catalog/inzhenernaya-pechat/pechat-chertezhey-proektnoy-dokumentatsii/"
+        },
+        {
+          "name": "Ксерокопия",
+          "url": "https://xn--18-6kc5a3bxam.xn--p1ai/catalog/inzhenernaya-pechat/kserokopiya/"
+        },
+        {
+          "name": "Сканирование",
+          "url": "https://xn--18-6kc5a3bxam.xn--p1ai/catalog/inzhenernaya-pechat/skanirovanie/"
+        },
+        {
+          "name": "Фальцовка",
+          "url": "https://xn--18-6kc5a3bxam.xn--p1ai/catalog/inzhenernaya-pechat/faltsovka/"
+        },
+        {
+          "name": "Брошюровка",
+          "url": "https://xn--18-6kc5a3bxam.xn--p1ai/catalog/inzhenernaya-pechat/broshyurovka/"
+        }
+      ]
+    },
+    {
+      "name": "Широкоформатная печать",
+      "url": "https://xn--18-6kc5a3bxam.xn--p1ai/catalog/shirokoformatnaya-pechat/",
+      "subcategories": [
+        {
+          "name": "Печать на самоклеящейся пленке",
+          "url": "https://xn--18-6kc5a3bxam.xn--p1ai/catalog/shirokoformatnaya-pechat/pechat-na-samokleyashcheysya-plenke/"
+        },
+        {
+          "name": "Печать на баннере шириной до 1.6м",
+          "url": "https://xn--18-6kc5a3bxam.xn--p1ai/catalog/shirokoformatnaya-pechat/pechat-na-bannere-shirinoy-do-1-6m/"
+        },
+        {
+          "name": "Печать на баннере шириной до 3.2м",
+          "url": "https://xn--18-6kc5a3bxam.xn--p1ai/catalog/shirokoformatnaya-pechat/pechat-na-bannere-shirinoy-do-3-2m/"
+        },
+        {
+          "name": "Печать на постерной бумаге",
+          "url": "https://xn--18-6kc5a3bxam.xn--p1ai/catalog/shirokoformatnaya-pechat/pechat-na-posternoy-bumage/"
+        },
+        {
+          "name": "Печать на постерной бумаге Blue Back",
+          "url": "https://xn--18-6kc5a3bxam.xn--p1ai/catalog/shirokoformatnaya-pechat/pechat-na-posternoy-bumage-blue-back/"
+        },
+        {
+          "name": "Печать на полиэстеровой ткани",
+          "url": "https://xn--18-6kc5a3bxam.xn--p1ai/catalog/shirokoformatnaya-pechat/pechat-na-poliesterovoy-tkani/"
+        },
+        {
+          "name": "Печать на постерной бумаге с ламинацией",
+          "url": "https://xn--18-6kc5a3bxam.xn--p1ai/catalog/shirokoformatnaya-pechat/pechat-na-posternoy-bumage8706/"
+        },
+        {
+          "name": "Печать на пленке транслюцентной Backlit",
+          "url": "https://xn--18-6kc5a3bxam.xn--p1ai/catalog/shirokoformatnaya-pechat/pechat-na-plenke-translyutsentnoy-backlit/"
+        },
+        {
+          "name": "Печать на флажной ткани",
+          "url": "https://xn--18-6kc5a3bxam.xn--p1ai/catalog/shirokoformatnaya-pechat/pechat-na-flazhnoy-tkani/"
+        },
+        {
+          "name": "Печать на пленке Grey back",
+          "url": "https://xn--18-6kc5a3bxam.xn--p1ai/catalog/shirokoformatnaya-pechat/pechat-na-plenke-grey-back/"
+        }
+      ]
+    },
+    {
+      "name": "Стенды",
+      "url": "https://xn--18-6kc5a3bxam.xn--p1ai/catalog/stendy/",
+      "subcategories": [
+        {
+          "name": "Стенд",
+          "url": "https://xn--18-6kc5a3bxam.xn--p1ai/catalog/stendy/stendy/"
+        },
+        {
+          "name": "Карман ПЭТ плоский",
+          "url": "https://xn--18-6kc5a3bxam.xn--p1ai/catalog/stendy/karman-pet-ploskiy/"
+        },
+        {
+          "name": "Карман ПЭТ с прозрачным скотчем",
+          "url": "https://xn--18-6kc5a3bxam.xn--p1ai/catalog/stendy/karman-pet-s-prozrachnym-skotchem/"
+        },
+        {
+          "name": "Изделия из оргстекла",
+          "url": "https://xn--18-6kc5a3bxam.xn--p1ai/catalog/stendy/izdeliya-iz-orgstekla/"
+        },
+        {
+          "name": "Таблички",
+          "url": "https://xn--18-6kc5a3bxam.xn--p1ai/catalog/stendy/tablichki/"
+        }
+      ]
+    },
+    {
+      "name": "Интерьер",
+      "url": "https://xn--18-6kc5a3bxam.xn--p1ai/catalog/interer/",
+      "subcategories": [
+        {
+          "name": "Картины на холсте",
+          "url": "https://xn--18-6kc5a3bxam.xn--p1ai/catalog/interer/kartiny-na-kholste/"
+        },
+        {
+          "name": "Постеры",
+          "url": "https://xn--18-6kc5a3bxam.xn--p1ai/catalog/interer/postery/"
+        },
+        {
+          "name": "Печать на холсте в рулоне",
+          "url": "https://xn--18-6kc5a3bxam.xn--p1ai/catalog/interer/pechat-na-kholste-v-rulone/"
+        },
+        {
+          "name": "Картины на холсте индивидуальный размер",
+          "url": "https://xn--18-6kc5a3bxam.xn--p1ai/catalog/interer/kartiny-na-kholste6473/"
+        },
+        {
+          "name": "Фотопостеры на пенокартоне",
+          "url": "https://xn--18-6kc5a3bxam.xn--p1ai/catalog/interer/fotopostery-na-penokartone/"
+        },
+        {
+          "name": "Фотообои и фрески бесшовные",
+          "url": "https://xn--18-6kc5a3bxam.xn--p1ai/catalog/interer/fotooboi/"
+        }
+      ]
+    },
+    {
+      "name": "Мобильные стенды",
+      "url": "https://xn--18-6kc5a3bxam.xn--p1ai/catalog/mobilnye-stendy/",
+      "subcategories": [
+        {
+          "name": "ROLL-UP 0,85х2 м",
+          "url": "https://xn--18-6kc5a3bxam.xn--p1ai/catalog/mobilnye-stendy/roll-up-0-85kh2-m/"
+        },
+        {
+          "name": "ROLL-UP 1x2 м",
+          "url": "https://xn--18-6kc5a3bxam.xn--p1ai/catalog/mobilnye-stendy/roll-up-1x2-m/"
+        },
+        {
+          "name": "ROLL-UP 1.2x2 м",
+          "url": "https://xn--18-6kc5a3bxam.xn--p1ai/catalog/mobilnye-stendy/roll-up-1-2x2-m/"
+        },
+        {
+          "name": "ROLL-UP 1.5x2 м",
+          "url": "https://xn--18-6kc5a3bxam.xn--p1ai/catalog/mobilnye-stendy/roll-up-1-5x2-m/"
+        },
+        {
+          "name": "ROLL-UP 2x3 м",
+          "url": "https://xn--18-6kc5a3bxam.xn--p1ai/catalog/mobilnye-stendy/roll-up2950451249975881/"
+        },
+        {
+          "name": "Х-banner",
+          "url": "https://xn--18-6kc5a3bxam.xn--p1ai/catalog/mobilnye-stendy/kh-banner/"
+        },
+        {
+          "name": "L-banner",
+          "url": "https://xn--18-6kc5a3bxam.xn--p1ai/catalog/mobilnye-stendy/l-banner/"
+        },
+        {
+          "name": "Штендер",
+          "url": "https://xn--18-6kc5a3bxam.xn--p1ai/catalog/mobilnye-stendy/shtender/"
+        },
+        {
+          "name": "Пресс-волл",
+          "url": "https://xn--18-6kc5a3bxam.xn--p1ai/catalog/mobilnye-stendy/press-voll/"
+        },
+        {
+          "name": "Аренда Пресс-волл",
+          "url": "https://xn--18-6kc5a3bxam.xn--p1ai/catalog/mobilnye-stendy/arenda-press-voll/"
+        }
+      ]
+    }
+  ],
+  "total_categories": 95,
+  "total_products": 0,
+  "products": []
+}

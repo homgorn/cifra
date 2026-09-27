@@ -1,0 +1,322 @@
+{
+  "@context": {
+    "cifra": "https://cifra18.ru/ontology#",
+    "schema": "https://schema.org/",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "owl": "http://www.w3.org/2002/07/owl#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#"
+  },
+  "@graph": [
+    {
+      "@id": "cifra:location/izhevsk",
+      "@type": "cifra:Location",
+      "rdfs:label": "Ижевск",
+      "rdfs:comment": "Столица Удмуртии, 640 тыс. населения",
+      "schema:containedInPlace": {
+        "@id": "cifra:location/udmurtia"
+      },
+      "schema:population": 640000,
+      "schema:latitude": 56.8519,
+      "schema:longitude": 53.2033,
+      "cifra:hasSdekPVZ": true,
+      "cifra:hasSdekOffice": true,
+      "cifra:isHQ": true,
+      "cifra:timezone": "Europe/Samara (UTC+4)",
+      "cifra:sdekPVZAddresses": [
+        "ул. Пушкинская, 50",
+        "ул. Карла Маркса, 100",
+        "ул. 7-я Подлесная, 34",
+        "ул. Советская, 120",
+        "пр. Строителей, 45"
+      ]
+    },
+    {
+      "@id": "cifra:location/udmurtia",
+      "@type": "cifra:Location",
+      "rdfs:label": "Удмуртская Республика",
+      "rdfs:comment": "Республика в Приуралье, часть Приволжского ФО",
+      "schema:containedInPlace": {
+        "@id": "cifra:location/russia"
+      },
+      "schema:population": 1450000,
+      "cifra:majorCities": ["Ижевск", "Воткинск", "Глазов", "Сарапул", "Можега"],
+      "cifra:hasSdekCoverage": true
+    },
+    {
+      "@id": "cifra:location/votkinsk",
+      "@type": "cifra:Location",
+      "rdfs:label": "Воткинск",
+      "rdfs:comment": "Город в Удмуртии, 90 тыс. жителей",
+      "schema:containedInPlace": {
+        "@id": "cifra:location/udmurtia"
+      },
+      "schema:population": 90000,
+      "cifra:hasSdekPVZ": true,
+      "cifra:distanceFromIzhevskKm": 60
+    },
+    {
+      "@id": "cifra:location/glazov",
+      "@type": "cifra:Location",
+      "rdfs:label": "Глазов",
+      "rdfs:comment": "Город в Удмуртии, 100 тыс. жителей",
+      "schema:containedInPlace": {
+        "@id": "cifra:location/udmurtia"
+      },
+      "schema:population": 100000,
+      "cifra:hasSdekPVZ": true,
+      "cifra:distanceFromIzhevskKm": 120
+    },
+    {
+      "@id": "cifra:location/sarapul",
+      "@type": "cifra:Location",
+      "rdfs:label": "Сарапул",
+      "rdfs:comment": "Город в Удмуртии, 100 тыс. жителей",
+      "schema:containedInPlace": {
+        "@id": "cifra:location/udmurtia"
+      },
+      "schema:population": 100000,
+      "cifra:hasSdekPVZ": true,
+      "cifra:distanceFromIzhevskKm": 140
+    },
+    {
+      "@id": "cifra:location/mozhga",
+      "@type": "cifra:Location",
+      "rdfs:label": "Можега",
+      "rdfs:comment": "Город в Удмуртии, 50 тыс. жителей",
+      "schema:containedInPlace": {
+        "@id": "cifra:location/udmurtia"
+      },
+      "schema:population": 50000,
+      "cifra:hasSdekPVZ": true,
+      "cifra:distanceFromIzhevskKm": 80
+    },
+    {
+      "@id": "cifra:location/moscow",
+      "@type": "cifra:Location",
+      "rdfs:label": "Москва",
+      "rdfs:comment": "Столица России, 13 млн населения",
+      "schema:containedInPlace": {
+        "@id": "cifra:location/russia"
+      },
+      "schema:population": 13000000,
+      "cifra:hasSdekPVZ": true,
+      "cifra:hasSdekOffice": true,
+      "cifra:isMajorHub": true,
+      "cifra:isTargetCity": true,
+      "cifra:priority": "Critical",
+      "cifra:deliveryDaysFromIzhevsk": 1
+    },
+    {
+      "@id": "cifra:location/sankt_peterburg",
+      "@type": "cifra:Location",
+      "rdfs:label": "Санкт-Петербург",
+      "rdfs:comment": "Северная столица, 5.6 млн населения",
+      "schema:containedInPlace": {
+        "@id": "cifra:location/russia"
+      },
+      "schema:population": 5600000,
+      "cifra:hasSdekPVZ": true,
+      "cifra:hasSdekOffice": true,
+      "cifra:isMajorHub": true,
+      "cifra:isTargetCity": true,
+      "cifra:priority": "Critical",
+      "cifra:deliveryDaysFromIzhevsk": 2
+    },
+    {
+      "@id": "cifra:location/ekaterinburg",
+      "@type": "cifra:Location",
+      "rdfs:label": "Екатеринбург",
+      "rdfs:comment": "Столица Урала, 1.5 млн населения",
+      "schema:containedInPlace": {
+        "@id": "cifra:location/russia"
+      },
+      "schema:population": 1500000,
+      "cifra:hasSdekPVZ": true,
+      "cifra:hasSdekOffice": true,
+      "cifra:isTargetCity": true,
+      "cifra:priority": "Critical",
+      "cifra:deliveryDaysFromIzhevsk": 2
+    },
+    {
+      "@id": "cifra:location/novosibirsk",
+      "@type": "cifra:Location",
+      "rdfs:label": "Новосибирск",
+      "rdfs:comment": "Столица Сибири, 1.6 млн населения",
+      "schema:containedInPlace": {
+        "@id": "cifra:location/russia"
+      },
+      "schema:population": 1600000,
+      "cifra:hasSdekPVZ": true,
+      "cifra:hasSdekOffice": true,
+      "cifra:isTargetCity": true,
+      "cifra:priority": "Critical",
+      "cifra:deliveryDaysFromIzhevsk": 3
+    },
+    {
+      "@id": "cifra:location/kazan",
+      "@type": "cifra:Location",
+      "rdfs:label": "Казань",
+      "rdfs:comment": "Столица Татарстана, 1.3 млн",
+      "schema:containedInPlace": {
+        "@id": "cifra:location/russia"
+      },
+      "schema:population": 1300000,
+      "cifra:hasSdekPVZ": true,
+      "cifra:isTargetCity": true,
+      "cifra:priority": "High",
+      "cifra:deliveryDaysFromIzhevsk": 3
+    },
+    {
+      "@id": "cifra:location/nizhny_novgorod",
+      "@type": "cifra:Location",
+      "rdfs:label": "Нижний Новгород",
+      "rdfs:comment": "1.2 млн населения",
+      "schema:containedInPlace": {
+        "@id": "cifra:location/russia"
+      },
+      "schema:population": 1200000,
+      "cifra:hasSdekPVZ": true,
+      "cifra:isTargetCity": true,
+      "cifra:priority": "High",
+      "cifra:deliveryDaysFromIzhevsk": 2
+    },
+    {
+      "@id": "cifra:location/chelyabinsk",
+      "@type": "cifra:Location",
+      "rdfs:label": "Челябинск",
+      "rdfs:comment": "1.2 млн населения",
+      "schema:containedInPlace": {
+        "@id": "cifra:location/russia"
+      },
+      "schema:population": 1200000,
+      "cifra:hasSdekPVZ": true,
+      "cifra:isTargetCity": true,
+      "cifra:priority": "High",
+      "cifra:deliveryDaysFromIzhevsk": 2
+    },
+    {
+      "@id": "cifra:location/omsk",
+      "@type": "cifra:Location",
+      "rdfs:label": "Омск",
+      "rdfs:comment": "1.1 млн населения",
+      "schema:containedInPlace": {
+        "@id": "cifra:location/russia"
+      },
+      "schema:population": 1100000,
+      "cifra:hasSdekPVZ": true,
+      "cifra:isTargetCity": true,
+      "cifra:priority": "High",
+      "cifra:deliveryDaysFromIzhevsk": 3
+    },
+    {
+      "@id": "cifra:location/samara",
+      "@type": "cifra:Location",
+      "rdfs:label": "Самара",
+      "rdfs:comment": "1.1 млн населения",
+      "schema:containedInPlace": {
+        "@id": "cifra:location/russia"
+      },
+      "schema:population": 1100000,
+      "cifra:hasSdekPVZ": true,
+      "cifra:isTargetCity": true,
+      "cifra:priority": "High",
+      "cifra:deliveryDaysFromIzhevsk": 2
+    },
+    {
+      "@id": "cifra:location/rostov_na_donu",
+      "@type": "cifra:Location",
+      "rdfs:label": "Ростов-на-Дону",
+      "rdfs:comment": "1.1 млн населения",
+      "schema:containedInPlace": {
+        "@id": "cifra:location/russia"
+      },
+      "schema:population": 1100000,
+      "cifra:hasSdekPVZ": true,
+      "cifra:isTargetCity": true,
+      "cifra:priority": "High",
+      "cifra:deliveryDaysFromIzhevsk": 3
+    },
+    {
+      "@id": "cifra:location/ufa",
+      "@type": "cifra:Location",
+      "rdfs:label": "Уфа",
+      "rdfs:comment": "Столица Башкортостана, 1.1 млн",
+      "schema:containedInPlace": {
+        "@id": "cifra:location/russia"
+      },
+      "schema:population": 1100000,
+      "cifra:hasSdekPVZ": true,
+      "cifra:isTargetCity": true,
+      "cifra:priority": "High",
+      "cifra:deliveryDaysFromIzhevsk": 3
+    },
+    {
+      "@id": "cifra:location/krasnoyarsk",
+      "@type": "cifra:Location",
+      "rdfs:label": "Красноярск",
+      "rdfs:comment": "1.1 млн населения",
+      "schema:containedInPlace": {
+        "@id": "cifra:location/russia"
+      },
+      "schema:population": 1100000,
+      "cifra:hasSdekPVZ": true,
+      "cifra:isTargetCity": true,
+      "cifra:priority": "High",
+      "cifra:deliveryDaysFromIzhevsk": 4
+    },
+    {
+      "@id": "cifra:location/voronezh",
+      "@type": "cifra:Location",
+      "rdfs:label": "Воронеж",
+      "rdfs:comment": "1 млн населения",
+      "schema:containedInPlace": {
+        "@id": "cifra:location/russia"
+      },
+      "schema:population": 1000000,
+      "cifra:hasSdekPVZ": true,
+      "cifra:isTargetCity": true,
+      "cifra:priority": "High",
+      "cifra:deliveryDaysFromIzhevsk": 3
+    },
+    {
+      "@id": "cifra:location/perm",
+      "@type": "cifra:Location",
+      "rdfs:label": "Пермь",
+      "rdfs:comment": "1 млн населения",
+      "schema:containedInPlace": {
+        "@id": "cifra:location/russia"
+      },
+      "schema:population": 1000000,
+      "cifra:hasSdekPVZ": true,
+      "cifra:isTargetCity": true,
+      "cifra:priority": "High",
+      "cifra:deliveryDaysFromIzhevsk": 2
+    },
+    {
+      "@id": "cifra:location/volgograd",
+      "@type": "cifra:Location",
+      "rdfs:label": "Волгоград",
+      "rdfs:comment": "1 млн населения",
+      "schema:containedInPlace": {
+        "@id": "cifra:location/russia"
+      },
+      "schema:population": 1000000,
+      "cifra:hasSdekPVZ": true,
+      "cifra:isTargetCity": true,
+      "cifra:priority": "High",
+      "cifra:deliveryDaysFromIzhevsk": 3
+    },
+    {
+      "@id": "cifra:location/russia",
+      "@type": "cifra:Location",
+      "rdfs:label": "Россия",
+      "rdfs:comment": "Российская Федерация",
+      "schema:containedInPlace": {
+        "@id": "cifra:location/world"
+      },
+      "schema:population": 146000000,
+      "cifra:hasSdekCoverage": true,
+      "cifra:timezones": 11
+    }
+  ]
+}

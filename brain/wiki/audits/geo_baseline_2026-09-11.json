@@ -1,0 +1,56 @@
+{
+  "date": "2026-09-11",
+  "base_url": "https://xn--18-6kc5a3bxam.xn--p1ai",
+  "pages_analyzed": 8,
+  "avg_score": 0.0,
+  "results": [
+    {
+      "url": "https://xn--18-6kc5a3bxam.xn--p1ai/",
+      "status": 0,
+      "error": "HTTP 0",
+      "score": 0
+    },
+    {
+      "url": "https://xn--18-6kc5a3bxam.xn--p1ai/catalog/poligrafiya/vizitki/",
+      "status": 0,
+      "error": "HTTP 0",
+      "score": 0
+    },
+    {
+      "url": "https://xn--18-6kc5a3bxam.xn--p1ai/catalog/poligrafiya/vizitki/vizitki-na-krafte/",
+      "status": 0,
+      "error": "HTTP 0",
+      "score": 0
+    },
+    {
+      "url": "https://xn--18-6kc5a3bxam.xn--p1ai/catalog/shirokoformatnaya-pechat/",
+      "status": 0,
+      "error": "HTTP 0",
+      "score": 0
+    },
+    {
+      "url": "https://xn--18-6kc5a3bxam.xn--p1ai/catalog/suvenirnaya-produktsiya/",
+      "status": 0,
+      "error": "HTTP 0",
+      "score": 0
+    },
+    {
+      "url": "https://xn--18-6kc5a3bxam.xn--p1ai/catalog/mobilnye-stendy/",
+      "status": 0,
+      "error": "HTTP 0",
+      "score": 0
+    },
+    {
+      "url": "https://xn--18-6kc5a3bxam.xn--p1ai/about/",
+      "status": 0,
+      "error": "HTTP 0",
+      "score": 0
+    },
+    {
+      "url": "https://xn--18-6kc5a3bxam.xn--p1ai/news/",
+      "status": 0,
+      "error": "HTTP 0",
+      "score": 0
+    }
+  ]
+}

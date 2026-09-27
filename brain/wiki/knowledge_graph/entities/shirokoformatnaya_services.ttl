@@ -1,0 +1,101 @@
+{
+  "@context": {
+    "cifra": "https://cifra18.ru/ontology#",
+    "schema": "https://schema.org/",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "owl": "http://www.w3.org/2002/07/owl#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#"
+  },
+  "@graph": [
+    {
+      "@id": "cifra:service_shirokoformatnaya_pechat_na_samokleyashcheysya_plenke",
+      "@type": "cifra:WideFormatService",
+      "rdfs:label": "Печать на самоклеящейся пленке",
+      "rdfs:comment": "Печать на самоклеящейся пленке ПВХ: мономерная, полимерная, ламинированная",
+      "cifra:hasPrintMethod": ["cifra:EcoSolventPrint", "cifra:LatexPrint", "cifra:UVPrint"],
+      "cifra:hasMaxFormat": "1.6м / 3.2м",
+      "schema:description": "Печать на самоклеящейся пленке ПВХ: мономерная (короткий срок), полимерная (долговечная), ламинированная (защита). Мономерная — до 1 года, полимерная — до 3 лет, ламинированная — до 5 лет. Контурная резка по контуру."
+    },
+    {
+      "@id": "cifra:service_shirokoformatnaya_pechat_na_bannere_do_1_6m",
+      "@type": "cifra:WideFormatService",
+      "rdfs:label": "Печать на баннере шириной до 1.6м",
+      "rdfs:comment": "Печать на баннере шириной до 1.6м",
+      "cifra:hasPrintMethod": ["cifra:EcoSolventPrint", "cifra:LatexPrint", "cifra:UVPrint"],
+      "cifra:hasMaxFormat": "1.6м",
+      "schema:description": "Печать на баннере (пленке/ткани) шириной до 1.6м. Громметы, карманы, подшивка. Подходит для уличной рекламы, событий, магазинов."
+    },
+    {
+      "@id": "cifra:service_shirokoformatnaya_pechat_na_bannere_do_3_2m",
+      "@type": "cifra:WideFormatService",
+      "rdfs:label": "Печать на баннере шириной до 3.2м",
+      "rdfs:comment": "Печать на баннере шириной до 3.2м (сшивка полотен)",
+      "cifra:hasPrintMethod": ["cifra:EcoSolventPrint", "cifra:LatexPrint", "cifra:UVPrint"],
+      "cifra:hasMaxFormat": "3.2м (сшивка)",
+      "schema:description": "Печать на баннере шириной до 3.2м (сшивка полотен). Для билбордов, билбордов, фасадов зданий, строительных заборов. Сшивка термосварочная/клеевая."
+    },
+    {
+      "@id": "cifra:service_shirokoformatnaya_pechat_na_posternoy_bumage",
+      "@type": "cifra:WideFormatService",
+      "rdfs:label": "Печать на постерной бумаге",
+      "rdfs:comment": "Печать на постерной бумаге меловкой/фотобумаге",
+      "cifra:hasPrintMethod": ["cifra:LatexPrint", "cifra:UVPrint"],
+      "cifra:hasMaxFormat": "1.6м",
+      "schema:description": "Печать на постерной бумаге (меловка, фото-бумага) до 1.6м ширины. Постеры, плакаты, афиши, художественные репродукции, фотопостеры."
+    },
+    {
+      "@id": "cifra:service_shirokoformatnaya_pechat_na_posternoy_bumage_blue_back",
+      "@type": "cifra:WideFormatService",
+      "rdfs:label": "Печать на постерной бумаге Blue Back",
+      "rdfs:comment": "Печать на постерной бумаге Blue Back (не просвечивает насквозь)",
+      "cifra:hasPrintMethod": ["cifra:LatexPrint", "cifra:UVPrint"],
+      "cifra:hasMaxFormat": "1.6м",
+      "schema:description": "Blue Back бумага для билбордов — специальная постерная бумага с синей подложкой, не просвечивает насквозь. Идеально для билбордов, ситилайтов, транзит-рекламы."
+    },
+    {
+      "@id": "cifra:service_shirokoformatnaya_pechat_na_poliesterovoy_tkani",
+      "@type": "cifra:WideFormatService",
+      "rdfs:label": "Печать на полиэстеровой ткани",
+      "rdfs:comment": "Сублимационная печать на полиэстеровой ткани (флаги, баннеры, тенты)",
+      "cifra:hasPrintMethod": "cifra:SublimationPrint",
+      "cifra:hasMaxFormat": "3.2м",
+      "schema:description": "Сублимационная печать на полиэстеровой ткани (флаг-материал). Флаги, баннеры, тенты, нависы, декор тентов. Пробегает насквозь, яркие цвета, устойчива к выгоранию."
+    },
+    {
+      "@id": "cifra:service_shirokoformatnaya_pechat_na_posternoy_bumage_s_laminatsiey",
+      "@type": "cifra:WideFormatService",
+      "rdfs:label": "Печать на постерной бумаге с ламинацией",
+      "rdfs:comment": "Печать на постерной бумаге с глянцевой/матовой ламинацией",
+      "cifra:hasPrintMethod": ["cifra:LatexPrint", "cifra:UVPrint"],
+      "cifra:hasFinishing": "cifra:Lamination",
+      "cifra:hasMaxFormat": "1.6м",
+      "schema:description": "Печать на постерной бумаге с глянцевой или матовой ламинацией. Защита от выцветания, влаги, механических повреждений. Для интерьера, POS-материалов, постеров."
+    },
+    {
+      "@id": "cifra:service_shirokoformatnaya_pechat_na_plenke_translyutsentnoy_backlit",
+      "@type": "cifra:WideFormatService",
+      "rdfs:label": "Печать на пленке транслюцентной Backlit",
+      "rdfs:comment": "Пленка для внутренней подсветки: ситилайты, лайтбоксы, транслиты",
+      "cifra:hasPrintMethod": ["cifra:LatexPrint", "cifra:UVPrint"],
+      "cifra:hasMaxFormat": "1.6м",
+      "schema:description": "Пленка транслюцентная (Backlit) для внутренней подсветки: ситилайты, лайтбоксы, транслиты, рекламные панели в метро/ТЦ. Пропускает свет, равномерное свечение."
+    },
+    {
+      "@id": "cifra:service_shirokoformatnaya_pechat_na_flazhnoy_tkani",
+      "@type": "cifra:WideFormatService",
+      "rdfs:label": "Печать на флажной ткани",
+      "rdfs:comment": "Печать на флажной ткани (флаги, вымпелы, вымпелы)",
+      "cifra:hasPrintMethod": "cifra:SublimationPrint",
+      "schema:description": "Печать на флажной ткани (полиэстер) — флаги, вымпелы, вымпелы, баннеры на ткани. Сублимация, яркие цвета, устойчивы к ветру и дождю."
+    },
+    {
+      "@id": "cifra:service_shirokoformatnaya_pechat_na_plenke_grey_back",
+      "@type": "cifra:WideFormatService",
+      "rdfs:label": "Печать на пленке Grey back",
+      "rdfs:comment": "Пленка Grey back для двухсторонней печати (не просвечивает)",
+      "cifra:hasPrintMethod": ["cifra:LatexPrint", "cifra:UVPrint"],
+      "cifra:hasMaxFormat": "1.6м",
+      "schema:description": "Пленка Grey back — серый задний слой не пропускает свет. Идеально для двухсторонней печати: вывески, нависы, нависы над входом, мобильные стенды."
+    }
+  ]
+}

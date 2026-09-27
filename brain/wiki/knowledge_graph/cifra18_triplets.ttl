@@ -1,0 +1,2766 @@
+{
+  "@context": {
+    "cifra": "https://cifra18.ru/ontology#",
+    "schema": "https://schema.org/",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "owl": "http://www.w3.org/2002/07/owl#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "skos": "http://www.w3.org/2004/02/skos/core#",
+    "dcterms": "http://purl.org/dc/terms/"
+  },
+  "@graph": [
+    {
+      "@id": "cifra:triplet/0",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:company/cifra18",
+      "cifra:predicate": "cifra:hasService",
+      "cifra:object": "cifra:service_poligrafiya_tsifrovaya_pechat"
+    },
+    {
+      "@id": "cifra:triplet/1",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:company/cifra18",
+      "cifra:predicate": "cifra:hasService",
+      "cifra:object": "cifra:service_poligrafiya_listovki_ofsetnaya_pechat"
+    },
+    {
+      "@id": "cifra:triplet/2",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:company/cifra18",
+      "cifra:predicate": "cifra:hasService",
+      "cifra:object": "cifra:service_poligrafiya_listovki_tsifrovaya_pechat"
+    },
+    {
+      "@id": "cifra:triplet/3",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:company/cifra18",
+      "cifra:predicate": "cifra:hasService",
+      "cifra:object": "cifra:service_poligrafiya_vizitki"
+    },
+    {
+      "@id": "cifra:triplet/4",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:company/cifra18",
+      "cifra:predicate": "cifra:hasService",
+      "cifra:object": "cifra:service_poligrafiya_birki"
+    },
+    {
+      "@id": "cifra:triplet/5",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:company/cifra18",
+      "cifra:predicate": "cifra:hasService",
+      "cifra:object": "cifra:service_poligrafiya_kalendari"
+    },
+    {
+      "@id": "cifra:triplet/6",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:company/cifra18",
+      "cifra:predicate": "cifra:hasService",
+      "cifra:object": "cifra:service_poligrafiya_rizografiya"
+    },
+    {
+      "@id": "cifra:triplet/7",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:company/cifra18",
+      "cifra:predicate": "cifra:hasService",
+      "cifra:object": "cifra:service_poligrafiya_pechat_na_samokleyashchikhsya_materialakh"
+    },
+    {
+      "@id": "cifra:triplet/8",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:company/cifra18",
+      "cifra:predicate": "cifra:hasService",
+      "cifra:object": "cifra:service_poligrafiya_bloknoty"
+    },
+    {
+      "@id": "cifra:triplet/9",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:company/cifra18",
+      "cifra:predicate": "cifra:hasService",
+      "cifra:object": "cifra:service_poligrafiya_otkrytki_sertifikaty"
+    },
+    {
+      "@id": "cifra:triplet/10",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:company/cifra18",
+      "cifra:predicate": "cifra:hasService",
+      "cifra:object": "cifra:service_poligrafiya_karty_plastikovye"
+    },
+    {
+      "@id": "cifra:triplet/11",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:company/cifra18",
+      "cifra:predicate": "cifra:hasService",
+      "cifra:object": "cifra:service_poligrafiya_beydzhi"
+    },
+    {
+      "@id": "cifra:triplet/12",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:company/cifra18",
+      "cifra:predicate": "cifra:hasService",
+      "cifra:object": "cifra:service_poligrafiya_laminirovanie"
+    },
+    {
+      "@id": "cifra:triplet/13",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:company/cifra18",
+      "cifra:predicate": "cifra:hasService",
+      "cifra:object": "cifra:service_poligrafiya_plotternaya_rezka"
+    },
+    {
+      "@id": "cifra:triplet/14",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:company/cifra18",
+      "cifra:predicate": "cifra:hasService",
+      "cifra:object": "cifra:service_poligrafiya_pechat_belym_tonerom"
+    },
+    {
+      "@id": "cifra:triplet/15",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:company/cifra18",
+      "cifra:predicate": "cifra:hasService",
+      "cifra:object": "cifra:service_poligrafiya_postpechatnye_raboty"
+    },
+    {
+      "@id": "cifra:triplet/16",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:company/cifra18",
+      "cifra:predicate": "cifra:hasService",
+      "cifra:object": "cifra:service_poligrafiya_uf_pechat"
+    },
+    {
+      "@id": "cifra:triplet/17",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:company/cifra18",
+      "cifra:predicate": "cifra:hasService",
+      "cifra:object": "cifra:service_poligrafiya_papki"
+    },
+    {
+      "@id": "cifra:triplet/18",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:company/cifra18",
+      "cifra:predicate": "cifra:hasService",
+      "cifra:object": "cifra:service_poligrafiya_bloki_dlya_zapisey_kubariki"
+    },
+    {
+      "@id": "cifra:triplet/19",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:company/cifra18",
+      "cifra:predicate": "cifra:hasService",
+      "cifra:object": "cifra:service_poligrafiya_vysechnaya_produktsiya"
+    },
+    {
+      "@id": "cifra:triplet/20",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:company/cifra18",
+      "cifra:predicate": "cifra:hasService",
+      "cifra:object": "cifra:service_poligrafiya_konverty"
+    },
+    {
+      "@id": "cifra:triplet/21",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:company/cifra18",
+      "cifra:predicate": "cifra:hasService",
+      "cifra:object": "cifra:service_poligrafiya_korobki_vyrubnye"
+    },
+    {
+      "@id": "cifra:triplet/22",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:company/cifra18",
+      "cifra:predicate": "cifra:hasService",
+      "cifra:object": "cifra:service_poligrafiya_lekala_vykroyki"
+    },
+    {
+      "@id": "cifra:triplet/23",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:company/cifra18",
+      "cifra:predicate": "cifra:hasService",
+      "cifra:object": "cifra:service_poligrafiya_pakety"
+    },
+    {
+      "@id": "cifra:triplet/24",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:company/cifra18",
+      "cifra:predicate": "cifra:hasService",
+      "cifra:object": "cifra:service_poligrafiya_teybl_tent"
+    },
+    {
+      "@id": "cifra:triplet/25",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:company/cifra18",
+      "cifra:predicate": "cifra:hasService",
+      "cifra:object": "cifra:service_poligrafiya_folgirovanie"
+    },
+    {
+      "@id": "cifra:triplet/26",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:company/cifra18",
+      "cifra:predicate": "cifra:hasService",
+      "cifra:object": "cifra:service_shirokoformatnaya_pechat_na_samokleyashcheysya_plenke"
+    },
+    {
+      "@id": "cifra:triplet/27",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:company/cifra18",
+      "cifra:predicate": "cifra:hasService",
+      "cifra:object": "cifra:service_shirokoformatnaya_pechat_na_bannere_do_1_6m"
+    },
+    {
+      "@id": "cifra:triplet/28",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:company/cifra18",
+      "cifra:predicate": "cifra:hasService",
+      "cifra:object": "cifra:service_shirokoformatnaya_pechat_na_bannere_do_3_2m"
+    },
+    {
+      "@id": "cifra:triplet/29",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:company/cifra18",
+      "cifra:predicate": "cifra:hasService",
+      "cifra:object": "cifra:service_shirokoformatnaya_pechat_na_posternoy_bumage"
+    },
+    {
+      "@id": "cifra:triplet/30",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:company/cifra18",
+      "cifra:predicate": "cifra:hasService",
+      "cifra:object": "cifra:service_shirokoformatnaya_pechat_na_posternoy_bumage_blue_back"
+    },
+    {
+      "@id": "cifra:triplet/31",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:company/cifra18",
+      "cifra:predicate": "cifra:hasService",
+      "cifra:object": "cifra:service_shirokoformatnaya_pechat_na_poliesterovoy_tkani"
+    },
+    {
+      "@id": "cifra:triplet/32",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:company/cifra18",
+      "cifra:predicate": "cifra:hasService",
+      "cifra:object": "cifra:service_shirokoformatnaya_pechat_na_posternoy_bumage_s_laminatsiey"
+    },
+    {
+      "@id": "cifra:triplet/33",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:company/cifra18",
+      "cifra:predicate": "cifra:hasService",
+      "cifra:object": "cifra:service_shirokoformatnaya_pechat_na_plenke_translyutsentnoy_backlit"
+    },
+    {
+      "@id": "cifra:triplet/34",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:company/cifra18",
+      "cifra:predicate": "cifra:hasService",
+      "cifra:object": "cifra:service_shirokoformatnaya_pechat_na_flazhnoy_tkani"
+    },
+    {
+      "@id": "cifra:triplet/35",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:company/cifra18",
+      "cifra:predicate": "cifra:hasService",
+      "cifra:object": "cifra:service_shirokoformatnaya_pechat_na_plenke_grey_back"
+    },
+    {
+      "@id": "cifra:triplet/36",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:company/cifra18",
+      "cifra:predicate": "cifra:hasService",
+      "cifra:object": "cifra:service_suvenirnaya_pechat_na_ruchkakh"
+    },
+    {
+      "@id": "cifra:triplet/37",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:company/cifra18",
+      "cifra:predicate": "cifra:hasService",
+      "cifra:object": "cifra:service_suvenirnaya_pechat_na_kraft_ruchkakh"
+    },
+    {
+      "@id": "cifra:triplet/38",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:company/cifra18",
+      "cifra:predicate": "cifra:hasService",
+      "cifra:object": "cifra:service_suvenirnaya_pechat_na_karandashakh"
+    },
+    {
+      "@id": "cifra:triplet/39",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:company/cifra18",
+      "cifra:predicate": "cifra:hasService",
+      "cifra:object": "cifra:service_suvenirnaya_chekhly_dlya_ruchek"
+    },
+    {
+      "@id": "cifra:triplet/40",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:company/cifra18",
+      "cifra:predicate": "cifra:hasService",
+      "cifra:object": "cifra:service_suvenirnaya_brendirovanie_odezhdy"
+    },
+    {
+      "@id": "cifra:triplet/41",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:company/cifra18",
+      "cifra:predicate": "cifra:hasService",
+      "cifra:object": "cifra:service_suvenirnaya_pechat_na_kruzhkakh"
+    },
+    {
+      "@id": "cifra:triplet/42",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:company/cifra18",
+      "cifra:predicate": "cifra:hasService",
+      "cifra:object": "cifra:service_suvenirnaya_ezhednevniki"
+    },
+    {
+      "@id": "cifra:triplet/43",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:company/cifra18",
+      "cifra:predicate": "cifra:hasService",
+      "cifra:object": "cifra:service_suvenirnaya_znachki_zakhatnye"
+    },
+    {
+      "@id": "cifra:triplet/44",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:company/cifra18",
+      "cifra:predicate": "cifra:hasService",
+      "cifra:object": "cifra:service_suvenirnaya_korporativnye_podarki"
+    },
+    {
+      "@id": "cifra:triplet/45",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:company/cifra18",
+      "cifra:predicate": "cifra:hasService",
+      "cifra:object": "cifra:service_suvenirnaya_pechat_na_usb_ustroystvakh"
+    },
+    {
+      "@id": "cifra:triplet/46",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:company/cifra18",
+      "cifra:predicate": "cifra:hasService",
+      "cifra:object": "cifra:service_suvenirnaya_magnity_akrilovye"
+    },
+    {
+      "@id": "cifra:triplet/47",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:company/cifra18",
+      "cifra:predicate": "cifra:hasService",
+      "cifra:object": "cifra:service_suvenirnaya_pechat_na_pazlakh"
+    },
+    {
+      "@id": "cifra:triplet/48",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:company/cifra18",
+      "cifra:predicate": "cifra:hasService",
+      "cifra:object": "cifra:service_suvenirnaya_magnity_vinilovye"
+    },
+    {
+      "@id": "cifra:triplet/49",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:company/cifra18",
+      "cifra:predicate": "cifra:hasService",
+      "cifra:object": "cifra:service_suvenirnaya_suvenirnye_chasy"
+    },
+    {
+      "@id": "cifra:triplet/50",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:company/cifra18",
+      "cifra:predicate": "cifra:hasService",
+      "cifra:object": "cifra:service_suvenirnaya_kubik_transformer"
+    },
+    {
+      "@id": "cifra:triplet/51",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:company/cifra18",
+      "cifra:predicate": "cifra:hasService",
+      "cifra:object": "cifra:service_suvenirnaya_shokolad"
+    },
+    {
+      "@id": "cifra:triplet/52",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:company/cifra18",
+      "cifra:predicate": "cifra:hasService",
+      "cifra:object": "cifra:service_suvenirnaya_lazernaya_gravirovka_markirovka"
+    },
+    {
+      "@id": "cifra:triplet/53",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:company/cifra18",
+      "cifra:predicate": "cifra:hasService",
+      "cifra:object": "cifra:service_suvenirnaya_braslety_silikonovye"
+    },
+    {
+      "@id": "cifra:triplet/54",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:company/cifra18",
+      "cifra:predicate": "cifra:hasService",
+      "cifra:object": "cifra:service_suvenirnaya_breloki"
+    },
+    {
+      "@id": "cifra:triplet/55",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:company/cifra18",
+      "cifra:predicate": "cifra:hasService",
+      "cifra:object": "cifra:service_suvenirnaya_igry_i_golovolomki"
+    },
+    {
+      "@id": "cifra:triplet/56",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:company/cifra18",
+      "cifra:predicate": "cifra:hasService",
+      "cifra:object": "cifra:service_suvenirnaya_medali_kubki_nagradnaya_produktsiya"
+    },
+    {
+      "@id": "cifra:triplet/57",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:company/cifra18",
+      "cifra:predicate": "cifra:hasService",
+      "cifra:object": "cifra:service_suvenirnaya_plaketki"
+    },
+    {
+      "@id": "cifra:triplet/58",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:company/cifra18",
+      "cifra:predicate": "cifra:hasService",
+      "cifra:object": "cifra:service_suvenirnaya_popsokety"
+    },
+    {
+      "@id": "cifra:triplet/59",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:company/cifra18",
+      "cifra:predicate": "cifra:hasService",
+      "cifra:object": "cifra:service_suvenirnaya_ryukzaki_i_sumki"
+    },
+    {
+      "@id": "cifra:triplet/60",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:company/cifra18",
+      "cifra:predicate": "cifra:hasService",
+      "cifra:object": "cifra:service_suvenirnaya_tablichka_qr"
+    },
+    {
+      "@id": "cifra:triplet/61",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:company/cifra18",
+      "cifra:predicate": "cifra:hasService",
+      "cifra:object": "cifra:service_suvenirnaya_tubus_brendirovannyy"
+    },
+    {
+      "@id": "cifra:triplet/62",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:company/cifra18",
+      "cifra:predicate": "cifra:hasService",
+      "cifra:object": "cifra:service_inzhenernaya_pechat_chertezhey"
+    },
+    {
+      "@id": "cifra:triplet/63",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:company/cifra18",
+      "cifra:predicate": "cifra:hasService",
+      "cifra:object": "cifra:service_inzhenernaya_kserokopiya"
+    },
+    {
+      "@id": "cifra:triplet/64",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:company/cifra18",
+      "cifra:predicate": "cifra:hasService",
+      "cifra:object": "cifra:service_inzhenernaya_skanirovanie"
+    },
+    {
+      "@id": "cifra:triplet/65",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:company/cifra18",
+      "cifra:predicate": "cifra:hasService",
+      "cifra:object": "cifra:service_inzhenernaya_faltsovka"
+    },
+    {
+      "@id": "cifra:triplet/66",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:company/cifra18",
+      "cifra:predicate": "cifra:hasService",
+      "cifra:object": "cifra:service_inzhenernaya_broshyurovka"
+    },
+    {
+      "@id": "cifra:triplet/67",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:company/cifra18",
+      "cifra:predicate": "cifra:hasService",
+      "cifra:object": "cifra:service_interer_kartiny_na_kholste"
+    },
+    {
+      "@id": "cifra:triplet/68",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:company/cifra18",
+      "cifra:predicate": "cifra:hasService",
+      "cifra:object": "cifra:service_interer_postery"
+    },
+    {
+      "@id": "cifra:triplet/69",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:company/cifra18",
+      "cifra:predicate": "cifra:hasService",
+      "cifra:object": "cifra:service_interer_pechat_na_kholste_v_rulone"
+    },
+    {
+      "@id": "cifra:triplet/70",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:company/cifra18",
+      "cifra:predicate": "cifra:hasService",
+      "cifra:object": "cifra:service_interer_kartiny_na_kholste_individualnyy_razmer"
+    },
+    {
+      "@id": "cifra:triplet/71",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:company/cifra18",
+      "cifra:predicate": "cifra:hasService",
+      "cifra:object": "cifra:service_interer_fotopostery_na_penokartone"
+    },
+    {
+      "@id": "cifra:triplet/72",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:company/cifra18",
+      "cifra:predicate": "cifra:hasService",
+      "cifra:object": "cifra:service_interer_fotooboi"
+    },
+    {
+      "@id": "cifra:triplet/73",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:company/cifra18",
+      "cifra:predicate": "cifra:hasService",
+      "cifra:object": "cifra:service_mobilnye_rollup_0_85x2"
+    },
+    {
+      "@id": "cifra:triplet/74",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:company/cifra18",
+      "cifra:predicate": "cifra:hasService",
+      "cifra:object": "cifra:service_mobilnye_rollup_1x2"
+    },
+    {
+      "@id": "cifra:triplet/75",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:company/cifra18",
+      "cifra:predicate": "cifra:hasService",
+      "cifra:object": "cifra:service_mobilnye_rollup_1_2x2"
+    },
+    {
+      "@id": "cifra:triplet/76",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:company/cifra18",
+      "cifra:predicate": "cifra:hasService",
+      "cifra:object": "cifra:service_mobilnye_rollup_1_5x2"
+    },
+    {
+      "@id": "cifra:triplet/77",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:company/cifra18",
+      "cifra:predicate": "cifra:hasService",
+      "cifra:object": "cifra:service_mobilnye_rollup_2x3"
+    },
+    {
+      "@id": "cifra:triplet/78",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:company/cifra18",
+      "cifra:predicate": "cifra:hasService",
+      "cifra:object": "cifra:service_mobilnye_kh_banner"
+    },
+    {
+      "@id": "cifra:triplet/79",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:company/cifra18",
+      "cifra:predicate": "cifra:hasService",
+      "cifra:object": "cifra:service_mobilnye_l_banner"
+    },
+    {
+      "@id": "cifra:triplet/80",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:company/cifra18",
+      "cifra:predicate": "cifra:hasService",
+      "cifra:object": "cifra:service_mobilnye_shtender"
+    },
+    {
+      "@id": "cifra:triplet/81",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:company/cifra18",
+      "cifra:predicate": "cifra:hasService",
+      "cifra:object": "cifra:service_mobilnye_press_voll"
+    },
+    {
+      "@id": "cifra:triplet/82",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:company/cifra18",
+      "cifra:predicate": "cifra:hasService",
+      "cifra:object": "cifra:service_mobilnye_arenda_press_voll"
+    },
+    {
+      "@id": "cifra:triplet/83",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:company/cifra18",
+      "cifra:predicate": "cifra:produces",
+      "cifra:object": "cifra:product_vizitki_kraft"
+    },
+    {
+      "@id": "cifra:triplet/84",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:company/cifra18",
+      "cifra:predicate": "cifra:produces",
+      "cifra:object": "cifra:product_vizitki_designer"
+    },
+    {
+      "@id": "cifra:triplet/85",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:company/cifra18",
+      "cifra:predicate": "cifra:produces",
+      "cifra:object": "cifra:product_banner_pvc"
+    },
+    {
+      "@id": "cifra:triplet/86",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:company/cifra18",
+      "cifra:predicate": "cifra:produces",
+      "cifra:object": "cifra:product_rollup_85x200"
+    },
+    {
+      "@id": "cifra:triplet/87",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:company/cifra18",
+      "cifra:predicate": "cifra:produces",
+      "cifra:object": "cifra:product_hudi_premium"
+    },
+    {
+      "@id": "cifra:triplet/88",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:company/cifra18",
+      "cifra:predicate": "cifra:produces",
+      "cifra:object": "cifra:product_thermos_premium"
+    },
+    {
+      "@id": "cifra:triplet/89",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:company/cifra18",
+      "cifra:predicate": "cifra:produces",
+      "cifra:object": "cifra:product_ryukzak_premium"
+    },
+    {
+      "@id": "cifra:triplet/90",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:company/cifra18",
+      "cifra:predicate": "cifra:locatedIn",
+      "cifra:object": "cifra:location/izhevsk"
+    },
+    {
+      "@id": "cifra:triplet/91",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:company/cifra18",
+      "cifra:predicate": "cifra:deliversVia",
+      "cifra:object": "cifra:delivery_sdek"
+    },
+    {
+      "@id": "cifra:triplet/92",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:company/cifra18",
+      "cifra:predicate": "cifra:hasEquipment",
+      "cifra:object": "cifra:equipment_hp_indigo"
+    },
+    {
+      "@id": "cifra:triplet/93",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:company/cifra18",
+      "cifra:predicate": "cifra:hasEquipment",
+      "cifra:object": "cifra:equipment_heidelberg"
+    },
+    {
+      "@id": "cifra:triplet/94",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:company/cifra18",
+      "cifra:predicate": "cifra:hasEquipment",
+      "cifra:object": "cifra:equipment_hp_latex"
+    },
+    {
+      "@id": "cifra:triplet/95",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:company/cifra18",
+      "cifra:predicate": "cifra:hasEquipment",
+      "cifra:object": "cifra:equipment_mimaki"
+    },
+    {
+      "@id": "cifra:triplet/96",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:company/cifra18",
+      "cifra:predicate": "cifra:hasEquipment",
+      "cifra:object": "cifra:equipment_roland"
+    },
+    {
+      "@id": "cifra:triplet/97",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:company/cifra18",
+      "cifra:predicate": "cifra:hasEquipment",
+      "cifra:object": "cifra:equipment_epson_surecolor"
+    },
+    {
+      "@id": "cifra:triplet/98",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:company/cifra18",
+      "cifra:predicate": "cifra:hasEquipment",
+      "cifra:object": "cifra:equipment_canon_imagepress"
+    },
+    {
+      "@id": "cifra:triplet/99",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:company/cifra18",
+      "cifra:predicate": "cifra:hasEquipment",
+      "cifra:object": "cifra:equipment_konica_minolta"
+    },
+    {
+      "@id": "cifra:triplet/100",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:company/cifra18",
+      "cifra:predicate": "cifra:hasEquipment",
+      "cifra:object": "cifra:equipment_ricoh"
+    },
+    {
+      "@id": "cifra:triplet/101",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:company/cifra18",
+      "cifra:predicate": "cifra:hasEquipment",
+      "cifra:object": "cifra:equipment_xerox_iridesse"
+    },
+    {
+      "@id": "cifra:triplet/102",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:company/cifra18",
+      "cifra:predicate": "cifra:hasProductionCapability",
+      "cifra:object": "Digital printing (HP Indigo)"
+    },
+    {
+      "@id": "cifra:triplet/103",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:company/cifra18",
+      "cifra:predicate": "cifra:hasProductionCapability",
+      "cifra:object": "Offset printing (Heidelberg)"
+    },
+    {
+      "@id": "cifra:triplet/104",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:company/cifra18",
+      "cifra:predicate": "cifra:hasProductionCapability",
+      "cifra:object": "Wide-format latex (HP Latex)"
+    },
+    {
+      "@id": "cifra:triplet/105",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:company/cifra18",
+      "cifra:predicate": "cifra:hasProductionCapability",
+      "cifra:object": "Wide-format eco-solvent/UV (Mimaki/Roland)"
+    },
+    {
+      "@id": "cifra:triplet/106",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:company/cifra18",
+      "cifra:predicate": "cifra:hasProductionCapability",
+      "cifra:object": "Sublimation printing"
+    },
+    {
+      "@id": "cifra:triplet/107",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:company/cifra18",
+      "cifra:predicate": "cifra:hasProductionCapability",
+      "cifra:object": "DTG printing"
+    },
+    {
+      "@id": "cifra:triplet/108",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:company/cifra18",
+      "cifra:predicate": "cifra:hasProductionCapability",
+      "cifra:object": "Laser engraving/cutting"
+    },
+    {
+      "@id": "cifra:triplet/109",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:company/cifra18",
+      "cifra:predicate": "cifra:hasProductionCapability",
+      "cifra:object": "Plotter cutting"
+    },
+    {
+      "@id": "cifra:triplet/110",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:company/cifra18",
+      "cifra:predicate": "cifra:hasProductionCapability",
+      "cifra:object": "UV printing/varnishing"
+    },
+    {
+      "@id": "cifra:triplet/111",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:company/cifra18",
+      "cifra:predicate": "cifra:hasProductionCapability",
+      "cifra:object": "White toner printing"
+    },
+    {
+      "@id": "cifra:triplet/112",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:company/cifra18",
+      "cifra:predicate": "cifra:hasProductionCapability",
+      "cifra:object": "Lamination (gloss/matt/soft-touch)"
+    },
+    {
+      "@id": "cifra:triplet/113",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:company/cifra18",
+      "cifra:predicate": "cifra:hasProductionCapability",
+      "cifra:object": "Foiling (hot/cold)"
+    },
+    {
+      "@id": "cifra:triplet/114",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:company/cifra18",
+      "cifra:predicate": "cifra:hasProductionCapability",
+      "cifra:object": "Embossing/debossing"
+    },
+    {
+      "@id": "cifra:triplet/115",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:company/cifra18",
+      "cifra:predicate": "cifra:hasProductionCapability",
+      "cifra:object": "Die cutting (plotter)"
+    },
+    {
+      "@id": "cifra:triplet/116",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:company/cifra18",
+      "cifra:predicate": "cifra:hasProductionCapability",
+      "cifra:object": "Engineering print (A0+)"
+    },
+    {
+      "@id": "cifra:triplet/117",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:company/cifra18",
+      "cifra:predicate": "cifra:hasProductionCapability",
+      "cifra:object": "Large format scanning"
+    },
+    {
+      "@id": "cifra:triplet/118",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:company/cifra18",
+      "cifra:predicate": "cifra:competesWith",
+      "cifra:object": "cifra:competitor/printio"
+    },
+    {
+      "@id": "cifra:triplet/119",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:company/cifra18",
+      "cifra:predicate": "cifra:competesWith",
+      "cifra:object": "cifra:competitor/ruprint"
+    },
+    {
+      "@id": "cifra:triplet/120",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:company/cifra18",
+      "cifra:predicate": "cifra:competesWith",
+      "cifra:object": "cifra:competitor/printful"
+    },
+    {
+      "@id": "cifra:triplet/121",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:company/cifra18",
+      "cifra:predicate": "cifra:competesWith",
+      "cifra:object": "cifra:competitor/printback"
+    },
+    {
+      "@id": "cifra:triplet/122",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:company/cifra18",
+      "cifra:predicate": "cifra:competesWith",
+      "cifra:object": "cifra:competitor/canva_print"
+    },
+    {
+      "@id": "cifra:triplet/123",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:company/cifra18",
+      "cifra:predicate": "cifra:competesWith",
+      "cifra:object": "cifra:competitor/yandex_uslugi"
+    },
+    {
+      "@id": "cifra:triplet/124",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:company/cifra18",
+      "cifra:predicate": "cifra:competesWith",
+      "cifra:object": "cifra:competitor/avito_uslugi"
+    },
+    {
+      "@id": "cifra:triplet/125",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:company/cifra18",
+      "cifra:predicate": "cifra:competesWith",
+      "cifra:object": "cifra:competitor/2gis"
+    },
+    {
+      "@id": "cifra:triplet/126",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:company/cifra18",
+      "cifra:predicate": "cifra:competesWith",
+      "cifra:object": "cifra:competitor/profi_ru"
+    },
+    {
+      "@id": "cifra:triplet/127",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:company/cifra18",
+      "cifra:predicate": "cifra:competesWith",
+      "cifra:object": "cifra:competitor/kontur_foto"
+    },
+    {
+      "@id": "cifra:triplet/128",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:company/cifra18",
+      "cifra:predicate": "cifra:competesWith",
+      "cifra:object": "cifra:competitor/vaston"
+    },
+    {
+      "@id": "cifra:triplet/129",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:company/cifra18",
+      "cifra:predicate": "cifra:competesWith",
+      "cifra:object": "cifra:competitor/smart"
+    },
+    {
+      "@id": "cifra:triplet/130",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:company/cifra18",
+      "cifra:predicate": "cifra:competesWith",
+      "cifra:object": "cifra:competitor/kanzpark"
+    },
+    {
+      "@id": "cifra:triplet/131",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:company/cifra18",
+      "cifra:predicate": "cifra:competesWith",
+      "cifra:object": "cifra:competitor/maximum"
+    },
+    {
+      "@id": "cifra:triplet/132",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:company/cifra18",
+      "cifra:predicate": "cifra:competesWith",
+      "cifra:object": "cifra:competitor/udmurt_print"
+    },
+    {
+      "@id": "cifra:triplet/133",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:company/cifra18",
+      "cifra:predicate": "cifra:competesWith",
+      "cifra:object": "cifra:competitor/printing_express"
+    },
+    {
+      "@id": "cifra:triplet/134",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:company/cifra18",
+      "cifra:predicate": "cifra:competesWith",
+      "cifra:object": "cifra:competitor/document_center"
+    },
+    {
+      "@id": "cifra:triplet/135",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:material_kraft_265",
+      "cifra:predicate": "cifra:suitableFor",
+      "cifra:object": "BusinessCards"
+    },
+    {
+      "@id": "cifra:triplet/136",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:material_kraft_265",
+      "cifra:predicate": "cifra:suitableFor",
+      "cifra:object": "Packaging"
+    },
+    {
+      "@id": "cifra:triplet/137",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:material_kraft_265",
+      "cifra:predicate": "cifra:suitableFor",
+      "cifra:object": "Labels"
+    },
+    {
+      "@id": "cifra:triplet/138",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:material_kraft_265",
+      "cifra:predicate": "cifra:suitableFor",
+      "cifra:object": "Tags"
+    },
+    {
+      "@id": "cifra:triplet/139",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:material_kraft_350",
+      "cifra:predicate": "cifra:suitableFor",
+      "cifra:object": "PremiumBusinessCards"
+    },
+    {
+      "@id": "cifra:triplet/140",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:material_kraft_350",
+      "cifra:predicate": "cifra:suitableFor",
+      "cifra:object": "GiftPackaging"
+    },
+    {
+      "@id": "cifra:triplet/141",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:material_kraft_350",
+      "cifra:predicate": "cifra:suitableFor",
+      "cifra:object": "GiftBoxes"
+    },
+    {
+      "@id": "cifra:triplet/142",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:material_designer_cardboard",
+      "cifra:predicate": "cifra:suitableFor",
+      "cifra:object": "PremiumBusinessCards"
+    },
+    {
+      "@id": "cifra:triplet/143",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:material_designer_cardboard",
+      "cifra:predicate": "cifra:suitableFor",
+      "cifra:object": "Invitations"
+    },
+    {
+      "@id": "cifra:triplet/144",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:material_designer_cardboard",
+      "cifra:predicate": "cifra:suitableFor",
+      "cifra:object": "LuxuryPackaging"
+    },
+    {
+      "@id": "cifra:triplet/145",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:material_designer_cardboard",
+      "cifra:predicate": "cifra:suitableFor",
+      "cifra:object": "CorporateFolders"
+    },
+    {
+      "@id": "cifra:triplet/146",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:location/izhevsk",
+      "cifra:predicate": "schema:containedInPlace",
+      "cifra:object": {
+        "@id": "cifra:location/udmurtia"
+      }
+    },
+    {
+      "@id": "cifra:triplet/147",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:location/izhevsk",
+      "cifra:predicate": "cifra:hasSdekPVZ",
+      "cifra:object": true
+    },
+    {
+      "@id": "cifra:triplet/148",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:location/izhevsk",
+      "cifra:predicate": "cifra:isHQ",
+      "cifra:object": true
+    },
+    {
+      "@id": "cifra:triplet/149",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:location/udmurtia",
+      "cifra:predicate": "schema:containedInPlace",
+      "cifra:object": {
+        "@id": "cifra:location/russia"
+      }
+    },
+    {
+      "@id": "cifra:triplet/150",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:location/votkinsk",
+      "cifra:predicate": "schema:containedInPlace",
+      "cifra:object": {
+        "@id": "cifra:location/udmurtia"
+      }
+    },
+    {
+      "@id": "cifra:triplet/151",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:location/votkinsk",
+      "cifra:predicate": "cifra:hasSdekPVZ",
+      "cifra:object": true
+    },
+    {
+      "@id": "cifra:triplet/152",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:location/glazov",
+      "cifra:predicate": "schema:containedInPlace",
+      "cifra:object": {
+        "@id": "cifra:location/udmurtia"
+      }
+    },
+    {
+      "@id": "cifra:triplet/153",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:location/glazov",
+      "cifra:predicate": "cifra:hasSdekPVZ",
+      "cifra:object": true
+    },
+    {
+      "@id": "cifra:triplet/154",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:location/sarapul",
+      "cifra:predicate": "schema:containedInPlace",
+      "cifra:object": {
+        "@id": "cifra:location/udmurtia"
+      }
+    },
+    {
+      "@id": "cifra:triplet/155",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:location/sarapul",
+      "cifra:predicate": "cifra:hasSdekPVZ",
+      "cifra:object": true
+    },
+    {
+      "@id": "cifra:triplet/156",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:location/mozhga",
+      "cifra:predicate": "schema:containedInPlace",
+      "cifra:object": {
+        "@id": "cifra:location/udmurtia"
+      }
+    },
+    {
+      "@id": "cifra:triplet/157",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:location/mozhga",
+      "cifra:predicate": "cifra:hasSdekPVZ",
+      "cifra:object": true
+    },
+    {
+      "@id": "cifra:triplet/158",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:location/moscow",
+      "cifra:predicate": "schema:containedInPlace",
+      "cifra:object": {
+        "@id": "cifra:location/russia"
+      }
+    },
+    {
+      "@id": "cifra:triplet/159",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:location/moscow",
+      "cifra:predicate": "cifra:hasSdekPVZ",
+      "cifra:object": true
+    },
+    {
+      "@id": "cifra:triplet/160",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:location/moscow",
+      "cifra:predicate": "cifra:isMajorHub",
+      "cifra:object": true
+    },
+    {
+      "@id": "cifra:triplet/161",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:location/moscow",
+      "cifra:predicate": "cifra:isTargetCity",
+      "cifra:object": true
+    },
+    {
+      "@id": "cifra:triplet/162",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:location/sankt_peterburg",
+      "cifra:predicate": "schema:containedInPlace",
+      "cifra:object": {
+        "@id": "cifra:location/russia"
+      }
+    },
+    {
+      "@id": "cifra:triplet/163",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:location/sankt_peterburg",
+      "cifra:predicate": "cifra:hasSdekPVZ",
+      "cifra:object": true
+    },
+    {
+      "@id": "cifra:triplet/164",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:location/sankt_peterburg",
+      "cifra:predicate": "cifra:isMajorHub",
+      "cifra:object": true
+    },
+    {
+      "@id": "cifra:triplet/165",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:location/sankt_peterburg",
+      "cifra:predicate": "cifra:isTargetCity",
+      "cifra:object": true
+    },
+    {
+      "@id": "cifra:triplet/166",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:location/ekaterinburg",
+      "cifra:predicate": "schema:containedInPlace",
+      "cifra:object": {
+        "@id": "cifra:location/russia"
+      }
+    },
+    {
+      "@id": "cifra:triplet/167",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:location/ekaterinburg",
+      "cifra:predicate": "cifra:hasSdekPVZ",
+      "cifra:object": true
+    },
+    {
+      "@id": "cifra:triplet/168",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:location/ekaterinburg",
+      "cifra:predicate": "cifra:isTargetCity",
+      "cifra:object": true
+    },
+    {
+      "@id": "cifra:triplet/169",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:location/novosibirsk",
+      "cifra:predicate": "schema:containedInPlace",
+      "cifra:object": {
+        "@id": "cifra:location/russia"
+      }
+    },
+    {
+      "@id": "cifra:triplet/170",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:location/novosibirsk",
+      "cifra:predicate": "cifra:hasSdekPVZ",
+      "cifra:object": true
+    },
+    {
+      "@id": "cifra:triplet/171",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:location/novosibirsk",
+      "cifra:predicate": "cifra:isTargetCity",
+      "cifra:object": true
+    },
+    {
+      "@id": "cifra:triplet/172",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:location/kazan",
+      "cifra:predicate": "schema:containedInPlace",
+      "cifra:object": {
+        "@id": "cifra:location/russia"
+      }
+    },
+    {
+      "@id": "cifra:triplet/173",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:location/kazan",
+      "cifra:predicate": "cifra:hasSdekPVZ",
+      "cifra:object": true
+    },
+    {
+      "@id": "cifra:triplet/174",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:location/kazan",
+      "cifra:predicate": "cifra:isTargetCity",
+      "cifra:object": true
+    },
+    {
+      "@id": "cifra:triplet/175",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:location/nizhny_novgorod",
+      "cifra:predicate": "schema:containedInPlace",
+      "cifra:object": {
+        "@id": "cifra:location/russia"
+      }
+    },
+    {
+      "@id": "cifra:triplet/176",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:location/nizhny_novgorod",
+      "cifra:predicate": "cifra:hasSdekPVZ",
+      "cifra:object": true
+    },
+    {
+      "@id": "cifra:triplet/177",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:location/nizhny_novgorod",
+      "cifra:predicate": "cifra:isTargetCity",
+      "cifra:object": true
+    },
+    {
+      "@id": "cifra:triplet/178",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:location/chelyabinsk",
+      "cifra:predicate": "schema:containedInPlace",
+      "cifra:object": {
+        "@id": "cifra:location/russia"
+      }
+    },
+    {
+      "@id": "cifra:triplet/179",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:location/chelyabinsk",
+      "cifra:predicate": "cifra:hasSdekPVZ",
+      "cifra:object": true
+    },
+    {
+      "@id": "cifra:triplet/180",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:location/chelyabinsk",
+      "cifra:predicate": "cifra:isTargetCity",
+      "cifra:object": true
+    },
+    {
+      "@id": "cifra:triplet/181",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:location/omsk",
+      "cifra:predicate": "schema:containedInPlace",
+      "cifra:object": {
+        "@id": "cifra:location/russia"
+      }
+    },
+    {
+      "@id": "cifra:triplet/182",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:location/omsk",
+      "cifra:predicate": "cifra:hasSdekPVZ",
+      "cifra:object": true
+    },
+    {
+      "@id": "cifra:triplet/183",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:location/omsk",
+      "cifra:predicate": "cifra:isTargetCity",
+      "cifra:object": true
+    },
+    {
+      "@id": "cifra:triplet/184",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:location/samara",
+      "cifra:predicate": "schema:containedInPlace",
+      "cifra:object": {
+        "@id": "cifra:location/russia"
+      }
+    },
+    {
+      "@id": "cifra:triplet/185",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:location/samara",
+      "cifra:predicate": "cifra:hasSdekPVZ",
+      "cifra:object": true
+    },
+    {
+      "@id": "cifra:triplet/186",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:location/samara",
+      "cifra:predicate": "cifra:isTargetCity",
+      "cifra:object": true
+    },
+    {
+      "@id": "cifra:triplet/187",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:location/rostov_na_donu",
+      "cifra:predicate": "schema:containedInPlace",
+      "cifra:object": {
+        "@id": "cifra:location/russia"
+      }
+    },
+    {
+      "@id": "cifra:triplet/188",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:location/rostov_na_donu",
+      "cifra:predicate": "cifra:hasSdekPVZ",
+      "cifra:object": true
+    },
+    {
+      "@id": "cifra:triplet/189",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:location/rostov_na_donu",
+      "cifra:predicate": "cifra:isTargetCity",
+      "cifra:object": true
+    },
+    {
+      "@id": "cifra:triplet/190",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:location/ufa",
+      "cifra:predicate": "schema:containedInPlace",
+      "cifra:object": {
+        "@id": "cifra:location/russia"
+      }
+    },
+    {
+      "@id": "cifra:triplet/191",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:location/ufa",
+      "cifra:predicate": "cifra:hasSdekPVZ",
+      "cifra:object": true
+    },
+    {
+      "@id": "cifra:triplet/192",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:location/ufa",
+      "cifra:predicate": "cifra:isTargetCity",
+      "cifra:object": true
+    },
+    {
+      "@id": "cifra:triplet/193",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:location/krasnoyarsk",
+      "cifra:predicate": "schema:containedInPlace",
+      "cifra:object": {
+        "@id": "cifra:location/russia"
+      }
+    },
+    {
+      "@id": "cifra:triplet/194",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:location/krasnoyarsk",
+      "cifra:predicate": "cifra:hasSdekPVZ",
+      "cifra:object": true
+    },
+    {
+      "@id": "cifra:triplet/195",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:location/krasnoyarsk",
+      "cifra:predicate": "cifra:isTargetCity",
+      "cifra:object": true
+    },
+    {
+      "@id": "cifra:triplet/196",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:location/voronezh",
+      "cifra:predicate": "schema:containedInPlace",
+      "cifra:object": {
+        "@id": "cifra:location/russia"
+      }
+    },
+    {
+      "@id": "cifra:triplet/197",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:location/voronezh",
+      "cifra:predicate": "cifra:hasSdekPVZ",
+      "cifra:object": true
+    },
+    {
+      "@id": "cifra:triplet/198",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:location/voronezh",
+      "cifra:predicate": "cifra:isTargetCity",
+      "cifra:object": true
+    },
+    {
+      "@id": "cifra:triplet/199",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:location/perm",
+      "cifra:predicate": "schema:containedInPlace",
+      "cifra:object": {
+        "@id": "cifra:location/russia"
+      }
+    },
+    {
+      "@id": "cifra:triplet/200",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:location/perm",
+      "cifra:predicate": "cifra:hasSdekPVZ",
+      "cifra:object": true
+    },
+    {
+      "@id": "cifra:triplet/201",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:location/perm",
+      "cifra:predicate": "cifra:isTargetCity",
+      "cifra:object": true
+    },
+    {
+      "@id": "cifra:triplet/202",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:location/volgograd",
+      "cifra:predicate": "schema:containedInPlace",
+      "cifra:object": {
+        "@id": "cifra:location/russia"
+      }
+    },
+    {
+      "@id": "cifra:triplet/203",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:location/volgograd",
+      "cifra:predicate": "cifra:hasSdekPVZ",
+      "cifra:object": true
+    },
+    {
+      "@id": "cifra:triplet/204",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:location/volgograd",
+      "cifra:predicate": "cifra:isTargetCity",
+      "cifra:object": true
+    },
+    {
+      "@id": "cifra:triplet/205",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:location/russia",
+      "cifra:predicate": "schema:containedInPlace",
+      "cifra:object": {
+        "@id": "cifra:location/world"
+      }
+    },
+    {
+      "@id": "cifra:triplet/206",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:competitor/printio",
+      "cifra:predicate": "cifra:hasAPI",
+      "cifra:object": true
+    },
+    {
+      "@id": "cifra:triplet/207",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:competitor/printio",
+      "cifra:predicate": "cifra:hasOnlineEditor",
+      "cifra:object": true
+    },
+    {
+      "@id": "cifra:triplet/208",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:competitor/printio",
+      "cifra:predicate": "cifra:hasSDEKIntegration",
+      "cifra:object": true
+    },
+    {
+      "@id": "cifra:triplet/209",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:competitor/printio",
+      "cifra:predicate": "cifra:hasShopifyPlugin",
+      "cifra:object": true
+    },
+    {
+      "@id": "cifra:triplet/210",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:competitor/printio",
+      "cifra:predicate": "cifra:hasWooCommercePlugin",
+      "cifra:object": true
+    },
+    {
+      "@id": "cifra:triplet/211",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:competitor/ruprint",
+      "cifra:predicate": "cifra:hasOffsetPrint",
+      "cifra:object": true
+    },
+    {
+      "@id": "cifra:triplet/212",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:competitor/ruprint",
+      "cifra:predicate": "cifra:hasDigitalPrint",
+      "cifra:object": true
+    },
+    {
+      "@id": "cifra:triplet/213",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:competitor/ruprint",
+      "cifra:predicate": "cifra:hasWideFormat",
+      "cifra:object": true
+    },
+    {
+      "@id": "cifra:triplet/214",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:competitor/ruprint",
+      "cifra:predicate": "cifra:hasMerch",
+      "cifra:object": true
+    },
+    {
+      "@id": "cifra:triplet/215",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:competitor/ruprint",
+      "cifra:predicate": "cifra:hasSDEKDelivery",
+      "cifra:object": true
+    },
+    {
+      "@id": "cifra:triplet/216",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:competitor/ruprint",
+      "cifra:predicate": "cifra:hasOnlineCalculator",
+      "cifra:object": false
+    },
+    {
+      "@id": "cifra:triplet/217",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:competitor/ruprint",
+      "cifra:predicate": "cifra:hasAPI",
+      "cifra:object": false
+    },
+    {
+      "@id": "cifra:triplet/218",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:competitor/printful",
+      "cifra:predicate": "cifra:hasAPI",
+      "cifra:object": true
+    },
+    {
+      "@id": "cifra:triplet/219",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:competitor/printful",
+      "cifra:predicate": "cifra:hasIntegrations",
+      "cifra:object": "Shopify"
+    },
+    {
+      "@id": "cifra:triplet/220",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:competitor/printful",
+      "cifra:predicate": "cifra:hasIntegrations",
+      "cifra:object": "WooCommerce"
+    },
+    {
+      "@id": "cifra:triplet/221",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:competitor/printful",
+      "cifra:predicate": "cifra:hasIntegrations",
+      "cifra:object": "Etsy"
+    },
+    {
+      "@id": "cifra:triplet/222",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:competitor/printful",
+      "cifra:predicate": "cifra:hasIntegrations",
+      "cifra:object": "BigCommerce"
+    },
+    {
+      "@id": "cifra:triplet/223",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:competitor/printful",
+      "cifra:predicate": "cifra:hasIntegrations",
+      "cifra:object": "Squarespace"
+    },
+    {
+      "@id": "cifra:triplet/224",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:competitor/printful",
+      "cifra:predicate": "cifra:hasIntegrations",
+      "cifra:object": "Wix"
+    },
+    {
+      "@id": "cifra:triplet/225",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:competitor/printful",
+      "cifra:predicate": "cifra:hasIntegrations",
+      "cifra:object": "Magento"
+    },
+    {
+      "@id": "cifra:triplet/226",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:competitor/printful",
+      "cifra:predicate": "cifra:hasIntegrations",
+      "cifra:object": "PrestaShop"
+    },
+    {
+      "@id": "cifra:triplet/227",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:competitor/printful",
+      "cifra:predicate": "cifra:hasIntegrations",
+      "cifra:object": "API"
+    },
+    {
+      "@id": "cifra:triplet/228",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:competitor/printful",
+      "cifra:predicate": "cifra:hasSDEKIntegration",
+      "cifra:object": true
+    },
+    {
+      "@id": "cifra:triplet/229",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:competitor/printback",
+      "cifra:predicate": "cifra:hasAPI",
+      "cifra:object": true
+    },
+    {
+      "@id": "cifra:triplet/230",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:competitor/printback",
+      "cifra:predicate": "cifra:hasPartnerNetwork",
+      "cifra:object": true
+    },
+    {
+      "@id": "cifra:triplet/231",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:competitor/canva_print",
+      "cifra:predicate": "cifra:hasDesignTool",
+      "cifra:object": true
+    },
+    {
+      "@id": "cifra:triplet/232",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:competitor/canva_print",
+      "cifra:predicate": "cifra:hasPrintPartners",
+      "cifra:object": true
+    },
+    {
+      "@id": "cifra:triplet/233",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:competitor/kontur_foto",
+      "cifra:predicate": "cifra:hasDigitalTools",
+      "cifra:object": false
+    },
+    {
+      "@id": "cifra:triplet/234",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:competitor/kontur_foto",
+      "cifra:predicate": "cifra:hasSDEKRussia",
+      "cifra:object": false
+    },
+    {
+      "@id": "cifra:triplet/235",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:competitor/kontur_foto",
+      "cifra:predicate": "cifra:hasMerch",
+      "cifra:object": false
+    },
+    {
+      "@id": "cifra:triplet/236",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:competitor/kontur_foto",
+      "cifra:predicate": "cifra:hasWideFormat",
+      "cifra:object": false
+    },
+    {
+      "@id": "cifra:triplet/237",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:competitor/kontur_foto",
+      "cifra:predicate": "cifra:hasCalculator",
+      "cifra:object": false
+    },
+    {
+      "@id": "cifra:triplet/238",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:competitor/kontur_foto",
+      "cifra:predicate": "cifra:hasOnlinePayment",
+      "cifra:object": false
+    },
+    {
+      "@id": "cifra:triplet/239",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:competitor/vaston",
+      "cifra:predicate": "cifra:hasCalculator",
+      "cifra:object": false
+    },
+    {
+      "@id": "cifra:triplet/240",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:competitor/vaston",
+      "cifra:predicate": "cifra:hasSDEK",
+      "cifra:object": false
+    },
+    {
+      "@id": "cifra:triplet/241",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:competitor/vaston",
+      "cifra:predicate": "cifra:hasMerch",
+      "cifra:object": false
+    },
+    {
+      "@id": "cifra:triplet/242",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:competitor/vaston",
+      "cifra:predicate": "cifra:hasWideFormat",
+      "cifra:object": false
+    },
+    {
+      "@id": "cifra:triplet/243",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:competitor/smart",
+      "cifra:predicate": "cifra:hasDesign",
+      "cifra:object": true
+    },
+    {
+      "@id": "cifra:triplet/244",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:competitor/smart",
+      "cifra:predicate": "cifra:hasProduction",
+      "cifra:object": true
+    },
+    {
+      "@id": "cifra:triplet/245",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:competitor/smart",
+      "cifra:predicate": "cifra:hasWideFormat",
+      "cifra:object": true
+    },
+    {
+      "@id": "cifra:triplet/246",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:competitor/smart",
+      "cifra:predicate": "cifra:hasCalculator",
+      "cifra:object": false
+    },
+    {
+      "@id": "cifra:triplet/247",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:competitor/smart",
+      "cifra:predicate": "cifra:hasOnlinePayment",
+      "cifra:object": false
+    },
+    {
+      "@id": "cifra:triplet/248",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:competitor/kanzpark",
+      "cifra:predicate": "cifra:hasCalculator",
+      "cifra:object": false
+    },
+    {
+      "@id": "cifra:triplet/249",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:competitor/kanzpark",
+      "cifra:predicate": "cifra:hasSDEK",
+      "cifra:object": false
+    },
+    {
+      "@id": "cifra:triplet/250",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:competitor/kanzpark",
+      "cifra:predicate": "cifra:hasMerch",
+      "cifra:object": false
+    },
+    {
+      "@id": "cifra:triplet/251",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:competitor/maximum",
+      "cifra:predicate": "cifra:hasWideFormat",
+      "cifra:object": true
+    },
+    {
+      "@id": "cifra:triplet/252",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:competitor/maximum",
+      "cifra:predicate": "cifra:hasDigitalPrint",
+      "cifra:object": false
+    },
+    {
+      "@id": "cifra:triplet/253",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:competitor/maximum",
+      "cifra:predicate": "cifra:hasMerch",
+      "cifra:object": false
+    },
+    {
+      "@id": "cifra:triplet/254",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:competitor/udmurt_print",
+      "cifra:predicate": "cifra:hasOffsetPrint",
+      "cifra:object": true
+    },
+    {
+      "@id": "cifra:triplet/255",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:competitor/udmurt_print",
+      "cifra:predicate": "cifra:hasDigitalPrint",
+      "cifra:object": false
+    },
+    {
+      "@id": "cifra:triplet/256",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:competitor/udmurt_print",
+      "cifra:predicate": "cifra:hasCalculator",
+      "cifra:object": false
+    },
+    {
+      "@id": "cifra:triplet/257",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:competitor/udmurt_print",
+      "cifra:predicate": "cifra:hasSDEK",
+      "cifra:object": false
+    },
+    {
+      "@id": "cifra:triplet/258",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:competitor/printing_express",
+      "cifra:predicate": "cifra:hasDigitalPrint",
+      "cifra:object": true
+    },
+    {
+      "@id": "cifra:triplet/259",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:competitor/printing_express",
+      "cifra:predicate": "cifra:hasWideFormat",
+      "cifra:object": false
+    },
+    {
+      "@id": "cifra:triplet/260",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:competitor/printing_express",
+      "cifra:predicate": "cifra:hasMerch",
+      "cifra:object": false
+    },
+    {
+      "@id": "cifra:triplet/261",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:competitor/printing_express",
+      "cifra:predicate": "cifra:hasSDEK",
+      "cifra:object": false
+    },
+    {
+      "@id": "cifra:triplet/262",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:competitor/document_center",
+      "cifra:predicate": "cifra:hasEngineeringPrint",
+      "cifra:object": true
+    },
+    {
+      "@id": "cifra:triplet/263",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:competitor/document_center",
+      "cifra:predicate": "cifra:hasDigitalPrint",
+      "cifra:object": false
+    },
+    {
+      "@id": "cifra:triplet/264",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:service_poligrafiya_tsifrovaya_pechat",
+      "cifra:predicate": "cifra:hasPrintMethod",
+      "cifra:object": "cifra:DigitalPrint"
+    },
+    {
+      "@id": "cifra:triplet/265",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:service_poligrafiya_listovki_ofsetnaya_pechat",
+      "cifra:predicate": "cifra:hasPrintMethod",
+      "cifra:object": "cifra:OffsetPrint"
+    },
+    {
+      "@id": "cifra:triplet/266",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:service_poligrafiya_listovki_tsifrovaya_pechat",
+      "cifra:predicate": "cifra:hasPrintMethod",
+      "cifra:object": "cifra:DigitalPrint"
+    },
+    {
+      "@id": "cifra:triplet/267",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:service_poligrafiya_birki",
+      "cifra:predicate": "cifra:hasPrintMethod",
+      "cifra:object": "cifra:DigitalPrint"
+    },
+    {
+      "@id": "cifra:triplet/268",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:service_poligrafiya_birki",
+      "cifra:predicate": "cifra:hasPrintMethod",
+      "cifra:object": "cifra:OffsetPrint"
+    },
+    {
+      "@id": "cifra:triplet/269",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:service_poligrafiya_vizitki",
+      "cifra:predicate": "cifra:hasPrintMethod",
+      "cifra:object": "cifra:DigitalPrint"
+    },
+    {
+      "@id": "cifra:triplet/270",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:service_poligrafiya_vizitki",
+      "cifra:predicate": "cifra:hasPrintMethod",
+      "cifra:object": "cifra:OffsetPrint"
+    },
+    {
+      "@id": "cifra:triplet/271",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:service_poligrafiya_kalendari",
+      "cifra:predicate": "cifra:hasPrintMethod",
+      "cifra:object": "cifra:DigitalPrint"
+    },
+    {
+      "@id": "cifra:triplet/272",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:service_poligrafiya_kalendari",
+      "cifra:predicate": "cifra:hasPrintMethod",
+      "cifra:object": "cifra:OffsetPrint"
+    },
+    {
+      "@id": "cifra:triplet/273",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:service_poligrafiya_rizografiya",
+      "cifra:predicate": "cifra:hasPrintMethod",
+      "cifra:object": "cifra:RisoPrint"
+    },
+    {
+      "@id": "cifra:triplet/274",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:service_poligrafiya_pechat_na_samokleyashchikhsya_materialakh",
+      "cifra:predicate": "cifra:hasPrintMethod",
+      "cifra:object": "cifra:DigitalPrint"
+    },
+    {
+      "@id": "cifra:triplet/275",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:service_poligrafiya_pechat_na_samokleyashchikhsya_materialakh",
+      "cifra:predicate": "cifra:hasPrintMethod",
+      "cifra:object": "cifra:UVPrint"
+    },
+    {
+      "@id": "cifra:triplet/276",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:service_poligrafiya_bloknoty",
+      "cifra:predicate": "cifra:hasPrintMethod",
+      "cifra:object": "cifra:DigitalPrint"
+    },
+    {
+      "@id": "cifra:triplet/277",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:service_poligrafiya_bloknoty",
+      "cifra:predicate": "cifra:hasPrintMethod",
+      "cifra:object": "cifra:OffsetPrint"
+    },
+    {
+      "@id": "cifra:triplet/278",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:service_poligrafiya_otkrytki_sertifikaty",
+      "cifra:predicate": "cifra:hasPrintMethod",
+      "cifra:object": "cifra:DigitalPrint"
+    },
+    {
+      "@id": "cifra:triplet/279",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:service_poligrafiya_otkrytki_sertifikaty",
+      "cifra:predicate": "cifra:hasPrintMethod",
+      "cifra:object": "cifra:OffsetPrint"
+    },
+    {
+      "@id": "cifra:triplet/280",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:service_poligrafiya_karty_plastikovye",
+      "cifra:predicate": "cifra:hasPrintMethod",
+      "cifra:object": "cifra:DigitalPrint"
+    },
+    {
+      "@id": "cifra:triplet/281",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:service_poligrafiya_karty_plastikovye",
+      "cifra:predicate": "cifra:hasPrintMethod",
+      "cifra:object": "cifra:OffsetPrint"
+    },
+    {
+      "@id": "cifra:triplet/282",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:service_poligrafiya_beydzhi",
+      "cifra:predicate": "cifra:hasPrintMethod",
+      "cifra:object": "cifra:DigitalPrint"
+    },
+    {
+      "@id": "cifra:triplet/283",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:service_poligrafiya_beydzhi",
+      "cifra:predicate": "cifra:hasPrintMethod",
+      "cifra:object": "cifra:UVPrint"
+    },
+    {
+      "@id": "cifra:triplet/284",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:service_poligrafiya_laminirovanie",
+      "cifra:predicate": "cifra:hasFinishing",
+      "cifra:object": "cifra:Lamination"
+    },
+    {
+      "@id": "cifra:triplet/285",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:service_poligrafiya_plotternaya_rezka",
+      "cifra:predicate": "cifra:hasFinishing",
+      "cifra:object": "cifra:DieCutting"
+    },
+    {
+      "@id": "cifra:triplet/286",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:service_poligrafiya_pechat_belym_tonerom",
+      "cifra:predicate": "cifra:hasPrintMethod",
+      "cifra:object": "cifra:WhiteTonerPrint"
+    },
+    {
+      "@id": "cifra:triplet/287",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:service_poligrafiya_uf_pechat",
+      "cifra:predicate": "cifra:hasPrintMethod",
+      "cifra:object": "cifra:UVVarnish"
+    },
+    {
+      "@id": "cifra:triplet/288",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:service_poligrafiya_uf_pechat",
+      "cifra:predicate": "cifra:hasFinishing",
+      "cifra:object": "cifra:UVVarnish"
+    },
+    {
+      "@id": "cifra:triplet/289",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:service_poligrafiya_papki",
+      "cifra:predicate": "cifra:hasPrintMethod",
+      "cifra:object": "cifra:DigitalPrint"
+    },
+    {
+      "@id": "cifra:triplet/290",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:service_poligrafiya_papki",
+      "cifra:predicate": "cifra:hasPrintMethod",
+      "cifra:object": "cifra:OffsetPrint"
+    },
+    {
+      "@id": "cifra:triplet/291",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:service_poligrafiya_papki",
+      "cifra:predicate": "cifra:hasFinishing",
+      "cifra:object": "cifra:Lamination"
+    },
+    {
+      "@id": "cifra:triplet/292",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:service_poligrafiya_papki",
+      "cifra:predicate": "cifra:hasFinishing",
+      "cifra:object": "cifra:UVVarnish"
+    },
+    {
+      "@id": "cifra:triplet/293",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:service_poligrafiya_bloki_dlya_zapisey_kubariki",
+      "cifra:predicate": "cifra:hasPrintMethod",
+      "cifra:object": "cifra:DigitalPrint"
+    },
+    {
+      "@id": "cifra:triplet/294",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:service_poligrafiya_bloki_dlya_zapisey_kubariki",
+      "cifra:predicate": "cifra:hasPrintMethod",
+      "cifra:object": "cifra:OffsetPrint"
+    },
+    {
+      "@id": "cifra:triplet/295",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:service_poligrafiya_vysechnaya_produktsiya",
+      "cifra:predicate": "cifra:hasPrintMethod",
+      "cifra:object": "cifra:DigitalPrint"
+    },
+    {
+      "@id": "cifra:triplet/296",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:service_poligrafiya_vysechnaya_produktsiya",
+      "cifra:predicate": "cifra:hasPrintMethod",
+      "cifra:object": "cifra:OffsetPrint"
+    },
+    {
+      "@id": "cifra:triplet/297",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:service_poligrafiya_vysechnaya_produktsiya",
+      "cifra:predicate": "cifra:hasFinishing",
+      "cifra:object": "cifra:DieCutting"
+    },
+    {
+      "@id": "cifra:triplet/298",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:service_poligrafiya_vysechnaya_produktsiya",
+      "cifra:predicate": "cifra:hasFinishing",
+      "cifra:object": "cifra:Gluing"
+    },
+    {
+      "@id": "cifra:triplet/299",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:service_poligrafiya_konverty",
+      "cifra:predicate": "cifra:hasPrintMethod",
+      "cifra:object": "cifra:DigitalPrint"
+    },
+    {
+      "@id": "cifra:triplet/300",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:service_poligrafiya_konverty",
+      "cifra:predicate": "cifra:hasPrintMethod",
+      "cifra:object": "cifra:OffsetPrint"
+    },
+    {
+      "@id": "cifra:triplet/301",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:service_poligrafiya_korobki_vyrubnye",
+      "cifra:predicate": "cifra:hasPrintMethod",
+      "cifra:object": "cifra:OffsetPrint"
+    },
+    {
+      "@id": "cifra:triplet/302",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:service_poligrafiya_korobki_vyrubnye",
+      "cifra:predicate": "cifra:hasPrintMethod",
+      "cifra:object": "cifra:FlexoPrint"
+    },
+    {
+      "@id": "cifra:triplet/303",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:service_poligrafiya_korobki_vyrubnye",
+      "cifra:predicate": "cifra:hasFinishing",
+      "cifra:object": "cifra:DieCutting"
+    },
+    {
+      "@id": "cifra:triplet/304",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:service_poligrafiya_korobki_vyrubnye",
+      "cifra:predicate": "cifra:hasFinishing",
+      "cifra:object": "cifra:Gluing"
+    },
+    {
+      "@id": "cifra:triplet/305",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:service_poligrafiya_korobki_vyrubnye",
+      "cifra:predicate": "cifra:hasFinishing",
+      "cifra:object": "cifra:Lamination"
+    },
+    {
+      "@id": "cifra:triplet/306",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:service_poligrafiya_lekala_vykroyki",
+      "cifra:predicate": "cifra:hasPrintMethod",
+      "cifra:object": "cifra:WideFormatInkjet"
+    },
+    {
+      "@id": "cifra:triplet/307",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:service_poligrafiya_pakety",
+      "cifra:predicate": "cifra:hasPrintMethod",
+      "cifra:object": "cifra:OffsetPrint"
+    },
+    {
+      "@id": "cifra:triplet/308",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:service_poligrafiya_pakety",
+      "cifra:predicate": "cifra:hasPrintMethod",
+      "cifra:object": "cifra:FlexoPrint"
+    },
+    {
+      "@id": "cifra:triplet/309",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:service_poligrafiya_pakety",
+      "cifra:predicate": "cifra:hasFinishing",
+      "cifra:object": "cifra:Lamination"
+    },
+    {
+      "@id": "cifra:triplet/310",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:service_poligrafiya_pakety",
+      "cifra:predicate": "cifra:hasFinishing",
+      "cifra:object": "cifra:UVVarnish"
+    },
+    {
+      "@id": "cifra:triplet/311",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:service_poligrafiya_pakety",
+      "cifra:predicate": "cifra:hasFinishing",
+      "cifra:object": "cifra:DieCutting"
+    },
+    {
+      "@id": "cifra:triplet/312",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:service_poligrafiya_teybl_tent",
+      "cifra:predicate": "cifra:hasPrintMethod",
+      "cifra:object": "cifra:DigitalPrint"
+    },
+    {
+      "@id": "cifra:triplet/313",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:service_poligrafiya_teybl_tent",
+      "cifra:predicate": "cifra:hasPrintMethod",
+      "cifra:object": "cifra:OffsetPrint"
+    },
+    {
+      "@id": "cifra:triplet/314",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:service_poligrafiya_teybl_tent",
+      "cifra:predicate": "cifra:hasFinishing",
+      "cifra:object": "cifra:Lamination"
+    },
+    {
+      "@id": "cifra:triplet/315",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:service_poligrafiya_teybl_tent",
+      "cifra:predicate": "cifra:hasFinishing",
+      "cifra:object": "cifra:UVVarnish"
+    },
+    {
+      "@id": "cifra:triplet/316",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:service_poligrafiya_folgirovanie",
+      "cifra:predicate": "cifra:hasFinishing",
+      "cifra:object": "cifra:Foiling"
+    },
+    {
+      "@id": "cifra:triplet/317",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:service_shirokoformatnaya_pechat_na_samokleyashcheysya_plenke",
+      "cifra:predicate": "cifra:hasPrintMethod",
+      "cifra:object": "cifra:EcoSolventPrint"
+    },
+    {
+      "@id": "cifra:triplet/318",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:service_shirokoformatnaya_pechat_na_samokleyashcheysya_plenke",
+      "cifra:predicate": "cifra:hasPrintMethod",
+      "cifra:object": "cifra:LatexPrint"
+    },
+    {
+      "@id": "cifra:triplet/319",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:service_shirokoformatnaya_pechat_na_samokleyashcheysya_plenke",
+      "cifra:predicate": "cifra:hasPrintMethod",
+      "cifra:object": "cifra:UVPrint"
+    },
+    {
+      "@id": "cifra:triplet/320",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:service_shirokoformatnaya_pechat_na_bannere_do_1_6m",
+      "cifra:predicate": "cifra:hasPrintMethod",
+      "cifra:object": "cifra:EcoSolventPrint"
+    },
+    {
+      "@id": "cifra:triplet/321",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:service_shirokoformatnaya_pechat_na_bannere_do_1_6m",
+      "cifra:predicate": "cifra:hasPrintMethod",
+      "cifra:object": "cifra:LatexPrint"
+    },
+    {
+      "@id": "cifra:triplet/322",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:service_shirokoformatnaya_pechat_na_bannere_do_1_6m",
+      "cifra:predicate": "cifra:hasPrintMethod",
+      "cifra:object": "cifra:UVPrint"
+    },
+    {
+      "@id": "cifra:triplet/323",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:service_shirokoformatnaya_pechat_na_bannere_do_3_2m",
+      "cifra:predicate": "cifra:hasPrintMethod",
+      "cifra:object": "cifra:EcoSolventPrint"
+    },
+    {
+      "@id": "cifra:triplet/324",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:service_shirokoformatnaya_pechat_na_bannere_do_3_2m",
+      "cifra:predicate": "cifra:hasPrintMethod",
+      "cifra:object": "cifra:LatexPrint"
+    },
+    {
+      "@id": "cifra:triplet/325",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:service_shirokoformatnaya_pechat_na_bannere_do_3_2m",
+      "cifra:predicate": "cifra:hasPrintMethod",
+      "cifra:object": "cifra:UVPrint"
+    },
+    {
+      "@id": "cifra:triplet/326",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:service_shirokoformatnaya_pechat_na_posternoy_bumage",
+      "cifra:predicate": "cifra:hasPrintMethod",
+      "cifra:object": "cifra:LatexPrint"
+    },
+    {
+      "@id": "cifra:triplet/327",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:service_shirokoformatnaya_pechat_na_posternoy_bumage",
+      "cifra:predicate": "cifra:hasPrintMethod",
+      "cifra:object": "cifra:UVPrint"
+    },
+    {
+      "@id": "cifra:triplet/328",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:service_shirokoformatnaya_pechat_na_posternoy_bumage_blue_back",
+      "cifra:predicate": "cifra:hasPrintMethod",
+      "cifra:object": "cifra:LatexPrint"
+    },
+    {
+      "@id": "cifra:triplet/329",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:service_shirokoformatnaya_pechat_na_posternoy_bumage_blue_back",
+      "cifra:predicate": "cifra:hasPrintMethod",
+      "cifra:object": "cifra:UVPrint"
+    },
+    {
+      "@id": "cifra:triplet/330",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:service_shirokoformatnaya_pechat_na_poliesterovoy_tkani",
+      "cifra:predicate": "cifra:hasPrintMethod",
+      "cifra:object": "cifra:SublimationPrint"
+    },
+    {
+      "@id": "cifra:triplet/331",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:service_shirokoformatnaya_pechat_na_posternoy_bumage_s_laminatsiey",
+      "cifra:predicate": "cifra:hasPrintMethod",
+      "cifra:object": "cifra:LatexPrint"
+    },
+    {
+      "@id": "cifra:triplet/332",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:service_shirokoformatnaya_pechat_na_posternoy_bumage_s_laminatsiey",
+      "cifra:predicate": "cifra:hasPrintMethod",
+      "cifra:object": "cifra:UVPrint"
+    },
+    {
+      "@id": "cifra:triplet/333",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:service_shirokoformatnaya_pechat_na_posternoy_bumage_s_laminatsiey",
+      "cifra:predicate": "cifra:hasFinishing",
+      "cifra:object": "cifra:Lamination"
+    },
+    {
+      "@id": "cifra:triplet/334",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:service_shirokoformatnaya_pechat_na_plenke_translyutsentnoy_backlit",
+      "cifra:predicate": "cifra:hasPrintMethod",
+      "cifra:object": "cifra:LatexPrint"
+    },
+    {
+      "@id": "cifra:triplet/335",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:service_shirokoformatnaya_pechat_na_plenke_translyutsentnoy_backlit",
+      "cifra:predicate": "cifra:hasPrintMethod",
+      "cifra:object": "cifra:UVPrint"
+    },
+    {
+      "@id": "cifra:triplet/336",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:service_shirokoformatnaya_pechat_na_flazhnoy_tkani",
+      "cifra:predicate": "cifra:hasPrintMethod",
+      "cifra:object": "cifra:SublimationPrint"
+    },
+    {
+      "@id": "cifra:triplet/337",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:service_shirokoformatnaya_pechat_na_plenke_grey_back",
+      "cifra:predicate": "cifra:hasPrintMethod",
+      "cifra:object": "cifra:LatexPrint"
+    },
+    {
+      "@id": "cifra:triplet/338",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:service_shirokoformatnaya_pechat_na_plenke_grey_back",
+      "cifra:predicate": "cifra:hasPrintMethod",
+      "cifra:object": "cifra:UVPrint"
+    },
+    {
+      "@id": "cifra:triplet/339",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:service_inzhenernaya_pechat_chertezhey",
+      "cifra:predicate": "cifra:hasPrintMethod",
+      "cifra:object": "cifra:LargeFormatInkjet"
+    },
+    {
+      "@id": "cifra:triplet/340",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:service_inzhenernaya_pechat_chertezhey",
+      "cifra:predicate": "cifra:hasPrintMethod",
+      "cifra:object": "cifra:LEDPrint"
+    },
+    {
+      "@id": "cifra:triplet/341",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:service_inzhenernaya_kserokopiya",
+      "cifra:predicate": "cifra:hasPrintMethod",
+      "cifra:object": "cifra:Xerography"
+    },
+    {
+      "@id": "cifra:triplet/342",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:service_inzhenernaya_skanirovanie",
+      "cifra:predicate": "cifra:hasPrintMethod",
+      "cifra:object": "cifra:LargeFormatScanning"
+    },
+    {
+      "@id": "cifra:triplet/343",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:service_inzhenernaya_faltsovka",
+      "cifra:predicate": "cifra:hasFinishing",
+      "cifra:object": "cifra:Folding"
+    },
+    {
+      "@id": "cifra:triplet/344",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:service_inzhenernaya_broshyurovka",
+      "cifra:predicate": "cifra:hasFinishing",
+      "cifra:object": "cifra:SaddleStitching"
+    },
+    {
+      "@id": "cifra:triplet/345",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:service_inzhenernaya_broshyurovka",
+      "cifra:predicate": "cifra:hasFinishing",
+      "cifra:object": "cifra:PerfectBinding"
+    },
+    {
+      "@id": "cifra:triplet/346",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:service_inzhenernaya_broshyurovka",
+      "cifra:predicate": "cifra:hasFinishing",
+      "cifra:object": "cifra:WireOBinding"
+    },
+    {
+      "@id": "cifra:triplet/347",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:service_inzhenernaya_broshyurovka",
+      "cifra:predicate": "cifra:hasFinishing",
+      "cifra:object": "cifra:HardcoverBinding"
+    },
+    {
+      "@id": "cifra:triplet/348",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:service_interer_kartiny_na_kholste",
+      "cifra:predicate": "cifra:hasPrintMethod",
+      "cifra:object": "cifra:WideFormatInkjet"
+    },
+    {
+      "@id": "cifra:triplet/349",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:service_interer_kartiny_na_kholste",
+      "cifra:predicate": "cifra:hasMaterial",
+      "cifra:object": "cifra:material_canvas"
+    },
+    {
+      "@id": "cifra:triplet/350",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:service_interer_postery",
+      "cifra:predicate": "cifra:hasPrintMethod",
+      "cifra:object": "cifra:WideFormatInkjet"
+    },
+    {
+      "@id": "cifra:triplet/351",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:service_interer_postery",
+      "cifra:predicate": "cifra:hasPrintMethod",
+      "cifra:object": "cifra:UVPrint"
+    },
+    {
+      "@id": "cifra:triplet/352",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:service_interer_postery",
+      "cifra:predicate": "cifra:hasMaterial",
+      "cifra:object": "cifra:material_paper_poster"
+    },
+    {
+      "@id": "cifra:triplet/353",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:service_interer_pechat_na_kholste_v_rulone",
+      "cifra:predicate": "cifra:hasPrintMethod",
+      "cifra:object": "cifra:WideFormatInkjet"
+    },
+    {
+      "@id": "cifra:triplet/354",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:service_interer_pechat_na_kholste_v_rulone",
+      "cifra:predicate": "cifra:hasMaterial",
+      "cifra:object": "cifra:material_canvas"
+    },
+    {
+      "@id": "cifra:triplet/355",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:service_interer_kartiny_na_kholste_individualnyy_razmer",
+      "cifra:predicate": "cifra:hasPrintMethod",
+      "cifra:object": "cifra:WideFormatInkjet"
+    },
+    {
+      "@id": "cifra:triplet/356",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:service_interer_kartiny_na_kholste_individualnyy_razmer",
+      "cifra:predicate": "cifra:hasMaterial",
+      "cifra:object": "cifra:material_canvas"
+    },
+    {
+      "@id": "cifra:triplet/357",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:service_interer_fotopostery_na_penokartone",
+      "cifra:predicate": "cifra:hasPrintMethod",
+      "cifra:object": "cifra:UVPrint"
+    },
+    {
+      "@id": "cifra:triplet/358",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:service_interer_fotopostery_na_penokartone",
+      "cifra:predicate": "cifra:hasMaterial",
+      "cifra:object": "cifra:material_penokarton"
+    },
+    {
+      "@id": "cifra:triplet/359",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:service_interer_fotooboi",
+      "cifra:predicate": "cifra:hasPrintMethod",
+      "cifra:object": "cifra:UVPrint"
+    },
+    {
+      "@id": "cifra:triplet/360",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:service_interer_fotooboi",
+      "cifra:predicate": "cifra:hasPrintMethod",
+      "cifra:object": "cifra:LatexPrint"
+    },
+    {
+      "@id": "cifra:triplet/361",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:service_interer_fotooboi",
+      "cifra:predicate": "cifra:hasMaterial",
+      "cifra:object": "cifra:material_vinyl_wallpaper"
+    },
+    {
+      "@id": "cifra:triplet/362",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:service_interer_fotooboi",
+      "cifra:predicate": "cifra:hasMaterial",
+      "cifra:object": "cifra:material_fleece_wallpaper"
+    },
+    {
+      "@id": "cifra:triplet/363",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:service_interer_fotooboi",
+      "cifra:predicate": "cifra:hasMaterial",
+      "cifra:object": "cifra:material_fabric_wallpaper"
+    },
+    {
+      "@id": "cifra:triplet/364",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:service_stendy_stendy",
+      "cifra:predicate": "cifra:hasPrintMethod",
+      "cifra:object": "cifra:WideFormatInkjet"
+    },
+    {
+      "@id": "cifra:triplet/365",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:service_stendy_stendy",
+      "cifra:predicate": "cifra:hasPrintMethod",
+      "cifra:object": "cifra:UVPrint"
+    },
+    {
+      "@id": "cifra:triplet/366",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:service_stendy_karman_pet_ploskiy",
+      "cifra:predicate": "cifra:hasPrintMethod",
+      "cifra:object": "cifra:UVPrint"
+    },
+    {
+      "@id": "cifra:triplet/367",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:service_stendy_karman_pet_ploskiy",
+      "cifra:predicate": "cifra:hasMaterial",
+      "cifra:object": "cifra:material_pet"
+    },
+    {
+      "@id": "cifra:triplet/368",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:service_stendy_karman_pet_s_prozrachnym_skotchem",
+      "cifra:predicate": "cifra:hasPrintMethod",
+      "cifra:object": "cifra:UVPrint"
+    },
+    {
+      "@id": "cifra:triplet/369",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:service_stendy_karman_pet_s_prozrachnym_skotchem",
+      "cifra:predicate": "cifra:hasMaterial",
+      "cifra:object": "cifra:material_pet"
+    },
+    {
+      "@id": "cifra:triplet/370",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:service_stendy_izdeliya_iz_orgstekla",
+      "cifra:predicate": "cifra:hasPrintMethod",
+      "cifra:object": "cifra:UVPrint"
+    },
+    {
+      "@id": "cifra:triplet/371",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:service_stendy_izdeliya_iz_orgstekla",
+      "cifra:predicate": "cifra:hasMaterial",
+      "cifra:object": "cifra:material_orgsteklo"
+    },
+    {
+      "@id": "cifra:triplet/372",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:service_stendy_tablichki",
+      "cifra:predicate": "cifra:hasPrintMethod",
+      "cifra:object": "cifra:UVPrint"
+    },
+    {
+      "@id": "cifra:triplet/373",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:service_stendy_tablichki",
+      "cifra:predicate": "cifra:hasPrintMethod",
+      "cifra:object": "cifra:LaserEngraving"
+    },
+    {
+      "@id": "cifra:triplet/374",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:service_stendy_tablichki",
+      "cifra:predicate": "cifra:hasMaterial",
+      "cifra:object": "cifra:material_orgsteklo"
+    },
+    {
+      "@id": "cifra:triplet/375",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:service_stendy_tablichki",
+      "cifra:predicate": "cifra:hasMaterial",
+      "cifra:object": "cifra:material_metal"
+    },
+    {
+      "@id": "cifra:triplet/376",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:service_stendy_tablichki",
+      "cifra:predicate": "cifra:hasMaterial",
+      "cifra:object": "cifra:material_pvc"
+    },
+    {
+      "@id": "cifra:triplet/377",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:service_stendy_tablichki",
+      "cifra:predicate": "cifra:hasMaterial",
+      "cifra:object": "cifra:material_wood"
+    },
+    {
+      "@id": "cifra:triplet/378",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:suitableFor",
+      "cifra:predicate": "rdfs:domain",
+      "cifra:object": "cifra:Material"
+    },
+    {
+      "@id": "cifra:triplet/379",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:suitableFor",
+      "cifra:predicate": "rdfs:domain",
+      "cifra:object": "cifra:Service"
+    },
+    {
+      "@id": "cifra:triplet/380",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:suitableFor",
+      "cifra:predicate": "rdfs:domain",
+      "cifra:object": "cifra:Product"
+    },
+    {
+      "@id": "cifra:triplet/381",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:requires",
+      "cifra:predicate": "rdfs:range",
+      "cifra:object": "cifra:Material"
+    },
+    {
+      "@id": "cifra:triplet/382",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:requires",
+      "cifra:predicate": "rdfs:range",
+      "cifra:object": "cifra:Equipment"
+    },
+    {
+      "@id": "cifra:triplet/383",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:requires",
+      "cifra:predicate": "rdfs:range",
+      "cifra:object": "cifra:Standard"
+    },
+    {
+      "@id": "cifra:triplet/384",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:hasReview",
+      "cifra:predicate": "rdfs:domain",
+      "cifra:object": "cifra:Product"
+    },
+    {
+      "@id": "cifra:triplet/385",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:hasReview",
+      "cifra:predicate": "rdfs:domain",
+      "cifra:object": "cifra:Service"
+    },
+    {
+      "@id": "cifra:triplet/386",
+      "@type": "cifra:Triplet",
+      "cifra:subject": "cifra:hasReview",
+      "cifra:predicate": "rdfs:domain",
+      "cifra:object": "cifra:company"
+    }
+  ]
+}

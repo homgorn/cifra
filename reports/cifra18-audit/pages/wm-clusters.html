@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Кластеры запросов: 8 групп. Цифра18</title>
+<meta name="description" content="8 семантических кластеров цифра18.рф: визитки, календари, мерч, стенды, широкоформат. Запросы, позиции, покрытие страницами.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/main.css">
+<link rel="stylesheet" href="../css/report.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="header-inner">
+    <a class="logo" href="../index.html"><span class="logo-mark">Ц18</span><span>Цифра. Аудит</span></a>
+    <nav class="main-nav" id="mainNav">
+      <a class="nav-link" href="../index.html"><span class="nav-indicator"></span>Резюме</a>
+      <a class="nav-link" href="technical.html"><span class="nav-indicator"></span>Техника</a>
+      <a class="nav-link" href="content.html"><span class="nav-indicator"></span>Контент</a>
+      <a class="nav-link" href="competitors.html"><span class="nav-indicator"></span>Конкуренты</a>
+      <a class="nav-link" href="local.html"><span class="nav-indicator"></span>Регионы</a>
+      <a class="nav-link" href="geo.html"><span class="nav-indicator"></span>GEO</a>
+      <a class="nav-link" href="knowledge.html"><span class="nav-indicator"></span>База знаний</a>
+      <a class="nav-link" href="roadmap.html"><span class="nav-indicator"></span>План</a>
+      <div class="nav-dropdown">
+        <button class="nav-link nav-drop-btn active" aria-haspopup="true">Вебмастер <span class="drop-arrow">▾</span></button>
+        <div class="nav-drop-menu">
+          <a href="wm-overview.html">Сводка Вебмастера <span class="drop-hint">717 URL</span></a>
+          <a href="wm-indexing.html">Индексация по разделам <span class="drop-hint">6%</span></a>
+          <a href="wm-duplicates.html">Дубли <span class="drop-hint">128</span></a>
+          <a href="wm-errors.html">Ошибки и качество <span class="drop-hint">286</span></a>
+          <a href="wm-redirects.html">Редиректы <span class="drop-hint">89</span></a>
+          <a href="wm-queries.html">Запросы и позиции <span class="drop-hint">535</span></a>
+          <a href="wm-clusters.html">Кластеры <span class="drop-hint">8 групп</span></a>
+          <a href="wm-gaps.html">Пробелы контента <span class="drop-hint">топ-10</span></a>
+          <a href="wm-links.html">Внутренние ссылки <span class="drop-hint">62 битых</span></a>
+          <a href="wm-plan.html">План по Вебмастеру <span class="drop-hint">ICE</span></a>
+        </div>
+      </div>
+      <div class="nav-dropdown">
+        <button class="nav-link nav-drop-btn" aria-haspopup="true">Еще <span class="drop-arrow">▾</span></button>
+        <div class="nav-drop-menu">
+          <a href="prices.html">Цены и сравнения <span class="drop-hint">50 точек</span></a>
+          <a href="season.html">Сезонный календарь <span class="drop-hint">год</span></a>
+          <a href="marketing.html">Маркетинг план <span class="drop-hint">KPI</span></a>
+          <a href="methodology.html">Методика <span class="drop-hint">как считал</span></a>
+        </div>
+      </div>
+    </nav>
+    <button class="mobile-menu-btn" id="menuBtn" aria-label="Меню">Меню</button>
+  </div>
+</header>
+
+<main class="page">
+<div class="container container-wide">
+<div class="report-layout">
+<aside class="sidebar">
+  <div class="sidebar-title">На этой странице</div>
+  <nav class="sidebar-nav">
+    <a class="sidebar-link active" href="#map"><span class="link-number">1</span>Карта кластеров</a>
+    <a class="sidebar-link" href="#coverage"><span class="link-number">2</span>Покрытие страницами</a>
+    <a class="sidebar-link" href="#next"><span class="link-number">3</span>Что дальше</a>
+  </nav>
+</aside>
+
+<div>
+  <div class="page-title-block animate-slide-up">
+    <div class="page-kicker">Страница 19 из 22 • Вебмастер</div>
+    <h1>Кластеры запросов: 8 групп</h1>
+    <p>535 запросов сгруппированы в 8 коммерческих кластеров по смыслу: визитки, календари, кружки и магниты, листовки, широкоформат, стенды, сувенирка, инженерная печать. По каждому кластеру видно число запросов, среднюю позицию и долю запросов, под которые есть целевая страница.</p>
+  </div>
+
+  <section id="map" data-section>
+    <div class="card">
+      <div class="card-header"><div><div class="card-title">Размер кластеров и средняя позиция</div><div class="card-subtitle">Пузырьковая логика: чем больше запросов и ниже позиция, тем важнее кластер</div></div></div>
+      <div class="card-body"><div class="chart-container"><canvas id="wmClusterBar"></canvas></div></div>
+    </div>
+    <div class="table-wrapper" style="margin-top:1.5rem;"><table>
+      <thead><tr><th>Кластер</th><th>Запросов</th><th>Ср. позиция</th><th>В ТОП-10</th><th>Страниц</th><th>Покрытие</th></tr></thead>
+      <tbody id="wmClusterBody"><tr><td colspan="6" class="text-muted">Загрузка данных...</td></tr></tbody>
+    </table></div>
+  </section>
+
+  <section id="coverage" data-section style="margin-top:2.5rem;">
+    <h2>Покрытие страницами: где тонко</h2>
+    <div class="card">
+      <div class="card-header"><div><div class="card-title">Доля запросов с целевой страницей</div><div class="card-subtitle">Остальные запросы ведут на общие разделы или в никуда</div></div></div>
+      <div class="card-body"><div class="chart-container"><canvas id="wmCoverageBar"></canvas></div>
+      <p class="text-muted" style="font-size:0.8125rem; margin-top:1rem; margin-bottom:0;">Худшее покрытие у кружек и магнитов (33%) и сувенирки (33%): запросы есть и позиции рядом, а точных страниц нет. Лучшее у календарей (67%) и инженерной печати (65%), эти разделы структурированы аккуратнее.</p></div>
+    </div>
+    <div class="callout"><div class="callout-title">Принцип один запрос, одна страница</div><p>Под каждый коммерческий запрос из ядра должна существовать страница, которая отвечает именно на него: подвид товара, услуга с модификатором, локальный лендинг. Общие разделы проигрывают точным страницам конкурентов.</p></div>
+  </section>
+
+  <section id="next" data-section style="margin-top:2.5rem;">
+    <h2>Что дальше</h2>
+    <p>По итогам карты кластеров собраны десять приоритетных пробелов: страницы, которых не хватает под запросы с позициями и спросом. Каждый пробел оценен по усилиям и эффекту.</p>
+    <p><a class="btn btn-primary btn-sm" href="wm-gaps.html">Открыть топ-10 пробелов →</a></p>
+    <div class="pager"><a href="wm-queries.html"><span class="pager-label">Назад</span><span class="pager-title">Запросы и позиции</span></a><a href="wm-gaps.html" style="text-align:right;"><span class="pager-label">Дальше</span><span class="pager-title">Пробелы контента</span></a></div>
+  </section>
+
+</div>
+</div>
+</div>
+</main>
+
+<footer class="site-footer">
+  <div class="container container-wide">
+    <div class="footer-grid">
+      <div class="footer-brand"><a class="logo" href="../index.html"><span class="logo-mark">Ц18</span><span>Цифра. Аудит</span></a><p>Отчет по продвижению цифра18.рф. Техника, контент, конкуренты, регионы, GEO, Вебмастер. Сентябрь 2026.</p></div>
+      <div class="footer-nav"><h4>Отчет</h4><ul><li><a href="../index.html">Резюме</a></li><li><a href="technical.html">Техника</a></li><li><a href="content.html">Контент</a></li><li><a href="roadmap.html">План</a></li></ul></div>
+      <div class="footer-nav"><h4>Анализ</h4><ul><li><a href="competitors.html">Конкуренты</a></li><li><a href="local.html">Регионы</a></li><li><a href="geo.html">GEO</a></li><li><a href="knowledge.html">База знаний</a></li></ul></div>
+      <div class="footer-nav"><h4>Вебмастер</h4><ul><li><a href="wm-overview.html">Сводка</a></li><li><a href="wm-queries.html">Запросы</a></li><li><a href="wm-gaps.html">Пробелы</a></li><li><a href="wm-plan.html">План</a></li></ul></div>
+      <div class="footer-nav"><h4>Файлы</h4><ul><li><a href="methodology.html">Методика</a></li><li><a href="roadmap.html">Сроки</a></li><li><a href="wm-clusters.html">Наверх</a></li></ul></div>
+    </div>
+    <div class="footer-bottom"><span>Цифра18 • Ижевск • сентябрь 2026</span><span>Страница 19 из 22 • Кластеры запросов</span></div>
+  </div>
+</footer>
+<script src="../js/vendor/chart.umd.min.js"></script>
+<script>if(typeof Chart==="undefined"){document.write("<script src='https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js'><\/script>")}</script>
+<script src="../js/wm-data.js"></script>
+<script src="../js/main.js"></script>
+</body>
+</html>

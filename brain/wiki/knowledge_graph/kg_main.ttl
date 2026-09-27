@@ -1,0 +1,46 @@
+{
+  "@context": {
+    "cifra": "https://cifra18.ru/ontology#",
+    "schema": "https://schema.org/",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "owl": "http://www.w3.org/2002/07/owl#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "skos": "http://www.w3.org/2004/02/skos/core#",
+    "dcterms": "http://purl.org/dc/terms/"
+  },
+  "@graph": [
+    {
+      "@id": "cifra:company/cifra18",
+      "@type": ["cifra:PrintShop", "schema:Organization"],
+      "rdfs:label": "Цифра18 / Типография «Цифра»",
+      "schema:name": "Типография «Цифра»",
+      "schema:legalName": "ИП Данилов Константин Леонидович",
+      "schema:description": "Типография «Цифра» (цифра18.рф) — полноцикловая типография в Ижевске: цифровая/офсетная печать, широкоформатная печать, сувенирка/мерч, инженерная печать, мобильные стенды, интерьерная печать. Доставка СДЭК по всей России.",
+      "schema:url": "https://xn--18-6kc5a3bxam.xn--p1ai",
+      "schema:email": "izhcifra@yandex.ru",
+      "schema:telephone": "+7 (3412) 900-900",
+      "schema:address": {
+        "@type": "schema:PostalAddress",
+        "schema:addressLocality": "Ижевск",
+        "schema:addressRegion": "Удмуртская Республика",
+        "schema:addressCountry": "RU",
+        "schema:postalCode": "426000"
+      },
+      "schema:geo": {
+        "@type": "schema:GeoCoordinates",
+        "schema:latitude": 56.8519,
+        "schema:longitude": 53.2033
+      },
+      "cifra:locatedIn": "cifra:location/izhevsk",
+      "cifra:deliversVia": "cifra:delivery_sdek",
+      "schema:foundingDate": "2010-01-01",
+      "schema:numberOfEmployees": "10-50",
+      "schema:currenciesAccepted": "RUB",
+      "schema:paymentAccepted": "Cash, Credit Card, Bank Transfer, Online Payment",
+      "schema:areaServed": "RU",
+      "cifra:cms": "1C-Bitrix 23.300",
+      "cifra:domain": "xn--18-6kc5a3bxam.xn--p1ai (цифра18.рф)",
+      "cifra:deliveryPartner": "SDEK (СДЭК)"
+    }
+  ]
+}

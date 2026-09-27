@@ -1,0 +1,37 @@
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "@id": "https://xn--18-6kc5a3bxam.xn--p1ai/catalog/poligrafiya/vizitki/vizitki-na-krafte/#breadcrumb",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Главная",
+      "item": "https://xn--18-6kc5a3bxam.xn--p1ai/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Каталог",
+      "item": "https://xn--18-6kc5a3bxam.xn--p1ai/catalog/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Полиграфия",
+      "item": "https://xn--18-6kc5a3bxam.xn--p1ai/catalog/poligrafiya/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 4,
+      "name": "Визитки",
+      "item": "https://xn--18-6kc5a3bxam.xn--p1ai/catalog/poligrafiya/vizitki/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 5,
+      "name": "Визитки на крафте",
+      "item": "https://xn--18-6kc5a3bxam.xn--p1ai/catalog/poligrafiya/vizitki/vizitki-na-krafte/"
+    }
+  ]
+}

@@ -1,0 +1,96 @@
+======================================================================
+ON-PAGE FACT COLLECTION  https://xn--18-6kc5a3bxam.xn--p1ai
+======================================================================
+
+## robots.txt, sitemap, llms.txt
+  robots.txt present         : True (user-agent rules: True)
+  sitemap declared in robots : True  ['https://xn--18-6kc5a3bxam.xn--p1ai/shop/sitemap.xml', 'https://xn--18-6kc5a3bxam.xn--p1ai/shop/sitemapindex.xml', 'https://xn--18-6kc5a3bxam.xn--p1ai/shop/sitemapmobileindex.xml', 'https://xn--18-6kc5a3bxam.xn--p1ai/shop/sitemap-hot-4040969.xml', 'https://xn--18-6kc5a3bxam.xn--p1ai/shop/sitemap-hot-4038969.xml', 'https://xn--18-6kc5a3bxam.xn--p1ai/shop/sitemap-hot-4036969.xml', 'https://xn--18-6kc5a3bxam.xn--p1ai/shop/sitemap-hot-4034969.xml', 'https://xn--18-6kc5a3bxam.xn--p1ai/shop/sitemap-hot-4032969.xml', 'https://xn--18-6kc5a3bxam.xn--p1ai/shop/sitemap-hot-4030969.xml', 'https://xn--18-6kc5a3bxam.xn--p1ai/shop/sitemap-hot-4028969.xml', 'https://xn--18-6kc5a3bxam.xn--p1ai/shop/sitemap-hot-4026969.xml', 'https://xn--18-6kc5a3bxam.xn--p1ai/shop/sitemap-hot-4024969.xml', 'https://xn--18-6kc5a3bxam.xn--p1ai/shop/sitemap-hot-4022969.xml', 'https://xn--18-6kc5a3bxam.xn--p1ai/shop/sitemap-hot-4020969.xml', 'https://xn--18-6kc5a3bxam.xn--p1ai/shop/sitemap-hot-4018969.xml', 'https://xn--18-6kc5a3bxam.xn--p1ai/shop/sitemap-hot-4016969.xml', 'https://xn--18-6kc5a3bxam.xn--p1ai/shop/sitemap-hot-4014969.xml', 'https://xn--18-6kc5a3bxam.xn--p1ai/shop/sitemap-hot-4012969.xml', 'https://xn--18-6kc5a3bxam.xn--p1ai/shop/sitemap-hot-4010969.xml']
+  AI SEARCH bots blocked     : none (good for AI visibility)
+  AI training bots blocked   : none
+  sitemap                    : https://xn--18-6kc5a3bxam.xn--p1ai/shop/sitemap.xml (error: HTTPError: HTTP Error 404: Not Found)
+  llms.txt present           : False (informational only; no engine confirms reading it)
+
+----------------------------------------------------------------------
+## https://xn--18-6kc5a3bxam.xn--p1ai
+  HTTP 200 | https=True | HTML 133 KB | platform=-
+  TITLE (62 chars): 'Типография Цифра г. Ижевск - цифровая и широкоформатная печать'
+  META DESC (11 chars): 'Description'
+  H1 = 5 ['Сервис', 'Качество и скорость', '89% положительных отзывов'] | total headings=13 | level jumps=- | empty=0
+     sequence: H2 H1 H2 H1 H1 H1 H1 H2 H2 H3 H3 H3 H3
+  IMAGES total=83 | missing alt=0 | empty alt=13 | lazy=0
+     over 200KB (11/15 checked):
+       583KB  /upload/iblock/8b4/p9562a4si96hkf2tu8s1h3lymn3sbbfd/roll_up_0_85kh2_m_tipografia_cifra18_izhevsk.jpg
+       3450KB  /upload/iblock/216/cfnxublfxybee3dcufhnsvcnehq89m30/beydzh_laminirovannyy_tipografia_cifra18_izhevsk.gif
+       2498KB  /upload/iblock/b3a/gubzcyhai88feii1b5kmlf8690pid20k/kvartalnyy_kalendar_premium_prozrachnyy_plastik_tipografia_cifra18_i
+       543KB  /upload/iblock/fce/82o6sufvnn0anp4f8gzmodnjm1u3n329/roll_up_1_2x2_m_tipografia_cifra18_izhevs.jpg
+       351KB  /upload/iblock/1ce/b11h0p96mukhqv0oreriu4azeftm1ufr/belaya_kruzhka_tsvetnaya_ruchka_dno_330ml_tipografia_cifra18_izhevsk
+       222KB  /upload/resize_cache/iblock/991/zonrt3hxse4yulbt6cp9f3iszfdb3efd/1920_1080_1/kalendari_2027_tipografia_cifra18_izhevsk.j
+       239KB  /upload/resize_cache/iblock/a3b/llz86mfodjaswrrbdo86bqxtsb040sy5/1920_1080_1/pakety.jpg
+       205KB  /upload/resize_cache/iblock/078/fgt8n77vla9oyv83buiso6rc2f64eztc/1920_1080_1/dostka_po_gorodu.jpg
+       295KB  /upload/resize_cache/iblock/97d/l13s9eykvgpigpk4g9iy7d2u1cu7bhsl/1920_1080_1/korobki.jpg
+       269KB  /upload/resize_cache/iblock/e54/hjkpwvcnww4bsqm5uqj7agmxpk9m435x/1920_1080_1/mob.jpg
+       332KB  /upload/resize_cache/iblock/e2d/pazlq0t0wpy8zdxlsqh7c1nqj8c0wt7d/1920_1080_1/oboi.jpg
+  WORDS (visible text): 1433
+  EM/EN DASHES: 3 in body, 0 in title, 0 in meta description [AI-writing tell, replace with commas]
+       ...сроки «вчера» 03 Индивидуальный подход — это наш принцип 04 Грамотная консультац...
+       ...а 17.07.26 Плоттерная резка листов SRA3 – технические требования и подготовка мак...
+       ...время. Можно спокойно закрыть это окно — выбранные товары уже отправлены. Вернут...
+  LINKS internal=256 | external=11
+  Open Graph: yes ['og:description', 'og:site_name', 'og:title', 'og:type', 'og:url']
+  canonical: NO | schema: none
+  viewport: yes | html lang: yes | meta robots: index, follow
+
+----------------------------------------------------------------------
+## https://xn--18-6kc5a3bxam.xn--p1ai/catalog/poligrafiya/vizitki/
+  HTTP 200 | https=True | HTML 120 KB | platform=-
+  TITLE (68 chars): 'Печать визиток от 90 копеек, сроки от 1 часа. г. Ижевск | Цифра18.рф'
+  META DESC (206 chars) [TOO LONG >160]: 'Изготовим визитки с вашим макетом от 100 штук, сроки 1 час, цифровая печать, офсетная печать. При необходимости разработ'
+  H1 = 2 ['Визитки', 'Изготовление визиток недорого и быстро в Ижевске'] | total headings=21 | level jumps=- | empty=1
+     sequence: H1 H2 H1 H2 H3 H3 H3 H3 H2 H2 H3 H3 H3 H3 H2 H2 H2 H3 H3 H3 H3
+  IMAGES total=34 | missing alt=0 | empty alt=5 | lazy=0
+     over 200KB (9/15 checked):
+       583KB  /upload/iblock/8b4/p9562a4si96hkf2tu8s1h3lymn3sbbfd/roll_up_0_85kh2_m_tipografia_cifra18_izhevsk.jpg
+       3450KB  /upload/iblock/216/cfnxublfxybee3dcufhnsvcnehq89m30/beydzh_laminirovannyy_tipografia_cifra18_izhevsk.gif
+       2498KB  /upload/iblock/b3a/gubzcyhai88feii1b5kmlf8690pid20k/kvartalnyy_kalendar_premium_prozrachnyy_plastik_tipografia_cifra18_i
+       543KB  /upload/iblock/fce/82o6sufvnn0anp4f8gzmodnjm1u3n329/roll_up_1_2x2_m_tipografia_cifra18_izhevs.jpg
+       351KB  /upload/iblock/1ce/b11h0p96mukhqv0oreriu4azeftm1ufr/belaya_kruzhka_tsvetnaya_ruchka_dno_330ml_tipografia_cifra18_izhevsk
+       235KB  /upload/iblock/f94/114kpjtgwlby1nq3z66cjl5a0llx2r88.jpg
+       766KB  /upload/iblock/916/nl7k632o2rbu05u3wc2riwageyli234e/vizitki_na_dizaynerskom_kartone_tipografia_cifra18_izhevsk.jpg
+       475KB  /upload/iblock/f04/ck902u78lge7unbyv82g0oecoii8f2lx/vizitki_na_krafte_tipografia_cifra18_izhevsk.jpg
+       768KB  /upload/iblock/533/2cjwkyt3olp3bgmyxi5thfqywxb3kb8q/vizitki_s_laminatsiey_soft_tach_tipografia_cifra18_izhevsk.jpg
+  WORDS (visible text): 1385
+  EM/EN DASHES: 2 in body, 0 in title, 0 in meta description [AI-writing tell, replace with commas]
+       ...ток недорого и быстро в Ижевске Визитка – это маленький, но необходимый атрибут п...
+       ...время. Можно спокойно закрыть это окно — выбранные товары уже отправлены. Вернут...
+  LINKS internal=127 | external=7
+  Open Graph: yes ['og:description', 'og:image', 'og:image:height', 'og:image:type', 'og:image:width', 'og:site_name', 'og:title', 'og:type', 'og:url']
+  canonical: NO | schema: none
+  viewport: yes | html lang: yes | meta robots: index, follow
+
+----------------------------------------------------------------------
+## https://xn--18-6kc5a3bxam.xn--p1ai/news/
+  HTTP 200 | https=True | HTML 87 KB | platform=-
+  TITLE (7 chars): 'Новости'
+  META DESC (11 chars): 'Description'
+  H1 = 1 ['Блог'] | total headings=27 | level jumps=- | empty=0
+     sequence: H1 H2 H2 H2 H2 H2 H2 H2 H2 H2 H2 H2 H2 H2 H2 H2 H2 H2 H2 H2 H2 H2 H2 H3 H3 H3 H3
+  IMAGES total=36 | missing alt=0 | empty alt=5 | lazy=0
+     over 200KB (5/15 checked):
+       583KB  /upload/iblock/8b4/p9562a4si96hkf2tu8s1h3lymn3sbbfd/roll_up_0_85kh2_m_tipografia_cifra18_izhevsk.jpg
+       3450KB  /upload/iblock/216/cfnxublfxybee3dcufhnsvcnehq89m30/beydzh_laminirovannyy_tipografia_cifra18_izhevsk.gif
+       2498KB  /upload/iblock/b3a/gubzcyhai88feii1b5kmlf8690pid20k/kvartalnyy_kalendar_premium_prozrachnyy_plastik_tipografia_cifra18_i
+       543KB  /upload/iblock/fce/82o6sufvnn0anp4f8gzmodnjm1u3n329/roll_up_1_2x2_m_tipografia_cifra18_izhevs.jpg
+       351KB  /upload/iblock/1ce/b11h0p96mukhqv0oreriu4azeftm1ufr/belaya_kruzhka_tsvetnaya_ruchka_dno_330ml_tipografia_cifra18_izhevsk
+  WORDS (visible text): 1445
+  EM/EN DASHES: 19 in body, 0 in title, 0 in meta description [AI-writing tell, replace with commas]
+       ....26 Статья Плоттерная резка листов SRA3 – технические требования и подготовка мак...
+       ...та Плоттерная резка листов формата SRA3 – это услуга по контурной вырезке изображ...
+       ...ографию Ижевск Бирки с офсетной печатью — экономичный способ маркировки при тираж...
+  LINKS internal=152 | external=7
+  Open Graph: yes ['og:description', 'og:site_name', 'og:title', 'og:type', 'og:url']
+  canonical: NO | schema: none
+  viewport: yes | html lang: yes | meta robots: index, follow
+
+======================================================================
+JSON (machine summary):
+{"base": "https://xn--18-6kc5a3bxam.xn--p1ai", "robots": {"present": true, "has_user_agent_rules": true, "sitemap_declared": true, "sitemaps": ["https://xn--18-6kc5a3bxam.xn--p1ai/shop/sitemap.xml", "https://xn--18-6kc5a3bxam.xn--p1ai/shop/sitemapindex.xml", "https://xn--18-6kc5a3bxam.xn--p1ai/shop/sitemapmobileindex.xml", "https://xn--18-6kc5a3bxam.xn--p1ai/shop/sitemap-hot-4040969.xml", "https://xn--18-6kc5a3bxam.xn--p1ai/shop/sitemap-hot-4038969.xml", "https://xn--18-6kc5a3bxam.xn--p1ai/shop/sitemap-hot-4036969.xml", "https://xn--18-6kc5a3bxam.xn--p1ai/shop/sitemap-hot-4034969.xml", "https://xn--18-6kc5a3bxam.xn--p1ai/shop/sitemap-hot-4032969.xml", "https://xn--18-6kc5a3bxam.xn--p1ai/shop/sitemap-hot-4030969.xml", "https://xn--18-6kc5a3bxam.xn--p1ai/shop/sitemap-hot-4028969.xml", "https://xn--18-6kc5a3bxam.xn--p1ai/shop/sitemap-hot-4026969.xml", "https://xn--18-6kc5a3bxam.xn--p1ai/shop/sitemap-hot-4024969.xml", "https://xn--18-6kc5a3bxam.xn--p1ai/shop/sitemap-hot-4022969.xml", "https://xn--18-6kc5a3bxam.xn--p1ai/shop/sitemap-hot-4020969.xml", "https://xn--18-6kc5a3bxam.xn--p1ai/shop/sitemap-hot-4018969.xml", "https://xn--18-6kc5a3bxam.xn--p1ai/shop/sitemap-hot-4016969.xml", "https://xn--18-6kc5a3bxam.xn--p1ai/shop/sitemap-hot-4014969.xml", "https://xn--18-6kc5a3bxam.xn--p1ai/shop/sitemap-hot-4012969.xml", "https://xn--18-6kc5a3bxam.xn--p1ai/shop/sitemap-hot-4010969.xml"], "ai_search_bots_blocked": [], "ai_user_fetch_bots_blocked": [], "ai_training_bots_blocked": [], "all_bots_blocked_via_wildcard": false, "raw_excerpt": "User-agent: *\nAllow: /\nCrawl-delay:3\nsitemap:https://xn--18-6kc5a3bxam.xn--p1ai/shop/sitemap.xml\nsitemap:https://xn--18-6kc5a3bxam.xn--p1ai/shop/sitemapindex.xml\nsitemap:https://xn--18-6kc5a3bxam.xn--p1ai/shop/sitemapmobileindex.xml\nSitemap:https://xn--18-6kc5a3bxam.xn--p1ai/shop/sitemap-hot-4040969.xml\nSitemap:https://xn--18-6kc5a3bxam.xn--p1ai/shop/sitemap-hot-4038969.xml\nSitemap:https://xn--18-6kc5a3bxam.xn--p1ai/shop/sitemap-hot-4036969.xml\nSitemap:https://xn--18-6kc5a3bxam.xn--p1ai/shop/sitemap-hot-4034969.xml\nSitemap:https://xn--18-6kc5a3bxam.xn--p1ai/shop/sitemap-hot-4032969.xml\nSitemap"}, "sitemap": {"url": "https://xn--18-6kc5a3bxam.xn--p1ai/shop/sitemap.xml", "error": "HTTPError: HTTP Error 404: Not Found"}, "llms_txt": {"present": false}, "pages": [{"url": "https://xn--18-6kc5a3bxam.xn--p1ai", "final_url": "https://xn--18-6kc5a3bxam.xn--p1ai", "http_status": 200, "https": true, "html_size_kb": 133, "frameworks": [], "title": {"value": "Типография Цифра г. Ижевск - цифровая и широкоформатная печать", "length": 62, "generic": false}, "meta_description": {"present": true, "length": 11, "too_long": false, "value": "Description"}, "headings": {"h1_count": 5, "h1_values": ["Сервис", "Качество и скорость", "89% положительных отзывов", "Новости", "Продукция"], "total": 13, "sequence": ["H2", "H1", "H2", "H1", "H1", "H1", "H1", "H2", "H2", "H3", "H3", "H3", "H3"], "level_jumps": [], "empty": 0}, "images": {"total": 83, "missing_alt": 0, "empty_alt": 13, "lazy": 0, "checked": 15, "over_200kb": [{"src": "/upload/iblock/8b4/p9562a4si96hkf2tu8s1h3lymn3sbbfd/roll_up_0_85kh2_m_tipografia_cifra18_izhevsk.jpg", "kb": 583, "note": ""}, {"src": "/upload/iblock/216/cfnxublfxybee3dcufhnsvcnehq89m30/beydzh_laminirovannyy_tipografia_cifra18_izhevsk.gif", "kb": 3450, "note": ""}, {"src": "/upload/iblock/b3a/gubzcyhai88feii1b5kmlf8690pid20k/kvartalnyy_kalendar_premium_prozrachnyy_plastik_tipografia_cifra18_i", "kb": 2498, "note": ""}, {"src": "/upload/iblock/fce/82o6sufvnn0anp4f8gzmodnjm1u3n329/roll_up_1_2x2_m_tipografia_cifra18_izhevs.jpg", "kb": 543, "note": ""}, {"src": "/upload/iblock/1ce/b11h0p96mukhqv0oreriu4azeftm1ufr/belaya_kruzhka_tsvetnaya_ruchka_dno_330ml_tipografia_cifra18_izhevsk", "kb": 351, "note": ""}, {"src": "/upload/resize_cache/iblock/991/zonrt3hxse4yulbt6cp9f3iszfdb3efd/1920_1080_1/kalendari_2027_tipografia_cifra18_izhevsk.j", "kb": 222, "note": ""}, {"src": "/upload/resize_cache/iblock/a3b/llz86mfodjaswrrbdo86bqxtsb040sy5/1920_1080_1/pakety.jpg", "kb": 239, "note": ""}, {"src": "/upload/resize_cache/iblock/078/fgt8n77vla9oyv83buiso6rc2f64eztc/1920_1080_1/dostka_po_gorodu.jpg", "kb": 205, "note": ""}, {"src": "/upload/resize_cache/iblock/97d/l13s9eykvgpigpk4g9iy7d2u1cu7bhsl/1920_1080_1/korobki.jpg", "kb": 295, "note": ""}, {"src": "/upload/resize_cache/iblock/e54/hjkpwvcnww4bsqm5uqj7agmxpk9m435x/1920_1080_1/mob.jpg", "kb": 269, "note": ""}, {"src": "/upload/resize_cache/iblock/e2d/pazlq0t0wpy8zdxlsqh7c1nqj8c0wt7d/1920_1080_1/oboi.jpg", "kb": 332, "note": ""}]}, "links": {"internal": 256, "external": 11}, "open_graph": {"present": true, "keys": ["og:description", "og:site_name", "og:title", "og:type", "og:url"]}, "canonical": null, "schema_jsonld": [], "viewport": "width=device-width initial-scale=1.0", "lang": true, "word_count": 1433, "meta_robots": "index, follow", "em_dashes": {"body": 3, "title": 0, "meta_description": 0, "headings": 0, "samples": ["сроки «вчера» 03 Индивидуальный подход — это наш принцип 04 Грамотная консультац", "а 17.07.26 Плоттерная резка листов SRA3 – технические требования и подготовка мак", "время. Можно спокойно закрыть это окно — выбранные товары уже отправлены. Вернут"]}, "likely_js_rendered": false}, {"url": "https://xn--18-6kc5a3bxam.xn--p1ai/catalog/poligrafiya/vizitki/", "final_url": "https://xn--18-6kc5a3bxam.xn--p1ai/catalog/poligrafiya/vizitki/", "http_status": 200, "https": true, "html_size_kb": 120, "frameworks": [], "title": {"value": "Печать визиток от 90 копеек, сроки от 1 часа. г. Ижевск | Цифра18.рф", "length": 68, "generic": false}, "meta_description": {"present": true, "length": 206, "too_long": true, "value": "Изготовим визитки с вашим макетом от 100 штук, сроки 1 час, цифровая печать, офсетная печать. При необходимости разработаем дизайн. Уникальное предложение - печать визиток белым цветом на темных материалах!"}, "headings": {"h1_count": 2, "h1_values": ["Визитки", "Изготовление визиток недорого и быстро в Ижевске"], "total": 21, "sequence": ["H1", "H2", "H1", "H2", "H3", "H3", "H3", "H3", "H2", "H2", "H3", "H3", "H3", "H3", "H2", "H2", "H2", "H3", "H3", "H3", "H3"], "level_jumps": [], "empty": 1}, "images": {"total": 34, "missing_alt": 0, "empty_alt": 5, "lazy": 0, "checked": 15, "over_200kb": [{"src": "/upload/iblock/8b4/p9562a4si96hkf2tu8s1h3lymn3sbbfd/roll_up_0_85kh2_m_tipografia_cifra18_izhevsk.jpg", "kb": 583, "note": ""}, {"src": "/upload/iblock/216/cfnxublfxybee3dcufhnsvcnehq89m30/beydzh_laminirovannyy_tipografia_cifra18_izhevsk.gif", "kb": 3450, "note": ""}, {"src": "/upload/iblock/b3a/gubzcyhai88feii1b5kmlf8690pid20k/kvartalnyy_kalendar_premium_prozrachnyy_plastik_tipografia_cifra18_i", "kb": 2498, "note": ""}, {"src": "/upload/iblock/fce/82o6sufvnn0anp4f8gzmodnjm1u3n329/roll_up_1_2x2_m_tipografia_cifra18_izhevs.jpg", "kb": 543, "note": ""}, {"src": "/upload/iblock/1ce/b11h0p96mukhqv0oreriu4azeftm1ufr/belaya_kruzhka_tsvetnaya_ruchka_dno_330ml_tipografia_cifra18_izhevsk", "kb": 351, "note": ""}, {"src": "/upload/iblock/f94/114kpjtgwlby1nq3z66cjl5a0llx2r88.jpg", "kb": 235, "note": ""}, {"src": "/upload/iblock/916/nl7k632o2rbu05u3wc2riwageyli234e/vizitki_na_dizaynerskom_kartone_tipografia_cifra18_izhevsk.jpg", "kb": 766, "note": ""}, {"src": "/upload/iblock/f04/ck902u78lge7unbyv82g0oecoii8f2lx/vizitki_na_krafte_tipografia_cifra18_izhevsk.jpg", "kb": 475, "note": ""}, {"src": "/upload/iblock/533/2cjwkyt3olp3bgmyxi5thfqywxb3kb8q/vizitki_s_laminatsiey_soft_tach_tipografia_cifra18_izhevsk.jpg", "kb": 768, "note": ""}]}, "links": {"internal": 127, "external": 7}, "open_graph": {"present": true, "keys": ["og:description", "og:image", "og:image:height", "og:image:type", "og:image:width", "og:site_name", "og:title", "og:type", "og:url"]}, "canonical": null, "schema_jsonld": [], "viewport": "width=device-width initial-scale=1.0", "lang": true, "word_count": 1385, "meta_robots": "index, follow", "em_dashes": {"body": 2, "title": 0, "meta_description": 0, "headings": 0, "samples": ["ток недорого и быстро в Ижевске Визитка – это маленький, но необходимый атрибут п", "время. Можно спокойно закрыть это окно — выбранные товары уже отправлены. Вернут"]}, "likely_js_rendered": false}, {"url": "https://xn--18-6kc5a3bxam.xn--p1ai/news/", "final_url": "https://xn--18-6kc5a3bxam.xn--p1ai/news/", "http_status": 200, "https": true, "html_size_kb": 87, "frameworks": [], "title": {"value": "Новости", "length": 7, "generic": false}, "meta_description": {"present": true, "length": 11, "too_long": false, "value": "Description"}, "headings": {"h1_count": 1, "h1_values": ["Блог"], "total": 27, "sequence": ["H1", "H2", "H2", "H2", "H2", "H2", "H2", "H2", "H2", "H2", "H2", "H2", "H2", "H2", "H2", "H2", "H2", "H2", "H2", "H2", "H2", "H2", "H2", "H3", "H3", "H3", "H3"], "level_jumps": [], "empty": 0}, "images": {"total": 36, "missing_alt": 0, "empty_alt": 5, "lazy": 0, "checked": 15, "over_200kb": [{"src": "/upload/iblock/8b4/p9562a4si96hkf2tu8s1h3lymn3sbbfd/roll_up_0_85kh2_m_tipografia_cifra18_izhevsk.jpg", "kb": 583, "note": ""}, {"src": "/upload/iblock/216/cfnxublfxybee3dcufhnsvcnehq89m30/beydzh_laminirovannyy_tipografia_cifra18_izhevsk.gif", "kb": 3450, "note": ""}, {"src": "/upload/iblock/b3a/gubzcyhai88feii1b5kmlf8690pid20k/kvartalnyy_kalendar_premium_prozrachnyy_plastik_tipografia_cifra18_i", "kb": 2498, "note": ""}, {"src": "/upload/iblock/fce/82o6sufvnn0anp4f8gzmodnjm1u3n329/roll_up_1_2x2_m_tipografia_cifra18_izhevs.jpg", "kb": 543, "note": ""}, {"src": "/upload/iblock/1ce/b11h0p96mukhqv0oreriu4azeftm1ufr/belaya_kruzhka_tsvetnaya_ruchka_dno_330ml_tipografia_cifra18_izhevsk", "kb": 351, "note": ""}]}, "links": {"internal": 152, "external": 7}, "open_graph": {"present": true, "keys": ["og:description", "og:site_name", "og:title", "og:type", "og:url"]}, "canonical": null, "schema_jsonld": [], "viewport": "width=device-width initial-scale=1.0", "lang": true, "word_count": 1445, "meta_robots": "index, follow", "em_dashes": {"body": 19, "title": 0, "meta_description": 0, "headings": 2, "samples": [".26 Статья Плоттерная резка листов SRA3 – технические требования и подготовка мак", "та Плоттерная резка листов формата SRA3 – это услуга по контурной вырезке изображ", "ографию Ижевск Бирки с офсетной печатью — экономичный способ маркировки при тираж", "ираж, материал и отделку. В этой статье — технические требования к макету, список", "овить заказ Еврофлаер формата 99х210 мм — компактная рекламная листовка, которую"]}, "likely_js_rendered": false}]}

@@ -1,0 +1,478 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix schema: <https://schema.org/> .
+@prefix cifra: <https://cifra18.ru/ontology/> .
+
+# ============================================================
+# ЦИФРА18 Ontology — Классы сущностей (Entity Classes)
+# ============================================================
+
+# Organization & Business
+cifra:Organization a owl:Class ;
+    rdfs:label "Organization"@ru, "Organization"@en ;
+    rdfs:subClassOf schema:Organization ;
+    rdfs:comment "Бизнес-организация: типография, агентство, клиент"@ru .
+
+cifra:LocalBusiness a owl:Class ;
+    rdfs:label "LocalBusiness"@ru, "LocalBusiness"@en ;
+    rdfs:subClassOf schema:LocalBusiness, cifra:Organization ;
+    rdfs:comment "Локальный бизнес с физическим адресом"@ru .
+
+cifra:DeliveryService a owl:Class ;
+    rdfs:label "DeliveryService"@ru, "DeliveryService"@en ;
+    rdfs:subClassOf schema:Organization ;
+    rdfs:comment "Служба доставки: СДЭК, Boxberry, Почта России"@ru .
+
+cifra:Competitor a owl:Class ;
+    rdfs:label "Competitor"@ru, "Competitor"@en ;
+    rdfs:subClassOf cifra:Organization ;
+    rdfs:comment "Конкурент на рынке полиграфии/мерча"@ru .
+
+# Services & Products
+cifra:Service a owl:Class ;
+    rdfs:label "Service"@ru, "Service"@en ;
+    rdfs:subClassOf schema:Service ;
+    rdfs:comment "Услуга: печать, дизайн, постпечатка, доставка"@ru .
+
+cifra:Product a owl:Class ;
+    rdfs:label "Product"@ru, "Product"@en ;
+    rdfs:subClassOf schema:Product ;
+    rdfs:comment "Физический товар: визитка, баннер, кружка, роллап"@ru .
+
+cifra:PrintService a owl:Class ;
+    rdfs:label "PrintService"@ru, "PrintService"@en ;
+    rdfs:subClassOf cifra:Service ;
+    rdfs:comment "Полиграфическая услуга"@ru .
+
+cifra:WideFormatService a owl:Class ;
+    rdfs:label "WideFormatService"@ru, "WideFormatService"@en ;
+    rdfs:subClassOf cifra:PrintService ;
+    rdfs:comment "Широкоформатная печать"@ru .
+
+cifra:DigitalPrintService a owl:Class ;
+    rdfs:label "DigitalPrintService"@ru, "DigitalPrintService"@en ;
+    rdfs:subClassOf cifra:PrintService ;
+    rdfs:comment "Цифровая печать"@ru .
+
+cifra:OffsetPrintService a owl:Class ;
+    rdfs:label "OffsetPrintService"@ru, "OffsetPrintService"@en ;
+    rdfs:subClassOf cifra:PrintService ;
+    rdfs:subClassOf cifra:PrintService ;
+    rdfs:comment "Офсетная печать"@ru .
+
+cifra:MerchService a owl:Class ;
+    rdfs:label "MerchService"@ru, "MerchService"@en ;
+    rdfs:subClassOf cifra:Service ;
+    rdfs:comment "Мерч и сувенирка"@ru .
+
+cifra:PostPressService a owl:Class ;
+    rdfs:label "PostPressService"@ru, "PostPressService"@en ;
+    rdfs:subClassOf cifra:PrintService ;
+    rdfs:comment "Постпечатная обработка"@ru .
+
+cifra:EngineeringPrintService a owl:Class ;
+    rdfs:label "EngineeringPrintService"@ru, "EngineeringPrintService"@en ;
+    rdfs:subClassOf cifra:PrintService ;
+    rdfs:comment "Инженерная печать (чертежи, сканирование)"@ru .
+
+cifra:MerchProduct a owl:Class ;
+    rdfs:label "MerchProduct"@ru, "MerchProduct"@en ;
+    rdfs:subClassOf cifra:Product ;
+    rdfs:comment "Мерч-товар: кружка, футболка, ручка, рюкзак"@ru .
+
+cifra:PrintProduct a owl:Class ;
+    rdfs:label "PrintProduct"@ru, "PrintProduct"@en ;
+    rdfs:subClassOf cifra:Product ;
+    rdfs:comment "Полиграфический товар: визитка, листовка, календарь"@ru .
+
+cifra:WideFormatProduct a owl:Class ;
+    rdfs:label "WideFormatProduct"@ru, "WideFormatProduct"@en ;
+    rdfs:subClassOf cifra:Product ;
+    rdfs:comment "Широкоформатный товар: баннер, роллап, стенд"@ru .
+
+# Materials & Specifications
+cifra:Material a owl:Class ;
+    rdfs:label "Material"@ru, "Material"@en ;
+    rdfs:subClassOf schema:Product, schema:DefinedTerm ;
+    rdfs:comment "Материал: бумага, пленка, ткань, пластик, крафт"@ru .
+
+cifra:PaperMaterial a owl:Class ;
+    rdfs:label "PaperMaterial"@ru, "PaperMaterial"@en ;
+    rdfs:subClassOf cifra:Material ;
+    rdfs:comment "Бумажные материалы"@ru .
+
+cifra:FilmMaterial a owl:Class ;
+    rdfs:label "FilmMaterial"@ru, "FilmMaterial"@en ;
+    rdfs:subClassOf cifra:Material ;
+    rdfs:comment "Пленочные материалы"@ru .
+
+cifra:FabricMaterial a owl:Class ;
+    rdfs:label "FabricMaterial"@ru, "FabricMaterial"@en ;
+    rdfs:subClassOf cifra:Material ;
+    rdfs:comment "Тканевые материалы"@ru .
+
+cifra:PlasticMaterial a owl:Class ;
+    rdfs:label "PlasticMaterial"@ru, "PlasticMaterial"@en ;
+    rdfs:subClassOf cifra:Material ;
+    rdfs:comment "Пластиковые материалы"@ru .
+
+cifra:Standard a owl:Class ;
+    rdfs:label "Standard"@ru, "Standard"@en ;
+    rdfs:subClassOf schema:DefinedTerm, schema:CreativeWork ;
+    rdfs:comment "Технический стандарт: ГОСТ, ISO, цветовой профиль"@ru .
+
+# Locations & Geography
+cifra:Location a owl:Class ;
+    rdfs:label "Location"@ru, "Location"@en ;
+    rdfs:subClassOf schema:Place ;
+    rdfs:comment "Географическая локация"@ru .
+
+cifra:City a owl:Class ;
+    rdfs:label "City"@ru, "City"@en ;
+    rdfs:subClassOf cifra:Location, schema:City ;
+    rdfs:comment "Город"@ru .
+
+cifra:Region a owl:Class ;
+    rdfs:label "Region"@ru, "Region"@en ;
+    rdfs:subClassOf cifra:Location, schema:AdministrativeArea ;
+    rdfs:comment "Регион/область"@ru .
+
+cifra:Country a owl:Class ;
+    rdfs:label "Country"@ru, "Country"@en ;
+    rdfs:subClassOf cifra:Location, schema:Country ;
+    rdfs:comment "Страна"@ru .
+
+cifra:PickupPoint a owl:Class ;
+    rdfs:label "PickupPoint"@ru, "PickupPoint"@en ;
+    rdfs:subClassOf schema:Place ;
+    rdfs:comment "ПВЗ СДЭК/Boxberry/Почты России"@ru .
+
+# Industries & Audiences
+cifra:Industry a owl:Class ;
+    rdfs:label "Industry"@ru, "Industry"@en ;
+    rdfs:subClassOf schema:DefinedTerm ;
+    rdfs:comment "Отрасль/индустрия клиента"@ru .
+
+cifra:TargetAudience a owl:Class ;
+    rdfs:label "TargetAudience"@ru, "TargetAudience"@en ;
+    rdfs:subClassOf schema:Audience ;
+    rdfs:comment "Целевая аудитория услуги/товара"@ru .
+
+# People & Roles
+cifra:Person a owl:Class ;
+    rdfs:label "Person"@ru, "Person"@en ;
+    rdfs:subClassOf schema:Person ;
+    rdfs:comment "Человек: технологи, дизайнер, менеджер, клиент"@ru .
+
+cifra:Expert a owl:Class ;
+    rdfs:label "Expert"@ru, "Expert"@en ;
+    rdfs:subClassOf cifra:Person ;
+    rdfs:comment "Эксперт: технологи, дизайнер, препресс"@ru .
+
+cifra:Customer a owl:Class ;
+    rdfs:label "Customer"@ru, "Customer"@en ;
+    rdfs:subClassOf cifra:Person ;
+    rdfs:comment "Клиент"@ru .
+
+# Events & Temporal
+cifra:Event a owl:Class ;
+    rdfs:label "Event"@ru, "Event"@en ;
+    rdfs:subClassOf schema:Event ;
+    rdfs:comment "Событие: выставка, открытие, конференция"@ru .
+
+cifra:SeasonalEvent a owl:Class ;
+    rdfs:label "SeasonalEvent"@ru, "SeasonalEvent"@en ;
+    rdfs:subClassOf cifra:Event ;
+    rdfs:comment "Сезонное событие: Новый год, 8 марта, 23 февраля"@ru .
+
+# ============================================================
+# Properties (Predicates) — Отношения между сущностями
+# ============================================================
+
+# Core Business Relations
+cifra:offers a owl:ObjectProperty ;
+    rdfs:label "offers"@en, "предлагает"@ru ;
+    rdfs:domain cifra:Organization ;
+    rdfs:range cifra:Service ;
+    rdfs:comment "Организация предлагает услугу/товар"@ru .
+
+cifra:produces a owl:ObjectProperty ;
+    rdfs:label "produces"@en, "производит"@ru ;
+    rdfs:domain cifra:Organization ;
+    rdfs:range cifra:Product ;
+    rdfs:comment "Организация производит товар"@ru .
+
+cifra:hasMaterial a owl:ObjectProperty ;
+    rdfs:label "hasMaterial"@en, "имеетМатериал"@ru ;
+    rdfs:domain cifra:Product ;
+    rdfs:range cifra:Material ;
+    rdfs:comment "Продукт состоит из материала"@ru .
+
+cifra:suitableFor a owl:ObjectProperty ;
+    rdfs:label "suitableFor"@en, "подходитДля"@ru ;
+    rdfs:domain [ owl:unionOf (cifra:Material cifra:Service cifra:Product) ] ;
+    rdfs:range cifra:Industry ;
+    rdfs:comment "Материал/услуга подходит для индустрии"@ru .
+
+cifra:producedBy a owl:ObjectProperty ;
+    rdfs:label "producedBy"@en, "произведено"@ru ;
+    rdfs:domain cifra:Product ;
+    rdfs:range cifra:Organization ;
+    rdfs:comment "Товар произведен организацией"@ru .
+
+cifra:locatedIn a owl:ObjectProperty ;
+    rdfs:label "locatedIn"@en, "расположенВ"@ru ;
+    rdfs:domain cifra:Organization ;
+    rdfs:range cifra:Location ;
+    rdfs:comment "Организация расположена в локации"@ru .
+
+cifra:partOf a owl:ObjectProperty ;
+    rdfs:label "partOf"@en, "часть"@ru ;
+    rdfs:domain cifra:Location ;
+    rdfs:range cifra:Location ;
+    rdfs:comment "Локация входит в состав более крупной локации"@ru .
+
+cifra:hasPrice a owl:DatatypeProperty ;
+    rdfs:label "hasPrice"@en, "имеетЦену"@ru ;
+    rdfs:domain cifra:Product ;
+    rdfs:range xsd:decimal ;
+    rdfs:comment "Цена товара/услуги"@ru .
+
+cifra:hasCurrency a owl:DatatypeProperty ;
+    rdfs:label "hasCurrency"@en, "валюта"@ru ;
+    rdfs:domain cifra:Product ;
+    rdfs:range xsd:string ;
+    rdfs:comment "Валюта цены (RUB, USD, EUR)"@ru .
+
+cifra:hasProductionTime a owl:DatatypeProperty ;
+    rdfs:label "hasProductionTime"@en, "времяПроизводства"@ru ;
+    rdfs:domain cifra:Service ;
+    rdfs:range xsd:duration ;
+    rdfs:comment "Время производства (ISO 8601 duration)"@ru .
+
+cifra:deliversVia a owl:ObjectProperty ;
+    rdfs:label "deliversVia"@en, "доставляетЧерез"@ru ;
+    rdfs:domain cifra:Organization ;
+    rdfs:range cifra:DeliveryService ;
+    rdfs:comment "Организация доставляет через службу"@ru .
+
+cifra:covers a owl:ObjectProperty ;
+    rdfs:label "covers"@en, "покрывает"@ru ;
+    rdfs:domain cifra:DeliveryService ;
+    rdfs:range cifra:Location ;
+    rdfs:comment "Служба доставки покрывает локацию"@ru .
+
+cifra:hasSpecification a owl:ObjectProperty ;
+    rdfs:label "hasSpecification"@en, "имеетСпецификацию"@ru ;
+    rdfs:domain cifra:Product ;
+    rdfs:range schema:PropertyValue ;
+    rdfs:comment "Техническая спецификация продукта"@ru .
+
+cifra:requires a owl:ObjectProperty ;
+    rdfs:label "requires"@en, "требует"@ru ;
+    rdfs:domain cifra:Service ;
+    rdfs:range [ owl:unionOf (cifra:Material cifra:Equipment cifra:Standard) ] ;
+    rdfs:comment "Услуга требует материал/оборудование/стандарт"@ru .
+
+cifra:competesWith a owl:ObjectProperty ;
+    rdfs:label "competesWith"@en, "конкурируетС"@ru ;
+    rdfs:domain cifra:Organization ;
+    rdfs:range cifra:Competitor ;
+    rdfs:comment "Организация конкурирует с организацией"@ru .
+
+cifra:hasReview a owl:ObjectProperty ;
+    rdfs:label "hasReview"@en, "имеетОтзыв"@ru ;
+    rdfs:domain [ owl:unionOf (cifra:Product cifra:Service cifra:Organization) ] ;
+    rdfs:range schema:Review ;
+    rdfs:comment "Имеет отзыв"@ru .
+
+cifra:hasFAQ a owl:ObjectProperty ;
+    rdfs:label "hasFAQ"@en, "имеетFAQ"@ru ;
+    rdfs:domain cifra:Service ;
+    rdfs:range schema:Question ;
+    rdfs:comment "Услуга имеет частый вопрос"@ru .
+
+cifra:hasCaseStudy a owl:ObjectProperty ;
+    rdfs:label "hasCaseStudy"@en, "имеетКейс"@ru ;
+    rdfs:domain cifra:Organization ;
+    rdfs:range schema:CaseStudy ;
+    rdfs:comment "Организация имеет кейс-стади"@ru .
+
+cifra:hasProductionCapability a owl:ObjectProperty ;
+    rdfs:label "hasProductionCapability"@en, "имеетПроизводственнуюВозможность"@ru ;
+    rdfs:domain cifra:Organization ;
+    rdfs:range xsd:string ;
+    rdfs:comment "Производственная возможность: DigitalPrint, OffsetPrint, WideFormat, PostPress, Merch"@ru .
+
+cifra:hasEquipment a owl:ObjectProperty ;
+    rdfs:label "hasEquipment"@en, "имеетОборудование"@ru ;
+    rdfs:domain cifra:Organization ;
+    rdfs:range cifra:Equipment ;
+    rdfs:comment "Организация имеет оборудование"@ru .
+
+cifra:hasCertification a owl:ObjectProperty ;
+    rdfs:label "hasCertification"@en, "имеетСертификацию"@ru ;
+    rdfs:domain cifra:Organization ;
+    rdfs:range cifra:Standard ;
+    rdfs:comment "Организация имеет сертификацию/стандарт"@ru .
+
+cifra:suitableForMaterial a owl:ObjectProperty ;
+    rdfs:label "suitableForMaterial"@en, "подходитДляМатериала"@ru ;
+    rdfs:domain cifra:Service ;
+    rdfs:range cifra:Material ;
+    rdfs:comment "Услуга подходит для материала"@ru .
+
+cifra:hasPrintMethod a owl:ObjectProperty ;
+    rdfs:label "hasPrintMethod"@en, "имеетМетодПечати"@ru ;
+    rdfs:domain cifra:PrintService ;
+    rdfs:range xsd:string ;
+    rdfs:comment "Метод печати: Digital, Offset, UV, Latex, Sublimation, DTF, SilkScreen"@ru .
+
+cifra:hasMaxFormat a owl:DatatypeProperty ;
+    rdfs:label "hasMaxFormat"@en, "максФормат"@ru ;
+    rdfs:domain cifra:WideFormatService ;
+    rdfs:range xsd:string ;
+    rdfs:comment "Максимальный формат печати (например: 3.2м, 1.6м)"@ru .
+
+cifra:hasMinTirage a owl:DatatypeProperty ;
+    rdfs:label "hasMinTirage"@en, "минТираж"@ru ;
+    rdfs:domain cifra:PrintService ;
+    rdfs:range xsd:integer ;
+    rdfs:comment "Минимальный тираж"@ru .
+
+cifra:hasMaxTirage a owl:DatatypeProperty ;
+    rdfs:label "hasMaxTirage"@en, "максТираж"@ru ;
+    rdfs:domain cifra:PrintService ;
+    rdfs:range xsd:integer ;
+    rdfs:comment "Максимальный тираж"@ru .
+
+cifra:hasWeight a owl:DatatypeProperty ;
+    rdfs:label "hasWeight"@en, "вес"@ru ;
+    rdfs:domain cifra:Product ;
+    rdfs:range xsd:decimal ;
+    rdfs:comment "Вес продукта в кг"@ru .
+
+cifra:hasDimensions a owl:ObjectProperty ;
+    rdfs:label "hasDimensions"@en, "габариты"@ru ;
+    rdfs:domain cifra:Product ;
+    rdfs:range schema:QuantitativeValue ;
+    rdfs:comment "Габариты продукта (L×W×H)"@ru .
+
+cifra:hasColorProfile a owl:ObjectProperty ;
+    rdfs:label "hasColorProfile"@en, "цветовойПрофиль"@ru ;
+    rdfs:domain cifra:PrintService ;
+    rdfs:range cifra:Standard ;
+    rdfs:comment "Цветовой профиль: CMYK FOGRA39, RGB, Pantone"@ru .
+
+cifra:hasFinishing a owl:ObjectProperty ;
+    rdfs:label "hasFinishing"@en, "постпечатнаяОбработка"@ru ;
+    rdfs:domain cifra:PrintProduct ;
+    rdfs:range cifra:PostPressService ;
+    rdfs:comment "Постпечатная обработка: ламинация, фольгирование, тиснение"@ru .
+
+cifra:hasDeliveryTime a owl:ObjectProperty ;
+    rdfs:label "hasDeliveryTime"@en, "времяДоставки"@ru ;
+    rdfs:domain cifra:DeliveryService ;
+    rdfs:range schema:QuantitativeValue ;
+    rdfs:comment "Время доставки (дни)"@ru .
+
+cifra:hasTracking a owl:ObjectProperty ;
+    rdfs:label "hasTracking"@en, "отслеживание"@ru ;
+    rdfs:domain cifra:DeliveryService ;
+    rdfs:range xsd:anyURI ;
+    rdfs:comment "URL трекинга"@ru .
+
+cifra:hasPickupPoints a owl:ObjectProperty ;
+    rdfs:label "hasPickupPoints"@en, "пунктыВыдачи"@ru ;
+    rdfs:domain cifra:DeliveryService ;
+    rdfs:range cifra:PickupPoint ;
+    rdfs:comment "Пункты выдачи (ПВЗ)"@ru .
+
+cifra:hasCalculator a owl:ObjectProperty ;
+    rdfs:label "hasCalculator"@en, "имеетКалькулятор"@ru ;
+    rdfs:domain cifra:Service ;
+    rdfs:range xsd:anyURI ;
+    rdfs:comment "URL калькулятора стоимости"@ru .
+
+cifra:hasIntent a owl:ObjectProperty ;
+    rdfs:label "hasIntent"@en, "имеетНамерение"@ru ;
+    rdfs:domain schema:WebPage ;
+    rdfs:range cifra:Intent ;
+    rdfs:comment "Страница имеет поисковое намерение"@ru .
+
+cifra:Intent a owl:Class ;
+    rdfs:label "Intent"@ru, "Intent"@en ;
+    rdfs:subClassOf schema:Intangible ;
+    rdfs:comment "Поисковое намерение: Informational, Commercial, Transactional, Navigational"@ru .
+
+# ============================================================
+# Data Properties for Entities
+# ============================================================
+
+cifra:entityId a owl:DatatypeProperty ;
+    rdfs:label "entityId"@en ;
+    rdfs:domain owl:Thing ;
+    rdfs:range xsd:string ;
+    rdfs:comment "Уникальный идентификатор сущности в KG"@ru .
+
+cifra:canonicalURL a owl:DatatypeProperty ;
+    rdfs:label "canonicalURL"@en ;
+    rdfs:domain owl:Thing ;
+    rdfs:range xsd:anyURI ;
+    rdfs:comment "Канонический URL сущности"@ru .
+
+cifra:slug a owl:DatatypeProperty ;
+    rdfs:label "slug"@en ;
+    rdfs:domain owl:Thing ;
+    rdfs:range xsd:string ;
+    rdfs:comment "URL-friendly идентификатор"@ru .
+
+cifra:description a owl:DatatypeProperty ;
+    rdfs:label "description"@en, "описание"@ru ;
+    rdfs:domain owl:Thing ;
+    rdfs:range xsd:string ;
+    rdfs:comment "Описание сущности"@ru .
+
+cifra:keywords a owl:DatatypeProperty ;
+    rdfs:label "keywords"@en, "ключевыеСлова"@ru ;
+    rdfs:domain owl:Thing ;
+    rdfs:range xsd:string ;
+    rdfs:comment "Ключевые слова для SEO"@ru .
+
+cifra:searchVolume a owl:DatatypeProperty ;
+    rdfs:label "searchVolume"@en ;
+    rdfs:domain owl:Thing ;
+    rdfs:range xsd:integer ;
+    rdfs:comment "Месячная частота запроса (Топвизор/Яндекс)"@ru .
+
+cifra:keywordDifficulty a owl:DatatypeProperty ;
+    rdfs:label "keywordDifficulty"@en ;
+    rdfs:domain owl:Thing ;
+    rdfs:range xsd:decimal ;
+    rdfs:comment "Сложность ключа (0-100)"@ru .
+
+cifra:cpc a owl:DatatypeProperty ;
+    rdfs:label "cpc"@en ;
+    rdfs:domain owl:Thing ;
+    rdfs:range xsd:decimal ;
+    rdfs:comment "Стоимость клика в рекламе"@ru .
+
+cifra:lastUpdated a owl:DatatypeProperty ;
+    rdfs:label "lastUpdated"@en ;
+    rdfs:domain owl:Thing ;
+    rdfs:range xsd:dateTime ;
+    rdfs:comment "Дата последнего обновления сущности"@ru .
+
+cifra:source a owl:DatatypeProperty ;
+    rdfs:label "source"@en ;
+    rdfs:domain owl:Thing ;
+    rdfs:range xsd:string ;
+    rdfs:comment "Источник данных: site, competitor, standard, sme, query"@ru .
+
+cifra:confidence a owl:DatatypeProperty ;
+    rdfs:label "confidence"@en ;
+    rdfs:domain owl:Thing ;
+    rdfs:range xsd:decimal ;
+    rdfs:comment "Уверенность в извлечении (0-1)"@ru .

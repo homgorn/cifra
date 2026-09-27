@@ -1,0 +1,447 @@
+{
+  "@context": {
+    "cifra": "https://cifra18.ru/ontology#",
+    "schema": "https://schema.org/",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "owl": "http://www.w3.org/2002/07/owl#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "skos": "http://www.w3.org/2004/02/skos/core#",
+    "dcterms": "http://purl.org/dc/terms/"
+  },
+  "@graph": [
+    {
+      "@id": "cifra:company",
+      "@type": "owl:Class",
+      "rdfs:label": "Компания",
+      "rdfs:comment": "Организация, предоставляющая полиграфические и сувенирные услуги"
+    },
+    {
+      "@id": "cifra:PrintShop",
+      "@type": "owl:Class",
+      "rdfs:subClassOf": "cifra:company",
+      "rdfs:label": "Типография",
+      "rdfs:comment": "Организация, занимающаяся полиграфическим производством"
+    },
+    {
+      "@id": "cifra:MerchCompany",
+      "@type": "owl:Class",
+      "rdfs:subClassOf": "cifra:company",
+      "rdfs:label": "Мерч-компания",
+      "rdfs:comment": "Компания, специализирующаяся на производстве мерча и сувенирки"
+    },
+    {
+      "@id": "cifra:Service",
+      "@type": "owl:Class",
+      "rdfs:label": "Услуга",
+      "rdfs:comment": "Услуга, предоставляемая типографией"
+    },
+    {
+      "@id": "cifra:Product",
+      "@type": "owl:Class",
+      "rdfs:label": "Продукт",
+      "rdfs:comment": "Физический продукт (мерч, полиграфия)"
+    },
+    {
+      "@id": "cifra:Material",
+      "@type": "owl:Class",
+      "rdfs:label": "Материал",
+      "rdfs:comment": "Материал для печати или производства мерча"
+    },
+    {
+      "@id": "cifra:Equipment",
+      "@type": "owl:Class",
+      "rdfs:label": "Оборудование",
+      "rdfs:comment": "Печатное или постпечатное оборудование"
+    },
+    {
+      "@id": "cifra:MaterialType",
+      "@type": "owl:Class",
+      "rdfs:label": "Тип материала",
+      "rdfs:comment": "Категория материала (бумага, пленка, ткань, пластик, металл)"
+    },
+    {
+      "@id": "cifra:PrintMethod",
+      "@type": "owl:Class",
+      "rdfs:label": "Метод печати",
+      "rdfs:comment": "Технология печати (офсет, цифровая, сублимация, DTG, UV, шелкография и т.д.)"
+    },
+    {
+      "@id": "cifra:PostPressType",
+      "@type": "owl:Class",
+      "rdfs:label": "Постпечатная обработка",
+      "rdfs:comment": "Вид постпечатной обработки (ламинация, фольгирование, тиснение, конгрев, скругление углов)"
+    },
+    {
+      "@id": "cifra:ServiceCategory",
+      "@type": "owl:Class",
+      "rdfs:label": "Категория услуг",
+      "rdfs:comment": "Категория услуг типографии"
+    },
+    {
+      "@id": "cifra:ProductCategory",
+      "@type": "owl:Class",
+      "rdfs:label": "Категория продукта",
+      "rdfs:comment": "Категория продукта (мерч, полиграфия, сувенирка)"
+    },
+    {
+      "@id": "cifra:Industry",
+      "@type": "owl:Class",
+      "rdfs:label": "Отрасль клиента",
+      "rdfs:comment": "Отрасль деятельности клиента (HoReCa, риелторы, строительство, медицина, образование, ивенты, ритейл)"
+    },
+    {
+      "@id": "cifra:Location",
+      "@type": "owl:Class",
+      "rdfs:label": "Локация",
+      "rdfs:comment": "Географическая локация (город, регион, страна)"
+    },
+    {
+      "@id": "cifra:Customer",
+      "@type": "owl:Class",
+      "rdfs:label": "Клиент",
+      "rdfs:comment": "Клиент типографии (B2B или B2C)"
+    },
+    {
+      "@id": "cifra:Order",
+      "@type": "owl:Class",
+      "rdfs:label": "Заказ",
+      "rdfs:comment": "Заказ клиента"
+    },
+    {
+      "@id": "cifra:Delivery",
+      "@type": "owl:Class",
+      "rdfs:label": "Доставка",
+      "rdfs:comment": "Доставка заказа (СДЭК, самовывоз, курьер)"
+    },
+    {
+      "@id": "cifra:hasService",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": "cifra:PrintShop",
+      "rdfs:range": "cifra:Service",
+      "rdfs:label": "предоставляет услугу"
+    },
+    {
+      "@id": "cifra:produces",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": "cifra:PrintShop",
+      "rdfs:range": "cifra:Product",
+      "rdfs:label": "производит"
+    },
+    {
+      "@id": "cifra:hasMaterial",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": "cifra:Product",
+      "rdfs:range": "cifra:Material",
+      "rdfs:label": "имеет материал"
+    },
+    {
+      "@id": "cifra:suitableFor",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": ["cifra:Material", "cifra:Service", "cifra:Product"],
+      "rdfs:range": "cifra:Industry",
+      "rdfs:label": "подходит для индустрии"
+    },
+    {
+      "@id": "cifra:producedBy",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": "cifra:Product",
+      "rdfs:range": "cifra:PrintShop",
+      "rdfs:label": "произведено"
+    },
+    {
+      "@id": "cifra:locatedIn",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": "cifra:PrintShop",
+      "rdfs:range": "cifra:Location",
+      "rdfs:label": "расположена в"
+    },
+    {
+      "@id": "cifra:hasPrice",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:domain": "cifra:Product",
+      "rdfs:range": "xsd:decimal",
+      "rdfs:label": "имеет цену"
+    },
+    {
+      "@id": "cifra:hasCurrency",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:domain": "cifra:Product",
+      "rdfs:range": "xsd:string",
+      "rdfs:label": "валюта цены"
+    },
+    {
+      "@id": "cifra:hasProductionTime",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:domain": "cifra:Service",
+      "rdfs:range": "xsd:duration",
+      "rdfs:label": "время производства"
+    },
+    {
+      "@id": "cifra:deliversVia",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": "cifra:PrintShop",
+      "rdfs:range": "cifra:Delivery",
+      "rdfs:label": "доставляет через"
+    },
+    {
+      "@id": "cifra:covers",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": "cifra:Delivery",
+      "rdfs:range": "cifra:Location",
+      "rdfs:label": "покрывает зону доставки"
+    },
+    {
+      "@id": "cifra:hasSpecification",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": "cifra:Product",
+      "rdfs:range": "schema:PropertyValue",
+      "rdfs:label": "имеет спецификацию"
+    },
+    {
+      "@id": "cifra:requires",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": "cifra:Service",
+      "rdfs:range": ["cifra:Material", "cifra:Equipment", "cifra:Standard"],
+      "rdfs:label": "требует"
+    },
+    {
+      "@id": "cifra:competesWith",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": "cifra:company",
+      "rdfs:range": "cifra:company",
+      "rdfs:label": "конкурирует с"
+    },
+    {
+      "@id": "cifra:hasReview",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": ["cifra:Product", "cifra:Service", "cifra:company"],
+      "rdfs:range": "schema:Review",
+      "rdfs:label": "имеет отзыв"
+    },
+    {
+      "@id": "cifra:hasFAQ",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": "cifra:Service",
+      "rdfs:range": "schema:Question",
+      "rdfs:label": "имеет FAQ"
+    },
+    {
+      "@id": "cifra:hasCaseStudy",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": "cifra:company",
+      "rdfs:range": "schema:CaseStudy",
+      "rdfs:label": "имеет кейс"
+    },
+    {
+      "@id": "cifra:hasProductionCapability",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": "cifra:PrintShop",
+      "rdfs:range": "xsd:string",
+      "rdfs:label": "имеет производственную возможность"
+    },
+    {
+      "@id": "cifra:hasEquipment",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": "cifra:PrintShop",
+      "rdfs:range": "cifra:Equipment",
+      "rdfs:label": "имеет оборудование"
+    },
+    {
+      "@id": "cifra:hasCertification",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": "cifra:PrintShop",
+      "rdfs:range": "cifra:Standard",
+      "rdfs:label": "имеет сертификацию"
+    },
+    {
+      "@id": "cifra:suitableForMaterial",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": "cifra:Service",
+      "rdfs:range": "cifra:Material",
+      "rdfs:label": "подходит для материала"
+    },
+    {
+      "@id": "cifra:hasPrintMethod",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": "cifra:PrintService",
+      "rdfs:range": "cifra:PrintMethod",
+      "rdfs:label": "имеет метод печати"
+    },
+    {
+      "@id": "cifra:hasMaxFormat",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:domain": "cifra:WideFormatService",
+      "rdfs:range": "xsd:string",
+      "rdfs:label": "максимальный формат печати"
+    },
+    {
+      "@id": "cifra:hasMinTirage",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:domain": "cifra:PrintService",
+      "rdfs:range": "xsd:integer",
+      "rdfs:label": "минимальный тираж"
+    },
+    {
+      "@id": "cifra:hasMaxTirage",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:domain": "cifra:PrintService",
+      "rdfs:range": "xsd:integer",
+      "rdfs:label": "максимальный тираж"
+    },
+    {
+      "@id": "cifra:hasWeight",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:domain": "cifra:Product",
+      "rdfs:range": "xsd:decimal",
+      "rdfs:label": "вес продукта в кг"
+    },
+    {
+      "@id": "cifra:hasDimensions",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": "cifra:Product",
+      "rdfs:range": "schema:QuantitativeValue",
+      "rdfs:label": "габариты продукта"
+    },
+    {
+      "@id": "cifra:hasColorProfile",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": "cifra:PrintService",
+      "rdfs:range": "cifra:Standard",
+      "rdfs:label": "цветовой профиль"
+    },
+    {
+      "@id": "cifra:hasFinishing",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": "cifra:PrintProduct",
+      "rdfs:range": "cifra:PostPressType",
+      "rdfs:label": "имеет постпечатную обработку"
+    },
+    {
+      "@id": "cifra:hasDeliveryTime",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": "cifra:Delivery",
+      "rdfs:range": "schema:QuantitativeValue",
+      "rdfs:label": "время доставки"
+    },
+    {
+      "@id": "cifra:hasTracking",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": "cifra:Delivery",
+      "rdfs:range": "xsd:anyURI",
+      "rdfs:label": "URL трекинга"
+    },
+    {
+      "@id": "cifra:hasPickupPoints",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": "cifra:Delivery",
+      "rdfs:range": "cifra:PickupPoint",
+      "rdfs:label": "пункты выдачи"
+    },
+    {
+      "@id": "cifra:hasCalculator",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": "cifra:Service",
+      "rdfs:range": "xsd:anyURI",
+      "rdfs:label": "URL калькулятора"
+    },
+    {
+      "@id": "cifra:hasIntent",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": "schema:WebPage",
+      "rdfs:range": "cifra:Intent",
+      "rdfs:label": "имеет намерение"
+    },
+    {
+      "@id": "cifra:Intent",
+      "@type": "owl:Class",
+      "rdfs:label": "Намерение",
+      "rdfs:comment": "Поисковое намерение: Informational, Commercial, Transactional, Navigational"
+    },
+    {
+      "@id": "cifra:Standard",
+      "@type": "owl:Class",
+      "rdfs:label": "Стандарт",
+      "rdfs:comment": "Технический стандарт: ГОСТ, ISO, цветовой профиль"
+    },
+    {
+      "@id": "cifra:PickupPoint",
+      "@type": "owl:Class",
+      "rdfs:label": "Пункт выдачи",
+      "rdfs:comment": "Пункт выдачи заказов (ПВЗ СДЭК/Boxberry/Почты России)"
+    },
+    {
+      "@id": "cifra:Equipment",
+      "@type": "owl:Class",
+      "rdfs:label": "Оборудование",
+      "rdfs:comment": "Печатное или постпечатное оборудование"
+    },
+    {
+      "@id": "cifra:PrintMethod",
+      "@type": "owl:Class",
+      "rdfs:label": "Метод печати",
+      "rdfs:comment": "Технология печати (офсет, цифровая, сублимация, DTG, UV, шелкография и т.д.)"
+    },
+    {
+      "@id": "cifra:PostPressType",
+      "@type": "owl:Class",
+      "rdfs:label": "Постпечатная обработка",
+      "rdfs:comment": "Вид постпечатной обработки (ламинация, фольгирование, тиснение, конгрев, скругление углов)"
+    },
+    {
+      "@id": "cifra:PrintService",
+      "@type": "owl:Class",
+      "rdfs:subClassOf": "cifra:Service",
+      "rdfs:label": "Печатная услуга",
+      "rdfs:comment": "Услуга полиграфической печати"
+    },
+    {
+      "@id": "cifra:WideFormatService",
+      "@type": "owl:Class",
+      "rdfs:subClassOf": "cifra:PrintService",
+      "rdfs:label": "Широкоформатная печать",
+      "rdfs:comment": "Широкоформатная печать (баннеры, плакаты, пленки, ткани)"
+    },
+    {
+      "@id": "cifra:DigitalPrintService",
+      "@type": "owl:Class",
+      "rdfs:subClassOf": "cifra:PrintService",
+      "rdfs:label": "Цифровая печать",
+      "rdfs:comment": "Цифровая печать (малые тиражи, срочно)"
+    },
+    {
+      "@id": "cifra:OffsetPrintService",
+      "@type": "owl:Class",
+      "rdfs:subClassOf": "cifra:PrintService",
+      "rdfs:label": "Офсетная печать",
+      "rdfs:comment": "Офсетная печать (крупные тиражи, высокое качество)"
+    },
+    {
+      "@id": "cifra:MerchService",
+      "@type": "owl:Class",
+      "rdfs:subClassOf": "cifra:Service",
+      "rdfs:label": "Мерч-услуга",
+      "rdfs:comment": "Производство мерча и сувенирки"
+    },
+    {
+      "@id": "cifra:EngineeringPrintService",
+      "@type": "owl:Class",
+      "rdfs:subClassOf": "cifra:PrintService",
+      "rdfs:label": "Инженерная печать",
+      "rdfs:comment": "Печать чертежей, сканирование, фальцовка, брошюровка"
+    },
+    {
+      "@id": "cifra:PostPressService",
+      "@type": "owl:Class",
+      "rdfs:subClassOf": "cifra:Service",
+      "rdfs:label": "Постпечатные услуги",
+      "rdfs:comment": "Ламинация, фольгирование, тиснение, конгрев, скругление углов"
+    },
+    {
+      "@id": "cifra:EngineeringPrintService",
+      "@type": "owl:Class",
+      "rdfs:subClassOf": "cifra:PrintService",
+      "rdfs:label": "Инженерная печать",
+      "rdfs:comment": "Печать чертежей, сканирование, фальцовка, брошюровка"
+    }
+  ]
+}

@@ -1,0 +1,71 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "@id": "https://blog.cifra18.рф/blog/plotternaya-rezka-listov-sra3/#article",
+  "headline": "Плоттерная резка листов SRA3 — технические требования и подготовка макета",
+  "alternativeHeadline": "Что нужно знать перед заказом плоттерной резки формата SRA3",
+  "description": "Плоттерная резка листов формата SRA3 — это услуга по контурной вырезке изображений. Разбор технических требований к макету: форматы файлов, цветовой профиль, поля, линии резки. Типография «Цифра» в Ижевске.",
+  "keywords": ["плоттерная резка", "SRA3", "подготовка макета", "контурная резка", "типория Ижевск"],
+  "articleSection": "Технологии печати",
+  "articleBody": "Плоттерная резка листов формата SRA3 — это услуга по контурной вырезке изображений... [Полный текст статьи]",
+  "image": [
+    "https://blog.cifra18.рф/wp-content/uploads/2026/09/plotternaya-rezka-sra3.jpg"
+  ],
+  "datePublished": "2026-07-17T10:00:00+04:00",
+  "dateModified": "2026-09-10T14:30:00+04:00",
+  "author": {
+    "@type": "Person",
+    "name": "Иван Петров",
+    "url": "https://blog.cifra18.рф/author/ivan-petrov/",
+    "jobTitle": "Главный технолог",
+    "worksFor": {
+      "@type": "Organization",
+      "name": "Типография «Цифра»",
+      "@id": "https://xn--18-6kc5a3bxam.xn--p1ai/#organization"
+    },
+    "sameAs": [
+      "https://vk.com/ivan_petrov_tech",
+      "https://t.me/ivan_petrov_tech"
+    ]
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Типография «Цифра»",
+    "@id": "https://xn--18-6kc5a3bxam.xn--p1ai/#organization",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://xn--18-6kc5a3bxam.xn--p1ai/local/templates/cifra_new/img/svg/logo.svg",
+      "width": 200,
+      "height": 60
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blog.cifra18.рф/blog/plotternaya-rezka-listov-sra3/"
+  },
+  "speakable": {
+    "@type": "SpeakableSpecification",
+    "cssSelector": [".article-summary", ".answer-first"]
+  },
+  "mainEntity": {
+    "@type": "Question",
+    "name": "Какие технические требования к макету для плоттерной резки SRA3?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Макет должен быть в формате PDF/EPS/AI, цветовой профиль CMYK (FOGRA39), линии резки — отдельный слой/спот-цвет CutContour 100% magenta, толщина 0.25пт. Поля от краев — минимум 3 мм. Изображения — 300 dpi. Шрифты — в кривых. Нет перекрывающихся объектов на линии резки."
+    }
+  },
+  "about": [
+    {"@type": "Thing", "name": "Плоттерная резка", "@id": "https://schema.org/Product"},
+    {"@type": "Thing", "name": "SRA3", "@id": "https://schema.org/DefinedTerm"},
+    {"@type": "Thing", "name": "Подготовка макета", "@id": "https://schema.org/HowTo"}
+  ],
+  "mentions": [
+    {"@type": "Organization", "name": "Типография «Цифра»", "@id": "https://xn--18-6kc5a3bxam.xn--p1ai/#organization"},
+    {"@type": "Place", "name": "Ижевск", "@id": "https://schema.org/Place"}
+  ],
+  "citation": [
+    "ГОСТ Р ИСО 12647-2-2015",
+    "https://xn--18-6kc5a3bxam.xn--p1ai/upload/files/trebovaniya_k_maketu.pdf"
+  ]
+}

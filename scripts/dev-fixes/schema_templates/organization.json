@@ -1,0 +1,70 @@
+{
+  "@context": "https://schema.org",
+  "@type": ["Organization", "LocalBusiness"],
+  "@id": "https://xn--18-6kc5a3bxam.xn--p1ai/#organization",
+  "name": "Типография «Цифра»",
+  "alternateName": "Цифра18",
+  "legalName": "ИП Данилов Константин Леонидович",
+  "description": "Типография «Цифра» в Ижевске: цифровая и широкоформатная печать, сувенирная продукция, мерч, стенды, интерьерная печать. Собственное производство, сроки от 1 часа, доставка по РФ.",
+  "url": "https://xn--18-6kc5a3bxam.xn--p1ai",
+  "logo": "https://xn--18-6kc5a3bxam.xn--p1ai/local/templates/cifra_new/img/svg/logo.svg",
+  "telephone": ["+7-965-842-32-41", "+7-3412-32-32-41"],
+  "email": "izhcifra@yandex.ru",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "ул. 7-я Подлесная, д. 34",
+    "addressLocality": "Ижевск",
+    "addressRegion": "Удмуртская Республика",
+    "postalCode": "426069",
+    "addressCountry": "RU"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": "56.8519",
+    "longitude": "53.2033"
+  },
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      "opens": "09:00",
+      "closes": "18:00"
+    }
+  ],
+  "priceRange": "₽₽",
+  "currenciesAccepted": "RUB",
+  "paymentAccepted": ["Cash", "CreditCard", "BankTransfer"],
+  "areaServed": {
+    "@type": "GeoCircle",
+    "geoMidpoint": {
+      "@type": "GeoCoordinates",
+      "latitude": "56.8519",
+      "longitude": "53.2033"
+    },
+    "geoRadius": "50000"
+  },
+  "sameAs": [
+    "https://vk.com/cifra18",
+    "https://t.me/cifra18",
+    "https://youtube.com/@cifra18",
+    "https://dzen.ru/cifra18"
+  ],
+  "knowsAbout": [
+    "Цифровая печать", "Офсетная печать", "Широкоформатная печать",
+    "Сувенирная продукция", "Мерч", "Стенды", "Интерьерная печать",
+    "Плоттерная резка", "Ламинирование", "Фольгирование", "УФ-печать"
+  ],
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Услуги типографии Цифра",
+    "category": [
+      {"@type": "OfferCatalog", "name": "Полиграфия"},
+      {"@type": "OfferCatalog", "name": "Сувенирная продукция"},
+      {"@type": "OfferCatalog", "name": "Широкоформатная печать"},
+      {"@type": "OfferCatalog", "name": "Инженерная печать"},
+      {"@type": "OfferCatalog", "name": "Стенды"},
+      {"@type": "OfferCatalog", "name": "Интерьер"},
+      {"@type": "OfferCatalog", "name": "Мобильные стенды"}
+    ]
+  }
+}
