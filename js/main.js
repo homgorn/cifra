@@ -620,8 +620,38 @@
       };
     };
 
+    (function () {
+      var qb = document.getElementById('wmClusterQueriesBody');
+      if (qb && W.queryClusters) {
+        var order = {};
+        W.clusters.forEach(function (c, i) { order[c.name] = i; });
+        var rows = W.queryClusters.slice().sort(function (a, b) {
+          var ka = order[a.c] === undefined ? 99 : order[a.c];
+          var kb = order[b.c] === undefined ? 99 : order[b.c];
+          if (ka !== kb) return ka - kb;
+          return (a.p || 99) - (b.p || 99);
+        });
+        qb.innerHTML = rows.slice(0, 120).map(function (r) {
+          return '<tr><td>' + esc(r.q) + '</td><td>' + esc(r.c) + '</td><td>' + r.p +
+            '</td><td>' + (r.u ? '<code>' + esc(r.u) + '</code>' : '<span class="text-muted">нужна страница</span>') + '</td></tr>';
+        }).join('');
+      }
+    })();
+
     // --- Видимость
     setText('kpiSqi', fmtNum(T.sqi));
+    // План на 3 месяца: мёртвые разделы против рабочего каталога
+    setText('kpiDead', fmtNum(T.dead || 0));
+    (function () {
+      var rows = T.indexing || [];
+      var cat = null;
+      rows.forEach(function (r) { if (r.k === 'Каталог') cat = r; });
+      setText('kpiCatalog', cat ? cat.p + '%' : '-');
+      var err = 0;
+      rows.forEach(function (r) { err += r.e || 0; });
+      setText('kpiErrors', fmtNum(err));
+      setText('kpiQuota', fmtNum(T.recrawlDaily));
+    })();
     if (T.sqiFirst) {
       setText('kpiSqiGrowth', '+' + (T.sqi - T.sqiFirst.v) + ' с ' + T.sqiFirst.m.slice(0, 4));
     }

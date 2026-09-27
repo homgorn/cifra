@@ -68,15 +68,16 @@
 <aside class="sidebar">
   <div class="sidebar-title">На этой странице</div>
   <nav class="sidebar-nav">
-    <a class="sidebar-link active" href="#map"><span class="link-number">1</span>Карта кластеров</a>
+    <a class="sidebar-link" href="#map"><span class="link-number">1</span>Карта кластеров</a>
     <a class="sidebar-link" href="#coverage"><span class="link-number">2</span>Покрытие страницами</a>
-    <a class="sidebar-link" href="#next"><span class="link-number">3</span>Что дальше</a>
+    <a class="sidebar-link" href="#queries"><span class="link-number">3</span>Запросы по кластерам</a>
+    <a class="sidebar-link" href="#next"><span class="link-number">4</span>Что дальше</a>
   </nav>
 </aside>
 
 <div>
   <div class="page-title-block animate-slide-up">
-    <div class="page-kicker">Страница 19 из 26 • Вебмастер</div>
+    <div class="page-kicker">Страница 19 из 27 • Вебмастер</div>
     <h1>Кластеры запросов: 8 групп</h1>
     <p>535 запросов сгруппированы в 8 коммерческих кластеров по смыслу: визитки, календари, кружки и магниты, листовки, широкоформат, стенды, сувенирка, инженерная печать. По каждому кластеру видно число запросов, среднюю позицию и долю запросов, под которые есть целевая страница.</p>
   </div>
@@ -102,6 +103,15 @@
     <div class="callout"><div class="callout-title">Принцип один запрос, одна страница</div><p>Под каждый коммерческий запрос из ядра должна существовать страница, которая отвечает именно на него: подвид товара, услуга с модификатором, локальный лендинг. Общие разделы проигрывают точным страницам конкурентов.</p></div>
   </section>
 
+  <section id="queries" data-section style="margin-top:2.5rem;">
+    <h2>Разбивка запросов по кластерам</h2>
+    <p>Кластеры посчитаны по тексту запроса, без ручных правок, поэтому таблица и график выше всегда совпадают. Из 535 строк выгрузки 43 оказались мусором: телефоны и длинные описания товаров, их отсеяли. Показан первые 120 запросов, полный список с целевыми страницами лежит в файле <code>topvisor/exports/keyword_targets.csv</code>.</p>
+    <div class="table-wrapper" style="margin-top:1.25rem;"><table>
+      <thead><tr><th>Запрос</th><th>Кластер</th><th>Ср. позиция</th><th>Целевая страница</th></tr></thead>
+      <tbody id="wmClusterQueriesBody"><tr><td colspan="4" class="text-muted">Загрузка данных...</td></tr></tbody>
+    </table></div>
+  </section>
+
   <section id="next" data-section style="margin-top:2.5rem;">
     <h2>Что дальше</h2>
     <p>По итогам карты кластеров собраны десять приоритетных пробелов: страницы, которых не хватает под запросы с позициями и спросом. Каждый пробел оценен по усилиям и эффекту.</p>
@@ -122,9 +132,9 @@
       <div class="footer-nav"><h4>Анализ</h4><ul><li><a href="competitors.html">Конкуренты</a></li><li><a href="local.html">Регионы</a></li><li><a href="geo.html">GEO</a></li><li><a href="knowledge.html">База знаний</a></li></ul></div>
       <div class="footer-nav"><h4>Вебмастер</h4><ul><li><a href="wm-overview.html">Сводка</a></li><li><a href="wm-queries.html">Запросы</a></li><li><a href="wm-gaps.html">Пробелы</a></li><li><a href="wm-plan.html">План</a></li></ul></div>
       <div class="footer-nav"><h4>Дашборды</h4><ul><li><a href="dash-visibility.html">Видимость</a></li><li><a href="dash-audience.html">Аудитория</a></li><li><a href="dash-money.html">Деньги</a></li><li><a href="dash-maps.html">Карта в Картах</a></li></ul></div>
-      <div class="footer-nav"><h4>Файлы</h4><ul><li><a href="methodology.html">Методика</a></li><li><a href="season.html">Сроки</a></li><li><a href="roadmap.html">Наверх</a></li></ul></div>
+      <div class="footer-nav"><h4>Файлы</h4><ul><li><a href="methodology.html">Методика</a></li><li><a href="plan-3m.html">План 3 месяца</a></li><li><a href="roadmap.html">Наверх</a></li></ul></div>
     </div>
-    <div class="footer-bottom"><span>Цифра18 • Ижевск • сентябрь 2026</span><span>Страница 19 из 26 • Кластеры запросов</span></div>
+    <div class="footer-bottom"><span>Цифра18 • Ижевск • сентябрь 2026</span><span>Страница 19 из 27 • Кластеры запросов</span></div>
   </div>
 </footer>
 <script src="../js/vendor/chart.umd.min.js"></script>
