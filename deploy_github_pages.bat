@@ -106,11 +106,14 @@ exit /b 5
 :push
 git push origin main
 if errorlevel 1 goto fail
+git subtree push --prefix reports/cifra18-audit origin gh-pages
+if errorlevel 1 goto fail
 
 echo.
-echo DONE. Code pushed. Actions deploys Pages from main
-echo (Settings - Pages - Source: GitHub Actions).
+echo DONE. Code on main, site on gh-pages.
 echo Site: https://homgorn.github.io/cifra/
+echo Note: the weekly refresh is local, see refresh_all.bat
+echo (Actions cannot run jobs on this account, diagnosed 2026-09-27).
 echo.
 pause
 exit /b 0
