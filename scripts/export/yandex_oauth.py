@@ -24,10 +24,30 @@ AUTH_URL = "https://oauth.yandex.ru/authorize"
 TOKEN_URL = "https://oauth.yandex.ru/token"
 REDIRECT = "https://oauth.yandex.ru/verification_code"
 
-# Права, которые запрашиваем явно. Полный набор прав API Вебмастера
-# (внешние ссылки, webmaster:hostinfo) выдаётся в настройках приложения на
-# oauth.yandex.ru, а здесь нужен только явный scope, чтобы токен их помнил.
-SCOPES = "login:info,login:email"
+# Права не запрашиваются в ссылке, и это сделано намеренно.
+#
+# Параметр scope должен содержать значения из списка прав, объявленных у
+# приложения. Список меняется, когда в oauth.yandex.ru добавляют право, и
+# любое устаревшее значение в ссылке даёт invalid_scope с текстом «не
+# удалось определить список запрашиваемых доступов». Раньше здесь стояло
+# «login:info,login:email», а подсказка в этом же файле предлагала
+# добавить scope EXTERNAL_LINKS, которого не существует: это внутренняя
+# метка из текста ошибки API, а не имя OAuth-scope.
+#
+# По документации Яндекса, если scope не передан, токен выдаётся с
+# теми правами, которые объявлены у приложения. Это ровно то, что нужно:
+# добавили право в панели, перевыпустили токен, право в нём есть.
+SCOPES = None
+
+# Настоящее имя права на внешние ссылки. Именно его видно в списке прав
+# приложения в oauth.yandex.ru, в скобках у пункта «Получение информации
+# о внешних ссылках на сайт».
+EXTERNAL_LINKS_SCOPE = "webmaster:hostinfo"
+
+# Приложение, client_secret которого попал в публичную историю git.
+# Ключи пришлось выпустить заново, и пока в .env старые, любой токен,
+# выданный ими, придётся заменить.
+LEAKED_CLIENT_ID = "bd171b3086d947918c19269247c50040"
 
 
 def load_env():
@@ -65,19 +85,36 @@ def mask(s):
     return (s[:4] + "..." + s[-4:]) if len(s) > 12 else "***"
 
 
-def cmd_auth_url(env):
+def cmd_auth_url(env, scope=None):
     cid = env.get("YANDEX_CLIENT_ID", "")
     if not cid:
         print("Нет YANDEX_CLIENT_ID в .env")
         return 1
-    q = urllib.parse.urlencode({
-        "response_type": "code",
-        "client_id": cid,
-        "redirect_uri": REDIRECT,
-        "scope": SCOPES,
-    })
+    print("Приложение: %s" % cid)
+    if cid == LEAKED_CLIENT_ID:
+        print()
+        print("ВНИМАНИЕ. Это то приложение, у которого client_secret попал в")
+        print("публичную историю git. Токен, выданный им, считается скомпрометированным.")
+        print("Создайте новое приложение или смените секрет, и впишите новое")
+        print("значение YANDEX_CLIENT_ID в .env. Файл .env в репозиторий не попадает,")
+        print("правьте его вручную, в .env.example лежит только образец ключей.")
+        print()
+    q = {"response_type": "code", "client_id": cid, "redirect_uri": REDIRECT}
+    if scope:
+        # Явный scope нужен редко, но иногда приложение требует его для
+        # выдачи необязательных прав. Тогда значение должно дословно
+        # совпадать с тем, что перечислено в панели приложения.
+        q["scope"] = scope
+        print("Scope в ссылке: %s" % scope)
+    else:
+        print("Scope в ссылке: не передан, токен получит все права приложения")
+    print()
     print("Откройте в браузере, подтвердите доступ, скопируйте код со страницы:")
-    print(AUTH_URL + "?" + q)
+    print(AUTH_URL + "?" + urllib.parse.urlencode(q))
+    print()
+    print("Если страница ругается на invalid_scope, значит в ссылку попал scope,")
+    print("которого нет в правах приложения. Проверьте, что запущено без --scope,")
+    print("и что client_id в .env принадлежит тому приложению, где вы добавили право.")
     return 0
 
 
@@ -100,7 +137,22 @@ def cmd_exchange(env, code):
         except Exception:
             detail = "?"
         print("Ошибка обмена: HTTP %s — %s" % (e.code, detail))
-        print("invalid_grant = код протух/использован; invalid_client = неверный secret.")
+        # Разбор по кодам. Здесь чаще всего ошибаются именно так.
+        if "invalid_scope" in detail:
+            print()
+            print("invalid_scope по документации Яндекса означает одно:")
+            print("  «права приложения изменились после того, как был выдан код».")
+            print("То есть вы добавили право в oauth.yandex.ru уже после того, как")
+            print("получили этот код. Код надо запросить заново, заново открыть")
+            print("ссылку и заново скопировать код. Старый код не сработает никогда.")
+        if "invalid_client" in detail:
+            print()
+            print("invalid_client = в .env неверная пара client_id и client_secret,")
+            print("либо они belong разным приложениям. Проверьте, что оба значения")
+            print("скопированы со страницы одного приложения.")
+        if "invalid_grant" in detail:
+            print()
+            print("invalid_grant = код протух или уже использован. Код одноразовый.")
         return 1
     except Exception as e:
         print("Ошибка обмена кода на токен: %s" % e)
@@ -112,6 +164,12 @@ def cmd_exchange(env, code):
     save_token(token)
     print("Токен сохранён в .env (маска %s), действует ~%s сек." %
           (mask(token), body.get("expires_in", "?")))
+    if body.get("scope"):
+        print("Права в токене: %s" % body["scope"])
+    else:
+        print("Права в токене: Яндекс не вернул поле scope, состав не проверить.")
+    print()
+    print("Следующий шаг: python scripts\\export\\yandex_oauth.py test")
     return 0
 
 
@@ -128,14 +186,46 @@ def cmd_test(env):
         return 1
     print("Токен: %s" % mask(token))
     # Метрика: список счётчиков
+    #
+    # Здесь важна не доступность API, а личность владельца. Токен,
+    # выданный под одним аккаунтом Яндекса, спокойно открывает карточку
+    # чужого счётчика и молча отдаёт 403 на данных. Список счётчиков при
+    # этом выглядит нормально, и кажется, что всё работает.
     try:
         st, data = api_get("https://api-metrika.yandex.net/management/v1/counters", token)
         counters = data.get("counters", [])
         print("Метрика API: OK, счётчиков доступно: %d" % len(counters))
         for c in counters[:10]:
-            print("  - %s : %s" % (c.get("id"), c.get("site", "?")))
+            print("  - %s : %-34s владелец %s"
+                  % (c.get("id"), str(c.get("site"))[:34], c.get("owner_login", "?")))
     except Exception as e:
         print("Метрика API: НЕДОСТУПНА (%s) — проверьте права приложения." % e)
+        return 1
+
+    # Проверка доступа к данным счётчика сайта.
+    #
+    # Сверять owner_login бесполезно: у счётчика он один и тот же что
+    # попадёт в ожидаемое значение, и ошибка не вскрывается. Настоящий
+    # признак другой: счётчик отсутствует в списке доступных, а любой
+    # запрос статистики отдаёт 403. Именно так выглядит токен, выданный
+    # под чужим аккаунтом, и заметить это иначе нельзя: карточка
+    # счётчика открывается кому угодно, а данные только владельцу.
+    want = env.get("METRIKA_COUNTER_ID", "")
+    have = {str(c.get("id")) for c in counters}
+    if want and want not in have:
+        print()
+        print("ВНИМАНИЕ. Счётчика сайта %s нет среди доступных." % want)
+        print("В списке: %s" % (", ".join(sorted(have)) or "ни одного"))
+        print("Карточка счётчика при этом открывается, а данные отдаёт 403.")
+        print("Значит токен выдан не под тем аккаунтом, и выгрузки Метрики")
+        print("сейчас собираются пустыми.")
+        print()
+        print("Что сделать: выйти из oauth.yandex.ru, зайти как %s,"
+              % env.get("YANDEX_ACCOUNT_EMAIL", "?"))
+        print("заново открыть auth-url и получить токен уже под ним.")
+        return 1
+    if want:
+        print("Счётчик сайта %s: доступен, данные читаются." % want)
     # Вебмастер: кто я
     try:
         st, data = api_get("https://api.webmaster.yandex.net/v4/user", token)
@@ -151,22 +241,48 @@ def cmd_test(env):
                         "?indicator=LINKS_TOTAL_COUNT" % uid, token)
         print("Внешние ссылки: доступны (права выданы)")
     except Exception as e:
-        print("Внешние ссылки: НЕТ прав. Требуется scope EXTERNAL_LINKS")
-        print("  Что сделать: oauth.yandex.ru -> приложение -> Права доступа ->")
-        print("  добавить «Получение информации о внешних ссылках на сайт», затем")
-        print("  пройти auth-url -> exchange заново.")
+        detail = str(e)
+        print("Внешние ссылки: НЕТ прав. Требуется право «Получение информации")
+        print("о внешних ссылках на сайт», его внутреннее имя %s."
+              % EXTERNAL_LINKS_SCOPE)
+        print()
+        print("Что сделать, по порядку:")
+        print("  1. oauth.yandex.ru -> Мои приложения -> ваше приложение ->")
+        print("     Права доступа -> добавить «Получение информации о внешних")
+        print("     ссылках на сайт» и сохранить.")
+        print("  2. Закрыть и снова открыть auth-url, подтвердить доступ,")
+        print("     скопировать свежий код. Старый код после смены прав не")
+        print("     работает, Яндекс вернёт invalid_scope.")
+        print("  3. yandex_setup.bat <новый код>")
+        if "ACCESS_FORBIDDEN" in detail:
+            print()
+            print("В ответе API слово EXTERNAL_LINKS это внутренняя метка, а не")
+            print("имя права в панели. Добавлять «scope EXTERNAL_LINKS» не надо,")
+            print("такого права в списке нет, и ссылка с ним не откроется.")
     return 0
 
 
 if __name__ == "__main__":
     env = load_env()
-    cmd = sys.argv[1] if len(sys.argv) > 1 else "auth-url"
+    args = [a for a in sys.argv[1:] if not a.startswith("--")]
+    scope = None
+    for a in sys.argv[1:]:
+        if a.startswith("--scope="):
+            scope = a.split("=", 1)[1]
+    cmd = args[0] if args else "auth-url"
     if cmd == "auth-url":
-        sys.exit(cmd_auth_url(env))
-    elif cmd == "exchange" and len(sys.argv) > 2:
-        sys.exit(cmd_exchange(env, sys.argv[2]))
+        sys.exit(cmd_auth_url(env, scope))
+    elif cmd == "exchange" and len(args) > 1:
+        sys.exit(cmd_exchange(env, args[1]))
     elif cmd == "test":
         sys.exit(cmd_test(env))
     else:
-        print("Использование: auth-url | exchange <код> | test")
+        print("Использование:")
+        print("  auth-url [--scope=значение]  ссылка для входа")
+        print("  exchange <код>               обменять код на токен")
+        print("  test                         проверить токен и права")
+        print()
+        print("Без --scope ссылка не передаёт список прав, и токен получает все")
+        print("права, объявленные у приложения. Это обычный режим, менять его")
+        print("нужно только если конкретное право не попадает в токен.")
         sys.exit(2)
