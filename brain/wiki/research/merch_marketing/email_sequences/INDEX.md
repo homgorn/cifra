@@ -1,4 +1,4 @@
-# Email Sequences — ЦИФРА18 Merch Marketing
+# Email Sequences: ЦИФРА18 Merch Marketing
 
 **Date:** 2026-09-12  
 **Location:** `brain/wiki/research/merch_marketing/email_sequences/`

@@ -1,4 +1,4 @@
-# Entities Index — ЦИФРА18
+# Entities Index: ЦИФРА18
 
 **Last updated:** 2026-09-10  
 **Status:** Начальное заполнение (после экспорта каталога и ключей)
@@ -15,7 +15,7 @@
 | **Competitors** | `competitors.md` | ⏳ Planned | Локальные (Ижевск) + федералы (Printio, Визитка.ру, Рупечат, Яндекс.Услуги) |
 | **Keywords** | `keywords.md` | ⏳ Planned | Семантическое ядро по кластерам (после seo-keyword-research) |
 | **Intent Map** | `intent_map.md` | ⏳ Planned | Интент-карта: Informational / Commercial / Transactional / Navigational |
-| **Materials** | `materials.md` | ⏳ Planned | Бумаги, пленки, ткани, пластики — справочник для программатика |
+| **Materials** | `materials.md` | ⏳ Planned | Бумаги, пленки, ткани, пластики: справочник для программатика |
 | **Equipment** | `equipment.md` | ⏳ Planned | Парк станков: модель, возможности, макс. формат, скорость |
 | **Standards** | `standards.md` | ⏳ Planned | ГОСТ, ISO, технические требования к макетам |
 | **Industries** | `industries.md` | ⏳ Planned | HoReCa, Риелторы, Строительство, Медицина, Образование, Ивенты, Ритейл |
@@ -136,4 +136,4 @@ Brand (Organization/LocalBusiness)
 
 ---
 
-*Сущности — это семантическое ядро проекта. Поддерживать в актуальном состоянии постоянно.*
+*Сущности: это семантическое ядро проекта. Поддерживать в актуальном состоянии постоянно.*

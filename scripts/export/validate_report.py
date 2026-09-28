@@ -3,7 +3,7 @@
 
 Checks:
  1. all expected files exist (27 html + css/js)
- 2. no em-dash in shipped html/js and CLIENT_REPORT.md, counted in the wiki
+ 2. no em-dash in shipped html/js, CLIENT_REPORT.md and the wiki
  3. title + h1 + meta description on every page
  4. every <canvas id> has mk('id') in main.js and vice versa
  5. internal .html links resolve to files; #anchors resolve to ids
@@ -16,6 +16,7 @@ Checks:
 12. numbers in client docs match facts from data
 13. client report blocks are generated, not hand-typed
 14. Russian pluralisation helper is not inverted
+ 16. no unescaped percent signs in page text
 Exit code 0 = all green, 1 = failures (listed).
 """
 import os
@@ -92,18 +93,23 @@ main_js = read(os.path.join(SITE, "js", "main.js"))
 # site-data.js, который собирается отдельным скриптом. Список файлов
 # берётся с диска, новый js не может добавиться незамеченным.
 #
-# Порог разделён. Жёстко проверяется то, что клиент читает как готовый
-# документ: сайт и CLIENT_REPORT.md. Файлы вики, названные в приложении
-# отчёта, считаются и печатаются, но не блокируют деплой.
+# Порог. Жёстко проверяется всё, что читается как текст: сайт,
+# CLIENT_REPORT.md и вики. Три строки в вики содержат знак как часть
+# формулировки самого правила, «Fix em-dash (—) → comma», их замена
+# сделала бы правило бессмысленным, поэтому они разрешены явно.
 #
-# Причина не в снисхождении. В вики 402 em-dash, и они стоят в трёх ролях
-# сразу: связка между частями фразы, двоеточие в заголовке, маркер
-# списка. Слепая замена даёт «После, масштабирование» и превращает
-# четыреста правок в шум, в котором не видно содержательных. Это работа
-# для редакторского прохода по каждому файлу, а не для регулярки и не
-# для гейта перед деплоем. Пока помечено, а не спрятано: число видно в
-# каждом прогоне.
-EMDASH = "\u2014"
+# Раньше вики считалась, но не блокировала. На практике это 1240 знаков
+# в 73 файлах, из них 260 в таблицах, где тире вместо пустой ячейки
+# делает таблицу нечитаемой. Правка сделана редакторским проходом,
+# fix_em_dash.py разбирает роль тире по месту, гейт следит, чтобы новые
+# не вернулись.
+# chr(), а не "\u2014" в исходнике. Литерал в коде оказался шестью
+# символами \, u, 2, 0, 1, 4, проверка искала их в тексте, не
+# находила никогда и была зелёной всегда. Гейт, который не может
+# сработать, хуже отсутствующего: он создаёт ощущение проверки.
+EMDASH = chr(0x2014)
+MENTION = ("em-dash", "em dash", chr(0x442) + chr(0x438) + chr(0x440) + chr(0x435))
+assert EMDASH == "\u2014", "EM-DASH константа сломана"
 shipped = []
 for dirpath, _dirnames, filenames in os.walk(SITE):
     if "_qa" in dirpath or "vendor" in dirpath:
@@ -118,15 +124,21 @@ if EMDASH in read(report_md):
     emd.append("CLIENT_REPORT.md")
 
 WIKI = os.path.join(ROOT, "brain", "wiki")
-wiki_md = sum(1 for dp, _d, fns in os.walk(WIKI) for fn in fns
-              if fn.endswith(".md") and os.path.isfile(os.path.join(dp, fn))
-              and EMDASH in read(os.path.join(dp, fn)))
+for dirpath, _d, filenames in os.walk(WIKI):
+    if "__pycache__" in dirpath:
+        continue
+    for fn in sorted(filenames):
+        if not fn.endswith(".md"):
+            continue
+        p = os.path.join(dirpath, fn)
+        for ln, line in enumerate(read(p).split("\n"), 1):
+            if EMDASH in line and not any(m in line.lower() for m in MENTION):
+                emd.append("%s:%d" % (os.path.relpath(p, ROOT), ln))
 
 if emd:
-    fail("em-dash in client-facing files: %s" % emd[:12])
+    fail("em-dash in %d place(s): %s" % (len(emd), emd[:12]))
 else:
-    ok("no em-dash in %d shipped files + CLIENT_REPORT.md "
-       "(wiki md with em-dash, non-blocking: %d)" % (len(shipped), wiki_md))
+    ok("no em-dash in %d shipped files, CLIENT_REPORT.md and wiki" % len(shipped))
 
 # 3. title/h1/meta
 for p, h in html.items():

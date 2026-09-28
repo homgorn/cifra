@@ -1,4 +1,4 @@
-# Merch Categories Gap Analysis — ЦИФРА18
+# Merch Categories Gap Analysis: ЦИФРА18
 
 **Date:** 2026-09-12  
 **Source:** Deep Research + Competitor Analysis (Printio, RuPrint, Printful, Printio, Wildberries/Ozon)
@@ -18,7 +18,7 @@
 
 ## 📦 Category-by-Category Gap Analysis
 
-### 1. Apparel (Одежда) — 🔴 CRITICAL PRIORITY
+### 1. Apparel (Одежда): 🔴 CRITICAL PRIORITY
 
 | Subcategory | Current | Target | Gap | Priority |
 |---|---|---|---|---|
@@ -33,11 +33,11 @@
 | **Эко-линейка (Organic Cotton)** | Нет | 2 SKU | +2 | 🟡 |
 
 **Tech Stack Required:** DTG (Direct-to-Garment) + Сублимация + DTF + Шелкография  
-**Competitor Benchmark:** Printio — 50+ SKU apparel, Drag&Drop редактор
+**Competitor Benchmark:** Printio, 50+ SKU apparel, Drag&Drop редактор
 
 ---
 
-### 2. Drinkware (Посуда для напитков) — 🔴 CRITICAL PRIORITY
+### 2. Drinkware (Посуда для напитков): 🔴 CRITICAL PRIORITY
 
 | Subcategory | Current | Target | Gap | Priority |
 |---|---|---|---|---|
@@ -54,7 +54,7 @@
 
 ---
 
-### 3. Accessories (Аксессуары) — 🔴 CRITICAL PRIORITY
+### 3. Accessories (Аксессуары): 🔴 CRITICAL PRIORITY
 
 | Subcategory | Current | Target | Gap | Priority |
 |---|---|---|---|---|
@@ -77,7 +77,7 @@
 
 ---
 
-### 4. Office Supplies (Канцелярия) — MEDIUM
+### 4. Office Supplies (Канцелярия): MEDIUM
 
 | Subcategory | Current | Target | Gap |
 |---|---|---|---|
@@ -155,14 +155,14 @@
 
 ## 🎯 Quick Wins (First 30 Days)
 
-1. **Launch Merch Calculator with SDEK** — интегрировать тарификатор СДЭК в калькулятор
-2. **Create 10 Merch Landing Pages** — Service×City для топ-10 городов × топ-3 услуги
-3. **Build 5 Merch Bundles** — Startup Kit, Remote Kit, Event Kit, Gift Box, VIP Box
-4. **Create 10 Comparison Pages** — "Футболка vs Худи", "Кружка vs Термос", "Рюкзак vs Сумка-тота"
-5. **Create HR Merch Landing** — "Welcome Kits для онбординга"
-5. **Create Email Sequences** — Welcome, Quote Nurture, Post-Order, Re-engagement, Loyalty
-5. **Set up Review Generation** — автоматические просьбы об отзывах после доставки
-5. **Set up Referral Program** — "Приведи клиента → 500₽ на счету"
+1. **Launch Merch Calculator with SDEK**: интегрировать тарификатор СДЭК в калькулятор
+2. **Create 10 Merch Landing Pages**: Service×City для топ-10 городов × топ-3 услуги
+3. **Build 5 Merch Bundles**: Startup Kit, Remote Kit, Event Kit, Gift Box, VIP Box
+4. **Create 10 Comparison Pages**: "Футболка vs Худи", "Кружка vs Термос", "Рюкзак vs Сумка-тота"
+5. **Create HR Merch Landing**: "Welcome Kits для онбординга"
+5. **Create Email Sequences**: Welcome, Quote Nurture, Post-Order, Re-engagement, Loyalty
+5. **Set up Review Generation**: автоматические просьбы об отзывах после доставки
+5. **Set up Referral Program**: "Приведи клиента → 500₽ на счету"
 
 ---
 

@@ -1,4 +1,4 @@
-# Content Strategy — ЦИФРА18 (SEO + GEO + SMM + Sales Enablement)
+# Content Strategy: ЦИФРА18 (SEO + GEO + SMM + Sales Enablement)
 
 **Date:** 2026-09-11  
 **Framework:** content-decomposer + content-factory + seo-content-strategist + smm_plan skills  
@@ -61,10 +61,10 @@
 - "Мерч для кофейни: кружки, пакеты, кружка-термос, пакеты"
 - "Мерч для риелторов: бейджи, ручки, блокноты, пакеты"
 - "Корпоративные подарки Новый год: под 500/1000/2000 руб"
-- "Брендированная одежда: футболки, худи, ветровки — шелк/ДТФ/сублимация"
+- "Брендированная одежда: футболки, худи, ветровки: шелк/ДТФ/сублимация"
 - "Кружки и термосы: виды печати, сроки, упаковка"
 - "USB-флешки и пауэрбанки: брендирование, упаковка"
-- "Наградная продукция: медали, кубки, плакетки — гравировка/печать"
+- "Наградная продукция: медали, кубки, плакетки: гравировка/печать"
 
 ### Cluster 4: Technical & Prepress (Expert Authority)
 **Pillar:** `/blog/category/tehnologii/` + `/materials/`
@@ -81,7 +81,7 @@
 
 ## 📝 Content Production Plan (Quarterly)
 
-### Q4 2026 (Oct-Dec) — Foundation + Seasonal
+### Q4 2026 (Oct-Dec): Foundation + Seasonal
 | Week | Content Type | Title | Cluster | Target Keywords | Format |
 |---|---|---|---|---|---|
 | 1 | Blog (Commercial) | "Визитки на крафте: виды, цены, примеры заказов" | Paper | визитки на крафте Ижевск, цена | Article + Calculator embed |
@@ -99,7 +99,7 @@
 
 **Q4 Total:** 12 articles + 3 programmatic types + 2 cases = 17 assets
 
-### Q1 2027 (Jan-Mar) — Scale + Programmatic Launch
+### Q1 2027 (Jan-Mar): Scale + Programmatic Launch
 | Focus | Volume | Types |
 |---|---|---|
 | **Service×City pages** | 50 (top 10 cities × 5 services) | Programmatic |
@@ -112,7 +112,7 @@
 
 **Q1 Total:** ~160 programmatic + 12 editorial = 172 assets
 
-### Q2 2027 (Apr-Jun) — Authority + GEO Optimization
+### Q2 2027 (Apr-Jun): Authority + GEO Optimization
 | Focus | Volume |
 |---|---|
 | **Service×City** | +100 (total 150) |
@@ -122,7 +122,7 @@
 | **Blog** | 12 |
 | **Cases** | 4 |
 
-### Q3 2027 (Jul-Sep) — Conversion + Russia Scale
+### Q3 2027 (Jul-Sep): Conversion + Russia Scale
 | Focus | Volume |
 |---|---|
 | **Service×City** | +100 (total 250) |
@@ -145,12 +145,12 @@
 
 ### llms.txt Strategy
 ```markdown
-# Типография Цифра (Ижевск) — llms.txt
+# Типография Цифра (Ижевск) - llms.txt
 ## Услуги
-- [Печать визиток](https://blog.cifra18.рф/services/vizitki/) — цифровая/офсетная, от 1 часа, СДЭК
-- [Широкоформатная печать](https://blog.cifra18.рф/services/wide-format/) — баннеры, плакаты, пленки, СДЭК
-- [Мерч и сувенирка](https://blog.cifra18.рф/services/merch/) — кружки, футболки, ручки, брендирование
-- [Плоттерная резка](https://blog.cifra18.рф/services/plotter-cut/) — контурная резка, SRA3, материалы
+- [Печать визиток](https://blog.cifra18.рф/services/vizitki/) - цифровая/офсетная, от 1 часа, СДЭК
+- [Широкоформатная печать](https://blog.cifra18.рф/services/wide-format/) - баннеры, плакаты, пленки, СДЭК
+- [Мерч и сувенирка](https://blog.cifra18.рф/services/merch/) - кружки, футболки, ручки, брендирование
+- [Плоттерная резка](https://blog.cifra18.рф/services/plotter-cut/) - контурная резка, SRA3, материалы
 ## Кейсы
 - [Мерч для кофейни 'Акула'](https://blog.cifra18.рф/cases/akula-merch/)
 - [Наружная реклама для ТЦ Мега](https://blog.cifra18.рф/cases/mega-outdoor/)
@@ -182,12 +182,12 @@
 | Day | Blog/WP | Дзен | ВК | Shorts/Клипы | Telegram |
 |---|---|---|---|---|---|
 | **Mon** | New article | Repost article | Post 1: Hook + link | Short 1: Hook | Article link |
-| **Tue** | — | Tip/FAQ | Post 2: Stat/Case | Short 2: Process | Tip |
-| **Wed** | — | Case study | Post 3: UGC/Review | Short 3: Result | Case link |
-| **Thu** | — | Material/Guide | Carousel (comparison) | Short: Material | Material link |
-| **Fri** | — | Weekend tip | Weekend plan | Short: Weekend | Weekend digest |
-| **Sat** | — | — | Stories (production) | — | — |
-| **Sun** | — | — | — | — | Weekly digest email |
+| **Tue** | н/д | Tip/FAQ | Post 2: Stat/Case | Short 2: Process | Tip |
+| **Wed** | н/д | Case study | Post 3: UGC/Review | Short 3: Result | Case link |
+| **Thu** | н/д | Material/Guide | Carousel (comparison) | Short: Material | Material link |
+| **Fri** | н/д | Weekend tip | Weekend plan | Short: Weekend | Weekend digest |
+| **Sat** | н/д | н/д | Stories (production) | н/д | н/д |
+| **Sun** | н/д | н/д | н/д | н/д | Weekly digest email |
 
 ### Production Workflow (1 Article = 10+ Assets)
 ```

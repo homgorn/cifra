@@ -26,7 +26,7 @@
 
 ### 1. 62 внутренние ссылки ведут на битые/проблемные страницы (404/500/502)
 
-#### 404 — Страницы не найдены (45 ссылок):
+#### 404, Страницы не найдены (45 ссылок):
 | Источник (картинка/страница) | Целевой URL | Анкор |
 |---|---|---|
 | `/product/suvenirnaja-produkcija/` | `/news/magnitnye-zakladki...` | сувенирной продукции |
@@ -44,19 +44,19 @@
 | `/catalog/poligrafiya/beydzh-plastikovyy-54kh86mm/` | `/catalog/poligrafiya/` (502) | Бейдж пластиковый |
 | `/catalog/reklama/shirokoformatnaya-pechat/pechat-na-posternoy-bumage8706/` | `/catalog/reklama/shirokoformatnaya-pechat/` (502) | Печать на постерной бумаге |
 
-#### 500/502 — Ошибки сервера (17 ссылок):
-- Главная страница `/` — 3 ссылки (500)
-- `/catalog/suvenirnaya-produktsiya/` — 6 ссылок (500/502)
-- `/catalog/poligrafiya/kalendari/` — 2 ссылки (500/502)
-- `/catalog/poligrafiya/` — 3 ссылки (502)
-- `/catalog/reklama/shirokoformatnaya-pechat/` — 1 ссылка (502)
-- `/news/` — 2 ссылки (502)
+#### 500/502, Ошибки сервера (17 ссылок):
+- Главная страница `/`, 3 ссылки (500)
+- `/catalog/suvenirnaya-produktsiya/`, 6 ссылок (500/502)
+- `/catalog/poligrafiya/kalendari/`, 2 ссылки (500/502)
+- `/catalog/poligrafiya/`, 3 ссылки (502)
+- `/catalog/reklama/shirokoformatnaya-pechat/`, 1 ссылка (502)
+- `/news/`, 2 ссылки (502)
 
 ---
 
 ## 🖼 Проблема: 77% ссылок идут С КАРТИНОК
 
-**104 из 134 ссылок** — это картинки из `/upload/iblock/` и `/wp-content/`, которые ссылаются на страницы каталога.
+**104 из 134 ссылок**: это картинки из `/upload/iblock/` и `/wp-content/`, которые ссылаются на страницы каталога.
 
 ### Примеры:
 - Одна картинка календаря (`kvartalnyy_kalendar_premium_3_rekl_polya...`) ссылается на **14 РАЗНЫХ URL**:
@@ -69,9 +69,9 @@
   - `/catalog/` (главная каталога)
 
 ### Последствия:
-1. **Размывается вес** — одна картинка распределяет ссылки на 10+ URL
-2. **Опечатки в URL** — `vysechnaya-produktsiya` вместо `suvenirnaya-produktsiya`
-3. **Битые целевые страницы** — половина целей 404/500
+1. **Размывается вес**: одна картинка распределяет ссылки на 10+ URL
+2. **Опечатки в URL**: `vysechnaya-produktsiya` вместо `suvenirnaya-produktsiya`
+3. **Битые целевые страницы**: половина целей 404/500
 
 ---
 
@@ -105,25 +105,25 @@
 
 | Целевой URL | Входящих ссылок | Статус | Действие |
 |---|---|---|---|
-| `/catalog/suvenirnaya-produktsiya/` | 12 | 500/404 | **Критично** — раздел сувенирки |
-| `/catalog/poligrafiya/kalendari/` | 4 | 500/502 | **Высоко** — сезонный раздел |
-| `/catalog/suvenirnaya-produktsiya/pechat-na-kruzhkakh/belaya-kruzhka-330ml/` | 4 | 404 | **Высоко** — товар |
-| `/catalog/suvenirnaya-produktsiya/sumka-shopper/sumka-shopper-belaya-/` | 3 | 404 | **Высоко** — товар |
-| `/catalog/suvenirnaya-produktsiya/pechat-na-kruzhkakh/belaya-kruzhka-tsvetnaya-ruchka-dno-330ml/` | 3 | 404 | **Высоко** — товар |
-| `/catalog/suvenirnaya-produktsiya/tablichka-dlya-oplaty-s-qr-kodom/...` | 4 | 404 | **Средне** — товар |
-| `/catalog/poligrafiya/` | 3 | 502 | **Критично** — корень каталога |
-| `/` (главная) | 3 | 500 | **Критично** — главная |
-| `/news/` | 2 | 502 | **Высоко** — блог |
+| `/catalog/suvenirnaya-produktsiya/` | 12 | 500/404 | **Критично**: раздел сувенирки |
+| `/catalog/poligrafiya/kalendari/` | 4 | 500/502 | **Высоко**: сезонный раздел |
+| `/catalog/suvenirnaya-produktsiya/pechat-na-kruzhkakh/belaya-kruzhka-330ml/` | 4 | 404 | **Высоко**: товар |
+| `/catalog/suvenirnaya-produktsiya/sumka-shopper/sumka-shopper-belaya-/` | 3 | 404 | **Высоко**: товар |
+| `/catalog/suvenirnaya-produktsiya/pechat-na-kruzhkakh/belaya-kruzhka-tsvetnaya-ruchka-dno-330ml/` | 3 | 404 | **Высоко**: товар |
+| `/catalog/suvenirnaya-produktsiya/tablichka-dlya-oplaty-s-qr-kodom/...` | 4 | 404 | **Средне**: товар |
+| `/catalog/poligrafiya/` | 3 | 502 | **Критично**: корень каталога |
+| `/` (главная) | 3 | 500 | **Критично**: главная |
+| `/news/` | 2 | 502 | **Высоко**: блог |
 
 ---
 
 ## 📋 План фиксов внутренних ссылок
 
 ### Спринт 1 (Дни 1-2): Критичные 404/500 целевые страницы
-- [ ] Исправить `/catalog/suvenirnaya-produktsiya/` — вернуть 200 OK
-- [ ] Исправить `/catalog/poligrafiya/kalendari/` — вернуть 200 OK
-- [ ] Исправить `/catalog/poligrafiya/` — вернуть 200 OK
-- [ ] Исправить главную `/` — вернуть 200 OK (хостинг?)
+- [ ] Исправить `/catalog/suvenirnaya-produktsiya/`, вернуть 200 OK
+- [ ] Исправить `/catalog/poligrafiya/kalendari/`, вернуть 200 OK
+- [ ] Исправить `/catalog/poligrafiya/`, вернуть 200 OK
+- [ ] Исправить главную `/`, вернуть 200 OK (хостинг?)
 - [ ] Восстановить/перенаправить 7 битых товаров сувенирки
 
 ### Спринт 2 (Дни 3-4): Картинки-хотлинки
@@ -138,18 +138,18 @@
 
 ### Спринт 4 (Неделя 2): Анкоры и качество
 - [ ] Анкоры «Популярные услуги» (4 раза на главной) → убрать/заменить на релевантные
-- [ ] Анкоры «ОК. Наши менеджеры...» (формы) — убрать с картинок
-- [ ] Анкоры «Каталог» на картинках — заменить на название товара
+- [ ] Анкоры «ОК. Наши менеджеры...» (формы): убрать с картинок
+- [ ] Анкоры «Каталог» на картинках: заменить на название товара
 - [ ] Проверить все `alt` у картинок (сейчас пустые или мусор)
 
 ---
 
 ## 📊 Экспорты
 
-- `exports/internal_links_broken.csv` — 62 битых ссылки с источниками
-- `exports/internal_links_by_status.csv` — группировка по статусам
-- `exports/internal_links_image_hotlinks.csv` — 104 ссылки с картинок
-- `exports/internal_links_typos.csv` — опечатки в URL
+- `exports/internal_links_broken.csv`, 62 битых ссылки с источниками
+- `exports/internal_links_by_status.csv`, группировка по статусам
+- `exports/internal_links_image_hotlinks.csv`, 104 ссылки с картинок
+- `exports/internal_links_typos.csv`, опечатки в URL
 
 ---
 

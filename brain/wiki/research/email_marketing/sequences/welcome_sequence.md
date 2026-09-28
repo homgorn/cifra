@@ -1,4 +1,4 @@
-# Email Marketing Strategy — ЦИФРА18 (from incoming emails base)
+# Email Marketing Strategy: ЦИФРА18 (from incoming emails base)
 
 ## 📧 Email Marketing Strategy Based on Incoming Emails
 
@@ -46,11 +46,11 @@ Based on the incoming emails analysis (izhcifra@yandex.ru + sales@), we identifi
 
 ### 📧 Email Sequences to Build
 
-## 1. Welcome Sequence (New Leads) — 5 emails / 14 days
+## 1. Welcome Sequence (New Leads): 5 emails / 14 days
 
 | Email | Day | Subject Options | Purpose | CTA |
 |---|---|---|---|---|
-| **1** | 0 (immediate) | A: "Добро пожаловать в Цифру18 — ваш типография в Ижевске" B: "Спасибо за заявку! Что дальше?" C: "Иван, ваша заявка принята ✓" | Welcome, set expectations, deliver lead magnet (price guide PDF) | "Скачать прайс-лист" → /price-guide.pdf |
+| **1** | 0 (immediate) | A: "Добро пожаловать в Цифру18: ваш типография в Ижевске" B: "Спасибо за заявку! Что дальше?" C: "Иван, ваша заявка принята ✓" | Welcome, set expectations, deliver lead magnet (price guide PDF) | "Скачать прайс-лист" → /price-guide.pdf |
 | **2** | 1 | A: "Как мы печатаем визитки за 1 час" B: "За кулисами Цифры18: наш цех" C: "Почему 500+ бизнесов выбирают нас" | Expertise demo, production tour (photos/video) | "Посмотреть производство" → /about/ |
 | **3** | 3 | A: "3 ошибки в макете, которые стоят денег" B: "Как подготовить идеальный макет" C: "Чек-лист: готово ли ваше к печати?" | Education, value, prevent errors | "Скачать чек-лист" → /checklist.pdf |
 | **4** | 5 | A: "Как мы напечатали 5000 визиток за 3 часа" B: "Кейс: визитки для риелторского агентства" C: "От идеи до коробки: кейс за 1 день" | Social proof, case study | "Смотреть кейс" → /cases/realty-cards/ |
@@ -58,19 +58,19 @@ Based on the incoming emails analysis (izhcifra@yandex.ru + sales@), we identifi
 
 ---
 
-## 2. Quote Nurture Sequence (Lead → Order) — 5 emails / 10 days
+## 2. Quote Nurture Sequence (Lead → Order): 5 emails / 10 days
 
 | Email | Day | Subject | Purpose | CTA |
 |---|---|---|---|---|
-| **1** | 0 | "Ваш расчёт готов: визитки на крафте 100 шт — 450₽" | Deliver quote, transparency | "Заказать" → /order/?quote=123 |
-| **2** | 2 | "Почему крафт — лучший выбор для вашего бизнеса" | Education, material benefits | "Узнать подробнее" → /materials/kraft/ |
+| **1** | 0 | "Ваш расчёт готов: визитки на крафте 100 шт: 450₽" | Deliver quote, transparency | "Заказать" → /order/?quote=123 |
+| **2** | 2 | "Почему крафт: лучший выбор для вашего бизнеса" | Education, material benefits | "Узнать подробнее" → /materials/kraft/ |
 | **3** | 4 | "Кейс: как риелтор получил 20% больше звонков с визитками на крафте" | Social proof, industry relevance | "Смотреть кейс" → /cases/realtor-kraft/ |
 | **4** | 6 | "Ответы на 5 вопросов перед заказом визиток" | FAQ, overcome objections | "Заказать сейчас" → /order/?quote=123 |
 | **5** | 8 | "Скидка 5% на первый заказ до пятницы" | Urgency, conversion | "Заказать со скидкой" → /order/?quote=123&promo=WELCOME5 |
 
 ---
 
-## 3. Post-Order Sequence (Order → Delivery → Loyalty) — 6 emails / 21 days
+## 3. Post-Order Sequence (Order → Delivery → Loyalty): 6 emails / 21 days
 
 | Email | Trigger | Subject | Purpose | CTA |
 |---|---|---|---|---|
@@ -83,13 +83,13 @@ Based on the incoming emails analysis (izhcifra@yandex.ru + sales@), we identifi
 
 ---
 
-## 4. Re-engagement Sequence (Lost Leads / Dormant) — 4 emails / 30 days
+## 4. Re-engagement Sequence (Lost Leads / Dormant): 4 emails / 30 days
 
 | Email | Day | Subject | Purpose | CTA |
 |---|---|---|---|---|
 | **1** | 30 | "Иван, мы не видели вас давно 😔 Всё ок?" | Gentle check-in | "Всё ок, просто занят" → /unsubscribe?reason=busy |
 | **2** | 45 | "Новинки за месяц: новые материалы, скидки, кейсы" | Value reminder | "Посмотреть новинки" → /news/ |
-| **2b** | 45 | "Скидка 10% на возврат — только на этой неделе" | Incentive | "Активировать скидку" → /order/?promo=RETURN10 |
+| **2b** | 45 | "Скидка 10% на возврат: только на этой неделе" | Incentive | "Активировать скидку" → /order/?promo=RETURN10 |
 | **3** | 60 | "Последний шанс: скидка 15% горит до воскресенья" | Urgency | "Использовать скидку" → /order/?promo=LAST15 |
 | **4** | 90 | "Мы удалим вас из базы, если не актуально 😔" | List hygiene, final chance | "Оставить меня" → /preferences/ |
 
@@ -100,7 +100,7 @@ Based on the incoming emails analysis (izhcifra@yandex.ru + sales@), we identifi
 | Email | Trigger | Subject | Purpose |
 |---|---|---|---|
 | **Review Request** | Day 3 post-delivery | "Иван, как качество? Оцените за 30 сек → скидка 5% на след. заказ" | Reviews, social proof |
-| **Referral** | Day 14 | "Пригласите коллегу — получите 500₽ на счету" | Referral program |
+| **Referral** | Day 14 | "Пригласите коллегу: получите 500₽ на счету" | Referral program |
 | **Reorder Reminder** | Day 60/90/180 | "Визитки заканчиваются? Повторите заказ со скидкой 10%" | Reorder automation |
 | **Seasonal** | Calendar events | "Новый год近! Календари 2025: закажите до 15.11" | Seasonal campaigns |
 
@@ -126,12 +126,12 @@ Based on the incoming emails analysis (izhcifra@yandex.ru + sales@), we identifi
 
 ### Template: Welcome #1
 ```markdown
-Subject: Добро пожаловать в Цифру18 — ваш типография в Ижевске
+Subject: Добро пожаловать в Цифру18 - ваш типография в Ижевске
 Preview: Ваша заявка принята, вот что дальше →
 
 Иван, здравствуйте!
 
-Спасибо, что обратились в Цифру18. Мы — типография в Ижевске с собственным производством: цифровая и офсетная печать, широкоформат, мерч, сувенирка. Сроки от 1 часа, доставка СДЭК по России.
+Спасибо, что обратились в Цифру18. Мы - типография в Ижевске с собственным производством: цифровая и офсетная печать, широкоформат, мерч, сувенирка. Сроки от 1 часа, доставка СДЭК по России.
 
 🎁 **Ваш подарок:** Полный прайс-лист с ценами на все услуги
 → [Скачать прайс-лист (PDF)](/price-guide.pdf)
@@ -141,29 +141,29 @@ Preview: Ваша заявка принята, вот что дальше →
 2. Поможем с макетом бесплатно
 3. Рассчитаем точную стоимость с доставкой СДЭК
 
-Есть вопросы? Просто ответьте на это письмо — я лично отвечу.
+Есть вопросы? Просто ответьте на это письмо - я лично отвечу.
 
 С уважением,
 Иван, основатель Цифры18
 +7 (965) 842-32-41
 
-P.S. Скидка 5% на первый заказ по промокоду WELCOME5 — действует 14 дней.
+P.S. Скидка 5% на первый заказ по промокоду WELCOME5 - действует 14 дней.
 ```
 
 ### Quote Nurture Email #2
 ```markdown
-Subject: Почему крафт — лучший выбор для вашего бизнеса
+Subject: Почему крафт - лучший выбор для вашего бизнеса
 Preview: Крафт ≠ дешево. Крафт = стиль, экология, тактильность.
 
 Иван,
 
-Крафтовые визитки — наш бестселлер. И не просто так.
+Крафтовые визитки - наш бестселлер. И не просто так.
 
 **Почему бизнес выбирает крафт:**
-🌿 **Экологично** — 100% переработка, без хлора
-🤲 **Тактильно** — приятно держать в руках, запоминается
-🎨 **Стильно** — выглядит дорого, премиально
-💰 **Выгодно** — от 4.5₽/шт при тираже 100 шт
+🌿 **Экологично** - 100% переработка, без хлора
+🤲 **Тактильно** - приятно держать в руках, запоминается
+🎨 **Стильно** - выглядит дорого, премиально
+💰 **Выгодно** - от 4.5₽/шт при тираже 100 шт
 
 📋 **Сравнение материалов для визиток:**
 
@@ -175,7 +175,7 @@ Preview: Крафт ≠ дешево. Крафт = стиль, экология,
 
 🔗 **Подробнее о материалах** → /materials/business-cards/
 
-Нужен совет? Ответьте на письмо — технолог подскажет за 5 минут.
+Нужен совет? Ответьте на письмо - технолог подскажет за 5 минут.
 
 С уважением,
 Технолог Цифры18

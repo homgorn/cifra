@@ -1,4 +1,4 @@
-# Competitive Gap Analysis — ЦИФРА18 vs Competitors
+# Competitive Gap Analysis: ЦИФРА18 vs Competitors
 
 **Date:** 2026-09-11  
 **Method:** systematic comparison across 15+ dimensions  
@@ -49,7 +49,7 @@
 
 ## 🎯 Priority Gap Closure Plan
 
-### Phase 0 (Week 1-2) — Foundation Fixes
+### Phase 0 (Week 1-2): Foundation Fixes
 | Gap | Action | Effort | Owner |
 |---|---|---|---|
 | Schema.org on all pages | Deploy JSON-LD templates | 2 days | Dev |
@@ -57,7 +57,7 @@
 | Sitemap fix | Bitrix SEO settings | 4 hours | Dev |
 | GA4 + GSC + Bing + IndexNow | Setup accounts | 1 day | SEO |
 
-### Phase 1 (Month 1) — Digital Foundation
+### Phase 1 (Month 1): Digital Foundation
 | Gap | Action | Effort | Owner |
 |---|---|---|---|
 | Instant Calculator + SDEK | SDEK API + Bitrix widget | 2 weeks | Dev |
@@ -67,7 +67,7 @@
 | 2ГИС Reviews Campaign | Email/SMS to clients | 1 week | Marketing |
 | Local SEO (2ГИС/Яндекс.Карты) | 5+ points, photos, posts | 2 weeks | Marketing |
 
-### Phase 2 (Month 2-3) — Content & Merch Scale
+### Phase 2 (Month 2-3): Content & Merch Scale
 | Gap | Action | Effort | Owner |
 |---|---|---|---|
 | Merch Catalog 50+ SKU | Photos, specs, pricing | 3 weeks | Content + Dev |
@@ -76,7 +76,7 @@
 | Content Factory Launch | 12 articles/month | Ongoing | Content |
 | Case Studies | 10 detailed cases | 4 weeks | Content + Sales |
 
-### Phase 3 (Month 3-6) — Authority & Scale
+### Phase 3 (Month 3-6): Authority & Scale
 | Gap | Action | Effort | Owner |
 |---|---|---|---|
 | Programmatic: Materials (50), Glossary (200), FAQ (100) | Generators + content | 4 weeks | Dev + Content |

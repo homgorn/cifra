@@ -24,15 +24,15 @@ Keys.so, Serpstat, кластеризация через LDA и BERT.
 метрик только те, что посчитаны.
 
 ```
-ЦИФРА18 — Типография Ижевск
+ЦИФРА18 - Типография Ижевск
 ├── 1. БРЕНД / НАВИГАЦИОННЫЕ (Brand)
 │   ├── Брендовые: "цифра", "цифра 18", "типография цифра", "ооо цифра"
 │   ├── Гео-бренд: "цифра ижевск", "типография цифра ижевск", "цифра 18 ижевск"
 │   ├── Контакты: "цифра режим работы", "цифра сайт", "цифра пакет", "7 подлесная 34"
 │   └── Навигационные: "типография ижевск официальный сайт", "печатный салон ижевск"
 │
-├── 2. ПОЛИГРАФИЯ (Poligrafiya) — Основа бизнеса
-│   ├── 2.1 ВИЗИТКИ (Visiting Cards) — TOP VOLUME
+├── 2. ПОЛИГРАФИЯ (Poligrafiya) - Основа бизнеса
+│ ├── 2.1 ВИЗИТКИ (Visiting Cards) - TOP VOLUME
 │   │   ├── Общие: "визитки ижевск", "печать визиток ижевск", "изготовление визиток"
 │   │   ├── Материалы: "визытки на крафте", "визитки на дизайнерском картоне", "визитки на пластике"
 │   │   ├── Технологии: "цифровая печать визиток", "офсетная печать визиток", "печать белым тонером"
@@ -40,7 +40,7 @@ Keys.so, Serpstat, кластеризация через LDA и BERT.
 │   │   ├── Цена: "визитки ижевск заказать дешево", "цена визиток 100 шт", "печать визиток стоимость"
 │   │   └── Действия: "визитки заказать", "сделать визитки", "напечатать визитки"
 │   │
-│   ├── 2.2 КАЛЕНДАРИ (Calendars) — СЕЗОННЫЕ (Q3-Q4)
+│ ├── 2.2 КАЛЕНДАРИ (Calendars) - СЕЗОННЫЕ (Q3-Q4)
 │   │   ├── Типы: "квартальные календари", "настенные календари", "перекидные календари",
 │   │   │        "карманные календари", "календари домик", "планерные календари"
 │   │   ├── Премиум: "календарь премиум", "прозрачный пластик", "светодиодное поле"
@@ -80,7 +80,7 @@ Keys.so, Serpstat, кластеризация через LDA и BERT.
 │       ├── "печать на самоклеящейся пленке", "наклейки", "стикеры", "фигурная резка"
 │       └── "плоттерная резка пленки"
 │
-├── 3. ШИРОКОФОРМАТНАЯ ПЕЧАТЬ (Wide Format) — B2B
+├── 3. ШИРОКОФОРМАТНАЯ ПЕЧАТЬ (Wide Format) - B2B
 │   ├── 3.1 БАННЕРЫ / ПЛЕНКА (Banners/Film)
 │   │   ├── "печать на баннере", "печать на пленке", "баннерная ткань", "фронтлит", "бэклит"
 │   │   ├── "пленка грей бэк", "пленка блу бэк", "пленка блэк бэк"
@@ -98,7 +98,7 @@ Keys.so, Serpstat, кластеризация через LDA и BERT.
 │       ├── "изготовление вывесок", "рекламные щиты", "ситилайт", "брендмауэр"
 │       └── "печать на баннере шириной до 1.6м"
 │
-├── 4. МОБИЛЬНЫЕ СТЕНДЫ / ВЫСТАВОЧНОЕ ОБОРУДОВАНИЕ (Stands) — B2B Events
+├── 4. МОБИЛЬНЫЕ СТЕНДЫ / ВЫСТАВОЧНОЕ ОБОРУДОВАНИЕ (Stands) - B2B Events
 │   ├── 4.1 РОЛЛ-УП (Roll-up)
 │   │   ├── "ролл ап", "ролл ап 2х3", "ролл ап купить", "ролл ап аренда"
 │   │   ├── "ролл апп", "ролап", "ролл-ап"
@@ -117,7 +117,7 @@ Keys.so, Serpstat, кластеризация через LDA и BERT.
 │       ├── "аренда ролл апа", "аренда пресс волл", "аренда баннера для сцены"
 │       └── "аренда конструкции для ролл-апа"
 │
-├── 5. СУВЕНИРКА / МЕРЧ (Merch) — B2C + B2B Gift
+├── 5. СУВЕНИРКА / МЕРЧ (Merch) - B2C + B2B Gift
 │   ├── 5.1 ОДЕЖДА / ТЕКСТИЛЬ (Apparel)
 │   │   ├── "футболки с печатью", "печать на футболках", "дтф печать", "сублимация на ткани"
 │   │   ├── "худи с логотипом", "майки", "поло", "баффы", "шарфы"
@@ -143,7 +143,7 @@ Keys.so, Serpstat, кластеризация через LDA и BERT.
 │       ├── "мерч для сотрудников", "новогодние подарки корпоративные", "наборы мерча"
 │       └── "брендированная упаковка подарков"
 │
-├── 6. ИНЖЕНЕРНАЯ ПЕЧАТЬ / ТЕХНИЧЕСКАЯ ДОКУМЕНТАЦИЯ (Engineering) — B2B Tech
+├── 6. ИНЖЕНЕРНАЯ ПЕЧАТЬ / ТЕХНИЧЕСКАЯ ДОКУМЕНТАЦИЯ (Engineering) - B2B Tech
 │   ├── 6.1 ПЕЧАТЬ ЧЕРТЕЖЕЙ (Drawings)
 │   │   ├── "печать чертежей", "печать чертежей а1", "печать чертежей а0", "цветная печать чертежей"
 │   │   ├── "печать ч/б чертежей", "печать из автокад", "печать из компас"
@@ -288,46 +288,46 @@ Keys.so, Serpstat, кластеризация через LDA и BERT.
 
 #### Категории 2-го уровня (под основные разделы):
 ```
-/catalog/poligrafiya/vizitki/dizaynerskie/       — Визитки на дизайнерском картоне
-/catalog/poligrafiya/vizitki/srochnaya/          — Срочная печать визиток (1 час)
-/catalog/poligrafiya/vizitki/belym-tonerom/      — Печать белым тонером
-/catalog/shirokoformatnaya-pechat/bannery/       — Печать на баннере
-/catalog/shirokoformatnaya-pechat/plenka/        — Печать на пленке
-/catalog/shirokoformatnaya-pechat/postery/       — Постеры
-/catalog/shirokoformatnaya-pechat/fotooboi/      — Фотообои (есть в /interer/, дубль?)
-/catalog/mobilnye-stendy/arenda/                 — Аренда стендов (landing)
-/catalog/mobilnye-stendy/arenda/roll-up/         — Аренда ролл-ап
-/catalog/suvenirnaya-produktsiya/pechat-na-kruzhkakh/chameleon/ — Кружки-хамелеоны
-/catalog/suvenirnaya-produktsiya/odezhda/        — Брендированная одежда (DTF/сублимация)
-/catalog/suvenirnaya-produktsiya/sumki/          — Шопперы/сумки
-/catalog/suvenirnaya-produktsiya/chocolate/      — Шоколад с логотипом
+/catalog/poligrafiya/vizitki/dizaynerskie/ - Визитки на дизайнерском картоне
+/catalog/poligrafiya/vizitki/srochnaya/ - Срочная печать визиток (1 час)
+/catalog/poligrafiya/vizitki/belym-tonerom/ - Печать белым тонером
+/catalog/shirokoformatnaya-pechat/bannery/ - Печать на баннере
+/catalog/shirokoformatnaya-pechat/plenka/ - Печать на пленке
+/catalog/shirokoformatnaya-pechat/postery/ - Постеры
+/catalog/shirokoformatnaya-pechat/fotooboi/ - Фотообои (есть в /interer/, дубль?)
+/catalog/mobilnye-stendy/arenda/ - Аренда стендов (landing)
+/catalog/mobilnye-stendy/arenda/roll-up/ - Аренда ролл-ап
+/catalog/suvenirnaya-produktsiya/pechat-na-kruzhkakh/chameleon/ - Кружки-хамелеоны
+/catalog/suvenirnaya-produktsiya/odezhda/ - Брендированная одежда (DTF/сублимация)
+/catalog/suvenirnaya-produktsiya/sumki/ - Шопперы/сумки
+/catalog/suvenirnaya-produktsiya/chocolate/ - Шоколад с логотипом
 ```
 
 #### Локальные лендинги (Local SEO):
 ```
-/local/izhevsk/vizitki/                          — Печать визиток Ижевск
-/local/izhevsk/kalendari/                        — Календари Ижевск
-/local/izhevsk/shirokoformatnaya-pechat/         — Широкоформат Ижевск
-/local/izhevsk/stendy/                           — Стенды Ижевск
-/local/izhevsk/merch/                            — Мерч Ижевск
-/local/izhevsk/inzhenernaya-pechat/              — Чертежи Ижевск
-/local/udmurtia/                                 — Удмуртия (если есть спрос)
+/local/izhevsk/vizitki/ - Печать визиток Ижевск
+/local/izhevsk/kalendari/ - Календари Ижевск
+/local/izhevsk/shirokoformatnaya-pechat/ - Широкоформат Ижевск
+/local/izhevsk/stendy/ - Стенды Ижевск
+/local/izhevsk/merch/ - Мерч Ижевск
+/local/izhevsk/inzhenernaya-pechat/ - Чертежи Ижевск
+/local/udmurtia/ - Удмуртия (если есть спрос)
 ```
 
 #### Статьи блога (Content Marketing):
 ```
-/blog/tekhnicheskie-trebovaniya-maketov/         — ТЗ к макетам (PDF чек-лист)
-/blog/idei-kalendarey-2027/                      — Тренды календарей 2027
-/blog/kak-vybrat-kalendar-dlya-biznesa/          — Гайд по выбору
-/blog/roll-up-vs-h-banner/                       — Сравнение стендов
-/blog/cifrovaya-ili-ofsetnaya-pechat/            — Цифровая vs Офсет
-/blog/kak-podgotovit-maket-dlya-kruzhki/         — ТЗ для кружки
-/blog/lazirovanie-ili-plenka-chto-vybrat/        — Ламинация: виды
-/blog/merch-dlya-biznesa-nachinaem/              — Мерч с нуля
-/blog/pechat-chertezej-gost/                     — Печать по ГОСТ
+/blog/tekhnicheskie-trebovaniya-maketov/ - ТЗ к макетам (PDF чек-лист)
+/blog/idei-kalendarey-2027/ - Тренды календарей 2027
+/blog/kak-vybrat-kalendar-dlya-biznesa/ - Гайд по выбору
+/blog/roll-up-vs-h-banner/ - Сравнение стендов
+/blog/cifrovaya-ili-ofsetnaya-pechat/ - Цифровая vs Офсет
+/blog/kak-podgotovit-maket-dlya-kruzhki/ - ТЗ для кружки
+/blog/lazirovanie-ili-plenka-chto-vybrat/ - Ламинация: виды
+/blog/merch-dlya-biznesa-nachinaem/ - Мерч с нуля
+/blog/pechat-chertezej-gost/ - Печать по ГОСТ
 ```
 
-#### Страницы сравнений (Comparison Pages — высокий CTR):
+#### Страницы сравнений (Comparison Pages, высокий CTR):
 ```
 /comparison/cifrovaya-vs-ofsetnaya/
 /comparison/roll-up-vs-h-banner/
@@ -344,7 +344,7 @@ Keys.so, Serpstat, кластеризация через LDA и BERT.
 
 ```
 ГЛАВНАЯ (/)
-├── H1: Типография «Цифра» — печать в Ижевске
+├── H1: Типография «Цифра» - печать в Ижевске
 ├── Блок «Услуги» → ссылки на 7 основных разделов каталога
 ├── Блок «Популярное» → топ-5 товарок (визитки, календари, кружки, стенды, чертежи)
 ├── Блок «Статьи» → 3 последние экспертные статьи
@@ -388,12 +388,12 @@ Keys.so, Serpstat, кластеризация через LDA и BERT.
 
 ## 📋 Экспорты
 
-- `exports/top_queries_by_cluster.csv` — 535 строк выгрузки панели с
+- `exports/top_queries_by_cluster.csv`, 535 строк выгрузки панели с
   Avg_Position, показами и кликами. Кластер проставляет
   `build_wm_data.py`, в самом CSV из панели он не заполнен.
-- `reports/cifra18-audit/js/wm-data.js` — источник чисел в таблице выше
-- `reports/cifra18-audit/pages/wm-clusters.html` — та же таблица на сайте
-- `topvisor/exports/import_queries.csv` — 627 фраз в 24 группах к импорту,
+- `reports/cifra18-audit/js/wm-data.js`, источник чисел в таблице выше
+- `reports/cifra18-audit/pages/wm-clusters.html`, та же таблица на сайте
+- `topvisor/exports/import_queries.csv`, 627 фраз в 24 группах к импорту,
   с целевыми страницами и отметкой, что уже есть в проекте
 
 ---

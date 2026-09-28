@@ -1,4 +1,4 @@
-# ЦИФРА18 Knowledge Graph — Main Index
+# ЦИФРА18 Knowledge Graph: Main Index
 
 ## Overview
 Complete knowledge graph for Типография «Цифра» (цифра18.рф, Ижевск) covering all services, products, materials, equipment, locations, competitors, industries, intents, and relationships across the Russian market.

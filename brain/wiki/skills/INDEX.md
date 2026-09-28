@@ -1,4 +1,4 @@
-# Skills Index — ЦИФРА18
+# Skills Index: ЦИФРА18
 
 **Last updated:** 2026-09-10  
 **Project skill:** `cifra18-seo` (`.claude/skills/cifra18-seo/SKILL.md`)
@@ -94,7 +94,7 @@
 | `landing-builder` | Отдельные лендинги под кампании | ⏳ Planned |
 | `site-architecture` | Пересмотр ИА при масштабировании | ⏳ Planned |
 | `seo-page-sections` | Блоковый аудит underperforming страниц | ⏳ Planned |
-| `seo-hreflang` | Не нужен (только ru-RU) | — |
+| `seo-hreflang` | Не нужен (только ru-RU) | н/д |
 | `seo-migration-check` | Если миграция CMS/домена | ⏳ Planned |
 
 ---

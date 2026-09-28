@@ -1,4 +1,4 @@
-# GEO Baseline — 2026-09-11
+# GEO Baseline: 2026-09-11
 
 **Base URL:** https://xn--18-6kc5a3bxam.xn--p1ai
 **Pages analyzed:** 8

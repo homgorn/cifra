@@ -1,4 +1,4 @@
-# Pricing Strategy — ЦИФРА18 Merch
+# Pricing Strategy: ЦИФРА18 Merch
 
 **Date:** 2026-09-12  
 **Goal:** Maximize margin while maintaining competitive position vs Printio, RuPrint, Printful
@@ -19,7 +19,7 @@
 
 ## 💰 Pricing Tiers
 
-### Tier 1: Starter (100-500 руб) — Margin Target: 60-70%
+### Tier 1: Starter (100-500 руб), Margin Target: 60-70%
 *Impulse buys, add-ons, lead magnets*
 
 | Product | Cost | Price | Margin | Volume Strategy |
@@ -35,7 +35,7 @@
 
 ---
 
-### Tier 2: Core (500-2000 руб) — Margin Target: 50-60%
+### Tier 2: Core (500-2000 руб), Margin Target: 50-60%
 *Core merch, regular repeat purchases*
 
 | Product | Cost | Price | Margin | Volume Strategy |
@@ -56,8 +56,8 @@
 
 ---
 
-### Tier 3: Apparel (500-3000 руб) — Margin Target: 40-50%
-*Apparel — главные драйверы LTV и бренда*
+### Tier 3: Apparel (500-3000 руб), Margin Target: 40-50%
+*Apparel: главные драйверы LTV и бренда*
 
 | Product | Cost | Price | Margin | Tech |
 |---|---|---|---|---|
@@ -79,7 +79,7 @@
 
 ---
 
-### Tier 4: Premium (3000-8000 руб) — Margin Target: 35-45%
+### Tier 4: Premium (3000-8000 руб), Margin Target: 35-45%
 *High-ticket items, high perceived value*
 
 | Product | Cost | Price | Margin |
@@ -96,7 +96,7 @@
 
 ---
 
-### Tier 5: Premium Boxes & Kits (5,000-15,000 руб) — Margin Target: 30-40%
+### Tier 5: Premium Boxes & Kits (5,000-15,000 руб), Margin Target: 30-40%
 *High-value bundles, corporate gifting*
 
 | Kit | Contents | Cost | Price | Margin |

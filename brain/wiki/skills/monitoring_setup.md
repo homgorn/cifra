@@ -1,4 +1,4 @@
-# Авто-аудит и мониторинг — ЦИФРА18
+# Авто-аудит и мониторинг: ЦИФРА18
 ## SEO Drift + GEO Tracking + Rankings + Technical Health
 
 **Цель:** Непрерывный контроль здоровья сайта, раннее обнаружение регрессий, измерение ROI SEO/GEO инвестиций.
@@ -14,24 +14,24 @@
 │  DATA SOURCES                                               │
 │  ├── Яндекс.Метрика (API / Logs API)                        │
 │  ├── Топвизор (API v2)                                      │
-│   │   ├── Google Search Console (API) — когда появится      │
+│ │ ├── Google Search Console (API) - когда появится │
 │  ├── Яндекс.Вебмастер (API / экспорт)                       │
 │  ├── Серверные логи (Nginx/Apache access.log)               │
 │  ├── Bitrix (sitemap, каталог, ошибки)                      │
 │  └── WP поддомен (WP REST API / sitemap)                    │
 ├─────────────────────────────────────────────────────────────┤
 │  COLLECTORS (Python scripts, cron / systemd timers)         │
-│  ├── drift_monitor.py        — ежедневно                    │
-│  ├── geo_tracker.py          — еженедельно                  │
-│  ├── rankings_pull.py        — ежедневно (Топвизор)         │
-│  ├── tech_health.py          — ежедневно                    │
-│  ├── log_analyzer.py         — ежедневно                    │
-│  └── content_inventory.py    — еженедельно                  │
+│ ├── drift_monitor.py - ежедневно │
+│ ├── geo_tracker.py - еженедельно │
+│ ├── rankings_pull.py - ежедневно (Топвизор) │
+│ ├── tech_health.py - ежедневно │
+│ ├── log_analyzer.py - ежедневно │
+│ └── content_inventory.py - еженедельно │
 ├─────────────────────────────────────────────────────────────┤
 │  STORAGE                                                    │
-│  ├── SQLite / DuckDB (локально) — метрики, история          │
-│  ├── JSON/Parquet (экспорты) — для BI                       │
-│  └── Git (brain/wiki/audits/) — отчёты и baseline'ы         │
+│ ├── SQLite / DuckDB (локально) - метрики, история │
+│ ├── JSON/Parquet (экспорты) - для BI │
+│ └── Git (brain/wiki/audits/) - отчёты и baseline'ы │
 ├─────────────────────────────────────────────────────────────┤
 │  ALERTING                                                   │
 │  ├── Telegram Bot (критические алерты)                      │
@@ -39,7 +39,7 @@
 │  └── GitHub Issues (тех. долги)                             │
 ├─────────────────────────────────────────────────────────────┤
 │  DASHBOARDS                                                 │
-│  ├── Grafana (метрики) — опционально                        │
+│ ├── Grafana (метрики) - опционально │
 │  ├── Markdown отчёты (brain/wiki/audits/monitoring/)        │
 │  └── Notion / Google Sheets (KPI трекинг)                   │
 └─────────────────────────────────────────────────────────────┘
@@ -125,14 +125,14 @@ async def main():
     for r in results:
         failed = [k for k, v in r['checks'].items() if not v]
         if failed:
-            send_alert(f"Tech Health FAIL: {r['url']} — {', '.join(failed)}")
+ send_alert(f"Tech Health FAIL: {r['url']} - {', '.join(failed)}")
 ```
 
 ### 2. `scripts/monitoring/drift_monitor.py`
 ```python
 #!/usr/bin/env python3
 """
-SEO Drift Monitor — сравнивает текущие SEO-элементы с baseline
+SEO Drift Monitor - сравнивает текущие SEO-элементы с baseline
 Baseline хранится в data/baseline/seo_elements.json
 """
 import json
@@ -200,7 +200,7 @@ def main():
     
     # Markdown summary
     with open(REPORT_DIR / f"drift_report_{date_str}.md", 'w') as f:
-        f.write(f"# SEO Drift Report — {date_str}\n\n")
+ f.write(f"# SEO Drift Report - {date_str}\n\n")
         f.write(f"- Baseline pages: {report['total_pages_baseline']}\n")
         f.write(f"- Current pages: {report['total_pages_current']}\n")
         f.write(f"- Changed: {report['changed_pages']}\n")
@@ -228,7 +228,7 @@ def main():
 ```python
 #!/usr/bin/env python3
 """
-GEO Tracking — измерение AI visibility
+GEO Tracking - измерение AI visibility
 Использует: GA4 (AI traffic channel), брендовые упоминания, citability score
 """
 import asyncio
@@ -327,7 +327,7 @@ def main():
 ```python
 #!/usr/bin/env python3
 """
-Server Log Analysis — crawl budget, боты, ошибки
+Server Log Analysis - crawl budget, боты, ошибки
 Читает Nginx access.log (или Apache)
 """
 import re
@@ -370,7 +370,7 @@ def main():
             parsed = parse_log_line(line)
             if not parsed:
                 continue
-            # Фильтр по времени (упрощённо — последние N строк)
+ # Фильтр по времени (упрощённо - последние N строк)
             stats["total"] += 1
             bot = identify_bot(parsed["ua"])
             stats["by_bot"][bot] += 1
@@ -401,7 +401,7 @@ def main():
     if stats["by_status"].get(500, 0) > 10:
         send_alert(f"High 5xx rate: {stats['by_status'][500]} errors in 24h")
     if stats["by_bot"].get("Googlebot", 0) < 100:
-        send_alert("Low Googlebot crawl — check robots.txt, sitemap, server health")
+ send_alert("Low Googlebot crawl - check robots.txt, sitemap, server health")
 ```
 
 ---
@@ -434,7 +434,7 @@ def send_alert(message: str, level: str = "warning"):
 
 ### Еженедельный отчёт (Markdown → brain/wiki/audits/monitoring/weekly_YYYY-MM-DD.md)
 ```markdown
-# Weekly SEO/GEO Monitor — Week of YYYY-MM-DD
+# Weekly SEO/GEO Monitor - Week of YYYY-MM-DD
 
 ## 📈 Traffic & Rankings
 - Органический трафик (Метрика): X (+Y% WoW)
@@ -489,7 +489,7 @@ cp data/processed/monitoring/drift_latest.json data/baseline/seo_elements.json
 
 ### Baseline Update Policy
 - **Auto-update:** Новые страницы добавляются в baseline автоматически
-- **Manual review:** Изменения в canonical/H1/meta/schema — требуют ручного подтверждения перед обновлением baseline
+- **Manual review:** Изменения в canonical/H1/meta/schema: требуют ручного подтверждения перед обновлением baseline
 - **Quarterly:** Полная перебазировка после крупных релизов
 
 ---
@@ -605,4 +605,4 @@ LOG_PATH=/var/log/nginx/access.log
 
 ---
 
-*Мониторинг — это страховка. Настройка займёт 1-2 дня, а сэкономит недели поиска причин падений.*
+*Мониторинг: это страховка. Настройка займёт 1-2 дня, а сэкономит недели поиска причин падений.*

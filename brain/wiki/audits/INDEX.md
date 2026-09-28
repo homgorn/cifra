@@ -1,4 +1,4 @@
-# Audits Index — ЦИФРА18
+# Audits Index: ЦИФРА18
 
 **Last updated:** 2026-09-10  
 **Total audits:** 3 (baseline) + planned + scripts ready
@@ -12,13 +12,13 @@
 | 2026-09-10 | SEO+GEO Full (seo-geo-audit skill) | `AUDIT_REPORT.md` | ✅ Готов | 5 Blocking, 12 High, 10 Quick wins |
 | 2026-09-10 | Plain Language (Template B) | `AUDIT_REPORT_EMAIL.md` | ✅ Готов | Для владельца, без терминов |
 | 2026-09-10 | Raw Collector Data | `SEED_DATA.md` | ✅ Готов | 3 страницы, collector output |
-| — | Phase 0 Fixes Tracking | `phase0_fixes.md` | ⏳ План | Трекинг 5 Blocking fixes |
-| — | Full Service Audit (300+) | `full_service_audit.md` | 🔄 Скрипт готов | Каталог целиком (`full_catalog_audit.py`) |
-| — | Content Audit (290 articles) | `content_audit_290.md` | 🔄 Скрипт готов | 290 статей под ключи/интент (`articles_audit.py`) |
-| — | GEO Baseline | `geo_baseline.md` | 🔄 Скрипт готов | AI visibility baseline (`geo_baseline.py`) |
-| — | SEO Drift Baseline | `drift_baseline.md` | 🔄 Скрипт готов | SEO elements baseline (`drift_monitor.py --baseline`) |
-| — | Content Quality Gate | `content_quality_report.md` | 🔄 Скрипт готов | Pre-publish QA (`content_quality_gate.py`) |
-| — | Entity Extraction | `entities_extracted.md` | 🔄 Скрипт готов | Сущности для GEO (`entity_extractor.py`) |
+| н/д | Phase 0 Fixes Tracking | `phase0_fixes.md` | ⏳ План | Трекинг 5 Blocking fixes |
+| н/д | Full Service Audit (300+) | `full_service_audit.md` | 🔄 Скрипт готов | Каталог целиком (`full_catalog_audit.py`) |
+| н/д | Content Audit (290 articles) | `content_audit_290.md` | 🔄 Скрипт готов | 290 статей под ключи/интент (`articles_audit.py`) |
+| н/д | GEO Baseline | `geo_baseline.md` | 🔄 Скрипт готов | AI visibility baseline (`geo_baseline.py`) |
+| н/д | SEO Drift Baseline | `drift_baseline.md` | 🔄 Скрипт готов | SEO elements baseline (`drift_monitor.py --baseline`) |
+| н/д | Content Quality Gate | `content_quality_report.md` | 🔄 Скрипт готов | Pre-publish QA (`content_quality_gate.py`) |
+| н/д | Entity Extraction | `entities_extracted.md` | 🔄 Скрипт готов | Сущности для GEO (`entity_extractor.py`) |
 
 ---
 
@@ -38,7 +38,7 @@
 
 | Report | Frequency | Description | Script |
 |---|---|---|---|
-| `weekly_YYYY-MM-DD.md` | Weekly (Mon) | Traffic, rankings, GEO, technical health, content, action items | — |
+| `weekly_YYYY-MM-DD.md` | Weekly (Mon) | Traffic, rankings, GEO, technical health, content, action items | н/д |
 | `monthly_YYYY-MM.md` | Monthly (1st) | Full Template A+B, ROI, next month plan | `full_audit.py` |
 | `drift_report_YYYY-MM-DD.md` | Daily | SEO element changes (titles, H1, meta, canonical, schema) | `drift_monitor.py` |
 | `geo_report_YYYY-MM-DD.md` | Weekly | AI visibility, brand mentions, citability score | `geo_tracker.py` |
@@ -85,7 +85,7 @@
 
 ### Ежемесячно
 - [ ] SEO drift monitoring (daily auto via `drift_monitor.py`)
-- [ ] GSC insights (seo-gsc-* skills — когда появится доступ)
+- [ ] GSC insights (seo-gsc-* skills: когда появится доступ)
 - [ ] GEO tracking (weekly auto via `geo_tracker.py`)
 - [ ] Full re-audit квартально (seo-geo-audit skill)
 
@@ -127,3 +127,4 @@ audits/
     ├── tech_health_report_YYYY-MM-DD.md
     └── content_inventory_YYYY-MM-DD.md
 ```
+Проверка пункта один и пункт два.

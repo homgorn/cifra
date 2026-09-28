@@ -12,7 +12,7 @@
 |---|---|---|
 | **Impact (Влияние)** | Насколько действие сдвинет трафик/позиции/лиды | 40% |
 | **Confidence (Уверенность)** | Насколько мы уверены в результате (данные Вебмастера) | 30% |
-| **Ease (Лёгкость)** | 1/Трудоёмкость (обратная) — чем легче, тем выше | 30% |
+| **Ease (Лёгкость)** | 1/Трудоёмкость (обратная): чем легче, тем выше | 30% |
 
 **ICE Score = (Impact × 0.4) + (Confidence × 0.3) + (Ease × 0.3) × 10** → 0-100
 
@@ -34,8 +34,8 @@
 | 9 | REDIRECT_NOTSEARCHABLE: аудит и убрать цепочки (89 URL) | 8 | 8 | 5 | **7.1** | Major Project | Dev/SEO | Неделя 2 |
 | 10 | HTTP_ERROR: 13 страниц → 410/полезная 404 | 7 | 9 | 8 | **7.9** | Quick Win | Dev | Неделя 1 |
 | 11 | Изображения: WebP, lazyload, width/height, <200KB | 7 | 8 | 6 | **7.0** | Major Project | Dev | Неделя 2 |
-| 12 | BAD_QUALITY: 22 страницы — добавить контент/удалить | 6 | 7 | 5 | **6.0** | Fill-in | Content/SEO | Неделя 3 |
-| 13 | OTHER: 72 страницы — запросить переобход приоритетных | 5 | 6 | 7 | **5.9** | Fill-in | SEO | Неделя 2 |
+| 12 | BAD_QUALITY: 22 страницы: добавить контент/удалить | 6 | 7 | 5 | **6.0** | Fill-in | Content/SEO | Неделя 3 |
+| 13 | OTHER: 72 страницы: запросить переобход приоритетных | 5 | 6 | 7 | **5.9** | Fill-in | SEO | Неделя 2 |
 | 14 | IndexNow API настройка | 6 | 8 | 7 | **6.9** | Quick Win | Dev/SEO | Неделя 1 |
 | 15 | GA4 + GSC + Bing Webmaster подключение | 8 | 9 | 6 | **7.7** | Major Project | SEO | Неделя 1 |
 | **CONTENT & LANDING PAGES** |
@@ -161,10 +161,10 @@
 
 ## 📋 Экспорты
 
-- `exports/priority_matrix_full.csv` — полная таблица с ICE
-- `exports/sprint_backlog.csv` — задачи по спринтам
-- `exports/resource_plan.xlsx` — ресурсный план
-- `exports/kpi_tracker.xlsx` — трекер KPI по неделям
+- `exports/priority_matrix_full.csv`, полная таблица с ICE
+- `exports/sprint_backlog.csv`, задачи по спринтам
+- `exports/resource_plan.xlsx`, ресурсный план
+- `exports/kpi_tracker.xlsx`, трекер KPI по неделям
 
 ---
 

@@ -1,4 +1,4 @@
-# SEO Programmatic Plan — ЦИФРА18 Merch
+# SEO Programmatic Plan: ЦИФРА18 Merch
 
 **Date:** 2026-09-12  
 **Goal:** Deploy 200+ programmatic pages for merch + 200 for core services
@@ -75,7 +75,7 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <title>{Service} в {City} — цены, сроки, доставка СДЭК | Цифра18</title>
+ <title>{Service} в {City} - цены, сроки, доставка СДЭК | Цифра18</title>
   <meta name="description" content="{Service} в {City} от Цифра18: цены от {price}₽, сроки от 1 часа, доставка СДЭК по России. Калькулятор онлайн.">
   <link rel="canonical" href="https://cifra18.ru/services/{service}-{city}/" />
   
@@ -110,7 +110,7 @@
 </head>
 <body>
   <!-- Hero -->
-  <h1>{Service} в {City} — цены, сроки, заказать онлайн</h1>
+ <h1>{Service} в {City} - цены, сроки, заказать онлайн</h1>
   <p class="lead">Профессиональная {service} в {city} с доставкой СДЭК по России. Калькулятор онлайн, сроки от 1 часа.</p>
   
   <!-- Calculator Embed -->
@@ -119,10 +119,10 @@
   <!-- Benefits -->
   <h2>Почему выбирают Цифру18 для {service} в {city}</h2>
   <ul class="benefits">
-    <li>Собственное производство в Ижевске — контроль качества</li>
-    <li>Цены ниже маркетплейсов — без посредников</li>
-    <li>СДЭК доставка по России — 1-3 дня</li>
-    <li>Калькулятор онлайн — точная стоимость за 30 сек</li>
+ <li>Собственное производство в Ижевске - контроль качества</li>
+ <li>Цены ниже маркетплейсов - без посредников</li>
+ <li>СДЭК доставка по России - 1-3 дня</li>
+ <li>Калькулятор онлайн - точная стоимость за 30 сек</li>
     <li>Помощь с макетом бесплатно</li>
   </ul>
   
@@ -141,7 +141,7 @@
     <details itemprop="mainEntity" itemtype="https://schema.org/Question">
       <summary itemprop="name">Какие сроки доставки в {city}?</summary>
       <div itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-        <p itemprop="text">СДЭК доставка 1-3 дня. Самовывоз из Ижевска — 1 час.</p>
+ <p itemprop="text">СДЭК доставка 1-3 дня. Самовывоз из Ижевска - 1 час.</p>
       </div>
     </details>
     <details itemprop="mainEntity" itemtype="https://schema.org/Question">

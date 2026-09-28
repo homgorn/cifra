@@ -1,4 +1,4 @@
-# Monitoring Index — ЦИФРА18
+# Monitoring Index: ЦИФРА18
 
 **Last updated:** 2026-09-10
 
@@ -11,20 +11,20 @@ MONITORING STACK
 ├── DATA SOURCES
 │   ├── Яндекс.Метрика (API / Logs API)
 │   ├── Топвизор (API v2)
-│   ├── Google Search Console (API) — когда доступ
+│ ├── Google Search Console (API) - когда доступ
 │   ├── Яндекс.Вебмастер (API / экспорт)
 │   ├── Серверные логи (Nginx access.log)
 │   ├── Bitrix (sitemap, каталог, ошибки)
 │   └── WP поддомен (WP REST API / sitemap)
 ├── COLLECTORS (Python scripts, systemd timers)
-│   ├── tech_health.py        — Daily 03:00 ✅
-│   ├── drift_monitor.py      — Daily 04:00 ✅
-│   ├── rankings_pull.py      — Daily 05:00 ✅
-│   ├── log_analyzer.py       — Daily 06:00 ✅
-│   ├── geo_tracker.py        — Weekly Mon 07:00 ✅
-│   ├── content_inventory.py  — Weekly Tue 07:00 ✅
-│   ├── full_audit.py         — Monthly 1st 02:00 ✅
-│   └── alerts.py             — Telegram/Email алерты ✅
+│ ├── tech_health.py - Daily 03:00 ✅
+│ ├── drift_monitor.py - Daily 04:00 ✅
+│ ├── rankings_pull.py - Daily 05:00 ✅
+│ ├── log_analyzer.py - Daily 06:00 ✅
+│ ├── geo_tracker.py - Weekly Mon 07:00 ✅
+│ ├── content_inventory.py - Weekly Tue 07:00 ✅
+│ ├── full_audit.py - Monthly 1st 02:00 ✅
+│ └── alerts.py - Telegram/Email алерты ✅
 ├── STORAGE
 │   ├── DuckDB (data/processed/monitoring/monitoring.duckdb)
 │   ├── JSONL/JSON (data/processed/monitoring/)
@@ -221,4 +221,4 @@ def send_alert(message: str, level: AlertLevel = AlertLevel.WARNING, create_issu
 
 ---
 
-*Мониторинг — это страховка. Настройка займёт 1-2 дня, а сэкономит недели поиска причин падений.*
+*Мониторинг: это страховка. Настройка займёт 1-2 дня, а сэкономит недели поиска причин падений.*

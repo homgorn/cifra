@@ -1,4 +1,4 @@
-# Cross-Sell Matrix — ЦИФРА18 Merch
+# Cross-Sell Matrix: ЦИФРА18 Merch
 
 **Date:** 2026-09-12  
 **Purpose:** Автоматические рекомендации в калькуляторе, корзине, email-последовательностях

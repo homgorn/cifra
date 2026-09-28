@@ -8,14 +8,14 @@
 
 ## 🔴 КРИТИЧНЫЕ (Блокируют индексацию)
 
-### 1. Sitemap — все 23 URL возвращают 404
-**Данные Вебмастера:** `/shop/` раздел — 388 индексировано, 0 загружено, 24 в поиске. Робот не может получить sitemap.
+### 1. Sitemap: все 23 URL возвращают 404
+**Данные Вебмастера:** `/shop/` раздел, 388 индексировано, 0 загружено, 24 в поиске. Робот не может получить sitemap.
 **Фикс:** Включить генерацию sitemap в Bitrix, путь `/sitemap.xml` (не `/shop/`), обновить robots.txt
 **Файлы:** `.settings.php`, `/bitrix/php_interface/init.php`, агент `CSitemap::Generate()`
 **Дедлайн:** День 1
 
 ### 2. Canonical отсутствует на всех страницах
-**Данные Вебмастера:** 128 DUPLICATE страниц — Яндекс не знает оригиналы. Параметрические URL (`detail.php?ID=`), слеши, UTM.
+**Данные Вебмастера:** 128 DUPLICATE страниц: Яндекс не знает оригиналы. Параметрические URL (`detail.php?ID=`), слеши, UTM.
 **Фикс:** Глобальный `rel=canonical` в `header.php` + `Clean-param` в robots.txt
 ```php
 // header.php
@@ -36,12 +36,12 @@ Clean-param: utm_campaign /catalog/
 ```
 **Дедлайн:** День 1
 
-### 3. PARSE_ERROR — 251 страница (35%)
+### 3. PARSE_ERROR: 251 страница (35%)
 **Паттерны:**
-- `/shop/110177348` — 1 URL (но 23 sitemap файла /shop/)
-- `/123456789.html` — ~200 URL (старые ID товаров, битриксовый мусор)
-- `/catalog/detail.php?ID=XXX` — ~30 URL (старый каталог, параметрические)
-- `/1229-2/` — «Сайт заблокирован хостинг-провайдером»
+- `/shop/110177348`, 1 URL (но 23 sitemap файла /shop/)
+- `/123456789.html`, ~200 URL (старые ID товаров, битриксовый мусор)
+- `/catalog/detail.php?ID=XXX`, ~30 URL (старый каталог, параметрические)
+- `/1229-2/`, «Сайт заблокирован хостинг-провайдером»
 
 **Фиксы по приоритету:**
 | Приоритет | Паттерн | Действие | Где |
@@ -53,7 +53,7 @@ Clean-param: utm_campaign /catalog/
 
 **Дедлайн:** Неделя 1
 
-### 4. HTTP_ERROR — 13 страниц (404/5xx)
+### 4. HTTP_ERROR: 13 страниц (404/5xx)
 **Пример:** `/brendirovanie-avtomobilej-pishite-https-vk-com-cifraprint18-zvonite-79658423241/` → 404
 **Фикс:** 
 - 404 страницы → 410 Gone если удалены навсегда
@@ -65,7 +65,7 @@ Clean-param: utm_campaign /catalog/
 
 ## 🟠 ВЫСОКИЕ (Снижают качество индекса)
 
-### 5. REDIRECT_NOTSEARCHABLE — 89 страниц
+### 5. REDIRECT_NOTSEARCHABLE: 89 страниц
 **Проблема:** Цепочки редиректов (A→B→C), редиректы на нерелевантные страницы, потеря веса.
 **Примеры из events.csv:**
 ```
@@ -81,9 +81,9 @@ Clean-param: utm_campaign /catalog/
 
 **Фикс:**
 1. Аудит всех редиректов (Screaming Frog / Netpeak Spider)
-2. Убрать цепочки — прямой 301 на финальный URL
-3. Редиректы с `detail.php` на SEF — карта соответствия ID → SEF URL
-4. Редиректы дублирующих категорий — объединить структуру, оставить одну
+2. Убрать цепочки: прямой 301 на финальный URL
+3. Редиректы с `detail.php` на SEF: карта соответствия ID → SEF URL
+4. Редиректы дублирующих категорий: объединить структуру, оставить одну
 **Дедлайн:** Неделя 2
 
 ### 6. Шаблонные title/meta на SEARCHABLE страницах
@@ -102,7 +102,7 @@ Clean-param: utm_campaign /catalog/
 - `title` = `[Название] в Ижевске: цены, заказать онлайн | Типография Цифра`
 **Дедлайн:** Неделя 1 (параллельно с canonical)
 
-### 7. BAD_QUALITY / LOW_DEMAND — 22 страницы
+### 7. BAD_QUALITY / LOW_DEMAND: 22 страницы
 **Причина:** Тонкий контент, дубликаты, отсутствие E-E-A-T.
 **Кандидаты (по patterns):**
 - Страницы товаров без описания (только фото + цена)
@@ -120,7 +120,7 @@ Clean-param: utm_campaign /catalog/
 
 ## 🟡 СРЕДНИЕ (Улучшают качество)
 
-### 8. OTHER — 72 страницы (нет актуальных данных)
+### 8. OTHER: 72 страницы (нет актуальных данных)
 **Причина:** Робот давно не обходил, низкий приоритет, новые страницы.
 **Фикс:**
 1. Проверить внутренние ссылки на эти страницы
@@ -131,11 +131,11 @@ Clean-param: utm_campaign /catalog/
 ### 9. Отсутствие JSON-LD Schema
 **Данные:** 0 страниц с Schema (по аудиту). Вебмастер не показывает структурированные данные.
 **Фикс:** Развернуть шаблоны (см. `bitrix_phase0_fixes.md`):
-- Organization + LocalBusiness — header.php / footer.php
-- BreadcrumbList — компонент навигации
-- Product + Offer + AggregateRating — catalog.element template
-- Article — news.detail template
-- ItemList / CollectionPage — catalog.section template
+- Organization + LocalBusiness: header.php / footer.php
+- BreadcrumbList: компонент навигации
+- Product + Offer + AggregateRating: catalog.element template
+- Article: news.detail template
+- ItemList / CollectionPage: catalog.section template
 **Дедлайн:** Неделя 1-2
 
 ### 10. Изображения: нет lazyload, width/height, WebP
@@ -148,13 +148,13 @@ Clean-param: utm_campaign /catalog/
 - width/height: прописать в компонентах
 **Дедлайн:** Неделя 2
 
-### 11. em-dash (—) везде вместо запятых
+### 11. em-dash (: ) везде вместо запятых
 **Данные аудита:** em-dash на главной (3), визитки (2), новости (19)
 **Фикс:** Глобальная замена в шаблонах, компонентах, инфоблоках:
 ```php
 // В result_modifier.php или init.php
-$text = str_replace('—', ', ', $text);
-$text = str_replace(' — ', ', ', $text);
+$text = str_replace('-', ', ', $text);
+$text = str_replace(' - ', ', ', $text);
 ```
 **Дедлайн:** Неделя 1 (Quick Win)
 
@@ -239,4 +239,4 @@ python monitor_indexing.py --check-all
 
 ---
 
-*Технические фиксы приоритизированы по данным Вебмастера. Выполнять последовательно — каждый фикс открывает доступ к следующему уровню оптимизации.*
+*Технические фиксы приоритизированы по данным Вебмастера. Выполнять последовательно: каждый фикс открывает доступ к следующему уровню оптимизации.*

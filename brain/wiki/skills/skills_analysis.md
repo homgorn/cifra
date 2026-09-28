@@ -1,4 +1,4 @@
-# Skills Analysis — ЦИФРА18 SEO+GEO Project
+# Skills Analysis: ЦИФРА18 SEO+GEO Project
 
 **Date:** 2026-09-11  
 **Method:** Full inventory of available skills (200+ skills) mapped to project phases
@@ -7,12 +7,12 @@
 
 ## 🎯 Project Skill Map (4 Phases)
 
-### Phase 0: Foundation (Week 1-2) — **BLOCKING**
+### Phase 0: Foundation (Week 1-2), **BLOCKING**
 
 | Skill | Source | Status | Why Critical |
 |---|---|---|---|
 | `seo-technical` | opencode | ✅ Active | Sitemap 404, canonical, robots, AI bots, JS rendering, CWV |
-| `seo-schema-markup` | opencode | ✅ Active | Zero JSON-LD — need Organization, LocalBusiness, Product, Article, BreadcrumbList |
+| `seo-schema-markup` | opencode | ✅ Active | Zero JSON-LD: need Organization, LocalBusiness, Product, Article, BreadcrumbList |
 | `seo-geo-audit` | opencode | ✅ Active | Baseline + re-audit after fixes |
 | `verification-before-completion` | claude | ✅ Active | Every fix must be verified |
 
@@ -92,7 +92,7 @@
 
 | Skill | Source | Status | Why Needed |
 |---|---|---|---|
-| `smm_plan` | local | ✅ Ready | Дзен, ВК, Shorts/Клипы — brand signals for GEO |
+| `smm_plan` | local | ✅ Ready | Дзен, ВК, Shorts/Клипы: brand signals for GEO |
 | `platform-vk` | claude | 🔄 Planned | Main B2C channel in Ижевск |
 | `platform-youtube` | claude | 🔄 Planned | Video: production tours, how-to, cases |
 | `video-scripter` / `reels-creator` | claude | 🔄 Planned | Shorts/Клипы scripts |

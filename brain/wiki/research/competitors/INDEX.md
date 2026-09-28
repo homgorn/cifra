@@ -1,4 +1,4 @@
-# Competitors Index — ЦИФРА18
+# Competitors Index: ЦИФРА18
 
 **Last updated:** 2026-09-11
 
@@ -49,7 +49,7 @@ competitors/
 
 ## 🏆 Competitive Landscape Summary (from deep_analysis.md)
 
-### Tier 1: Local (Ижевск/Удмуртия) — 5 ключевых игроков
+### Tier 1: Local (Ижевск/Удмуртия), 5 ключевых игроков
 | Competitor | Strength | Weakness | ЦИФРА Advantage |
 |---|---|---|---|
 | Принт-Экспресс | Speed 1hr, location | No wide-format, no merch, no SDEK | Full catalog, merch, SDEK |
@@ -58,7 +58,7 @@ competitors/
 | Удмуртпечать | Gov contracts | Old equipment, no digital | Modern + calculator |
 | Максимум | Wide-format | No small-run, no calculator | Calculator + full range |
 
-### Tier 2: Federal (Russia-wide, SDEK-enabled) — 3 ключевых игрока
+### Tier 2: Federal (Russia-wide, SDEK-enabled), 3 ключевых игрока
 | Competitor | Model | Threat | ЦИФРА Counter |
 |---|---|---|---|
 | **Printio** | POD Marketplace | 🔴 HIGH (merch) | Full-service: offset + wide + engineering + consulting |

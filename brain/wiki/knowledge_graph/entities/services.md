@@ -1,4 +1,4 @@
-# Entities Index — ЦИФРА18 Knowledge Graph
+# Entities Index: ЦИФРА18 Knowledge Graph
 
 **Last updated:** 2026-09-12  
 **Status:** Building from catalog data + competitor analysis

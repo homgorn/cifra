@@ -1,4 +1,4 @@
-# Merch Marketing Deep Research — ЦИФРА18
+# Merch Marketing Deep Research: ЦИФРА18
 
 **Date:** 2026-09-12  
 **Status:** Deep Research Complete  
@@ -42,7 +42,7 @@
 ## 🚀 Marketing Opportunities
 
 ### 1. Product-Led Growth
-- **Конструктор мерча на сайте** (как Printio) — Drag&Drop редактор для B2B
+- **Конструктор мерча на сайте** (как Printio): Drag&Drop редактор для B2B
 - **Калькулятор мерча с мгновенным расчетом + СДЭК**
 - **Онлайн-редактор макетов для мерча** (Drag&Drop как Printio)
 - **API для B2B партнеров** (агентства, франчайзи, HR-бренды)
@@ -201,14 +201,14 @@ Services (10): мерч с логотипом, футболки с логоти�
 
 ## 🎯 Quick Wins (First 30 Days)
 
-1. **Launch Merch Calculator** — интегрировать СДЭК тарифы в калькулятор
-2. **Create 10 Merch Landing Pages** — Service×City для топ-10 городов × топ-3 услуги
-2. **Build Merch Bundles** — 5 стартовых наборов (Startup Kit, Remote Kit, Event Kit, Gift Box, VIP Box)
-3. **Create 10 Comparison Pages** — "Футболка vs Худи", "Кружка vs Термос", "Рюкзак vs Сумка-тота"
-4. **Build HR Merch Landing** — "Welcome Kits для онбординга"
-4. **Create Email Sequences** — Welcome, Quote Nurture, Post-Order, Re-engagement
-5. **Set up Review Generation** — автоматические просьбы об отзывах после доставки
-6. **Set up Referral Program** — "Приведи клиента → 500₽ на счету"
+1. **Launch Merch Calculator**: интегрировать СДЭК тарифы в калькулятор
+2. **Create 10 Merch Landing Pages**: Service×City для топ-10 городов × топ-3 услуги
+2. **Build Merch Bundles**: 5 стартовых наборов (Startup Kit, Remote Kit, Event Kit, Gift Box, VIP Box)
+3. **Create 10 Comparison Pages**: "Футболка vs Худи", "Кружка vs Термос", "Рюкзак vs Сумка-тота"
+4. **Build HR Merch Landing**: "Welcome Kits для онбординга"
+4. **Create Email Sequences**: Welcome, Quote Nurture, Post-Order, Re-engagement
+5. **Set up Review Generation**: автоматические просьбы об отзывах после доставки
+6. **Set up Referral Program**: "Приведи клиента → 500₽ на счету"
 
 ---
 

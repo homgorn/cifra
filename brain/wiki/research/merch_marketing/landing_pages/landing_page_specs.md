@@ -1,4 +1,4 @@
-# Landing Pages Specs — ЦИФРА18 Merch
+# Landing Pages Specs: ЦИФРА18 Merch
 
 **Date:** 2026-09-12  
 **Purpose:** Technical specifications for merch landing pages (Service×City, Category, Bundle, Comparison)
@@ -149,15 +149,15 @@
 
 ## 📋 Page Specifications by Type
 
-### 1. Service×City Page (Merch) — `ServiceCityMerch`
+### 1. Service×City Page (Merch): `ServiceCityMerch`
 
 | Element | Specification |
 |---|---|
 | **URL Pattern** | `/services/merch-{service}-{city}/` |
-| **H1** | `{Service} в {City} — цены, сроки, доставка СДЭК | Цифра18` |
-| **Title Tag** | `{Service} в {City} — цены, сроки, доставка СДЭК | Цифра18` (≤60 chars) |
+| **H1** | `{Service} в {City}: цены, сроки, доставка СДЭК | Цифра18` |
+| **Title Tag** | `{Service} в {City}: цены, сроки, доставка СДЭК | Цифра18` (≤60 chars) |
 | **Meta Description** | `{Service} в {City} от Цифра18: цены от {price}₽, сроки от 1 часа, доставка СДЭК по России. Калькулятор онлайн.` (120-160 chars) |
-| **H1** | `{Service} в {City} — цены, сроки, доставка СДЭК` |
+| **H1** | `{Service} в {City}: цены, сроки, доставка СДЭК` |
 | **Schema.org** | `Service` + `LocalBusiness` + `FAQPage` + `Product` (for featured products) |
 | **Calculator** | Embedded widget (service={service}, city={city}) |
 | **Featured Products** | 3-5 top products for this service |
@@ -166,19 +166,19 @@
 | **Internal Links** | Calculator, Main service page, Category page, Comparison pages |
 | **Schema.org** | `Service`, `LocalBusiness`, `FAQPage`, `Product` (featured), `BreadcrumbList` |
 
-### 2. Category Page (Merch) — `CategoryMerch`
+### 2. Category Page (Merch): `CategoryMerch`
 
 | Element | Specification |
 |---|---|
 | **URL** | `/services/merch-{category}/` |
-| **H1** | `{Category Name} с логотипом — цены, каталог, доставка СДЭК` |
+| **H1** | `{Category Name} с логотипом: цены, каталог, доставка СДЭК` |
 | **Schema** | `CollectionPage` + `ItemList` (Product) |
 | **Content** | Category description, subcategories grid, featured products, buying guide |
 | **Filters** | Price range, material, production time, delivery |
 | **Sort** | Popularity, Price (asc/desc), Newest |
 | **Schema** | `CollectionPage`, `ItemList` (Product), `BreadcrumbList` |
 
-### 3. Comparison Page — `Comparison`
+### 3. Comparison Page: `Comparison`
 
 | Element | Specification |
 |---|---|
@@ -189,12 +189,12 @@
 | **Table Columns** | Parameter | Product A | Product B |
 | **Schema** | Custom `ComparisonPage` + `ItemList` (Product) + `FAQPage` |
 
-### 4. Bundle Page — `BundlePage`
+### 4. Bundle Page: `BundlePage`
 
 | Element | Specification |
 |---|---|
 | **URL** | `/bundles/{bundle-slug}/` |
-| **H1** | `{Bundle Name} — состав, цена, скидка {X}%` |
+| **H1** | `{Bundle Name}: состав, цена, скидка {X}%` |
 | **Schema** | `Product` (bundle as Product) + `Offer` (bundle offer) |
 | **Content** | Bundle contents list, individual prices vs bundle price, savings calculator, use cases |
 | **Bundle Builder** | Interactive "Build your own" widget |

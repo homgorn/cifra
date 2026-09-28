@@ -8,34 +8,34 @@
 
 ## 🔴 Критические пробелы (High Impact, High Priority)
 
-### 1. Информационные статьи — 0 покрытия
+### 1. Информационные статьи: 0 покрытия
 | Запрос | Поз. | Кластер | Нужная страница | Тип контента |
 |---|---|---|---|---|
 | идеи календарей для производства на 2027 год | 13 | Календари | `/blog/idei-kalendarey-2027/` | Тренды + галерея + чек-лист |
-| технические требования к макетам | — | Все | `/blog/tekhnicheskie-trebovaniya-maketov/` | PDF чек-лист + видео |
-| как подготовить макет для печати на кружке | — | Мерч | `/blog/kak-podgotovit-maket-kruzhka/` | Пошаговый гайд |
-| требования к макету визиток | — | Визитки | `/blog/trebovaniya-k-maketu-vizitok/` | Спеки + шаблоны |
-| как выбрать календарь для бизнеса | — | Календари | `/blog/kak-vybrat-kalendar-dlya-biznesa/` | Сравнительная таблица |
-| чем отличается ролл ап от х-баннера | — | Стенды | `/comparison/roll-up-vs-h-banner/` | Таблица + вердикт |
-| цифровая или офсетная печать что выбрать | — | Полиграфия | `/comparison/cifrovaya-vs-ofsetnaya/` | Таблица + калькулятор |
-| ламинирование горячее или холодное | — | Постпечатка | `/comparison/laminirovanie-goryachee-vs-holodnoe/` | Таблица |
-| как рассчитать стоимость печати | — | Все | `/blog/kak-rasschitat-stoimost-pechati/` | Калькулятор + формулы |
+| технические требования к макетам | н/д | Все | `/blog/tekhnicheskie-trebovaniya-maketov/` | PDF чек-лист + видео |
+| как подготовить макет для печати на кружке | н/д | Мерч | `/blog/kak-podgotovit-maket-kruzhka/` | Пошаговый гайд |
+| требования к макету визиток | н/д | Визитки | `/blog/trebovaniya-k-maketu-vizitok/` | Спеки + шаблоны |
+| как выбрать календарь для бизнеса | н/д | Календари | `/blog/kak-vybrat-kalendar-dlya-biznesa/` | Сравнительная таблица |
+| чем отличается ролл ап от х-баннера | н/д | Стенды | `/comparison/roll-up-vs-h-banner/` | Таблица + вердикт |
+| цифровая или офсетная печать что выбрать | н/д | Полиграфия | `/comparison/cifrovaya-vs-ofsetnaya/` | Таблица + калькулятор |
+| ламинирование горячее или холодное | н/д | Постпечатка | `/comparison/laminirovanie-goryachee-vs-holodnoe/` | Таблица |
+| как рассчитать стоимость печати | н/д | Все | `/blog/kak-rasschitat-stoimost-pechati/` | Калькулятор + формулы |
 
-### 2. Коммерческие подкатегории — нет целевых страниц
+### 2. Коммерческие подкатегории: нет целевых страниц
 | Запрос | Поз. | Родительская страница | Нужная подкатегория |
 |---|---|---|---|
 | визитки на дизайнерском картоне | 2.70 | `/catalog/poligrafiya/vizitki/` | `/catalog/poligrafiya/vizitki/dizaynerskie/` |
 | срочная печать визиток в ижевске | 7.00 | `/catalog/poligrafiya/vizitki/` | `/catalog/poligrafiya/vizitki/srochnaya/` |
-| печать белым тонером визитки | — | `/catalog/poligrafiya/vizitki/` | `/catalog/poligrafiya/vizitki/belym-tonerom/` |
+| печать белым тонером визитки | н/д | `/catalog/poligrafiya/vizitki/` | `/catalog/poligrafiya/vizitki/belym-tonerom/` |
 | печать на баннере ижевск | 5.00 | `/catalog/shirokoformatnaya-pechat/` | `/catalog/shirokoformatnaya-pechat/bannery/` |
 | печать на пленке ижевск | 5.00 | `/catalog/shirokoformatnaya-pechat/` | `/catalog/shirokoformatnaya-pechat/plenka/` |
 | печать постеров ижевск | 6.00 | `/catalog/shirokoformatnaya-pechat/` | `/catalog/shirokoformatnaya-pechat/postery/` |
 | аренда ролл апа ижевск | 10.00 | `/catalog/mobilnye-stendy/` | `/catalog/mobilnye-stendy/arenda/roll-up/` |
 | кружка хамелеон на заказ | 6.00 | `/catalog/suvenirnaya-produktsiya/pechat-na-kruzhkakh/` | `/catalog/suvenirnaya-produktsiya/pechat-na-kruzhkakh/chameleon/` |
-| брендированная одежда ижевск дтф | — | `/catalog/suvenirnaya-produktsiya/brendirovanie-odezhdy/` | `/catalog/suvenirnaya-produktsiya/odezhda/dtf/` |
+| брендированная одежда ижевск дтф | н/д | `/catalog/suvenirnaya-produktsiya/brendirovanie-odezhdy/` | `/catalog/suvenirnaya-produktsiya/odezhda/dtf/` |
 | шоколад с логотипом ижевск | 2.00 | `/catalog/suvenirnaya-produktsiya/shokolad/` | `/catalog/suvenirnaya-produktsiya/chocolate/` |
 
-### 3. Локальные лендинги — 0 покрытия
+### 3. Локальные лендинги: 0 покрытия
 | Запрос | Поз. | Нужная страница | Примечание |
 |---|---|---|---|
 | типография ижевск в центре | 10 | `/local/izhevsk-center/` | Гео-модификатор |
@@ -48,7 +48,7 @@
 
 ## 🟠 Средние пробелы (Medium Impact)
 
-### 4. Страницы сравнений (Comparison Pages) — высокий CTR
+### 4. Страницы сравнений (Comparison Pages): высокий CTR
 | Сравнение | Запросы-триггеры | Целевая страница | Приоритет |
 |---|---|---|---|
 | Ролл-ап vs Х-баннер | "ролл ап или х баннер", "чем отличается" | `/comparison/roll-up-vs-h-banner/` | 🔴 Высокий |
@@ -107,21 +107,21 @@
 
 ## 🎯 Приоритизация (Impact × Effort)
 
-### Quick Wins (Low Effort, High Impact) — Сделать первыми
-1. **Подкатегории визиток** (дизайнерские, срочные, белым тонером) — шаблон категории, 1-2 дня каждая
-2. **Подкатегории широкоформат** (баннеры, пленка, постеры) — аналогично
-3. **Страницы сравнений** (ролл-ап vs х-баннер, цифровая vs офсетная) — шаблон таблицы, 3-4 часа каждая
-4. **Статья "Тех требования к макетам"** — один раз, потом переиспользование на всех товарках
+### Quick Wins (Low Effort, High Impact): Сделать первыми
+1. **Подкатегории визиток** (дизайнерские, срочные, белым тонером): шаблон категории, 1-2 дня каждая
+2. **Подкатегории широкоформат** (баннеры, пленка, постеры): аналогично
+3. **Страницы сравнений** (ролл-ап vs х-баннер, цифровая vs офсетная): шаблон таблицы, 3-4 часа каждая
+4. **Статья "Тех требования к макетам"**: один раз, потом переиспользование на всех товарках
 
-### Major Projects (High Effort, High Impact) — Планировать
-1. **Локальные лендинги** (6 страниц) — уникальный контент, NAP, схема проезда, кейсы района
-2. **Блог** (20+ статей) — контент-фабрика, экспертные авторы, SEO-брифы
-3. **Сравнительные страницы** (8 страниц) — глубокие таблицы, экспертные вердикты, CTA
+### Major Projects (High Effort, High Impact): Планировать
+1. **Локальные лендинги** (6 страниц): уникальный контент, NAP, схема проезда, кейсы района
+2. **Блог** (20+ статей): контент-фабрика, экспертные авторы, SEO-брифы
+3. **Сравнительные страницы** (8 страниц): глубокие таблицы, экспертные вердикты, CTA
 
-### Fill-ins (Low Effort, Low Impact) — По мере возможностей
-1. Long-tail товары (попсокеты, брелоки, термокружки) — карточки товаров
-2. FAQ страницы — собирать из вопросов менеджеров
-3. Глоссарий терминов — для внутренней перелинковки
+### Fill-ins (Low Effort, Low Impact): По мере возможностей
+1. Long-tail товары (попсокеты, брелоки, термокружки): карточки товаров
+2. FAQ страницы: собирать из вопросов менеджеров
+3. Глоссарий терминов: для внутренней перелинковки
 
 ---
 
@@ -154,11 +154,11 @@
 
 ## 📋 Экспорты
 
-- `exports/content_gaps_prioritized.csv` — все пробелы с приоритетами
-- `exports/commercial_gaps.csv` — только коммерческие
-- `exports/informational_gaps.csv` — только информационные
-- `exports/local_gaps.csv` — локальные
-- `exports/comparison_gaps.csv` — сравнения
+- `exports/content_gaps_prioritized.csv`, все пробелы с приоритетами
+- `exports/commercial_gaps.csv`, только коммерческие
+- `exports/informational_gaps.csv`, только информационные
+- `exports/local_gaps.csv`, локальные
+- `exports/comparison_gaps.csv`, сравнения
 
 ---
 

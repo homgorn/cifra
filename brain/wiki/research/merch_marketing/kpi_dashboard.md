@@ -1,4 +1,4 @@
-# KPI Dashboard — ЦИФРА18 Merch Marketing
+# KPI Dashboard: ЦИФРА18 Merch Marketing
 
 **Date:** 2026-09-12  
 **Purpose:** Real-time tracking dashboard for merch marketing performance
@@ -10,12 +10,12 @@
 | Metric | Current | Target (3mo) | Target (6mo) | Target (12mo) | Trend | Status |
 |---|---|---|---|---|---|---|
 | **Merch Revenue Share** | 5-10% | 15% | 20% | 35% | 📈 | 🔴 |
-| **Total Merch Revenue** | — | 1.5M₽/mo | 3M₽/mo | 6M₽/mo | — | 🔴 |
-| **Merch SKU Count** | 15 | 50 | 100 | 200 | — | 🔴 |
+| **Total Merch Revenue** | н/д | 1.5M₽/mo | 3M₽/mo | 6M₽/mo | н/д | 🔴 |
+| **Merch SKU Count** | 15 | 50 | 100 | 200 | н/д | 🔴 |
 | **Merch AOV** | ~1,500₽ | 2,500₽ | 3,000₽ | 4,500₽ | 📈 | 🟡 |
 | **Merch Conversion Rate** | ~1% | 2% | 3% | 5% | 📈 | 🔴 |
 | **Cross-sell Rate** | ~5% | 15% | 25% | 40% | 📈 | 🔴 |
-| **Merch LTV** | Unknown | 1.5x base | 2x base | 3x base | — | ⚪ |
+| **Merch LTV** | Unknown | 1.5x base | 2x base | 3x base | н/д | ⚪ |
 
 ---
 

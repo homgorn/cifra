@@ -6,7 +6,7 @@
 
 ---
 
-## 🧠 Энтити (Сущности) — Ядро графа
+## 🧠 Энтити (Сущности): Ядро графа
 
 ### Тип 1: ОРГАНИЗАЦИЯ (Organization)
 ```
@@ -22,11 +22,11 @@ Entity: Типография «Цифра» (Цифра18)
 ├── email: izhcifra@yandex.ru
 ├── openingHours: Mo-Fr 09:00-18:00
 ├── priceRange: "₽₽"
-├── sameAs: [VK, Telegram, YouTube, Дзен — уточнить]
+├── sameAs: [VK, Telegram, YouTube, Дзен - уточнить]
 └── knowsAbout: [Полиграфия, Широкоформат, Мерч, Инженерная печать, Сувенирка]
 ```
 
-### Тип 2: УСЛУГИ (Services/Products) — Коммерческие энтити
+### Тип 2: УСЛУГИ (Services/Products), Коммерческие энтити
 ```
 Service: Печать визиток
 ├── category: Полиграфия
@@ -88,7 +88,7 @@ Service: Сувенирная продукция / Мерч
 └── b2bAngle: ["Корпоративный мерч", "Новогодние подарки", "Онбординг наборы"]
 ```
 
-### Тип 3: ЛОКАЦИИ (Places) — Local SEO
+### Тип 3: ЛОКАЦИИ (Places), Local SEO
 ```
 Place: Ижевск
 ├── @type: City
@@ -103,7 +103,7 @@ Place: Удмуртская Республика
 ├── queries: ["удмуртия", "удмуртская республика", "изhevsk udmurtia"]
 ```
 
-### Тип 4: ТЕХНОЛОГИИ / МАТЕРИАЛЫ (Technologies/Materials) — Информационные
+### Тип 4: ТЕХНОЛОГИИ / МАТЕРИАЛЫ (Technologies/Materials), Информационные
 ```
 Technology: Цифровая печать
 ├── pros: ["Срочно", "От 1 шт.", "Переменные данные", "Цветопробы"]
@@ -128,19 +128,19 @@ Material: Дизайнерский картон
 └── queries: ["визитки на дизайнерском картоне", "дизайнерская бумага для визиток"]
 ```
 
-### Тип 5: СРАВНЕНИЯ / ВЫБОР (Comparisons) — High CTR энтити
+### Тип 5: СРАВНЕНИЯ / ВЫБОР (Comparisons), High CTR энтити
 ```
 Comparison: Ролл-ап vs Х-баннер
 ├── entities: [Ролл-ап, Х-баннер]
 ├── criteria: [Цена, Переносимость, Размер, Сборка, Стабильность, Аренда]
-├── verdict: "Ролл-ап — для постоянного использования, Х-баннер — для разовых/бюджет"
+├── verdict: "Ролл-ап - для постоянного использования, Х-баннер - для разовых/бюджет"
 ├── targetPage: /comparison/roll-up-vs-h-banner/
 └── queries: ["ролл ап или х баннер", "чем отличается ролл ап от х баннера"]
 
 Comparison: Цифровая vs Офсетная печать
 ├── entities: [Цифровая печать, Офсетная печать]
 ├── criteria: [Тираж, Срок, Цена, Качество, Формат, Переменные данные]
-├── verdict: "До 300 экз — цифра, от 500 — офсет"
+├── verdict: "До 300 экз - цифра, от 500 - офсет"
 ├── targetPage: /comparison/cifrovaya-vs-ofsetnaya/
 └── queries: ["цифровая или офсетная печать", "в чем разница цифра и офсет"]
 
@@ -153,7 +153,7 @@ Comparison: Крафт vs Дизайнерский картон для визи�
 
 ---
 
-## 🔗 Отношения (Predicates) — Ребра графа
+## 🔗 Отношения (Predicates): Ребра графа
 
 | Предикат | Domain | Range | Пример |
 |---|---|---|---|
@@ -221,30 +221,30 @@ Comparison: Крафт vs Дизайнерский картон для визи�
 Для каждого Service энтити нужны:
 ✅ Целевая страница (targetPage)
 ✅ JSON-LD Service + Offer + FAQ
-❌ Страница сравнений (hasComparison) — 0/10
-❌ Информационные статьи (relatedQuery: informational) — 0/50
-❌ Локальные лендинги (servesArea) — 0/6
-❌ Кейсы/портфолио (mentionsEntity) — 3/20
+❌ Страница сравнений (hasComparison) - 0/10
+❌ Информационные статьи (relatedQuery: informational) - 0/50
+❌ Локальные лендинги (servesArea) - 0/6
+❌ Кейсы/портфолио (mentionsEntity) - 3/20
 ```
 
 ### 4. llms.txt генерация
 ```
-# Типография «Цифра» — ключевые страницы для ИИ
+# Типография «Цифра» - ключевые страницы для ИИ
 ## Организация
-https://xn--18-6kc5a3bxam.xn--p1ai/#organization — Типография «Цифра», Ижевск, ул. 7-я Подлесная 34
+https://xn--18-6kc5a3bxam.xn--p1ai/#organization - Типография «Цифра», Ижевск, ул. 7-я Подлесная 34
 
 ## Услуги
-https://xn--18-6kc5a3bxam.xn--p1ai/catalog/poligrafiya/vizitki/ — Печать визиток (крафт, дизайнерский, срочно)
-https://xn--18-6kc5a3bxam.xn--p1ai/catalog/poligrafiya/kalendari/ — Календари на 2027 (квартальные, настенные, премиум)
-https://xn--18-6kc5a3bxam.xn--p1ai/catalog/shirokoformatnaya-pechat/ — Широкоформатная печать (баннеры, постеры, фотообои)
-https://xn--18-6kc5a3bxam.xn--p1ai/catalog/mobilnye-stendy/ — Мобильные стенды (ролл-ап, пресс-волл, х-баннер, аренда)
-https://xn--18-6kc5a3bxam.xn--p1ai/catalog/inzhenernaya-pechat/ — Инженерная печать (чертежи А0-А4, сканирование, фальцовка)
-https://xn--18-6kc5a3bxam.xn--p1ai/catalog/suvenirnaya-produktsiya/ — Мерч и сувенирка (кружки, футболки, магниты, шоколад)
+https://xn--18-6kc5a3bxam.xn--p1ai/catalog/poligrafiya/vizitki/ - Печать визиток (крафт, дизайнерский, срочно)
+https://xn--18-6kc5a3bxam.xn--p1ai/catalog/poligrafiya/kalendari/ - Календари на 2027 (квартальные, настенные, премиум)
+https://xn--18-6kc5a3bxam.xn--p1ai/catalog/shirokoformatnaya-pechat/ - Широкоформатная печать (баннеры, постеры, фотообои)
+https://xn--18-6kc5a3bxam.xn--p1ai/catalog/mobilnye-stendy/ - Мобильные стенды (ролл-ап, пресс-волл, х-баннер, аренда)
+https://xn--18-6kc5a3bxam.xn--p1ai/catalog/inzhenernaya-pechat/ - Инженерная печать (чертежи А0-А4, сканирование, фальцовка)
+https://xn--18-6kc5a3bxam.xn--p1ai/catalog/suvenirnaya-produktsiya/ - Мерч и сувенирка (кружки, футболки, магниты, шоколад)
 
 ## Экспертиза
-https://xn--18-6kc5a3bxam.xn--p1ai/blog/tekhnicheskie-trebovaniya/ — Требования к макетам для печати
-https://xn--18-6kc5a3bxam.xn--p1ai/comparison/roll-up-vs-h-banner/ — Выбор стенда для выставки
-https://xn--18-6kc5a3bxam.xn--p1ai/comparison/cifrovaya-vs-ofsetnaya/ — Цифровая или офсетная печать
+https://xn--18-6kc5a3bxam.xn--p1ai/blog/tekhnicheskie-trebovaniya/ - Требования к макетам для печати
+https://xn--18-6kc5a3bxam.xn--p1ai/comparison/roll-up-vs-h-banner/ - Выбор стенда для выставки
+https://xn--18-6kc5a3bxam.xn--p1ai/comparison/cifrovaya-vs-ofsetnaya/ - Цифровая или офсетная печать
 ```
 
 ---
@@ -252,11 +252,11 @@ https://xn--18-6kc5a3bxam.xn--p1ai/comparison/cifrovaya-vs-ofsetnaya/ — Циф
 ## 🛠 Скрипты для работы с графом
 
 ```python
-# extract_triplets.py — извлечение из запросов/страниц
-# combine_knowledge_graph.py — объединение в NetworkX/Neo4j
-# validate_kg.py — проверка полноты (entity coverage)
-# export_llms_txt.py — генерация llms.txt
-# export_schema_jsonld.py — генерация JSON-LD для всех страниц
+# extract_triplets.py - извлечение из запросов/страниц
+# combine_knowledge_graph.py - объединение в NetworkX/Neo4j
+# validate_kg.py - проверка полноты (entity coverage)
+# export_llms_txt.py - генерация llms.txt
+# export_schema_jsonld.py - генерация JSON-LD для всех страниц
 ```
 
 ### Пример triplet extraction из запроса:
@@ -274,11 +274,11 @@ Query: "визитки на крафте ижевск заказать деше�
 
 ## 📋 Экспорты
 
-- `exports/entities.json` — все энтити с атрибутами
-- `exports/triplets.csv` — все ребра (subject, predicate, object)
-- `exports/entity_coverage.csv` — покрытие энтити страницами/контентом
-- `exports/llms.txt` — готовый файл для ИИ
-- `exports/schema_templates/` — JSON-LD шаблоны по типам страниц
+- `exports/entities.json`, все энтити с атрибутами
+- `exports/triplets.csv`, все ребра (subject, predicate, object)
+- `exports/entity_coverage.csv`, покрытие энтити страницами/контентом
+- `exports/llms.txt`, готовый файл для ИИ
+- `exports/schema_templates/`, JSON-LD шаблоны по типам страниц
 
 ---
 

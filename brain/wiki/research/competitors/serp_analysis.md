@@ -1,4 +1,4 @@
-# SERP Features Analysis — ЦИФРА18 vs Competitors
+# SERP Features Analysis: ЦИФРА18 vs Competitors
 
 **Date:** 2026-09-11  
 **Method:** 30+ query analysis across Google/Yandex, Topvisor data (when available)  
@@ -14,14 +14,14 @@
 |---|---|---|---|---|---|
 | "печать визиток Ижевск" | 🥈 2 | 🥉 3 | 🏷️ 5-10 | 🥇 1-3 | Local Pack, Site Links, Price Extension |
 | "визитки на крафте цена" | 🥇 1 | 🥉 4 | 🏷️ 8 | 🥇 1-2 | Product Schema, Price, Review Stars |
-| "печать листовок А5 цена" | — | 🥇 1 | 🏷️ 6 | 🥇 1-2 | Local Pack, Price, Sitelinks |
-| "баннеры 3x6 цена Ижевск" | — | 🥇 1 | 🏷️ 8 | 🥇 1-2 | Local Pack, Image Pack |
-| "роллап купить Ижевск" | — | 🥇 1 | 🏷️ 10 | 🥇 1-2 | Local Pack, Product Schema |
+| "печать листовок А5 цена" | н/д | 🥇 1 | 🏷️ 6 | 🥇 1-2 | Local Pack, Price, Sitelinks |
+| "баннеры 3x6 цена Ижевск" | н/д | 🥇 1 | 🏷️ 8 | 🥇 1-2 | Local Pack, Image Pack |
+| "роллап купить Ижевск" | н/д | 🥇 1 | 🏷️ 10 | 🥇 1-2 | Local Pack, Product Schema |
 | "мерч с логотипом цена" | 🥇 1 | 🥉 5 | 🏷️ 15 | 🥇 1-3 | Product Schema, Review Stars, Price |
 | "кружки с логотипом заказать" | 🥇 1 | 🥈 2 | 🏷️ 12 | 🥇 1-2 | Product Schema, Review Stars |
 | "футболки с логотипом тираж" | 🥇 1 | 🥉 4 | 🏷️ 10 | 🥇 1-2 | Product Schema, Volume Pricing |
 
-**Ключевой вывод:** Printio доминирует по мерч-запросам (Топ-1-3), RuPrint — по полиграфии. ЦИФРА не в Топ-10 по большинству коммерческих запросов.
+**Ключевой вывод:** Printio доминирует по мерч-запросам (Топ-1-3), RuPrint: по полиграфии. ЦИФРА не в Топ-10 по большинству коммерческих запросов.
 
 ---
 
@@ -31,12 +31,12 @@
 |---|---|---|---|---|---|
 | "как подготовить макет визиток" | 🥈 2 | 🥇 1 | 🏷️ 15 | 🥇 1-2 | FAQ Schema, Featured Snippet |
 | "RGB vs CMYK отличия" | 🥈 3 | 🥇 1 | 🏷️ 20 | 🥇 1-2 | FAQ Schema, Featured Snippet |
-| "плоттерная резка макет требования" | — | 🥇 1 | 🏷️ 10 | 🥇 1-2 | FAQ Schema, HowTo Schema |
+| "плоттерная резка макет требования" | н/д | 🥇 1 | 🏷️ 10 | 🥇 1-2 | FAQ Schema, HowTo Schema |
 | "что такое офсетная печать" | 🥉 4 | 🥇 1 | 🏷️ 12 | 🥇 1-2 | FAQ Schema, Definition |
 | "виды бумаги для визиток" | 🥈 2 | 🥇 1 | 🏷️ 15 | 🥇 1-2 | Comparison Table, FAQ |
-| "как выбрать баннер для улицы" | — | 🥇 1 | 🏷️ 15 | 🥇 1-2 | Comparison Table, FAQ |
-| "ГОСТ макет визитки" | — | 🥇 1 | 🏷️ 12 | 🥇 1-2 | FAQ Schema, PDF Download |
-| "плоттерная резка SRA3 требования" | — | 🥇 1 | 🏷️ 8 | 🥇 1-2 | FAQ Schema, HowTo, PDF |
+| "как выбрать баннер для улицы" | н/д | 🥇 1 | 🏷️ 15 | 🥇 1-2 | Comparison Table, FAQ |
+| "ГОСТ макет визитки" | н/д | 🥇 1 | 🏷️ 12 | 🥇 1-2 | FAQ Schema, PDF Download |
+| "плоттерная резка SRA3 требования" | н/д | 🥇 1 | 🏷️ 8 | 🥇 1-2 | FAQ Schema, HowTo, PDF |
 
 **Ключевой вывод:** RuPrint доминирует по инфо-запросам за счет Журнала и Словаря. ЦИФРА отсутствует в Топ-10.
 
@@ -46,11 +46,11 @@
 
 | Query | Printio | RuPrint | Контур-Фото | ЦИФРА | Target |
 |---|---|---|---|---|---|
-| "типография Ижевск" | — | — | 🥇 1 (Map Pack) | 🏷️ 3-5 | 🥇 1-2 (Map Pack) |
-| "печать визиток Ижевск" | — | — | 🥇 1 | 🏷️ 5-10 | 🥇 1-2 |
-| "баннеры Ижевск" | — | — | 🥇 1 | 🏷️ 8 | 🥇 1-2 |
-| "мерч Ижевск" | — | — | 🥈 2 | 🏷️ 10 | 🥇 1-2 |
-| "типография доставка по России" | 🥇 1 | 🥈 2 | — | 🏷️ 20 | 🥇 1-3 |
+| "типография Ижевск" | н/д | н/д | 🥇 1 (Map Pack) | 🏷️ 3-5 | 🥇 1-2 (Map Pack) |
+| "печать визиток Ижевск" | н/д | н/д | 🥇 1 | 🏷️ 5-10 | 🥇 1-2 |
+| "баннеры Ижевск" | н/д | н/д | 🥇 1 | 🏷️ 8 | 🥇 1-2 |
+| "мерч Ижевск" | н/д | н/д | 🥈 2 | 🏷️ 10 | 🥇 1-2 |
+| "типография доставка по России" | 🥇 1 | 🥈 2 | н/д | 🏷️ 20 | 🥇 1-3 |
 
 **Критическая проблема:** ЦИФРА имеет 4.2 рейтинг в 2ГИС (31 отзыв) vs Контур-Фото 4.9 (800+). Не в Map Pack по ключевым запросам.
 
@@ -77,7 +77,7 @@
 
 ## 🎯 SERP Feature Implementation Roadmap
 
-### Phase 0 (Week 1-2) — Technical Foundation
+### Phase 0 (Week 1-2): Technical Foundation
 | Feature | Implementation | Effort |
 |---|---|---|
 | **Product JSON-LD on all PDP** | Deploy templates (price, availability, review, shippingDetails) | 2 days |
@@ -86,7 +86,7 @@
 | **FAQPage JSON-LD** | On all articles, PDP, category pages | 2 days |
 | **Service JSON-LD** | On category/service pages | 1 day |
 
-### Phase 1 (Month 1) — Content & Local
+### Phase 1 (Month 1): Content & Local
 | Feature | Implementation | Effort |
 |---|---|---|
 | **GBP Optimization** | Claim, verify, photos, posts, Q&A, reviews | 2 weeks |
@@ -95,7 +95,7 @@
 | **FAQ Content Creation** | 50+ FAQ pages from PAA | 2 weeks |
 | **Answer-First Content** | Rewrite top 20 pages | 2 weeks |
 
-### Phase 2 (Month 2-3) — Authority & Programmatic
+### Phase 2 (Month 2-3): Authority & Programmatic
 | Feature | Implementation | Effort |
 |---|---|---|
 | **Service×City Pages (200)** | Programmatic generator + unique content | 3 weeks |
@@ -105,7 +105,7 @@
 | **FAQ Pages (100)** | Programmatic from PAA | 2 weeks |
 | **Case Studies (20)** | Detailed + photos + metrics | 4 weeks |
 
-### Phase 3 (Month 3+) — Advanced Features
+### Phase 3 (Month 3+): Advanced Features
 | Feature | Implementation | Effort |
 |---|---|---|
 | **Video Content** | Shorts/Reels production | Ongoing |
@@ -136,7 +136,7 @@
 | "RGB vs CMYK отличия" | RuPrint | Answer-first (2 sentences) + comparison table + infographic |
 | "плоттерная резка SRA3 требования" | RuPrint | Answer-first + numbered requirements + downloadable PDF |
 | "какая бумага для визиток лучше" | Printio | Comparison table (крафт vs дизайнерский vs меловка) + expert quote |
-| "виды ламинации визиток" | — | Comparison table (мат/глянцев/софт-тач) + цены + фото |
+| "виды ламинации визиток" | н/д | Comparison table (мат/глянцев/софт-тач) + цены + фото |
 | "как выбрать баннер для улицы" | RuPrint | Decision tree (материал/размер/срок) + калькулятор ссылка |
 
 ---

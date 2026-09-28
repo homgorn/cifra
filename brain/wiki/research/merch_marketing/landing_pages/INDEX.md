@@ -1,4 +1,4 @@
-# Landing Pages — ЦИФРА18 Merch Marketing
+# Landing Pages: ЦИФРА18 Merch Marketing
 
 **Date:** 2026-09-12  
 **Location:** `brain/wiki/research/merch_marketing/landing_pages/`
@@ -15,23 +15,23 @@
 
 ## 🎯 Landing Page Types & Specs
 
-### 1. Service×City Pages (Merch) — 200 pages
+### 1. Service×City Pages (Merch): 200 pages
 | Spec | Detail |
 |---|---|
 | **URL Pattern** | `/services/merch-{service}-{city}/` |
-| **H1** | `{Service} в {City} — цены, сроки, доставка СДЭК` |
+| **H1** | `{Service} в {City}: цены, сроки, доставка СДЭК` |
 | **Schema** | Service + LocalBusiness + FAQPage + Product |
 | **Calculator** | Embedded (service + city pre-filled) |
 | **Local Content** | SDEK PVZ addresses, delivery times, local cases |
 
-### 2. Service×City Pages (Print) — 200 pages
+### 2. Service×City Pages (Print): 200 pages
 | Spec | Detail |
 |---|---|
 | **URL Pattern** | `/services/print-{service}-{city}/` |
-| **H1** | `Печать {service} в {City} — цены, сроки, доставка СДЭК` |
+| **H1** | `Печать {service} в {City}: цены, сроки, доставка СДЭК` |
 | **Schema** | Service + LocalBusiness + FAQPage + Product |
 
-### 3. Category Pages (Merch) — 7 pages
+### 3. Category Pages (Merch): 7 pages
 | Category | URL |
 |---|---|
 | Одежда | `/services/merch-apparel/` |
@@ -42,14 +42,14 @@
 | Премиальные подарки | `/services/merch-premium/` |
 | Корп. программы | `/services/merch-corporate/` |
 
-### 4. Comparison Pages — 50 pages
+### 4. Comparison Pages: 50 pages
 | Format | Example URLs |
 |---|---|
 | X vs Y | `/compare/futbolka-vs-xudi/`, `/compare/kruzhka-vs-termokruzhka/` |
 | Alternatives | `/alternatives/to-printio/`, `/alternatives/to-ruprint/` |
 | Best for | `/best-merch-for-hr/`, `/best-merch-for-events/` |
 
-### 5. Bundle Pages — 20 pages
+### 5. Bundle Pages: 20 pages
 | Bundle | URL |
 |---|---|
 | Startup Welcome Kit | `/bundles/startup-welcome-kit/` |
@@ -62,7 +62,7 @@
 | Remote Work Kit | `/bundles/remote-work-kit/` |
 | Merch Subscription | `/bundles/merch-subscription/` |
 
-### 5. Industry Pages — 10 pages
+### 5. Industry Pages: 10 pages
 | Industry | URL |
 |---|---|
 | HoReCa | `/industries/horeca/` |
@@ -82,7 +82,7 @@
 
 ### Service×City Page (Merch)
 ```
-H1: {Service} в {City} — цены, сроки, доставка СДЭК
+H1: {Service} в {City} - цены, сроки, доставка СДЭК
 Meta: {Service} в {City} от Цифра18: цены от {price}₽, сроки от 1 часа, доставка СДЭК по России.
 
 Sections:

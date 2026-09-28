@@ -1,4 +1,4 @@
-# Bundling Strategies — ЦИФРА18 Merch
+# Bundling Strategies: ЦИФРА18 Merch
 
 **Date:** 2026-09-12  
 **Purpose:** Pre-built bundle configurations for different customer segments and use cases
@@ -47,7 +47,7 @@
 
 | Quarter | Box Name | Contents | Quarterly Price | Annual | Savings |
 |---|---|---|---|---|---|
-| **Q1 (Jan-Mar)** | "Новый год — новые цели" | Планнер 2025 + Кружка керамика + Футболка + Стикерпак + Планнер | 2,500₽/qrt | 10,000₽ | 12% |
+| **Q1 (Jan-Mar)** | "Новый год: новые цели" | Планнер 2025 + Кружка керамика + Футболка + Стикерпак + Планнер | 2,500₽/qrt | 10,000₽ | 12% |
 | **Q2 (Apr-Jun)** | "Лето в городе" | Футболка оверсайз + Кепка + Сумка-тота + Водная бутылка + Крем SPF + Очки | 2,800₽/qrt | 11,200₽ | 10% |
 | **Q3 (Jul-Sep)** | "Back to Work" | Рюкзак + Блокнот А5 + Ручка гравировка + Кружка термо + Планировщик осень | 3,000₽/qrt | 12,000₽ | 12% |
 | **Q4 (Oct-Dec)** | "Новый год премиум" | Премиум худи + Термос премиум + Кружка керамика премиум + Шоколад в коробке + Подарочная коробка | 6,500₽/qrt | 26,000₽ | 15% |
@@ -239,12 +239,12 @@ def build_custom_budget(budget, recipient_type, occasion):
 
 | Metric | Target | Current | Action if Below |
 |---|---|---|---|
-| **Bundle Attach Rate** | >15% of orders | — | Promote bundles on PDP |
-| **Avg Bundle Value** | >4,000₽ | — | Add premium items |
-| **Bundle Conversion Rate** | >20% | — | Improve bundle page UX |
-| **Cross-sell Attach Rate** | >25% | — | Improve recommendations |
-| **Bundle Return Rate** | <2% | — | Quality check |
-| **Assembly Time** | <8 min/kit | — | Optimize workflow |
+| **Bundle Attach Rate** | >15% of orders | н/д | Promote bundles on PDP |
+| **Avg Bundle Value** | >4,000₽ | н/д | Add premium items |
+| **Bundle Conversion Rate** | >20% | н/д | Improve bundle page UX |
+| **Cross-sell Attach Rate** | >25% | н/д | Improve recommendations |
+| **Bundle Return Rate** | <2% | н/д | Quality check |
+| **Assembly Time** | <8 min/kit | н/д | Optimize workflow |
 
 ---
 

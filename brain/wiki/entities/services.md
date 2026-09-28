@@ -1,4 +1,4 @@
-# Services Index — ЦИФРА18
+# Services Index: ЦИФРА18
 
 **Last updated:** 2026-09-11  
 **Source:** Site menu (homepage HTML) + search results + known products  
@@ -53,7 +53,7 @@
 ### Current State
 - **Local only:** Ижевск + пригороды Удмуртии
 - **Pickup:** Ижевск, ул. 7-я Подлесная, 34
-- **No online payment** — only request forms
+- **No online payment**: only request forms
 
 ### Required for Russia-Wide
 
@@ -100,8 +100,8 @@
 
 ## 🔄 Next Steps
 
-1. **Request Bitrix export** — full catalog with prices, properties, images
-2. **Build calculator API** — integrate SDEK tariff calculator
-3. **Create Service×City pages** — programmatic SEO for top 20 cities
-4. **Add online payment** — ЮKassa/Тинькофф integration
-5. **Schema update** — Product + Offer + shippingDetails for all SKUs
+1. **Request Bitrix export**: full catalog with prices, properties, images
+2. **Build calculator API**: integrate SDEK tariff calculator
+3. **Create Service×City pages**: programmatic SEO for top 20 cities
+4. **Add online payment**: ЮKassa/Тинькофф integration
+5. **Schema update**: Product + Offer + shippingDetails for all SKUs

@@ -1,4 +1,4 @@
-# Seasonal Calendar — ЦИФРА18 Merch Marketing
+# Seasonal Calendar: ЦИФРА18 Merch Marketing
 
 **Date:** 2026-09-12  
 **Purpose:** Quarterly campaign planning with product focus, deadlines, and campaigns
@@ -16,20 +16,20 @@
 
 ---
 
-## 📅 Q1 (Jan-Mar) — New Year & Spring
+## 📅 Q1 (Jan-Mar): New Year & Spring
 
 ### January
 | Week | Theme | Focus Products | Campaign | Deadline |
 |---|---|---|---|---|
 | 1-2 | **Новый год: последние заказы** | Gift boxes под 500/1000/2000/5000 руб, календари 2025, планнеры | "Последний шанс: закажи подарки до 20.12" | 20.12 |
-| 3-4 | **Старт года: планирование** | Планнеры 2025, дневники, календари, блокноты, ручки | "Новый год — новые цели. Планнер за 650₽" | 20.01 |
+| 3-4 | **Старт года: планирование** | Планнеры 2025, дневники, календари, блокноты, ручки | "Новый год: новые цели. Планнер за 650₽" | 20.01 |
 
 ### February
 | Week | Theme | Focus Products | Campaign | Deadline |
 |---|---|---|---|---|
 | 1-2 | **8 Марта: подарки для женщин** | Кружки, сумки-тоты, шоколад, косметички, цветы в коробке, плады | "8 Марта: закажи до 25.02, доставка СДЭК" | 25.02 |
 | 3-4 | **23 Февраля: мужские подарки** | Кружки-термосы, мультитулы, брелки, флешки, белье, термосы | "23 Февраля: закажи до 18.02, доставка СДЭК" | 18.02 |
-| 3-4 | **Старт года: планирование** | Планнеры 2025, дневники, календари, блокноты | "Новый год — новые цели. Планнер за 650₽" | 28.02 |
+| 3-4 | **Старт года: планирование** | Планнеры 2025, дневники, календари, блокноты | "Новый год: новые цели. Планнер за 650₽" | 28.02 |
 
 ### Focus Products Q1
 | Priority | Product | Target Revenue |
@@ -41,7 +41,7 @@
 
 ---
 
-## Q2 (Apr-Jun) — Spring & Summer
+## Q2 (Apr-Jun): Spring & Summer
 
 ### April
 | Week | Theme | Focus Products | Campaign | Deadline |
@@ -72,7 +72,7 @@
 
 ---
 
-## Q3 (Jul-Sep) — Back to School & Autumn
+## Q3 (Jul-Sep): Back to School & Autumn
 
 ### July
 | Week | Theme | Focus Products | Campaign |
@@ -103,7 +103,7 @@
 
 ---
 
-## Q4 (Oct-Dec) — Peak Season
+## Q4 (Oct-Dec): Peak Season
 
 ### October
 | Week | Theme | Focus Products | Campaign |

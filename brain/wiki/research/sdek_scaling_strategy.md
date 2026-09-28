@@ -1,8 +1,8 @@
-# SDEK Integration & Russia Scaling Strategy — ЦИФРА18
+# SDEK Integration & Russia Scaling Strategy: ЦИФРА18
 
 **Date:** 2026-09-11  
 **Goal:** Enable Russia-wide delivery via SDEK for all product categories  
-**Status:** Design phase — needs dev implementation
+**Status:** Design phase: needs dev implementation
 
 ---
 
@@ -146,13 +146,13 @@ async function calculateSDEKDelivery(city, weight, dimensions) {
 ### Page Template Structure (ServiceCity)
 
 ```markdown
-# {Service} в {City} — цены, сроки, доставка СДЭК | Цифра18
+# {Service} в {City} - цены, сроки, доставка СДЭК | Цифра18
 
-## H1: {Service} в {City} — калькулятор цены, сроки от 1 часа, доставка СДЭК
+## H1: {Service} в {City} - калькулятор цены, сроки от 1 часа, доставка СДЭК
 
 ## Intro (Answer-First)
 Закажите {service} в {city} с доставкой СДЭК за 1-3 дня. 
-Собственное производство в Ижевске — качество, скорость, цена. 
+Собственное производство в Ижевске - качество, скорость, цена. 
 Рассчитайте стоимость онлайн за 30 секунд.
 
 ## Calculator Embed (Bitrix widget + SDEK tariff)
@@ -172,7 +172,7 @@ async function calculateSDEKDelivery(city, weight, dimensions) {
 
 ## FAQ (3-5 questions)
 Q: Сколько стоит доставка в {city}?
-A: Рассчитывается автоматически в калькуляторе. Пример: визитки 100 шт — от 150 руб, 1-2 дня.
+A: Рассчитывается автоматически в калькуляторе. Пример: визитки 100 шт - от 150 руб, 1-2 дня.
 
 ## Schema: Service + LocalBusiness + FAQPage + shippingDetails
 ```

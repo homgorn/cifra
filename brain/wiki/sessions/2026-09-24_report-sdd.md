@@ -9,7 +9,7 @@
 3. **Несостыковки закрыты:** 15 → 17 конкурентов (index hero), 135 → 134 ссылки (wm-overview), 88 услуг / 5 блокеров / legacy sitemap в methodology.
 4. **Worker (спека 002):** `build_report_worker.py` переписан (относительные пути, автороуты; пойман и исправлен баг Windows-слэшей). Сборка: 27 файлов, 70 роутов, 617 КБ (60.3% лимита 1 MiB). `validate_worker.py` PASSED (88 URL). `deploy_worker.py` готов, ждёт CLOUDFLARE_API_TOKEN.
 5. **Офлайн Chart.js (спека 003):** `js/vendor/chart.umd.min.js` (4.4.1, 200 КБ), `vendor_charts.py` пропатчил 22 страницы (локальный + CDN-fallback). Валидации зелёные.
-6. **SDD:** `specs/` — README (цикл, DoD, гейты) + 001-webmaster-report (done) + 002-worker-deploy (ready) + 003-offline-vendor (done), в каждой spec/plan/tasks.
+6. **SDD:** `specs/`, README (цикл, DoD, гейты) + 001-webmaster-report (done) + 002-worker-deploy (ready) + 003-offline-vendor (done), в каждой spec/plan/tasks.
 7. **МД обновлены:** CLAUDE.md (статус, SDD, деплой, правила тона), CLIENT_REPORT (без GSC), INDEX wiki (7 файлов, 22 CSV), эта сессия.
 
 ## Где лежит

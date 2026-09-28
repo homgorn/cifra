@@ -1,4 +1,4 @@
-# Quick Wins Checklist — ЦИФРА18 Merch Marketing
+# Quick Wins Checklist: ЦИФРА18 Merch Marketing
 
 **Date:** 2026-09-12  
 **Purpose:** 30-day action plan for immediate impact  
@@ -26,7 +26,7 @@
   - Catalog pages: auto-generate from first 160 chars of description
 
 - [ ] **Fix H1 hierarchy on homepage**
-  - Keep 1 H1: "Типография «Цифра» — цифровая и широкоформатная печать в Ижевске"
+ - Keep 1 H1: "Типография «Цифра», цифровая и широкоформатная печать в Ижевске"
   - Change other H1s to H2: "Сервис", "Качество и скорость", "Отзывы", "Новости", "Продукция"
 
 ### Day 3-4: Schema.org Deployment
@@ -128,7 +128,7 @@
 - [ ] **Publish 5 expert articles** (from content_plan.md)
   - "Чек-лист: подготовка макета для мерча"
   - "Полиэстер vs Хлопок: что выбрать для мерча"
-  - "Кейс: мерч для кофейни — кружки на 30% чек"
+ - "Кейс: мерч для кофейни: кружки на 30% чек"
   - "Service×City: Мерч с логотипом Москва"
   - "Сравнение: Футболка vs Худи vs Лонгслив"
 

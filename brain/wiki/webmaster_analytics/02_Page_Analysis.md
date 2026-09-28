@@ -1,7 +1,7 @@
 # Анализ страниц: Индексация, Статусы, Ошибки
 
 **Источник:** `цифра18.рф_d4614eeeb7cd1a4c18473d6d.csv` (717 URL)
-**Уточнение от 2026-09-27:** 717 — это размер выгрузки из панели, а не счётчик
+**Уточнение от 2026-09-27:** 717: это размер выгрузки из панели, а не счётчик
 сайта. По API Вебмастера `summary` в поиске 708 страниц, исключено 477.
 Числа ниже в разделах про статусы и ошибки посчитаны по выборке в 717 URL,
 общие показатели индексации берутся из API. Расхождение объясняется тем, что
@@ -34,7 +34,7 @@
 
 ---
 
-## 🔴 PARSE_ERROR — 251 страница (35%)
+## 🔴 PARSE_ERROR: 251 страница (35%)
 
 **Это главная проблема.** Робот скачивает страницу (HTTP 200), но не может распарсить контент.
 
@@ -61,10 +61,10 @@ https://xn--18-6kc5a3bxam.xn--p1ai/catalog/detail.php?ID=44
 ```
 
 ### Паттерны PARSE_ERROR:
-1. **`/shop/110177348`** — 1 страница (но в sitemap 23 файла /shop/)
-2. **`/123456789.html`** — ~200 страниц (старые ID товаров? Битрикс генерация)
-3. **`/catalog/detail.php?ID=XXX`** — ~30 страниц (параметрические URL старый каталог)
-4. **`/1229-2/`** — «Сайт заблокирован хостинг-провайдером» (проблема хостинга)
+1. **`/shop/110177348`**: 1 страница (но в sitemap 23 файла /shop/)
+2. **`/123456789.html`**: ~200 страниц (старые ID товаров? Битрикс генерация)
+3. **`/catalog/detail.php?ID=XXX`**: ~30 страниц (параметрические URL старый каталог)
+4. **`/1229-2/`**: «Сайт заблокирован хостинг-провайдером» (проблема хостинга)
 
 ### План фикса PARSE_ERROR:
 | Приоритет | Действие | Файлы/Настройки |
@@ -77,7 +77,7 @@ https://xn--18-6kc5a3bxam.xn--p1ai/catalog/detail.php?ID=44
 
 ---
 
-## 🔴 DUPLICATE — 128 страниц (18%)
+## 🔴 DUPLICATE: 128 страниц (18%)
 
 Страницы-дубликаты, которые Яндекс исключил из поиска в пользу оригиналов.
 
@@ -103,10 +103,10 @@ https://xn--18-6kc5a3bxam.xn--p1ai/catalog/detail.php?ID=44
 ```
 
 ### Паттерны дублей:
-1. **Два URL на один товар** — старый `/catalog/.../item/` и новый `/catalog/.../item2/`
-2. **Категория дублирует подкатегорию** — `/paketnoe-laminirovanie/` vs `/laminirovanie/paketnoe-laminirovanie/`
-3. **detail.php дублирует SEF** — параметрические URL vs ЧПУ
-4. **Слеши в конце** — `/catalog/` vs `/catalog` (Bitrix часто генерирует оба)
+1. **Два URL на один товар**: старый `/catalog/.../item/` и новый `/catalog/.../item2/`
+2. **Категория дублирует подкатегорию**: `/paketnoe-laminirovanie/` vs `/laminirovanie/paketnoe-laminirovanie/`
+3. **detail.php дублирует SEF**: параметрические URL vs ЧПУ
+4. **Слеши в конце**: `/catalog/` vs `/catalog` (Bitrix часто генерирует оба)
 
 ### План фикса DUPLICATE:
 | Приоритет | Действие |
@@ -119,7 +119,7 @@ https://xn--18-6kc5a3bxam.xn--p1ai/catalog/detail.php?ID=44
 
 ---
 
-## 🟠 REDIRECT_NOTSEARCHABLE — 89 страниц (12%)
+## 🟠 REDIRECT_NOTSEARCHABLE: 89 страниц (12%)
 
 Страницы делают редирект, в поиске только цель.
 
@@ -137,12 +137,12 @@ https://xn--18-6kc5a3bxam.xn--p1ai/catalog/detail.php?ID=44
 
 ### План:
 1. Аудит всех 301/302 редиректов (Screaming Frog / Netpeak)
-2. Убрать цепочки — прямой редирект на финальный URL
+2. Убрать цепочки: прямой редирект на финальный URL
 3. Редиректы на 404 → убрать или поставить 410 Gone
 
 ---
 
-## 🟡 OTHER — 72 страницы (10%)
+## 🟡 OTHER: 72 страницы (10%)
 
 Нет актуальных данных у робота. Основные причины:
 - Страницы недавно добавлены/изменены
@@ -156,7 +156,7 @@ https://xn--18-6kc5a3bxam.xn--p1ai/catalog/detail.php?ID=44
 
 ---
 
-## 🟠 BAD_QUALITY — 22 страницы (3%)
+## 🟠 BAD_QUALITY: 22 страницы (3%)
 
 Алгоритм качества исключил из выдачи.
 
@@ -173,7 +173,7 @@ https://xn--18-6kc5a3bxam.xn--p1ai/catalog/detail.php?ID=44
 
 ---
 
-## 🔴 HTTP_ERROR — 13 страниц
+## 🔴 HTTP_ERROR: 13 страниц
 
 Ошибки сервера (5xx) или таймауты.
 
@@ -191,7 +191,7 @@ https://xn--18-6kc5a3bxam.xn--p1ai/catalog/detail.php?ID=44
 
 ---
 
-## ✅ SEARCHABLE — 142 страницы (19.8%)
+## ✅ SEARCHABLE: 142 страницы (19.8%)
 
 Страницы в поиске. Но качество сниппетов требует проверки.
 
@@ -205,18 +205,18 @@ https://xn--18-6kc5a3bxam.xn--p1ai/catalog/detail.php?ID=44
 
 ### Топ SEARCHABLE страницы (потенциальные деньги):
 ```
-/                                    — Главная
-/catalog/                            — Каталог (но title="Каталог")
-/catalog/interer/                    — Интерьер (хороший title/desc)
-/catalog/interer/fotooboi/           — Фотообои (коммерческий)
-/catalog/interer/fotopostery...      — Фотопостеры
-/catalog/interer/kartiny-na-kholste/ — Картины на холсте
-/catalog/inzhenernaya-pechat/        — Инженерная печать
-/catalog/mobilnye-stendy/            — Мобильные стенды
-/catalog/poligrafiya/                — Полиграфия
-/catalog/suvenirnaya-produktsiya/    — Сувенирка
-/news/                               — Новости (title="Новости" — слабо)
-/about/                              — О нас (нет в списке, проверить)
+/ - Главная
+/catalog/ - Каталог (но title="Каталог")
+/catalog/interer/ - Интерьер (хороший title/desc)
+/catalog/interer/fotooboi/ - Фотообои (коммерческий)
+/catalog/interer/fotopostery... - Фотопостеры
+/catalog/interer/kartiny-na-kholste/ - Картины на холсте
+/catalog/inzhenernaya-pechat/ - Инженерная печать
+/catalog/mobilnye-stendy/ - Мобильные стенды
+/catalog/poligrafiya/ - Полиграфия
+/catalog/suvenirnaya-produktsiya/ - Сувенирка
+/news/ - Новости (title="Новости" - слабо)
+/about/ - О нас (нет в списке, проверить)
 ```
 
 ### Коэффициент индексации по разделам (из structure.csv):
@@ -230,34 +230,34 @@ https://xn--18-6kc5a3bxam.xn--p1ai/catalog/detail.php?ID=44
 | /news | 142 | 140 | 9 | **6.3%** ❌ |
 | /shop | 388 | 0 | 24 | **6.2%** ❌ (тех. мусор) |
 | /detail.php | 28 | 11 | 2 | **7.1%** ❌ |
-| **КОРЕНЬ /** | 0 | 741 | 100 | — |
+| **КОРЕНЬ /** | 0 | 741 | 100 | н/д |
 
-**Вывод:** коэффициент **6-7%** по каталогу — катастрофически низко. Норма 60%+.
+**Вывод:** коэффициент **6-7%** по каталогу: катастрофически низко. Норма 60%+.
 
 ---
 
 ## 📋 Экспорты для работы
 
 Файлы в `exports/`:
-- `searchable_pages.csv` — 142 URL с title/meta для аудита сниппетов
-- `duplicate_pages.csv` — 128 URL с целями для канонизации
-- `parse_error_pages.csv` — 251 URL для технического аудита
-- `redirect_pages.csv` — 89 URL для аудита редиректов
-- `bad_quality_pages.csv` — 22 URL для контент-аудита
-- `http_error_pages.csv` — 13 URL для проверки сервера
-- `other_pages.csv` — 72 URL для запроса переобхода
+- `searchable_pages.csv`, 142 URL с title/meta для аудита сниппетов
+- `duplicate_pages.csv`, 128 URL с целями для канонизации
+- `parse_error_pages.csv`, 251 URL для технического аудита
+- `redirect_pages.csv`, 89 URL для аудита редиректов
+- `bad_quality_pages.csv`, 22 URL для контент-аудита
+- `http_error_pages.csv`, 13 URL для проверки сервера
+- `other_pages.csv`, 72 URL для запроса переобхода
 
 ---
 
 ## 🎯 Ключевые действия (Priority 1)
 
-1. **Sitemap** — починить генерацию, убрать `/shop/` из robots.txt
-2. **Canonical** — глобальный в header.php + Clean-param в robots.txt
-3. **PARSE_ERROR** — заблокировать `/shop/`, `/*.html` (старые ID), починить `detail.php`
-4. **DUPLICATE** — 301 редиректы старых URL на SEF, объединение категорий
-5. **Template fixes** — уникальные title/meta для всех 142 searchable страниц
-6. **Переобход** — запросить на 20 приоритетных URL в день
+1. **Sitemap**: починить генерацию, убрать `/shop/` из robots.txt
+2. **Canonical**: глобальный в header.php + Clean-param в robots.txt
+3. **PARSE_ERROR**: заблокировать `/shop/`, `/*.html` (старые ID), починить `detail.php`
+4. **DUPLICATE**: 301 редиректы старых URL на SEF, объединение категорий
+5. **Template fixes**: уникальные title/meta для всех 142 searchable страниц
+6. **Переобход**: запросить на 20 приоритетных URL в день
 
 ---
 
-*Полный список URL в `exports/`. Для работы с Excel — импортируйте CSV.*
+*Полный список URL в `exports/`. Для работы с Excel: импортируйте CSV.*
