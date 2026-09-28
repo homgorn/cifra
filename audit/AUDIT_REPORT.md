@@ -207,3 +207,8 @@ audit/
 ---
 
 *Report generated per seo-geo-audit skill methodology. All measured findings traceable to collector script output. Unverified items marked explicitly.*
+
+> **Уточнение от 2026-09-28.** На момент аудита в robots.txt было 23
+> строки Sitemap. Проверка живьём показала 19, и отдают 404 все 19.
+> Клиент убрал 4 строки, проблема не закрыта, число в этом файле
+> осталось историческим. Актуальное: `data/exports/yandex_webmaster/*/robots_state.json`.

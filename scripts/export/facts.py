@@ -32,9 +32,72 @@ WM_DATA = os.path.join(ROOT, "reports", "cifra18-audit", "js", "wm-data.js")
 TV_EXPORT = os.path.join(ROOT, "topvisor", "exports")
 WM_EXPORT = os.path.join(ROOT, "brain", "wiki", "webmaster_analytics", "exports")
 TV_DB = os.path.join(ROOT, "topvisor", "db", "topvisor.db")
+WM_API = os.path.join(ROOT, "data", "exports", "yandex_webmaster")
 
 OTHER_GROUP = "Прочие"
 UNASSIGNED_HINT = "не попали ни в один кластер"
+
+
+def newest(prefix, want=None):
+    """Самая свежая папка выгрузки по дате.
+
+    want задаёт обязательный файл внутри. Без него берётся просто
+    последняя папка, а она может оказаться неполной: сегодняшний срез
+    создаётся роботом проверки robots.txt и лежит рядом со вчерашним
+    полным, и тогда данные молча пропадают.
+    """
+    if not os.path.isdir(prefix):
+        return None
+    days = sorted(d for d in os.listdir(prefix)
+                  if os.path.isdir(os.path.join(prefix, d)))
+    for d in reversed(days):
+        p = os.path.join(prefix, d)
+        if want is None or os.path.isfile(os.path.join(p, want)):
+            return p
+    return None
+
+
+def yandex_diagnostics():
+    """Вердикт самой панели по 33 проверкам качества.
+
+    Независимое подтверждение. Из 33 проверок Яндекс считает проблемными
+    три, и две из них, дубли атрибутов и дубли страниц, совпадают с
+    нашими выводами по canonical. Остальные ABSENT, включая те, что мы
+    находим сами, но это не противоречие: панель проверяет выборку, мы
+    разбираем страницы.
+
+    Файл лежал непрочитанным, хотя это единственный источник, где
+    оценку даёт сама поисковая система, а не наш скрипт.
+    """
+    day = newest(WM_API, want="diagnostics.json")
+    p = os.path.join(day, "diagnostics.json") if day else ""
+    if not (p and os.path.isfile(p)):
+        return {"checked": False, "total": 0, "present": [], "reason": "нет diagnostics.json"}
+    probs = json.load(open(p, encoding="utf-8")).get("problems") or {}
+    present = [{"id": k, "severity": v.get("severity"),
+                "updated": (v.get("last_state_update") or "")[:10]}
+               for k, v in probs.items() if v.get("state") == "PRESENT"]
+    present.sort(key=lambda x: {"FATAL": 0, "CRITICAL": 1,
+                                "POSSIBLE_PROBLEM": 2}.get(x["severity"], 3))
+    return {"checked": True, "day": os.path.basename(day), "total": len(probs),
+            "present": present, "absent": len(probs) - len(present)}
+
+
+def robots_state():
+    """Живое состояние robots.txt: сколько строк Sitemap и сколько отдают 404.
+
+    В отчёте стояло 23, проверка показала 19, и все 19 отдают 404. Число
+    из текста протухает само, поэтому оно приходит из проверки, а не из
+    памяти. Дата проверки едет вместе с числом.
+    """
+    day = newest(WM_API)
+    p = os.path.join(day, "robots_state.json") if day else ""
+    if p and os.path.isfile(p):
+        d = json.load(open(p, encoding="utf-8"))
+        d["source"] = "fetch_robots_state.py, проверено %s" % d.get("checked_at", "?")
+        return d
+    return {"sitemap_lines": None, "sitemap_404": None, "disallow_count": None,
+            "checked_at": None, "source": "нет проверки, запусти fetch_robots_state.py"}
 
 
 def wm():
@@ -120,7 +183,13 @@ def collect():
     blocked = read_csv(os.path.join(TV_EXPORT, "blocked_queries.csv"))
     fresh = sum(1 for r in keep if (r.get("in_topvisor") or "").strip().lower() == "нет")
 
+    rb = robots_state()
     f = {
+        "diag": yandex_diagnostics(),
+        # robots.txt и карты сайта, проверка живьём
+        "robots": rb,
+        "sitemap_404": rb["sitemap_404"] if rb["sitemap_404"] is not None else -1,
+
         # индексация: два знаменателя, оба публикуются с подписью
         "idx_known": sum(int(s.get("indexed") or 0) for s in (d.get("sections") or [])),
         "idx_searchable": sum(int(s.get("searchable") or 0) for s in (d.get("sections") or [])),
@@ -227,6 +296,11 @@ def phrases():
             f["top10_core"], f["top10_core_base"], f["top10_core_pct"]),
         "idx_known": "%d из %s страниц, известных роботу (%.1f%%)" % (
             f["idx_searchable"], _sp(f["idx_known"]), f["idx_of_known_pct"]),
+        "robots": ("%d строк Sitemap в robots.txt, отдают 404 все %d, проверено %s"
+                   % (f["robots"]["sitemap_lines"], f["robots"]["sitemap_404"],
+                      f["robots"]["checked_at"]))
+        if f["robots"]["sitemap_lines"] else
+        "состояние robots.txt не проверено, запусти fetch_robots_state.py",
     }
 
 
@@ -266,6 +340,28 @@ def main():
               % (f["tv_balance"], f["tv_snapshot"]))
     if f["groups_not_in_site"]:
         print("  группы не на сайте        %s" % ", ".join(f["groups_not_in_site"]))
+    print()
+    print("=== ДИАГНОСТИКА ПАНЕЛИ (вердикт Яндекса) ===")
+    dg = f["diag"]
+    if dg["checked"]:
+        print("  проверено проблем      %d, из них Яндекс считает проблемными %d"
+              % (dg["total"], len(dg["present"])))
+        for x in dg["present"]:
+            print("     %-28s %-18s %s" % (x["id"], x["severity"], x["updated"]))
+    else:
+        print("  НЕ ПРОВЕРЕНО: %s" % dg["reason"])
+
+    print()
+    print("=== ROBOTS.TXT (проверка живьём) ===")
+    r = f["robots"]
+    if r.get("checked_at"):
+        print("  проверено             %s" % r["checked_at"])
+        print("  строк Sitemap         %s" % r["sitemap_lines"])
+        print("  из них отдают 404     %s" % r["sitemap_404"])
+        print("  рабочих правил Disallow %s" % r["disallow_count"])
+        print("  источник              %s" % r["source"])
+    else:
+        print("  НЕ ПРОВЕРЕНО: %s" % r["source"])
     print()
     print("=== ФОРМУЛИРОВКИ ===")
     for k, v in p.items():

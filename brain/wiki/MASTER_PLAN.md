@@ -30,7 +30,7 @@
 
 | # | Задача | Скилл | Исполнитель | Дедлайн | Статус | DoD |
 |---|---|---|---|---|---|---|
-| 0.1 | Починить sitemap (23 URL → 404) | seo-technical | Bitrix Dev | День 2 | ⏳ | sitemap.xml → 200 OK, валидный XML |
+| 0.1 | Починить sitemap (19 URL возвращают 404) | seo-technical | Bitrix Dev | День 2 | ⏳ | sitemap.xml → 200 OK, валидный XML |
 | 0.2 | Добавить canonical на все страницы | seo-technical | Bitrix Dev | День 1 | ⏳ | View Source: canonical на каждой стр. |
 | 0.3 | Убрать meta description = "Description" | seo-technical | Bitrix Dev | День 2 | ⏳ | Уникальные meta desc на главной, кат., товарах, новостях |
 | 0.4 | Исправить H1: 1 на главной вместо 5 | seo-technical | Bitrix Dev | День 1 | ⏳ | 1 H1 с главным ключом, остальные → H2 |

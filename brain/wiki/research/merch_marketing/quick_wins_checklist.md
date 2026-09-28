@@ -9,7 +9,7 @@
 ## 🎯 Week 1 (Days 1-7): Foundation & Quick Wins
 
 ### Day 1-2: Technical Foundation
-- [ ] **Fix sitemap generation** in Bitrix (all 23 sitemaps return 404)
+- [ ] **Fix sitemap generation** in Bitrix (all 19 sitemaps return 404, checked 2026-09-28)
   - Admin → Settings → SEO → Sitemap: enable generation, path `/sitemap.xml`
   - Verify `/sitemap.xml` returns 200 OK with valid XML
   - Update robots.txt with correct sitemap URLs

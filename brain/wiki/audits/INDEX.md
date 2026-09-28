@@ -26,7 +26,7 @@
 
 | ID | Finding | Category | Fix Location | Effort |
 |---|---|---|---|---|
-| B1 | Sitemap 404 (23 URLs) | Technical | Bitrix SEO settings | 30 min |
+| B1 | Sitemap 404 (19 URL, проверено 2026-09-28) | Technical | Bitrix SEO settings | 30 min |
 | B2 | No canonical tags | Technical | `header.php` template | 15 min |
 | B3 | meta description = "Description" | On-page | Component templates | 1 hr |
 | B4 | 5 H1 on homepage | On-page | `index.php` template | 30 min |

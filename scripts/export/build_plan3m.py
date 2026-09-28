@@ -47,7 +47,6 @@ NAMES = {"/catalog": "Каталог", "/shop": "Магазин (legacy /shop/)"
 # то, что приходит из выгрузки панели как поле с именем, а не как факт.
 BROKEN_LINKS = 62
 LINKS_TOTAL = 134
-ROBOTS_SITEMAP_404 = 23
 SHOP_VISITS_YEAR = 802
 TOPVORISK_GROUPS_NOW = 1
 
@@ -159,7 +158,8 @@ def build():
                 BROKEN_LINKS, LINKS_TOTAL, BROKEN_LINKS / LINKS_TOTAL * 100),
              "Каждая ведёт в 404 или 500 и сливает вес", "1 день"),
             ("Sitemap в корне сайта", "Убрать строки /shop/ из robots.txt",
-             "%d ссылки в robots.txt отдают 404" % ROBOTS_SITEMAP_404, "0,5 дня"),
+             "%d строк Sitemap, все отдают 404, проверено %s"
+             % (fx["robots"]["sitemap_404"], fx["robots"]["checked_at"]), "0,5 дня"),
             ("Закрыть админку", "Пароль и запрет индексации",
              "%d визитов в год попадают в статистику" % SHOP_VISITS_YEAR, "0,5 дня"),
             ("Отправить на переобход", "48 важных URL плюс разделы с нулём в поиске",

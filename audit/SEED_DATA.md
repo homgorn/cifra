@@ -59,3 +59,8 @@ Common: canonical absent on all pages; no JSON-LD schema anywhere; meta descript
 - [ ] GBP (Yandex.Karty) listing health - NOT MEASURED
 - [ ] Real sitemap URLs - all 23 404, needs CMS fix
 - [ ] News article URLs - /news/17-07-26-* returns 404, slug pattern unknown
+
+> **Уточнение от 2026-09-28.** На момент аудита в robots.txt было 23
+> строки Sitemap. Проверка живьём показала 19, и отдают 404 все 19.
+> Клиент убрал 4 строки, проблема не закрыта, число в этом файле
+> осталось историческим. Актуальное: `data/exports/yandex_webmaster/*/robots_state.json`.
