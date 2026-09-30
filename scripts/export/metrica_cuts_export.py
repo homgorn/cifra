@@ -110,10 +110,49 @@ def report(dimensions, metrics, date1, group=None, limit=10000, counter=None):
     return r.json()
 
 
+def preflight(counter):
+    """Проверяет доступ к данным счётчика до того, как что-то создаётся.
+
+    Зачем. Раньше скрипт создавал папку среза, писал в неё _index.json
+    с пустым списком успешных и возвращал ноль, то есть рапортовал об
+    успехе при полностью провалившейся выгрузке. Дальше facts.py берёт
+    самую свежую папку по дате, то есть подхватывала именно её, и все
+    цифры Метрики в отчёте становились нулевыми без единого сообщения.
+
+    Карточка счётчика при этом открывается кому угодно, а данные
+    принадлежат владельцу, поэтому проверять надо именно данные, и
+    одним запросом за один день.
+    """
+    params = {"counters": counter, "fields": "visits",
+              "date_from": DATE2, "date_to": DATE2}
+    try:
+        r = requests.get(REPORTING_URL, headers={"Authorization": "OAuth " + TOKEN},
+                         params=params, timeout=30)
+    except Exception as e:
+        print("Проверка доступа к счётчику %s не прошла: %s" % (counter, e))
+        return False
+    if r.status_code == 200:
+        return True
+    print()
+    print("ОТКАЗ: к данным счётчика %s нет доступа (HTTP %s)." % (counter, r.status_code))
+    print("Ничего не записано, предыдущие выгрузки не тронуты.")
+    print()
+    if r.status_code == 403:
+        print("Токен выдан не под тем аккаунтом, которому принадлежит счётчик,")
+        print("либо доступ к счётчику этому приложению ещё не выдан.")
+        print("Проверить: python scripts\\export\\yandex_oauth.py test")
+    print()
+    return False
+
+
 def main():
     if not TOKEN:
         print("Нет токена. Сначала: yandex_setup.bat")
         return 2
+    for cid, label in ((COUNTER, "сайта"), (MAPS_COUNTER, "карточки в Картах")):
+        if not preflight(cid):
+            print("Счётчик %s (%s) недоступен, выгрузка остановлена." % (cid, label))
+            return 3
     root = Path(ROOT) / "data" / "exports" / "metrica" / DATE2
     base = root / "cuts"
     base.mkdir(parents=True, exist_ok=True)
@@ -164,6 +203,17 @@ def main():
           % (len(ok), len(fail), len(maps_ok), len(maps_fail)))
     if fail:
         print("Отклонены (сайт): %s" % ", ".join(fail))
+    if maps_fail:
+        print("Отклонены (карточка): %s" % ", ".join(maps_fail))
+    # Ноль при отказанных срезах раньше означал «успех», и следующий
+    # скрипт в цепочке строил отчёт по заведомо неполным данным. Теперь
+    # отказ виден и в коде возврата, и в сообщении.
+    if not ok and not maps_ok:
+        print("\nНи один срез не получен. Код возврата 4.")
+        return 4
+    if fail or maps_fail:
+        print("\nЧасть срезов отклонена, код возврата 5.")
+        return 5
     return 0
 
 

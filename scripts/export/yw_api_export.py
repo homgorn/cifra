@@ -55,29 +55,61 @@ SITE_MARKS = ("cifra", "xn--18-6kc5a3bxam", "цифра")
 
 
 def discover_host():
+    """Находит сайт ЦИФРА18 в Вебмастере и сверяет личность токена.
+
+    Две вещи, которые раньше шли не туда.
+
+    Первое: если сайт не найден, брался «первый подтверждённый» и его
+    данные писались в папку выгрузки ЦИФРЫ. Токен от чужого аккаунта
+    этому идеально соответствует: он отвечает 200, отдаёт сайты того
+    аккаунта, Цифры среди них нет, и под неё подставляется чужой сайт.
+    Выгрузка выглядит успешной, а в отчёте цифры чужого ресурса.
+
+    Второе: user_id из ответа сверяется с YANDEX_ID в .env. Это
+    однозначный признак чужого токена, читается сразу и не зависит от
+    того, что именно этот аккаунт видит.
+    """
     me = api("/user")
     uid = me["user_id"]
+    want = str(ENV.get("YANDEX_ID", "")).strip()
+    if want and str(uid) != want:
+        print()
+        print("ОТКАЗ: токен от другого аккаунта.")
+        print("  ответ API: user_id=%s" % uid)
+        print("  ожидался:  YANDEX_ID=%s из .env" % want)
+        print("Ничего не записано. Ничего не тронуто.")
+        print()
+        print("Зайдите в oauth.yandex.ru под %s и возьмите токен заново."
+              % ENV.get("YANDEX_ACCOUNT_EMAIL", "нужным аккаунтом"))
+        print("Либо замените YANDEX_ID в .env, если аккаунт сменился намеренно.")
+        print()
+        raise RuntimeError("токен от чужого аккаунта")
     hosts = api("/user/%s/hosts" % uid).get("hosts", [])
     if not hosts:
-        raise RuntimeError("В Вебмастере нет сайтов на этом аккаунте")
+        raise RuntimeError("в Вебмастере нет сайтов на этом аккаунте")
     for h in hosts:
         blob = (h.get("host_id", "") + h.get("ascii_host_url", "")).lower()
         if any(m in blob for m in SITE_MARKS):
             print("host: %s (verified=%s)" % (h["host_id"], h.get("verified")))
             return uid, h["host_id"]
-    verified = [h for h in hosts if h.get("verified")]
-    pool = verified or hosts
-    h = pool[0]
-    print("Сайт cifra не найден, беру первый подтверждённый: %s" %
-          (h.get("ascii_host_url") or h.get("host_id")))
-    return uid, h["host_id"]
+    listed = ", ".join((h.get("ascii_host_url") or h.get("host_id", "?"))[:40]
+                       for h in hosts[:8])
+    raise RuntimeError(
+        "сайта ЦИФРА18 нет среди %d сайтов этого аккаунта (%s). "
+        "Выгрузка остановлена: подставлять чужой сайт нельзя, иначе "
+        "цифры в отчёте будут чужими, а выгрузка будет выглядеть успешной."
+        % (len(hosts), listed))
 
 
 def main():
     if not TOKEN:
         print("Нет токена. Сначала: yandex_oauth.py auth-url -> exchange.")
         return 2
-    uid, host = discover_host()
+    try:
+        uid, host = discover_host()
+    except RuntimeError as e:
+        print("Ошибка: %s" % e)
+        return 3
     print("host: %s" % host)
     base = "/user/%s/hosts/%s" % (uid, host)
     out = Path(ROOT) / "data" / "exports" / "yandex_webmaster" / DATE2
