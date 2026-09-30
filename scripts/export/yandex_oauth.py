@@ -5,14 +5,32 @@
 Токены и секреты никогда не печатаются — только маски.
 
 Команды (из корня проекта):
+  python scripts/export/yandex_oauth.py login
+      Всё сразу: печатает ссылку, открывает браузер, ждёт код,
+      обменивает, проверяет. Для клиента это одна команда.
   python scripts/export/yandex_oauth.py auth-url
+      Только ссылка.
   python scripts/export/yandex_oauth.py exchange <код_со_страницы>
   python scripts/export/yandex_oauth.py test
+
+Почему код всё равно приходится копировать руками, и почему это не
+обойти. У приложений для доступа к API значение redirect_uri менять
+нельзя, Яндекс требует https://oauth.yandex.ru/verification_code.
+Схема с локальным сервером, где скрипт сам ловит код из ответа
+браузера, для таких приложений не работает: принимать код по своему
+адресу приложение не умеет. Это не ограничение нашего скрипта, это
+устройство сервиса.
+
+Отсюда вывод, который стоит помнить: обмен токеном через мессенджер
+плохая идея не потому, что неудобно, а потому что токен там остаётся.
+Правильный путь для агентства это добавить свой аккаунт в панели
+клиента представителем на чтение, см. CLIENT_ACCESS.md.
 """
 import os
 import sys
 import urllib.parse
 import urllib.request
+import webbrowser
 import json
 
 sys.stdout.reconfigure(encoding="utf-8")
@@ -83,6 +101,74 @@ def save_token(token):
 def mask(s):
     s = s or ""
     return (s[:4] + "..." + s[-4:]) if len(s) > 12 else "***"
+
+
+def build_url(env, scope=None):
+    cid = env.get("YANDEX_CLIENT_ID", "")
+    q = {"response_type": "code", "client_id": cid, "redirect_uri": REDIRECT}
+    if scope:
+        q["scope"] = scope
+    return cid, AUTH_URL + "?" + urllib.parse.urlencode(q)
+
+
+def cmd_login(env, scope=None):
+    """Один шаг от запуска до проверенного токена.
+
+    Клиенту это одна команда, а не три и не переписка. Ссылка
+    открывается сама, код вставляется в это же окно, токен сразу
+    проверяется на то, что он от того аккаунта и что данные читаются.
+
+    Последнее важнее удобства. Раньше был сюжет: токен получен, всё
+    зелёное, а через неделю выясняется, что он от чужого аккаунта,
+    потому что залогинен был кто-то ещё. Проверка личности идёт сразу
+    после обмена, пока человек ещё рядом и может войти заново под
+    нужным логином.
+    """
+    cid, url = build_url(env, scope)
+    if not cid:
+        print("Нет YANDEX_CLIENT_ID в .env")
+        return 1
+    if cid == LEAKED_CLIENT_ID:
+        print("ВНИМАНИЕ: это приложение со скомпрометированным секретом,")
+        print("его токен использовать нельзя. См. остальные сообщения.")
+        print()
+
+    print("=" * 62)
+    print("Шаг 1 из 2. Откроется браузер, войдите под нужным аккаунтом.")
+    print()
+    print("  Для сайта и Метрики это %s" % env.get("YANDEX_ACCOUNT_EMAIL", "аккаунт владельца сайта"))
+    print("  Проверьте, что в правом верхнем углу именно он, ДО подтверждения.")
+    print()
+    print("Если браузер не открылся, откройте ссылку вручную:")
+    print()
+    print(url)
+    print()
+    try:
+        webbrowser.open(url, new=2)
+        print("Браузер открыт.")
+    except Exception:
+        print("Открыть браузер из скрипта не вышло, откройте ссылку выше.")
+    print("=" * 62)
+    print()
+    try:
+        code = input("Шаг 2 из 2. Вставьте код со страницы и нажмите Enter: ").strip()
+    except EOFError:
+        print("Код не введён.")
+        return 1
+    if not code:
+        print("Пустой код, ничего не сделано.")
+        return 1
+    # Яндекс иногда отдаёт код вместе со служебными символами, и если
+    # его не снять, обмен падает invalid_grant без внятной причины.
+    code = code.strip().strip("'\"")
+    rc = cmd_exchange(env, code)
+    if rc:
+        print()
+        print("Токен не получен. Причины разобраны выше.")
+        return rc
+    print()
+    print("Проверяю, что токен от того аккаунта и что данные читаются.")
+    return cmd_test(env)
 
 
 def cmd_auth_url(env, scope=None):
@@ -269,8 +355,10 @@ if __name__ == "__main__":
     for a in sys.argv[1:]:
         if a.startswith("--scope="):
             scope = a.split("=", 1)[1]
-    cmd = args[0] if args else "auth-url"
-    if cmd == "auth-url":
+    cmd = args[0] if args else "login"
+    if cmd == "login":
+        sys.exit(cmd_login(env, scope))
+    elif cmd == "auth-url":
         sys.exit(cmd_auth_url(env, scope))
     elif cmd == "exchange" and len(args) > 1:
         sys.exit(cmd_exchange(env, args[1]))
@@ -278,11 +366,14 @@ if __name__ == "__main__":
         sys.exit(cmd_test(env))
     else:
         print("Использование:")
+        print("  login                        всё сразу: ссылка, код, проверка")
         print("  auth-url [--scope=значение]  ссылка для входа")
         print("  exchange <код>               обменять код на токен")
         print("  test                         проверить токен и права")
         print()
+        print("Для клиента нужна одна команда login. Остальное на случай, если")
+        print("код нужен отдельно, например для выяснения, что пошло не так.")
+        print()
         print("Без --scope ссылка не передаёт список прав, и токен получает все")
-        print("права, объявленные у приложения. Это обычный режим, менять его")
-        print("нужно только если конкретное право не попадает в токен.")
+        print("права, объявленные у приложения. Это обычный режим.")
         sys.exit(2)
