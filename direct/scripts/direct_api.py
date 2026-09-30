@@ -171,7 +171,8 @@ class DirectError(Exception):
 
 
 class DirectClient:
-    def __init__(self, token=None, sandbox=False, min_units=500, log=None):
+    def __init__(self, token=None, sandbox=False, min_units=500, log=None,
+                 write=None):
         env = load_env()
         self.token = token if token is not None else (
             env.get("DIRECT_OAUTH_TOKEN") or env.get("YANDEX_OAUTH_TOKEN") or "")
@@ -182,6 +183,20 @@ class DirectClient:
         self.reports_url = REPORTS_SANDBOX if self.sandbox else REPORTS_PROD
         self.min_units = min_units
         self.log = log or (lambda *a: None)
+        # Режим записи. По умолчанию выключен, и это не ограничение API,
+        # а защита от ошибки в собственном коде: выгрузка не должна
+        # иметь возможности остановить чужую кампанию. Включается
+        # переменной DIRECT_WRITE=1 в .env, когда представителю в
+        # Директе выданы права на редактирование.
+        #
+        # Про права представителя. Роль «Только чтение» даёт всё, что
+        # нужно для аудита, аналитики и общей таблицы: выгрузка кампаний,
+        # фраз и все четыре отчёта это операции чтения, и роль на них не
+        # влияет. Полный доступ нужен только для правки ставок, паузы и
+        # изменения текстов объявлений.
+        if write is None:
+            write = str(env.get("DIRECT_WRITE", "")).strip() in ("1", "true", "yes")
+        self.write = bool(write)
         self.spent = 0
         self.remaining = None
         self.daily = None
@@ -279,10 +294,12 @@ class DirectClient:
     def call(self, service, method, body=None, write=False, count=0):
         """Один вызов метода. Возвращает разобранное тело ответа."""
         name = "%s.%s" % (service, method)
-        if name in WRITE_METHODS and not write:
+        if name in WRITE_METHODS and not (write or self.write):
             raise DirectError(0, "write_blocked",
-                              "%s меняет состояние, вызов заблокирован. "
-                              "Передайте write=True, если это нужно" % name)
+                              "%s меняет состояние, вызов заблокирован: "
+                              "включите DIRECT_WRITE=1 в .env, когда "
+                              "представителю в Директе выданы права на "
+                              "редактирование" % name)
         if not self.check_budget(service, method, count):
             raise DirectError(0, "no_units", "баллы исчерпаны, запрос не отправлен")
         url = "%s/v5/%s/%s" % (self.base, service, method)
