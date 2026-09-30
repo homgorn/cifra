@@ -138,6 +138,42 @@ def flag(env, name, default="0"):
     return str(os.environ.get(name, default)).strip().lower() in ("1", "true", "yes")
 
 
+def token_history(env, add=None):
+    """Хвост ранее выданных токенов, новые в начало.
+
+    Нужно потому, что за день пришлось выдать шесть токенов, и все они
+    приходили в переписке вперемешку. Один из них прислали повторно через
+    несколько шагов, он был выдан до добавления scope, повторный прогон
+    дал ожидаемый 403, и вывод сделался неверный. Отличать новый токен
+    от старого по маске в разговоре невозможно, последние четыре символа
+    у разных токенов совпадают нечасто, но путаница происходит именно
+    потому, что токен выглядит новым.
+
+    Хранится в .env, то есть вне git.
+    """
+    raw = env.get("YANDEX_TOKEN_HISTORY", "")
+    items = [x.strip() for x in raw.split(",") if x.strip()]
+    if add:
+        items = [add] + [x for x in items if x != add]
+        items = items[:8]
+        lines = []
+        if os.path.exists(ENV_PATH):
+            with open(ENV_PATH, encoding="utf-8") as f:
+                lines = f.read().splitlines()
+        out, found = [], False
+        for line in lines:
+            if line.startswith("YANDEX_TOKEN_HISTORY="):
+                out.append("YANDEX_TOKEN_HISTORY=" + ",".join(items))
+                found = True
+            else:
+                out.append(line)
+        if not found:
+            out.append("YANDEX_TOKEN_HISTORY=" + ",".join(items))
+        with open(ENV_PATH, "w", encoding="utf-8") as f:
+            f.write("\n".join(out) + "\n")
+    return items
+
+
 def load_env():
     env = {}
     if os.path.exists(ENV_PATH):
@@ -261,6 +297,18 @@ def cmd_login(env, scope=None):
         print("Это не похоже на токен: %d символов." % len(token))
         print("Скопируйте текст со страницы целиком, а не то, что под ним.")
         return 1
+    history = token_history(env)
+    if token in history:
+        print()
+        print("ВНИМАНИЕ: этот токен уже присылался ранее, он не новый.")
+        print("Что добавлялось после его выдачи, в него не попало.")
+        print()
+        print("Чтобы получить токен с новыми правами:")
+        print("  1. Отозвать на id.yandex.ru/personal/data-access")
+        print("  2. Открыть заново ссылку из login и подтвердить доступ")
+        print("  3. Убедиться, что Яндекс показал новый токен, а не тот же")
+        return 4
+
     # Токен не изменился после добавления прав. При response_type=token
     # Яндекс возвращает уже выданный действующий токен, а новые права в
     # него не подставляются: право появляется только в новом токене.
@@ -285,6 +333,7 @@ def cmd_login(env, scope=None):
         print("выдан точно такой же, и разницы не будет.")
         return 4
 
+    token_history(env, token)
     save_token(token)
     print("Токен новый, отличается от прежнего. Сохранён в .env, маска %s."
           % mask(token))
