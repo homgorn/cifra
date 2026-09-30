@@ -43,11 +43,35 @@ ENV = load_env()
 TOKEN = ENV.get("YANDEX_OAUTH_TOKEN", "") or os.getenv("YW_API_KEY", "")
 
 
+class ApiUnavailable(RuntimeError):
+    """API не отдал данные. Отдельный тип, чтобы поймать в main.
+
+    Раньше здесь стоял голый raise_for_status, и любой отказ доходил до
+    пользователя трассировкой Python вместо объяснения. На практике это
+    случилось с токеном владельца счётчика: у него нет доступа к
+    Вебмастеру, и вместо одного предложения пользователь получил стек
+    вызовов. Токен подходит не ко всем сервисам сразу, и об этом нужно
+    говорить прямо.
+    """
+
+
 def api(path, params=None):
     r = requests.get(BASE_URL + path,
                      headers={"Authorization": "OAuth " + TOKEN},
                      params=params or {}, timeout=60)
-    r.raise_for_status()
+    if r.status_code != 200:
+        detail = ""
+        try:
+            detail = (r.json().get("error_message") or "")[:200]
+        except Exception:
+            detail = r.text[:200]
+        raise ApiUnavailable("HTTP %s на %s%s%s" % (
+            r.status_code, path,
+            (": " + detail) if detail else "",
+            ". Проверьте, что токен выдан от аккаунта, у которого есть "
+            "доступ к сайту в Вебмастере. Токен владельца счётчика "
+            "Метрики может не иметь доступа к Вебмастеру, и наоборот."
+            if r.status_code == 403 else ""))
     return r.json()
 
 
@@ -102,6 +126,12 @@ def main():
         return 2
     try:
         uid, host = discover_host()
+    except ApiUnavailable as e:
+        print("ОТКАЗ: %s" % e)
+        print()
+        print("Ничего не записано, предыдущие выгрузки не тронуты.")
+        print()
+        return 3
     except RuntimeError as e:
         print()
         print("ОТКАЗ: %s" % e)

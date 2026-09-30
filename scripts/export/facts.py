@@ -57,6 +57,45 @@ def newest(prefix, want=None):
     return None
 
 
+def ext_links():
+    """Внешние ссылки на сайт по данным Вебмастера.
+
+    Отдаётся рядом точек, берётся последняя. Показатель отвечает на
+    вопрос, который иначе остаётся открытым: сколько внешних ссылок
+    ведёт на сайт и что с этим делать. В отчёте для клиента цифры не
+    было вообще, при том что данные приходят каждый день.
+
+    Яндекс отдаёт эти данные только начиная с 8 декабря 2017, поэтому
+    ранних точек нет и сравнивать не с чем.
+    """
+    day = newest(WM_API, want="external_links_history.json")
+    p = os.path.join(day, "external_links_history.json") if day else ""
+    if not os.path.isfile(p):
+        return {"points": 0, "last": None, "date": None,
+                "source": "нет external_links_history.json"}
+    ind = (json.load(open(p, encoding="utf-8")).get("indicators") or {})
+    series = []
+    for name, rows in ind.items():
+        if name.startswith("LINKS_TOTAL") and rows:
+            series = rows
+            break
+    if not series:
+        for rows in ind.values():
+            if rows:
+                series = rows
+                break
+    if not series:
+        return {"points": 0, "last": None, "date": None, "source": "пусто"}
+    last = series[-1]
+    return {"points": len(series),
+            "last": int(last.get("value") or 0),
+            "date": str(last.get("date") or "")[:10],
+            "max": max(int(r.get("value") or 0) for r in series),
+            "min": min(int(r.get("value") or 0) for r in series),
+            "source": "Вебмастер, внешние ссылки, точка на %s"
+                      % str(last.get("date") or "")[:10]}
+
+
 def yandex_diagnostics():
     """Вердикт самой панели по 33 проверкам качества.
 
@@ -186,6 +225,9 @@ def collect():
     rb = robots_state()
     f = {
         "diag": yandex_diagnostics(),
+        # Внешние ссылки. Раньше выгружались и не разбирались нигде,
+        # единственный источник, где их видно вообще.
+        "ext_links": ext_links(),
         # robots.txt и карты сайта, проверка живьём
         "robots": rb,
         "sitemap_404": rb["sitemap_404"] if rb["sitemap_404"] is not None else -1,
@@ -340,6 +382,19 @@ def main():
               % (f["tv_balance"], f["tv_snapshot"]))
     if f["groups_not_in_site"]:
         print("  группы не на сайте        %s" % ", ".join(f["groups_not_in_site"]))
+    print()
+    print("=== ВНЕШНИЕ ССЫЛКИ ===")
+    e = f["ext_links"]
+    if e.get("last") is not None:
+        print("  всего ссылок, последняя точка: %d на %s"
+              % (e["last"], e["date"]))
+        if e.get("min") is not None:
+            print("  минимум за историю %d, максимум %d, точек %d"
+                  % (e["min"], e["max"], e["points"]))
+        print("  источник: %s" % e["source"])
+    else:
+        print("  НЕ ПРОВЕРЕНО: %s" % e["source"])
+
     print()
     print("=== ДИАГНОСТИКА ПАНЕЛИ (вердикт Яндекса) ===")
     dg = f["diag"]
