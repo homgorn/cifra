@@ -263,6 +263,26 @@ def mask(s):
     return (s[:4] + "..." + s[-4:]) if len(s) > 12 else "***"
 
 
+def token_from_url(raw):
+    """Достать токен из того, что Яндекс отдал в браузере.
+
+    При response_type=token Яндекс возвращает токен во «якоре» адреса,
+    то есть после символа #, и браузер этот кусок не отправляет на
+    сервер. Пользователь копирует адрес целиком, и разбирать его
+    приходится здесь.
+
+    Принимается и голый токен, потому что люди копируют что попало:
+    ссылку, только значение, значение с кавычками, строку с пробелами.
+    """
+    raw = (raw or "").strip().strip("\"'")
+    if "access_token=" in raw:
+        frag = raw.split("access_token=", 1)[1]
+        return frag.split("&", 1)[0].split("#", 1)[0].strip()
+    if raw.startswith("y0_"):
+        return raw
+    return ""
+
+
 def build_url(env, scope=None):
     cid = env.get("YANDEX_CLIENT_ID", "")
     # Приоритет такой: флаг командной строки, потом YANDEX_SCOPES в .env,
@@ -272,7 +292,10 @@ def build_url(env, scope=None):
     # oauth.yandex.ru, а не в коде.
     if scope is None:
         scope = str(env.get("YANDEX_SCOPES", "") or "").strip() or SCOPES
-    q = {"response_type": "code", "client_id": cid, "redirect_uri": REDIRECT}
+    mode = "implicit" if str(env.get("YANDEX_FLOW", "")).strip() == \
+        "token" else "code"
+    q = {"response_type": "token" if mode == "implicit" else "code",
+         "client_id": cid, "redirect_uri": REDIRECT}
     if scope:
         q["scope"] = scope
     return cid, scope, AUTH_URL + "?" + urllib.parse.urlencode(q)
@@ -412,7 +435,8 @@ def cmd_auth_url(env, scope=None):
     cid2, scope, url = build_url(env, scope)
     print("Scope в ссылке: %s" % (scope or "не передан"))
     print()
-    print("Откройте в браузере, подтвердите доступ, скопируйте код:")
+    print("Откройте в браузере, подтвердите доступ, скопируйте")
+    print("адрес страницы целиком или только токен из него:")
     print(url)
     print()
     if scope:
@@ -485,6 +509,36 @@ def cmd_exchange(env, code):
     print()
     print("Следующий шаг: python scripts\\export\\yandex_oauth.py test")
     return 0
+
+
+def cmd_paste(env, raw):
+    """Принять то, что прислал человек, и проверить токен.
+
+    В неявном потоке Яндекс отдаёт токен в адресе страницы, и человек
+    копирует либо сам адрес, либо только значение, либо значение в
+    кавычках. Раньше скрипт ждал ровно токен, из-за чего годятся не
+    все три варианта и приходилось гадать, что именно прислали.
+
+    Порядок такой: сохранить, отметить приложение, прогнать пробу.
+    Приложение записывается обязательно, иначе токен снова останется
+    без следа о том, кто его выдал.
+    """
+    tok = token_from_url(raw)
+    if not tok:
+        print("Это не похоже на токен.")
+        print()
+        print("Ожидается одно из трёх:")
+        print("  токен целиком, начинается с y0_")
+        print("  адрес страницы, в нём есть access_token=")
+        print("  токен в кавычках, кавычки снимаются сами")
+        print()
+        print("Прислано: %r" % (raw or "")[:120])
+        return 2
+    save_token(tok, app_id=env.get("YANDEX_CLIENT_ID", ""))
+    print()
+    print("Токен принят и сохранён.")
+    print()
+    return cmd_test(env)
 
 
 def api_get(url, token):
@@ -688,6 +742,8 @@ if __name__ == "__main__":
         sys.exit(cmd_auth_url(env, scope))
     elif cmd == "exchange" and len(args) > 1:
         sys.exit(cmd_exchange(env, args[1]))
+    elif cmd == "paste" and len(args) > 1:
+        sys.exit(cmd_paste(env, args[1]))
     elif cmd == "test":
         sys.exit(cmd_test(env))
     else:
@@ -695,6 +751,8 @@ if __name__ == "__main__":
         print("  login                        всё сразу: ссылка, код, проверка")
         print("  auth-url [--scope=значение]  ссылка для входа")
         print("  exchange <код>               обменять код на токен")
+        print("  paste <строка>               принять токен или адрес")
+        print("                              и сразу проверить его")
         print("  test                         проверить токен и права")
         print()
         print("Для клиента нужна одна команда login. Остальное на случай, если")
