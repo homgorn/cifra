@@ -192,22 +192,70 @@ def load_env():
     return env
 
 
-def save_token(token):
-    lines, found = [], False
+def _put_env(key, value):
+    """Записать пару ключ-значение в .env, не трогая остальные строки."""
+    lines = []
     if os.path.exists(ENV_PATH):
         with open(ENV_PATH, encoding="utf-8") as f:
             lines = f.read().splitlines()
-    out = []
+    out, found = [], False
     for line in lines:
-        if line.startswith("YANDEX_OAUTH_TOKEN="):
-            out.append("YANDEX_OAUTH_TOKEN=" + token)
+        if line.split("=", 1)[0].strip() == key:
+            out.append(key + "=" + value)
             found = True
         else:
             out.append(line)
     if not found:
-        out.append("YANDEX_OAUTH_TOKEN=" + token)
+        out.append(key + "=" + value)
     with open(ENV_PATH, "w", encoding="utf-8") as f:
         f.write("\n".join(out) + "\n")
+
+
+def save_token(token, app_id=None):
+    """Сохранить токен и запомнить, каким приложением он выдан.
+
+    Из самого токена нельзя узнать, какое приложение его выдало, а от
+    этого зависит, работает ли он. Приложение без права metrika:read
+    выдаёт токен, который читает список счётчиков и не читает ни одного
+    отчёта. Причина описана в документации Яндекс Метрики дословно,
+    раздел «Возможные проблемы и их решение», блок «На стороне токена»:
+    «Токен создан не для того приложения... токен был заведён на
+    приложение, не имеющее доступа к Метрике».
+
+    Поэтому рядом с токеном пишется приложение. После этого любой
+    прогон может назвать приложение, выдавшее текущий токен, и не
+    гадать, откуда он взят.
+    """
+    _put_env("YANDEX_OAUTH_TOKEN", token)
+    if app_id:
+        _put_env("YANDEX_TOKEN_APP", app_id)
+        print("Токен выдан приложением: %s" % app_id)
+
+
+def app_mismatch(env):
+    """Расхождение между приложением в .env и тем, что выдало токен.
+
+    Возвращает строку с предупреждением или пустую строку, если всё
+    сходится. Пустая строка означает, что проверить нечем: сведения о
+    приложении ещё не записывались.
+    """
+    cur = env.get("YANDEX_CLIENT_ID", "")
+    tok_app = env.get("YANDEX_TOKEN_APP", "")
+    if not cur:
+        return "Нет YANDEX_CLIENT_ID в .env, ссылку входа построить нечем."
+    if not tok_app:
+        return ""
+    if cur == tok_app:
+        return ""
+    return ("ТОКЕН И ССЫЛКА ОТ РАЗНЫХ ПРИЛОЖЕНИЙ.\n"
+            "  Токен в .env выдан приложению: %s\n"
+            "  Ссылка входа сейчас строится на: %s\n"
+            "  Токен, выданный приложением без права metrika:read, читает\n"
+            "  список счётчиков и не читает ни одного отчёта. Отчётный\n"
+            "  сервис отказывает до проверки счётчика, поэтому отказ\n"
+            "  выглядит одинаково для любого номера, включая\n"
+            "  несуществующий. Проверь, какое приложение живое, прежде\n"
+            "  чем выдавать новый токен." % (tok_app, cur))
 
 
 def mask(s):
@@ -456,6 +504,24 @@ def cmd_test(env):
     env = dict(env)
     env["_today"] = (date.today() - timedelta(days=1)).isoformat()
     print("Токен: %s" % mask(token))
+    # Каким приложением выдан токен. Из самого токена это не читается,
+    # поэтому хранится рядом с ним и сверяется с тем, на что сегодня
+    # строится ссылка входа.
+    print("ПРИЛОЖЕНИЕ ТОКЕНА")
+    _app_now = env.get("YANDEX_CLIENT_ID", "")
+    _app_tok = env.get("YANDEX_TOKEN_APP", "")
+    print("  ссылка строится на: %s" % (_app_now or "нет в .env"))
+    if _app_tok:
+        print("  токен выдан на:     %s" % _app_tok)
+    else:
+        print("  токен выдан на:     НЕИЗВЕСТНО, ключа нет в .env")
+        print("  Приложение, выдавшее токен, из токена не читается, сверить")
+        print("  нечем. Пустое значение выглядит как отсутствие проблемы,")
+        print("  поэтому названо прямо. Ключ ставится при выдаче токена.")
+    _warn = app_mismatch(env)
+    if _warn:
+        print()
+        print(_warn)
     # Метрика: список счётчиков
     #
     # Здесь важна не доступность API, а личность владельца. Токен,
