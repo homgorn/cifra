@@ -410,6 +410,7 @@ KINDS = {
         "label": "посещаемость по дням",
         "detect": lambda c: any("интервал дат визита" in x for x in c),
         "dim": 1, "date_col": 0, "full": True,
+        "dims": ["Интервал дат визита"],
         "measures": {"visits": 1, "visitors": 2, "views": 3,
                      "new_visitors_share": 4, "bounce_rate": 5,
                      "depth": 6, "time_on_site": 7},
@@ -607,6 +608,8 @@ def period_of(parsed):
         dates = []
         for r in parsed["rows"]:
             key = list(r.keys())[0]
+            # колонка с датой это первая измерение записи, её имя берётся
+            # из реестра, а не из позиции
             m = re.match(r"^(\d{4})-(\d{2})-(\d{2})$", str(r.get(key, "")).strip())
             if m:
                 dates.append(m.group(0))
@@ -705,6 +708,28 @@ def primary_measure(parsed):
     return PRIMARY_MEASURE.get(parsed.get("kind"), ("visits", "визитов"))
 
 
+def load_quarantine():
+    """Файлы, признанные негодными после просмотра человеком.
+
+    Формат: список объектов с именем файла и причиной. Причина
+    обязательна: «исключено» без объяснения через полгода ничем не
+    отличается от ошибки, и следующий человек потратит тот же день на
+    ту же проверку.
+    """
+    path = os.path.join(ROOT, "scripts", "export", "QUARANTINE.json")
+    if not os.path.isfile(path):
+        return {}
+    try:
+        data = json.load(open(path, encoding="utf-8"))
+    except ValueError:
+        return {}
+    out = {}
+    for item in data.get("files", []):
+        if item.get("file") and item.get("reason"):
+            out[item["file"]] = item["reason"]
+    return out
+
+
 def period_key(period):
     """Ключ группировки по периоду."""
     if not period:
@@ -787,11 +812,18 @@ def main():
     print("Папки: %s" % ", ".join(period_dirs))
     print()
 
-    good, broken = [], []
+    quarantine = load_quarantine()
+    good, broken, held = [], [], []
     print("%-34s %-24s %-10s %10s" % ("вид", "файл", "итог", "строк"))
     print("-" * 84)
     no_total = []
     for p in files:
+        if p["file"] in quarantine:
+            p["quarantine_reason"] = quarantine[p["file"]]
+            held.append(p)
+            print("%-34s %-24s %-10s %10s"
+                  % ("ОТЛОЖЕН ЧЕЛОВЕКОМ", p["file"][:24], "-", "-"))
+            continue
         if p["problem"]:
             broken.append(p)
             print("%-34s %-24s %-10s %10s"
@@ -815,6 +847,12 @@ def main():
         print("Без строки итогов: %s" % ", ".join(no_total))
         print("  У таких файлов итог не сверяется. Сумма строк проверяется")
         print("  отдельно, в гейтах.")
+        print()
+    if held:
+        print("ОТЛОЖЕНО ЧЕЛОВЕКОМ: %d файл(ов), в отчёт не идут" % len(held))
+        for h in held:
+            print("  %s" % h["file"])
+            print("    причина: %s" % h["quarantine_reason"])
         print()
     if broken:
         print("НЕ РАЗОБРАНО, требует вмешательства: %d" % len(broken))
@@ -997,6 +1035,8 @@ def main():
         "files_written": sorted(written),
         "files_rejected": [{"file": b["file"], "reason": b["problem"]}
                            for b in broken],
+        "files_held": [{"file": h["file"], "reason": h["quarantine_reason"]}
+                       for h in held],
     }
     with open(os.path.join(outdir, "_index.json"), "w",
               encoding="utf-8") as fh:
