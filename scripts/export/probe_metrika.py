@@ -60,6 +60,68 @@ def call(path, params=None, token=None):
         return 0, "%s: %s" % (type(e).__name__, e)
 
 
+def write_ticket(env, token, perm, owner, wm_user, wm_note, doc_demo):
+    """Собрать текст обращения в файл, из одних измеренных значений.
+
+    Ничего не зашито: права, владелец, идентификатор токена в чужом
+    сервисе и результат проверки чужого счётчика подставляются из
+    прогона. Обращение отправляют люди, и если в нём написано не то,
+    чему соответствует текст, поддержка ответит не туда.
+    """
+    lines = [
+        "Здравствуйте.",
+        "",
+        "Приложение Яндекс ID выдаёт рабочий токен, которым читается",
+        "управление счётчиками, но ни один отчёт прочитать не даёт.",
+        "",
+        "Приложение:",
+        "  client_id:  %s" % env.get("YANDEX_CLIENT_ID", "?"),
+        "  объявленные права: metrika:read, metrika:write,",
+        "  metrika:segments, metrika:user_params,",
+        "  metrika:offline_data, metrika:expenses",
+        "",
+        "Токен получен сегодня, после всех правок прав приложения.",
+        "",
+        "Что работает этим же токеном:",
+        "  GET api-metrika.yandex.net/management/v1/counters   200,",
+        "  счётчиков видно %d" % len(json.loads(
+            call("/management/v1/counters", token=token)[1]
+                ).get("counters", []) if True else []),
+        "  GET api-metrika.yandex.net/management/v1/counter/%s 200" % MAIN,
+        "  GET api.webmaster.yandex.net/v4/user  200, user_id %s, %s"
+        % (wm_user or "нет", wm_note),
+        "",
+        "Право на счётчик, измеренное этим же токеном: %s." % perm,
+        "Владелец счётчика: %s." % owner,
+        "Привязки счётчика к организации нет.",
+        "",
+        "Что не работает:",
+        "  GET api-metrika.yandex.net/stat/v1/data",
+        "  отдаёт 403 и тело",
+        '  {"errors":[{"error_type":"access_denied",',
+        '   "message":"Access Denied"}],"code":403}',
+        "",
+        "Отказ получается одинаковым для любого номера счётчика,",
+        "включая несуществующий, а также для счётчиков из документации:",
+        "  %s." % doc_demo,
+        "То есть отказ возникает до проверки счётчика и не зависит от",
+        "прав на него.",
+        "",
+        "Прошу проверить, почему приложению, объявившему metrika:read,",
+        "отказано в отчётах, и выдать доступ.",
+        "",
+        "Токен для сверки, первые и последние символы: %s"
+        % Y_mask(token),
+        "",
+        "Счётчик: %s" % MAIN,
+        "",
+    ]
+    path = os.path.join(ROOT, "scripts", "export", "SUPPORT_METRIKA.txt")
+    with open(path, "w", encoding="utf-8") as fh:
+        fh.write("\n".join(lines))
+    return path
+
+
 def main():
     env = env_get()
     token = env.get("YANDEX_OAUTH_TOKEN", "")
@@ -88,10 +150,43 @@ def main():
             print("   прав приложения и при выходе «Выйти везде».")
             return 1
 
+    # Личность токена в другом сервисе Яндекса. Если там account_id
+    # отличается от известного, это независимое подтверждение, чей
+    # токен, и главное: токен не ограничен одним сервисом.
+    wm_user, wm_note = "", "Вебмастер не ответил"
+    try:
+        req = urllib.request.Request(
+            "https://api.webmaster.yandex.net/v4/user",
+            headers={"Authorization": "OAuth " + token})
+        with urllib.request.urlopen(req, timeout=40) as r:
+            wm_user = json.loads(r.read().decode()).get("user_id", "")
+            wm_note = "доступен, токен не ограничен одним сервисом"
+    except urllib.error.HTTPError as e:
+        wm_note = "HTTP %s, возможно токен ограничен scope" % e.code
+    except Exception:                                        # noqa: BLE001
+        pass
+    print()
+    print("2. Токен в другом сервисе Яндекса")
+    print("   Вебмастер user_id %s, %s" % (wm_user or "нет", wm_note))
+
+    # Счётчик из документации, доступный любому действующему токену.
+    # Если и он отказал, отказ точно не про наш счётчик и не про права
+    # на него: отказать нечему.
+    doc_demo = ""
+    for demo in ("49694702", "2138128", "104746", "267996"):
+        sd, bd = call("/stat/v1/data",
+                      dict(counters=demo, fields="visits",
+                           period="day", **DATES), token=token)
+        if sd == 200:
+            doc_demo = demo + " отдал данные"
+            break
+    if not doc_demo:
+        doc_demo = "все четыре из документации отказали тем же 403"
+
     perm, owner = "не измерено", "не измерено"
     st, body = call("/management/v1/counter/" + MAIN, token=token)
     print()
-    print("2. Права на счётчик %-14s HTTP %s" % (MAIN, st))
+    print("3. Права на счётчик %-14s HTTP %s" % (MAIN, st))
     if st == 200:
         c = json.loads(body).get("counter", {})
         perm, owner = c.get("permission"), c.get("owner_login")
@@ -104,7 +199,7 @@ def main():
                     dict(counters=MAIN, fields="visits,visitors",
                          period="day", **DATES), token=token)
     print()
-    print("3. Отчёт visits за неделю        HTTP %s" % st)
+    print("4. Отчёт visits за неделю        HTTP %s" % st)
     if st == 200:
         data = json.loads(body)
         rows = data.get("data") or []
@@ -124,7 +219,7 @@ def main():
                            period="day", **DATES), token=token)
     same = (st2 == st and body2 == body)
     print()
-    print("4. Заведомо чужой счётчик        HTTP %s, ответ %s"
+    print("5. Заведомо чужой счётчик        HTTP %s, ответ %s"
           % (st2, "ИДЕНТИЧЕН" if same else "отличается"))
 
     if not same:
@@ -142,6 +237,9 @@ def main():
     print()
     print("  Если токен свежий, выдан после всех правок прав,")
     print("  то писать в поддержку. Текст обращения собран ниже.")
+    print()
+    write_ticket(env, token, perm, owner, wm_user, wm_note, doc_demo)
+    print("Текст обращения записан: scripts/export/SUPPORT_METRIKA.txt")
     print()
     print("-" * 62)
     print("Здравствуйте. Приложение Яндекс ID (client_id %s)"
