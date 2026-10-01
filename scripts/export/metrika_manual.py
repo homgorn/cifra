@@ -155,7 +155,10 @@ def to_number(text):
         val = float(s)
     except ValueError:
         return None
-    return val / 100.0 if pct else val
+    # Округление нужно из-за двоичного представления: 0,68 процента
+    # приходит как 0.0068000000000000005. Поддержка Метрики об этом
+    # прямо предупреждает в разделе про точность чисел.
+    return round(val / 100.0, 6) if pct else round(val, 6)
 
 
 def human_time(seconds):
@@ -163,6 +166,236 @@ def human_time(seconds):
         return ""
     return "%02d:%02d:%02d" % (seconds // 3600, (seconds % 3600) // 60,
                                 seconds % 60)
+
+
+MONTHS_RU = {"января": 1, "февраля": 2, "марта": 3, "апреля": 4,
+             "мая": 5, "июня": 6, "июля": 7, "августа": 8,
+             "сентября": 9, "октября": 10, "ноября": 11, "декабря": 12}
+
+# Отчёт по целям не выгружается файлом. Его снимают с экрана, и
+# метрика при этом отдаёт линейный список: по одному значению в
+# строке, без разделителей. Часть ячеек при этом переносится и
+# занимает две строки, поэтому ширина записи плавает: у строки итогов
+# одна ширина, у строк по дням другая.
+#
+# Отсюда разбор не по номерам колонок, а по типам. Начало записи
+# у всех строк одинаково и проверяется по типам: процент, потом три
+# пары число и доля, потом число. Конец записи тоже у всех строк
+# одинаков и читается с конца: два средних, два процента, время.
+# Середина при этом разной длины, и в ней у строк по дням лежит доля
+# просмотров дня от просмотров периода, которой в шапке нет вовсе.
+#
+# Что всё это доказывает, а не предполагает, такова сумма: достижения
+# цели по дням должны в сумме дать ровно столько же, сколько в строке
+# итогов. Если сходится, раскладка верна. Если нет, данные не идут ни
+# в отчёт, ни в сайт.
+
+GOALS_PREFIX = [
+    ("Конверсия", "pct"),
+    ("Достижения цели", "int"),
+    ("Достижения цели, доля", "pct"),
+    ("Целевые визиты", "int"),
+    ("Целевые визиты, доля", "pct"),
+    ("Доход по цели, ₽", "num"),
+    ("Целевые посетители", "int"),
+    ("Целевые посетители, доля", "pct"),
+]
+
+GOALS_TAIL_FROM_END = [
+    ("Время на сайте", "time"),
+    ("Глубина просмотра", "num"),
+    ("Отказы", "pct"),
+    ("Доля новых посетителей", "pct"),
+]
+
+GOALS_SUM_CHECK = ["Достижения цели", "Целевые визиты",
+                   "Целевые посетители", "Просмотры"]
+
+KNOWN_GOALS_HEADERS = ("конверсия", "достижения цели", "целевые визиты",
+                       "доход по цели", "целевые посетители", "просмотры",
+                       "доля новых посетителей", "отказы",
+                       "глубина просмотра", "время на сайте")
+
+
+def _is_ru_date(s):
+    parts = s.split()
+    return (len(parts) == 2 and parts[1].lower() in MONTHS_RU
+            and parts[0].isdigit())
+
+
+def _looks_like_linear_goals(text):
+    """Линейный список целей или нет.
+
+    Первая строка это название показателя, дальше идут такие же
+    названия, потом строка итогов или дата. Проверяется по словарю
+    русских названий, а не по длине файла: длина у разных отчётов
+    разная и ничего не говорит.
+    """
+    lines = [l.strip() for l in text.splitlines() if l.strip()]
+    if len(lines) < len(GOALS_PREFIX) + 2:
+        return False
+    head = lines[:len(KNOWN_GOALS_HEADERS)]
+    hits = sum(1 for h in head
+               if any(k in h.lower() for k in KNOWN_GOALS_HEADERS))
+    if hits < len(KNOWN_GOALS_HEADERS) - 1:
+        return False
+    return any(_is_ru_date(l) for l in lines) or \
+        any(l.lower() in TOTAL_LABELS for l in lines)
+
+
+def _match(value, spec):
+    if spec == "pct":
+        return value.endswith("%")
+    if spec == "int":
+        return value.replace(" ", "").replace("\u00a0", "").isdigit()
+    if spec == "num":
+        t = value.replace(" ", "").replace("\u00a0", "").replace(",", ".")
+        try:
+            float(t)
+        except ValueError:
+            return False
+        return not value.endswith("%")
+    if spec == "time":
+        return (" м " in value or value.endswith(" c")
+                or value.endswith(" с") or "\u0441" in value)
+    return False
+
+
+def parse_linear_goals(path, text):
+    """Разобрать линейный список отчёта по целям."""
+    res = {"file": os.path.basename(path), "encoding": "как отдано",
+           "sep": "перевод строки", "header": [], "rows": [],
+           "total_row": None, "problem": None, "kind": "goals",
+           "kind_label": "цели", "measures": {}, "unmapped_cols": [],
+           "shape": "линейный список, снят с экрана"}
+    lines = [l.strip() for l in text.splitlines() if l.strip()]
+
+    records, cur = [], None
+    for line in lines:
+        if _is_ru_date(line) or line.lower() in TOTAL_LABELS:
+            cur = {"label": line, "v": []}
+            records.append(cur)
+        elif cur is not None:
+            cur["v"].append(line)
+    if not records:
+        res["problem"] = ("линейный список не найден: нет ни дат, ни строки "
+                          "итогов")
+        return res
+
+    for rec in records:
+        v, i, out = list(rec["v"]), 0, {"метка": rec["label"]}
+        for name, spec in GOALS_PREFIX:
+            if i >= len(v):
+                res["problem"] = ("запись %s оборвалась на «%s»"
+                                  % (rec["label"], name))
+                return res
+            if not _match(v[i], spec):
+                res["problem"] = ("запись %s: на «%s» ожидалось %s, получено %r"
+                                  % (rec["label"], name, spec, v[i]))
+                return res
+            out[name] = v[i]
+            i += 1
+        rest = v[i:]
+        if len(rest) < len(GOALS_TAIL_FROM_END) + 1:
+            res["problem"] = ("запись %s: в хвосте %d значений, нужно минимум %d"
+                              % (rec["label"], len(rest),
+                                 len(GOALS_TAIL_FROM_END) + 1))
+            return res
+        pos = len(rest)
+        for name, spec in GOALS_TAIL_FROM_END:
+            pos -= 1
+            if not _match(rest[pos], spec):
+                res["problem"] = ("запись %s: на «%s» с конца ожидалось %s, "
+                                  "получено %r" % (rec["label"], name, spec,
+                                                   rest[pos]))
+                return res
+            out[name] = rest[pos]
+        mid = rest[:pos]
+        out["_middle_unmapped"] = []
+        if mid and _match(mid[0], "int"):
+            out["Просмотры"] = mid[0]
+            out["Просмотры, доля периода"] = (
+                mid[1] if len(mid) > 1 and _match(mid[1], "pct") else None)
+            out["_middle_unmapped"] = mid[2:]
+        else:
+            out["Просмотры"] = None
+            out["_middle_unmapped"] = mid
+        if out["_middle_unmapped"]:
+            res["unmapped_cols"] = out["_middle_unmapped"]
+        rec["out"] = out
+
+    total_rec = next((r for r in records
+                      if r["label"].lower() in TOTAL_LABELS), None)
+    day_recs = [r for r in records if r is not total_rec]
+    if not total_rec or not day_recs:
+        res["problem"] = "нет строки итогов или нет строк по дням"
+        return res
+
+    # Год в датах не указан, берётся у периода группы и обязан туда
+    # попасть. Иначе файл из другого года и приписывать его сюда
+    # нельзя.
+    res["_dates"] = []
+    for r in day_recs:
+        d, mname = r["label"].split()
+        res["_dates"].append((int(d), MONTHS_RU[mname.lower()]))
+    res["_total"] = total_rec["out"]
+    res["_days"] = [r["out"] for r in day_recs]
+    res["_day_labels"] = [r["label"] for r in day_recs]
+
+    bad = []
+    for field in GOALS_SUM_CHECK:
+        s = 0
+        complete = True
+        for d in day_recs:
+            raw = d["out"].get(field)
+            if raw is None:
+                complete = False
+                break
+            s += int(raw.replace(" ", "").replace("\u00a0", ""))
+        t_raw = total_rec["out"].get(field)
+        if not complete or t_raw is None:
+            bad.append("%s нет в данных" % field)
+            continue
+        if s != int(t_raw.replace(" ", "").replace("\u00a0", "")):
+            bad.append("%s: по дням %d, итог %s"
+                       % (field, s, t_raw))
+    if bad:
+        res["problem"] = ("раскладка не доказана суммой, данные не берём: "
+                          + "; ".join(bad))
+        return res
+    res["sum_verified"] = GOALS_SUM_CHECK
+
+    res["total_row"] = total_rec["out"]
+    res["rows"] = day_recs_recs = [r["out"] for r in day_recs]
+    res["measures"] = {}
+    for field in GOALS_SUM_CHECK + ["Конверсия", "Отказы", "Доля новых "
+                                   "посетителей", "Глубина просмотра",
+                                   "Время на сайте"]:
+        raw = total_rec["out"].get(field)
+        res["measures"][_measure_name(field)] = (
+            _to_int(raw) if raw is not None and _is_intish(raw)
+            else to_number(raw))
+    return res
+
+
+def _is_intish(s):
+    return str(s).replace(" ", "").replace("\u00a0", "").isdigit()
+
+
+def _to_int(s):
+    return int(str(s).replace(" ", "").replace("\u00a0", ""))
+
+
+def _measure_name(field):
+    return {"Достижения цели": "goal_hits",
+            "Целевые визиты": "target_visits",
+            "Целевые посетители": "target_visitors",
+            "Просмотры": "views",
+            "Конверсия": "conversion",
+            "Отказы": "bounce_rate",
+            "Доля новых посетителей": "new_visitors_share",
+            "Глубина просмотра": "depth",
+            "Время на сайте": "time_on_site"}.get(field, field)
 
 
 # ------------------------------------------------------------- реестр
@@ -313,6 +546,8 @@ TOTAL_LABELS = ("итого и средние", "итого", "всего")
 def parse_file(path):
     """Разобрать один файл в структуру, пригодную для отчёта."""
     text, enc = read_any(path)
+    if _looks_like_linear_goals(text):
+        return parse_linear_goals(path, text)
     header, body, sep = split_table(text)
     res = {"file": os.path.basename(path), "encoding": enc, "sep": sep,
            "header": header, "rows": [], "total_row": None,
@@ -379,6 +614,15 @@ def period_of(parsed):
             dates.sort()
             return {"from": dates[0], "to": dates[-1], "days": len(dates),
                     "source": "колонка дат"}
+    # Цели приходят с датами без года. Год подставляется тот, что у
+    # периода группы, и результат обязан в него попасть. Дата из
+    # другого года приписывать нельзя, это был бы чужой срез.
+    if parsed.get("_dates"):
+        months = [m for _, m in parsed["_dates"]]
+        days = [d for d, _ in parsed["_dates"]]
+        return {"from": None, "to": None, "days": len(days),
+                "source": "даты без года, год подставляется у периода",
+                "_months": (min(months), max(months))}
     m = re.search(r"(\d{4}-\d{2}-\d{2}).{0,3}(\d{4}-\d{2}-\d{2})",
                   parsed["file"])
     if m:
@@ -401,10 +645,16 @@ def reconcile(parsed_files, period):
     full, subsets, unknown = {}, {}, []
     for p in parsed_files:
         spec = KINDS[p["kind"]]
-        visits = p["measures"].get("visits")
+        mkey, _mlabel = primary_measure(p)
+        visits = p["measures"].get(mkey)
         if visits is None:
             unknown.append(p["kind_label"])
             p["no_total_row"] = True
+            continue
+        if p.get("shape"):
+            # Линейный список доказан суммой внутри разбора, а база
+            # периода к нему отношения не имеет: выполнения целей это
+            # единицы, а не доля трафика.
             continue
         if spec.get("full"):
             full[p["kind"]] = visits
@@ -442,10 +692,25 @@ def reconcile(parsed_files, period):
             "unknown": unknown}
 
 
+PRIMARY_MEASURE = {"goals": ("goal_hits", "выполнений цели")}
+
+
+def primary_measure(parsed):
+    """Число, которое показывается в колонке итога.
+
+    У большинства видов это визиты. У целей визитов в отчёте нет,
+    главная величина там это выполнения цели, и показывать вместо
+    неё пустоту значит выглядеть так, будто итога не существует.
+    """
+    return PRIMARY_MEASURE.get(parsed.get("kind"), ("visits", "визитов"))
+
+
 def period_key(period):
     """Ключ группировки по периоду."""
     if not period:
         return "неизвестен"
+    if not period.get("from"):
+        return "даты без года"
     return "%s..%s" % (period["from"], period["to"])
 
 
@@ -533,14 +798,17 @@ def main():
                   % ("НЕ РАЗОБРАНО", p["file"][:24], "-", "-"))
             continue
         good.append(p)
-        visits = p["measures"].get("visits")
+        mkey, mlabel = primary_measure(p)
+        visits = p["measures"].get(mkey)
         if visits is None:
             no_total.append(p["kind_label"])
             shown = "не итог"
         else:
             shown = "%.0f" % visits
-        print("%-34s %-24s %-10s %10d"
-              % (p["kind_label"], p["file"][:24], shown, len(p["rows"])))
+        suffix = (" (%s)" % mlabel) if mkey != "visits" else ""
+        print("%-34s %-24s %-10s%s %9d"
+              % (p["kind_label"], p["file"][:24], shown, suffix,
+                 len(p["rows"])))
 
     print()
     if no_total:
@@ -561,6 +829,37 @@ def main():
     # имени в сверку не попадают вовсе: сравнивать не с чем.
     for p in good:
         p["period"] = period_of(p)
+
+    # Даты без года получают год от того периода, месяцы которого их
+    # накрывают. Не накрывает ни один, значит файл из другого года и
+    # год ему не подставляется: он остаётся отдельной группой и не
+    # притворяется частью периода.
+    known = [p["period"] for p in good
+             if p.get("period") and p["period"].get("from")]
+    for p in good:
+        per = p.get("period")
+        if not per or per.get("from"):
+            continue
+        months = per.get("_months")
+        if not months:
+            continue
+        lo, hi = months
+        for ref in known:
+            fy, fm, fd = (int(x) for x in ref["from"].split("-"))
+            ty, tm, td = (int(x) for x in ref["to"].split("-"))
+            if fy != ty:
+                continue
+            if not (fm <= lo and hi <= tm):
+                continue
+            days = sorted((fy, m, d) for d, m in p["_dates"])
+            per["from"] = "%04d-%02d-%02d" % days[0]
+            per["to"] = "%04d-%02d-%02d" % days[-1]
+            per["days"] = len(p["_dates"])
+            per["source"] = ("даты без года, год взят у периода "
+                             "%s..%s, проверено попаданием месяцев"
+                             % (ref["from"], ref["to"]))
+            per["_months"] = None
+            break
 
     groups = {}
     for p in good:

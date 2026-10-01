@@ -128,6 +128,55 @@ def main():
                          "Визиты"]) == "search_phrases")
 
     print()
+    print("6. ЛИНЕЙНЫЙ СПИСОК ЦЕЛЕЙ")
+    goal_file = os.path.join(os.path.dirname(os.path.abspath(__file__)),
+                             "..", "..", "data", "manual", "metrika",
+                             "2026-09", "goals.txt")
+    goal_file = os.path.normpath(goal_file)
+    check("файл целей на месте", os.path.isfile(goal_file), goal_file)
+    if os.path.isfile(goal_file):
+        text = M.read_any(goal_file)[0]
+        check("опознан как линейный список", M._looks_like_linear_goals(text))
+        g = M.parse_linear_goals(goal_file, text)
+        check("проблем не найдено", g["problem"] is None, g["problem"] or "")
+        if g["problem"] is None:
+            check("раскладка доказана суммой",
+                  bool(g.get("sum_verified")), str(g.get("sum_verified")))
+            check("выполнений цели 18", g["measures"]["goal_hits"] == 18,
+                  str(g["measures"].get("goal_hits")))
+            check("целевых визитов 17", g["measures"]["target_visits"] == 17,
+                  str(g["measures"].get("target_visits")))
+            check("строк по дням 12", len(g["rows"]) == 12,
+                  str(len(g["rows"])))
+            check("конверсия разобралась",
+                  g["measures"]["conversion"] == 0.0068,
+                  str(g["measures"].get("conversion")))
+
+            # Сломанная раскладка обязана быть отвергнута, а не
+            # разобрана по-разному и не замечена.
+            # Портится поле, которое участвует в сверке суммой. Порча
+            # конверсии прошла бы незамеченной: она в сумму не входит.
+            broken = text.replace("Итого и средние\n0,68 %\n18\n100,00 %",
+                                  "Итого и средние\n0,68 %\n99\n100,00 %")
+            gb = M.parse_linear_goals(goal_file, broken)
+            check("испорченный итог отвергнут", gb["problem"] is not None,
+                  "принят молча" if not gb["problem"] else "")
+            check("в отказе названа причина",
+                  "сумм" in (gb["problem"] or "").lower(), gb["problem"] or "")
+
+            short = text.replace("29 сентября\n4,00 %\n2\n11,11 %\n2\n11,76 %\n0,00 \n2\n11,76 %\n3\n11,11 %",
+                                 "29 сентября\n4,00 %\n2\n11,11 %\n2\n11,76 %\n0,00 \n2\n11,76 %\n3\n1,00 %")
+            gsh = M.parse_linear_goals(goal_file, short)
+            check("порча в середине записи отвергнута",
+                  gsh["problem"] is not None or
+                  M.period_key(gsh.get("period")) is not None,
+                  "разобралось молча")
+            check("порча в середине не тихо прошла дальше",
+                  (gsh["problem"] is not None) or
+                  (gsh.get("rows") and gsh["rows"][0].get("Просмотры") == "3"),
+                  "иначе данные поедут дальше с чужой разметкой")
+
+    print()
     if FAILS:
         print("НЕ ПРОШЛИ: %d" % len(FAILS))
         for f in FAILS:
