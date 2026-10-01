@@ -442,6 +442,54 @@ def reconcile(parsed_files, period):
             "unknown": unknown}
 
 
+def period_key(period):
+    """Ключ группировки по периоду."""
+    if not period:
+        return "неизвестен"
+    return "%s..%s" % (period["from"], period["to"])
+
+
+def duplicate_measure(parsed, min_rows=5, min_share=0.10):
+    """Найти строки, у которых совпали визиты и посетители.
+
+    Отчёт по разрезу не может дать двадцать разных запросов с одним и
+    тем же числом визитов и посетителей. Если такое есть, отчёт про
+    другой счётчик либо данные подставные.
+
+    Условие не в самом повторе, а в его доле итога. Пять строк по
+    одному посещению это норма, их ноль процентов от отчёта. Восемнадцать
+    строк по 1369 посещений это семьдесят пять процентов отчёта, и
+    так быть не может. Проверка по доле, иначе она ругается на всякий
+    отчёт, где есть хвост из единичных строк.
+    """
+    rows = parsed.get("rows") or []
+    buckets = {}
+    for r in rows:
+        v, vis = r.get("visits"), r.get("visitors")
+        if v is None or vis is None:
+            continue
+        buckets.setdefault((v, vis), []).append(
+            str(next((r[k] for k in r if k in ("Поисковая фраза", "Источник "
+                    "трафика", "Страна", "Тип устройства", "Цель",
+                    "Возраст", "Глубина просмотра", "Время на сайте",
+                    "Робот") or ""), ""))[:60])
+
+    total = parsed.get("measures", {}).get("visits")
+    if not total:
+        return None
+    worst = None
+    for (v, vis), labels in buckets.items():
+        if len(labels) < min_rows:
+            continue
+        share = len(labels) * v / float(total)
+        if share < min_share:
+            continue
+        if worst is None or share > worst["share"]:
+            worst = {"rows": len(labels), "visits": v, "visitors": vis,
+                     "share": share, "examples": labels}
+    return worst
+
+
 def collect():
     """Собрать все файлы из ручного каталога."""
     found = []
@@ -507,43 +555,103 @@ def main():
             print("    причина: %s" % b["problem"])
         print()
 
-    # Период: берём у того файла, где есть настоящие даты.
+    # Период у каждого файла свой. Группировать по периоду надо,
+    # иначе срез за три года сверяется со срезом за квартал и
+    # получается выдуманная ошибка. Файлы без дат и без периода в
+    # имени в сверку не попадают вовсе: сравнивать не с чем.
+    for p in good:
+        p["period"] = period_of(p)
+
+    groups = {}
+    for p in good:
+        groups.setdefault(period_key(p["period"]), []).append(p)
+
+    print("ПЕРИОДЫ, НАЙДЕННЫЕ В ФАЙЛАХ")
+    for key in sorted(groups):
+        members = groups[key]
+        p0 = members[0]["period"]
+        head = ("с %s по %s, дней %d, источник: %s"
+                % (p0["from"], p0["to"], p0["days"], p0["source"])
+                if p0 else "не определён, в файлах нет ни дат, ни имён")
+        print("  %s" % head)
+        for p in members:
+            print("      %s" % p["kind_label"])
+    print()
+
+    all_ok = True
+    summary = {}
+    for key in sorted(groups):
+        rec = reconcile(groups[key], groups[key][0]["period"])
+        summary[key] = rec
+        print("СВЕРКА ИТОГОВ, ПЕРИОД: %s" % (
+            key if key != "неизвестен" else "неизвестен, сверка не выполняется"))
+        if rec["base"] is not None:
+            print("  база периода: %.0f визитов" % rec["base"])
+        for k, v in rec["full"].items():
+            mark = ("" if abs(v - rec["base"]) <= TOLERANCE
+                    else "  ОТКЛОНЕНИЕ")
+            print("  полный   %-32s %10.0f%s" % (KINDS[k]["label"], v, mark))
+        for k, v in rec["subsets"].items():
+            print("  подмножество %-27s %10.0f (ожидается меньше базы)"
+                  % (KINDS[k]["label"], v))
+        if rec["unknown"]:
+            print("  без итога: %s" % ", ".join(rec["unknown"]))
+        print()
+        if not rec["ok"]:
+            all_ok = False
+            print("  ОШИБКА: %s" % rec["problem"])
+            print()
+
+    # Плоская таблица: много разных строк с одинаковыми числами.
+    # На настоящих данных так не бывает, и период этого не объясняет.
+    flat = []
+    for p in good:
+        dups = duplicate_measure(p)
+        if dups:
+            flat.append((p, dups))
+    if flat:
+        print("ОДИНАКОВЫЕ ЧИСЛА В РАЗНЫХ СТРОКАХ")
+        for p, dups in flat:
+            print("  %s, файл %s" % (p["kind_label"], p["file"]))
+            print("    строк с одинаковыми визитами и посетителями: %d"
+                  % dups["rows"])
+            print("    значение: визиты %s, посетители %s"
+                  % (dups["visits"], dups["visitors"]))
+            print("    это %.0f процентов итога отчёта" % (dups["share"] * 100))
+            for label in dups["examples"][:4]:
+                print("      %s" % label)
+        print()
+        print("  Период этого не объясняет: длинный срез делает итог")
+        print("  больше, но не делает одинаковыми числа у несвязанных")
+        print("  строк. Обычно это другой счётчик или демонстрационные")
+        print("  данные. Такой файл в отчёт не идёт.")
+        print()
+        all_ok = False
+
     period = None
     for p in good:
-        period = period or period_of(p)
-    for p in good:
-        p["period"] = period
-
-    print("ПЕРИОД: %s" % (
-        "с %s по %s, дней %d, источник: %s"
-        % (period["from"], period["to"], period["days"], period["source"])
-        if period else "не определён, в файлах нет ни дат, ни имён с датами"))
-    if period and period["source"] == "имя файла":
-        print("  ВНИМАНИЕ: период взят из имени файла, а не из данных.")
-        print("  Имена приходят от человека и уже соврали: папка названа")
-        print("  2026-09, а в посещаемости даты с июля по октябрь.")
-        print()
-
-    rec = reconcile(good, period)
-    print("СВЕРКА ИТОГОВ")
-    if rec["base"] is not None:
-        print("  база периода: %.0f визитов" % rec["base"])
-    for k, v in rec["full"].items():
-        mark = "" if abs(v - rec["base"]) <= TOLERANCE else "  ОТКЛОНЕНИЕ"
-        print("  полный   %-32s %10.0f%s" % (KINDS[k]["label"], v, mark))
-    for k, v in rec["subsets"].items():
-        print("  подмножество %-27s %10.0f (ожидается меньше базы)"
-              % (KINDS[k]["label"], v))
+        if p["period"]:
+            period = p["period"]
+            break
+    rec = next((r for k, r in sorted(summary.items())
+                if r.get("base") is not None), {"ok": all_ok, "base": None,
+                                                "full": {}, "subsets": {},
+                                                "unknown": []})
     print()
 
     exit_code = 0
-    if not rec["ok"]:
-        print("СБОРКА ОСТАНОВЛЕНА: %s" % rec["problem"])
+    if not all_ok:
+        print("СБОРКА ОСТАНОВЛЕНА")
         print()
-        print("Что делать: открыть оба отчёта в интерфейсе Метрики и")
-        print("сверить верхнюю строку «Итого и средние». Если в одном")
-        print("счётчик другой или период другой, перевыгрузить этот")
-        print("файл заново, выбрав тот же счётчик и тот же период.")
+        print("Что делать по расхождению итогов: открыть оба отчёта в")
+        print("интерфейсе Метрики и сверить верхнюю строку «Итого и")
+        print("средние», а также какой счётчик и период выбраны. Если")
+        print("один отчёт про другой период, это норма: он встанет в")
+        print("свою группу и перестанет считаться ошибкой.")
+        print()
+        print("Что делать по одинаковым числам: проверить в шапке")
+        print("отчёта, какой счётчик выбран. Совпадение визитов и")
+        print("посетителей у несвязанных строк означает другой счётчик.")
         print()
         exit_code = 1
     if broken:
@@ -569,7 +677,10 @@ def main():
             "rows": p["rows"],
             "unmapped_columns": p["unmapped_cols"],
         }
-        path = os.path.join(outdir, p["kind"] + ".json")
+        suffix = ""
+        if p["period"]:
+            suffix = "_%s_%s" % (p["period"]["from"], p["period"]["to"])
+        path = os.path.join(outdir, p["kind"] + suffix + ".json")
         with open(path, "w", encoding="utf-8") as fh:
             json.dump(payload, fh, ensure_ascii=False, indent=1)
         written.append(p["kind"])

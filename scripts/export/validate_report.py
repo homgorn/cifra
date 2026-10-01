@@ -312,6 +312,21 @@ if r.returncode != 0:
 else:
     ok("layout: canvases sized, no overflow, no JS errors, both schemes")
 
+# 11b. Правила разбора ручных выгрузок Метрики. Проверки на данных
+# которые когда-то ломались: разные периоды в одной папке, неизвестный
+# период, доля одинаковых чисел, разбор чисел с неразрывным пробелом.
+# Без них правки в разборщике выглядят рабочими, пока не попадут в
+# отчёт.
+r = subprocess.run([sys.executable, "scripts/export/test_metrika_manual.py"],
+                   cwd=ROOT, capture_output=True, text=True,
+                   encoding="utf-8", errors="replace")
+if r.returncode != 0:
+    fail("metrika manual rules failed: %s"
+         % " | ".join([ln.strip() for ln in (r.stdout or "").splitlines()
+                       if "НЕ ПРОЙДЕНО" in ln or "НЕ ПРОШЛИ" in ln][:4]))
+else:
+    ok("metrika manual: periods, duplicates, numbers, kinds")
+
 # 12. числа в документах совпадают с фактами из данных
 r = subprocess.run([sys.executable, "scripts/export/sync_cluster_counts.py", "--check"],
                    cwd=ROOT, capture_output=True, text=True,
