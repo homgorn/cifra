@@ -198,7 +198,7 @@ TRUTH = {
         "source": "data/exports/metrica/2026-09-27/cuts_maps/"
                   "month_total.json, счётчик 59102713",
         "how": "45 месяцев с неполным текущим, срез 2026-09-27",
-        "wrong": ["79410", "79002"],
+        "wrong": ["79410"],
         "resolved": "это не три разных числа и не ошибка, это три среза "
                     "одного ряда. API отдаёт 3040 за текущий месяц, "
                     "месячный файл вики 3037, дневной 2629, потому что "
@@ -323,6 +323,45 @@ def build_pattern(key):
                         .replace(re.escape(NBSP), SP)
                         .replace(re.escape(NNBSP), SP))
     return re.compile("|".join(alts)) if alts else None
+
+
+# Значения, верные только вместе со своей датой среза. Не неверные и
+# не без источника: у них есть и то и другое, просто без даты они
+# читаются как сегодняшние, а сегодня рядом стоит другое значение.
+NEEDS_DATE = {
+    "79002": "срез 2026-09-23, сумма maps_card/traffic_by_source.csv",
+    "79410": "срез 2026-09-27 по помесячному файлу вики, устарело",
+}
+DATE_RE = re.compile(r"20\d\d-\d\d-\d\d|\d{1,2}\s+\u0441\u0435\u043d\u0442\u044f\u0431\u0440\u044f|\d{1,2}\s+\u0430\u0432\u0433\u0443\u0441\u0442\u0430|\u0441\u0440\u0435\u0437")
+
+
+def undated_slices():
+    """Строки, где значение из NEEDS_DATE стоит без даты среза.
+
+    Для обычного текста дата ищется в той же строке. Для JSON это
+    неверно: у ключа нет места, куда вписать дату, она лежит в
+    соседнем поле as_of. Поэтому в JSON проверяется наличие этого
+    поля в файле целиком, а не в строке. Проверка построчная на JSON
+    нашла бы нарушение там, где дата уже записана и всё в порядке, то
+    есть заставляла бы дублировать дату в каждом поле.
+    """
+    out = []
+    for p in iter_files():
+        if rel(p) in KEEP:
+            continue
+        lines = read_lines(p)
+        if lines is None:
+            continue
+        if p.lower().endswith(".json") and '"as_of"' in "\n".join(lines):
+            continue
+        for n, line in enumerate(lines, 1):
+            flat = re.sub(r"[\s\u00a0\u202f]+", "", line)
+            hit = [v for v in NEEDS_DATE if v in flat]
+            if hit and not DATE_RE.search(line):
+                out.append({"file": rel(p), "line": n,
+                            "text": line.strip()[:200], "values": hit,
+                            "expect": [NEEDS_DATE[v] for v in hit]})
+    return out
 
 
 PATTERNS = {}
@@ -550,6 +589,7 @@ def apply(do_write=True):
 # ------------------------------------------------------------------ вывод
 
 def show(disc, nosrc, mislab, quotes=()):
+    undated = undated_slices
     print("=" * 78)
     print("I. ЧИСЛА, ОПРОВЕРГНУТЫЕ ЗАМЕРОМ")
     print("=" * 78)
@@ -592,7 +632,25 @@ def show(disc, nosrc, mislab, quotes=()):
     print("=" * 78)
     print()
     print("=" * 78)
-    print("IV. ЦИТАТЫ С ЧИСЛАМИ: НЕ ПРАВЯТСЯ, ЧИТАЕТ ЧЕЛОВЕК")
+    print("IV. ЧИСЛА БЕЗ ДАТЫ СРЕЗА")
+    print("=" * 78)
+    if undated():
+        bq = {}
+        for q in undated():
+            bq.setdefault(q["file"], []).append(q)
+        for f in sorted(bq):
+            print("\n%s" % f)
+            for q in bq[f]:
+                print("  строка %-5d %s" % (q["line"], q["text"][:100]))
+                for e in q["expect"]:
+                    print("     требуется: %s" % e)
+        print("\nитого: %d строк" % sum(len(v) for v in bq.values()))
+    else:
+        print("нет")
+
+    print()
+    print("=" * 78)
+    print("V. ЦИТАТЫ С ЧИСЛАМИ: НЕ ПРАВЯТСЯ, ЧИТАЕТ ЧЕЛОВЕК")
     print("=" * 78)
     if quotes:
         bq = {}
@@ -667,7 +725,10 @@ def main():
     if mode == "--gate":
         print()
         rc = 0
-        total = len(disc) + len(nosrc) + len(mislab)
+        u = undated_slices()
+        total = len(disc) + len(nosrc) + len(mislab) + len(u)
+        if u:
+            print("ГЕЙТ УЧЁЛ %d чисел без даты среза" % len(u))
         if total:
             print("ГЕЙТ ПРОВАЛЕН: %d расхождений" % total)
             rc = 1
