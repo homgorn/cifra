@@ -54,16 +54,23 @@ def norm(s):
 
 
 def read_delim(path):
-    with open(path, encoding="utf-8-sig") as fh:
-        text = fh.read().splitlines()
-    if not text:
+    """Прочитать CSV с угаданным разделителем.
+
+    Угадывание, а не заданный разделитель: в проекте лежат файлы и с
+    запятой, и с точкой с запятой, и указание одного разделителя
+    молча ломало разбор другого файла.
+    """
+    lines = [l for l in open(path, encoding="utf-8-sig").read().splitlines()
+             if l.strip()]
+    if not lines:
         return [], ","
-    head = text[0]
+    head = lines[0]
     counts = {";": head.count(";"), ",": head.count(","), "\t": head.count("\t")}
     sep = max(counts, key=counts.get)
     if counts[sep] == 0:
         sep = ","
-    rows = [r for r in csv.reader(text, delimiter=sep) if any(c.strip() for c in r)]
+    rows = [r for r in csv.reader(lines, delimiter=sep)
+            if any(c.strip() for c in r)]
     return rows, sep
 
 
