@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>План продвижения на 4-6 месяцев</title>
+<meta name="description" content="План продвижения цифра18.рф на 90 дней: недели, задачи, ответственные, прогноз трафика и заявок.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/main.css">
+<link rel="stylesheet" href="../css/report.css">
+<link rel="stylesheet" href="../css/nav.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="header-inner">
+    <a class="logo" href="../index.html"><span class="logo-mark">Ц18</span><span>Цифра. Аудит</span></a>
+    <nav class="main-nav" id="mainNav">
+      <a class="nav-link" href="../index.html">Резюме</a>
+      <a class="nav-link" href="wm-overview.html">Вебмастер</a>
+      <a class="nav-link" href="dash-visibility.html">Дашборды</a>
+      <a class="nav-link" href="competitors.html">Анализ</a>
+      <a class="nav-link active" href="plan-3m.html">План</a>
+      <a class="nav-link" href="methodology.html">Методика</a>
+      <a class="nav-link nav-link-all" href="../index.html#toc">Все страницы</a>
+    </nav>
+  </div>
+</header>
+  <div class="subnav" id="subnav">
+    <div class="subnav-inner">
+      <span class="subnav-title">План</span>
+      <a class="subnav-link" href="roadmap.html">90 дней</a>
+      <a class="subnav-link" href="marketing.html">Маркетинг</a>
+      <a class="subnav-link" href="wm-plan.html">План ВМ</a>
+      <a class="subnav-link" href="plan-3m.html">3 месяца</a>
+      <a class="subnav-link active" href="plan-6m.html" aria-current="page">plan-6m</a>
+      <a class="subnav-link" href="workorder.html">workorder</a>
+      <a class="subnav-link" href="page-plan.html">page-plan</a>
+    </div>
+  </div>
+
+
+<main class="page">
+<h1>План продвижения на 4-6 месяцев</h1>
+
+<p>Собрано скриптом <code>scripts/export/plan_6_months.py</code>. Ни одна цифра в этом файле не написана рукой: всё считается из выгрузок Метрики в <code>brain/wiki/metrika_analytics/exports/</code> и Вебмастера в <code>brain/wiki/webmaster_analytics/exports/</code>. Если файл не пришёл, вместо числа написано, что данных нет.</p>
+<h2 id="_1">Что показывать клиенту, если спросит, зачем это всё</h2>
+<p>Четыре строки, в порядке убывания доказанного эффекта.</p>
+<ol>
+<li><strong>Трафик есть, и он брендовый.</strong> Из 21 110 визитов за 13 месяцев поиск даёт 9 083, это 43 процента. При этом брендовые запросы дают 1 047 из 3 763 визита поиска в срезе, 28 процента. То есть клиент приходит по имени, а не по услуге, и это главный риск: если конкурент перехватит брендовый спрос, за сайтом останется 72 процента нынешнего поиска.</li>
+<li><strong>Сайт стоит в первой десятке и не получает по этому клики.</strong> В выгрузке Вебмастера 975 показов в первой десятке и 51 клик, Ктр 5.23 процента. На второй позиции 92 показов и 2 клика. Позиция есть, объём есть, клика нет. Это правка заголовков и сниппетов, а не создание новых страниц.</li>
+<li><strong>Карточка в Яндекс Картах не приводит трафик, а получает его с сайта.</strong> Из 79 002 просмотров карточки 59 247, то есть 75 процента, пришли по ссылкам с сайтов, и это срез 2026-09-23. Ссылка с сайта работает и уже стоит. Проблема не в спросе на карточку, а в том, что на неё почти не переходят из поиска. На том же сроке, если дойти до конца месяца, сумма 79 413, разница это текущий неполный месяц.</li>
+<li><strong>Длинный хвост, который нельзя закрыть страницами.</strong> В срезе запросов 2112 запросов дают ровно один визит, 2235 запросов дают один или два, и на них приходится 63 процента визитов среза. Ни один небрендовый запрос не набирает больше 89 визитов. Значит 56 локальных страниц под единичные запросы не окупятся, и их не надо делать первыми.</li>
+</ol>
+<h2 id="_2">Честные ограничения этих данных</h2>
+<p>Их три, и они меняют то, как можно читать план.</p>
+<ul>
+<li><strong>Выгрузка запросов Метрики это срез.</strong> Сумма визитов в файле 3 763, а поиск в разрезе по источникам даёт 9 083. Покрытие 41 процента. Доли в этом документе, если они посчитаны по запросам, это доли внутри среза, а не доли всего поиска.</li>
+<li><strong>Выгрузка запросов Вебмастера тоже срез, и меньший.</strong> 535 запросов и 1 169 показов против 9 083 визита поиска в Метрике. Планировать страницы по ней нельзя, она годится только чтобы увидеть позицию и Ктр там, где запрос уже попал в первую десятку.</li>
+<li>
+<p><strong>Колонка посетителей в срезе запросов равна нулю во всех строках.</strong> Она не используется ни в одной таблице плана.</p>
+</li>
+<li>
+<p><strong>Разбивка по устройствам не сходится с общим числом визитов.</strong> В <code>devices.csv</code> сумма 98 295, а визитов по источникам 21 110. Это разные величины, и в плане устройства не используются, пока не будет указано, что именно лежит в этом файле.</p>
+</li>
+</ul>
+<h2 id="1">Месяц 1. Убрать измеренную потерю и настроить измерение</h2>
+<p>Первый месяц самый дешёвый по деньгам и самый быстрый по результату, потому что работает с уже существующим трафиком, а не создаёт новый.</p>
+<h3 id="11">1.1 Три технические правки, деньги не требуют</h3>
+<p>Это единственный пункт плана, где потери посчитаны и не требуют оценки. Каждая цифра это визиты, которые уже приходят на сайт.</p>
+<table>
+<thead>
+<tr>
+<th>Что</th>
+<th style="text-align: right;">Потеря</th>
+<th style="text-align: right;">Доля</th>
+<th>Действие</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Тестовый домен <code>cifra.salelib3.beget.tech</code> в индексе и в трафике</td>
+<td style="text-align: right;">757 визитов за 92 дня</td>
+<td style="text-align: right;">15,0 %</td>
+<td>Закрыть от индексации в robots.txt и снять с индексации, вынести на отдельный поддомен без ссылок с основного</td>
+</tr>
+<tr>
+<td>Админка доступна из поиска, страницы с <code>back_url_admin</code></td>
+<td style="text-align: right;">384 визита</td>
+<td style="text-align: right;">7,6 %</td>
+<td>Закрыть robots.txt и <code>noindex</code>, убрать из внутренней перелинковки</td>
+</tr>
+<tr>
+<td>Обычный http вместо https на живом домене</td>
+<td style="text-align: right;">250 визитов</td>
+<td style="text-align: right;">5,0 %</td>
+<td>Принудительный редирект на https на уровне сервера</td>
+</tr>
+</tbody>
+</table>
+<p>Вместе это 1 391 визит за 92 дня, то есть 28 процента всего измеренного трафика в этом окне. Действия занимают часы, не недели.</p>
+<h3 id="12-sitemap">1.2 Sitemap, который не отдаётся</h3>
+<p>В robots.txt 19 строк со ссылками на sitemap, и все 19 отдают 404 при живой проверке. Яндекс показывает по ним ноль ошибок и ноль прочитанных адресов, потому что он их не смог скачать. Пока файлы не отдаются, робот ходит по сайту перебором, и 744 страницы в поиске при 68 926 известных роботу адресов это следствие именно этого.
+Действие: либо поднять файлы, либо убрать из robots.txt строки, которые не отдаются. Второе честнее и делается за час.</p>
+<h3 id="13-5036">1.3 Цели: сейчас одна на 5036 визитов</h3>
+<p>Это не измерение, это совпадение. Без целей на формы, сообщения и скачивание прайса нельзя отличить страницу, которая приносит заявки, от страницы, которая приносит показы. До начала любых работ по контенту завести цели: отправка формы, клик в мессенджер, скачивание прайса, переход по номеру телефона. Без этого через четыре месяца не будет ответа на вопрос, сработала ли работа.</p>
+<h2 id="2">Месяц 2. Заголовки двадцати одной страницы, которая уже в выдаче</h2>
+<p>Это самая быстрая отдача во всём плане, потому что страницы уже существуют, уже показываются и уже имеют позицию. Новые страницы здесь не нужны.</p>
+<p>По выгрузке Вебмастера: 975 показов в первой десятке, 51 клик, Ктр 5.23 процента. На первой позиции Ктр 45 процента, на десятой 1.57. Просадка идёт не по позиции, а по клику, и раз её почти нет ниже первой позиции, причина в заголовке и сниппете.</p>
+<h3 id="21-topvisor">Страницы к правке, все 21, они уже назначены целями в Topvisor</h3>
+<table>
+<thead>
+<tr>
+<th>Страница</th>
+<th style="text-align: right;">Фраз назначено</th>
+<th style="text-align: right;">Требует новой страницы</th>
+<th>Что делать</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/catalog/poligrafiya/tsifrovaya-pechat/</code></td>
+<td style="text-align: right;">90</td>
+<td style="text-align: right;">0</td>
+<td>третьей: 90 фраз, самый крупный кластер</td>
+</tr>
+<tr>
+<td><code>/catalog/poligrafiya/</code></td>
+<td style="text-align: right;">78</td>
+<td style="text-align: right;">0</td>
+<td>второй: 217 показов на группу, 6 кликов</td>
+</tr>
+<tr>
+<td><code>/catalog/poligrafiya/listovki-tsifrovaya-pechat/</code></td>
+<td style="text-align: right;">45</td>
+<td style="text-align: right;">0</td>
+<td>четвёртой: 45 фраз, есть отдельный спрос на размеры флаера</td>
+</tr>
+<tr>
+<td><code>/catalog/poligrafiya/uf-pechat1/</code></td>
+<td style="text-align: right;">38</td>
+<td style="text-align: right;">0</td>
+<td>по общему списку</td>
+</tr>
+<tr>
+<td><code>/catalog/mobilnye-stendy/</code></td>
+<td style="text-align: right;">37</td>
+<td style="text-align: right;">0</td>
+<td>пятой: сюда ошибочно назначены 20 брендовых фраз, включая «типография цифра» с 33 показами. Цель ошибочна, бренд должен вести на главную</td>
+</tr>
+<tr>
+<td><code>/catalog/poligrafiya/vizitki/</code></td>
+<td style="text-align: right;">36</td>
+<td style="text-align: right;">0</td>
+<td>первой: здесь самая большая потеря кликов, 73 показа на второй позиции и 0 кликов</td>
+</tr>
+<tr>
+<td><code>/catalog/reklama/</code></td>
+<td style="text-align: right;">33</td>
+<td style="text-align: right;">0</td>
+<td>по общему списку</td>
+</tr>
+<tr>
+<td><code>/catalog/poligrafiya/plotternaya-rezka/</code></td>
+<td style="text-align: right;">31</td>
+<td style="text-align: right;">0</td>
+<td>по общему списку</td>
+</tr>
+<tr>
+<td><code>/catalog/suvenirnaya-produktsiya/pechat-na-kruzhkakh</code></td>
+<td style="text-align: right;">28</td>
+<td style="text-align: right;">0</td>
+<td>по общему списку</td>
+</tr>
+<tr>
+<td><code>/catalog/poligrafiya/laminirovanie/</code></td>
+<td style="text-align: right;">26</td>
+<td style="text-align: right;">0</td>
+<td>по общему списку</td>
+</tr>
+<tr>
+<td><code>/catalog/poligrafiya/kalendari/</code></td>
+<td style="text-align: right;">21</td>
+<td style="text-align: right;">0</td>
+<td>по общему списку</td>
+</tr>
+<tr>
+<td><code>/catalog/suvenirnaya-produktsiya/fotopaneli</code></td>
+<td style="text-align: right;">20</td>
+<td style="text-align: right;">0</td>
+<td>по общему списку</td>
+</tr>
+<tr>
+<td><code>/catalog/suvenirnaya-produktsiya/</code></td>
+<td style="text-align: right;">20</td>
+<td style="text-align: right;">0</td>
+<td>по общему списку</td>
+</tr>
+<tr>
+<td><code>/</code></td>
+<td style="text-align: right;">19</td>
+<td style="text-align: right;">0</td>
+<td>по общему списку</td>
+</tr>
+<tr>
+<td><code>/catalog/poligrafiya/pakety/</code></td>
+<td style="text-align: right;">11</td>
+<td style="text-align: right;">0</td>
+<td>по общему списку</td>
+</tr>
+<tr>
+<td><code>/catalog/poligrafiya/pechat-na-samokleyashchikhsya-materialakh/</code></td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">0</td>
+<td>по общему списку</td>
+</tr>
+<tr>
+<td><code>/catalog/poligrafiya/beydzhi/</code></td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">0</td>
+<td>по общему списку</td>
+</tr>
+<tr>
+<td><code>/catalog/poligrafiya/bloknoty/</code></td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">0</td>
+<td>по общему списку</td>
+</tr>
+<tr>
+<td><code>/catalog/inzhenernaya-pechat/</code></td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">0</td>
+<td>по общему списку</td>
+</tr>
+<tr>
+<td><code>/catalog/poligrafiya/karty-plastikovye/</code></td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">0</td>
+<td>по общему списку</td>
+</tr>
+<tr>
+<td><code>/catalog/poligrafiya/konverty/</code></td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">0</td>
+<td>по общему списку</td>
+</tr>
+</tbody>
+</table>
+<p>Что именно делать на каждой: заголовок с городом и услугой в первом предложении, цена или вилка цен в сниппете, блок с формой в первом экране, телефон и адрес в шапке на мобильном, один h1, микроразметка товара или услуги. Без этого позиция не конвертируется в клик.</p>
+<h2 id="2-6">Месяцы 2-6. Кластеры с доказанным спросом, а не список услуг</h2>
+<p>Кластеры собраны из запросов Метрики с реальными визитами. Не из каталога услуг, не из отраслевых отчётов и не из того, что кажется логичным. Запрос с одним визитом за 13 месяцев поводом для статьи не является.</p>
+<table>
+<thead>
+<tr>
+<th>Кластер</th>
+<th style="text-align: right;">Визитов в срезе</th>
+<th style="text-align: right;">Запросов</th>
+<th>Что делать</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>визитки и город</td>
+<td style="text-align: right;">109</td>
+<td style="text-align: right;">64</td>
+<td>страница услуги с городом в заголовке, ценой, сроками и двумя формами: расчёт и звонок</td>
+</tr>
+<tr>
+<td>УФ-печать и город</td>
+<td style="text-align: right;">95</td>
+<td style="text-align: right;">74</td>
+<td>страница услуги с городом в заголовке, ценой, сроками и двумя формами: расчёт и звонок</td>
+</tr>
+<tr>
+<td>широкоформат и город</td>
+<td style="text-align: right;">163</td>
+<td style="text-align: right;">129</td>
+<td>страница услуги с городом в заголовке, ценой, сроками и двумя формами: расчёт и звонок</td>
+</tr>
+<tr>
+<td>кружки и город</td>
+<td style="text-align: right;">60</td>
+<td style="text-align: right;">51</td>
+<td>страница услуги с городом в заголовке, ценой, сроками и двумя формами: расчёт и звонок</td>
+</tr>
+<tr>
+<td>флаеры: размеры</td>
+<td style="text-align: right;">80</td>
+<td style="text-align: right;">26</td>
+<td>справочная статья с таблицей размеров и цен, она отвечает на прямой вопрос и собирает длинный хвост</td>
+</tr>
+<tr>
+<td>наклейки и плёнки</td>
+<td style="text-align: right;">76</td>
+<td style="text-align: right;">72</td>
+<td>страница услуги с образцами, ценами, сроками и формой</td>
+</tr>
+<tr>
+<td>ламинирование</td>
+<td style="text-align: right;">69</td>
+<td style="text-align: right;">65</td>
+<td>страница услуги с образцами, ценами, сроками и формой</td>
+</tr>
+<tr>
+<td>блокноты</td>
+<td style="text-align: right;">19</td>
+<td style="text-align: right;">19</td>
+<td>страница услуги с образцами, ценами, сроками и формой</td>
+</tr>
+<tr>
+<td>пакеты</td>
+<td style="text-align: right;">23</td>
+<td style="text-align: right;">22</td>
+<td>страница услуги с образцами, ценами, сроками и формой</td>
+</tr>
+</tbody>
+</table>
+<p>Один кластер это одна страница, а не десять. На «визитки и город» приходится 109 визитов и 64 запроса, и почти каждый запрос даёт один визит: длинный хвост собирается одной сильной страницей, а не сорока страницами по одной фразе.</p>
+<h2 id="_3">Чего в этом плане нет и почему</h2>
+<p><strong>56 локальных страниц из Topvisor.</strong> Под них отмечено 0 фраз, и все они в группе «Локальные». Проверка спроса по Метрике даёт по ним единицы визитов. Делать их первым кварталом нельзя: это работа, которая не даст измеримого результата за четыре месяца. Их стоит верстать в порядке убывания спроса и только после того, как заработают первые три.</p>
+<p><strong>Статьи на 290 тем из старых планов.</strong> В срезе запросов 2112 запросов с одним визитом. Статья, написанная под такой запрос, будет конкурировать с двумя тысячами таких же, и её не найдут. Темы для статей берутся только из кластеров с доказанным спросом.</p>
+<p><strong>Прогноз трафика на четыре месяца.</strong> Не даю, потому что не из чего его честно вывести. Спрос измерен только по тем запросам, что уже привели трафик, и в текущих данных нет ни одного запроса, по которому видно, сколько он принесёт, если его закрыть. Любая цифра в этом месте была бы выдумкой. Что можно измерить и проверить уже сейчас: Ктр двадцати одной страницы и доля технических визитов.</p>
+<h2 id="_4">Порядок и контроль</h2>
+<table>
+<thead>
+<tr>
+<th>Месяц</th>
+<th>Что</th>
+<th>Как проверить</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>robots, редирект https, sitemap, 4 цели</td>
+<td>Доля визитов на тестовый домен и админку падает до нуля; в Метрике видны четыре цели, а не одна</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Заголовки и сниппеты 21 страница</td>
+<td>Ктр в первой десятке растёт от 5.23 процента; клики по тем же показам растут</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Первые два кластера</td>
+<td>Появляются визиты по запросам, которых не было в базе Метрики</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Ещё два кластера, статья про размеры флаера</td>
+<td>То же плюс позиции по новым страницам в Вебмастере</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Смотрим, что сработало, и переносим в Topvisor</td>
+<td>Цели в Метрике, а не только показы</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Локальные страницы по убыванию спроса</td>
+<td>Первые страницы дают визиты, а не только показываются</td>
+</tr>
+</tbody>
+</table>
+<p>Проверка результата идёт по целям Метрики, а не по показам. Показ растёт, а заявок нет, работа не сделана.</p>
+<h2 id="_5">Что делать с девятью планами, которые уже лежат в проекте</h2>
+<p>Их девять, и они противоречат друг другу. Разбираю все, потому что оставить девять противоречащих планов без решения хуже, чем выбрать один.</p>
+<h3 id="_6">Вердикт по каждому</h3>
+<table>
+<thead>
+<tr>
+<th>План</th>
+<th>Дата</th>
+<th>Вердикт</th>
+<th>Почему</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>topvisor_plan.md</code></td>
+<td>2026-09-27</td>
+<td><strong>рабочий, брать как есть</strong></td>
+<td>Единственный план, где числа из выгрузок, а не из головы. Реальный ID проекта, реальный остаток баланса, реальное число ключей. Про остальные планы сказать этого нельзя</td>
+</tr>
+<tr>
+<td><code>12_Page_Plan_From_Data.md</code></td>
+<td>текущая</td>
+<td><strong>рабочий, источник фраз и целевых URL</strong></td>
+<td>Собран скриптом, 627 фраз, 21 цель, всё считается</td>
+</tr>
+<tr>
+<td><code>14_Promotion_Plan_6_Months.md</code>, этот файл</td>
+<td>текущая</td>
+<td><strong>рабочий, основа плана</strong></td>
+<td>Первый, где порядок работ выведен из измеренного потребления, а не из списка услуг</td>
+</tr>
+<tr>
+<td><code>MASTER_PLAN.md</code></td>
+<td>2026-09-10</td>
+<td><strong>брать структуру, выбросить цели</strong></td>
+<td>Фазы и бюджет разложены осмысленно, но все целевые показатели имеют baseline TBD, а цели вида «трафик ×3, ×5, ×8» от нуля не проверяемы. Плюс арифметика бюджета не сходится с помесячной разбивкой</td>
+</tr>
+<tr>
+<td><code>07_Landing_Page_Plan.md</code></td>
+<td>2026-09-23</td>
+<td><strong>брать шаблоны, выбросить приоритеты</strong></td>
+<td>Шаблоны лендингов годные. А приоритетная таблица из 30 строк не обоснована: в 4 строках вместо значения стоит заглушка «(: )», ещё в 9 «н/д», то есть 13 из 30 строк без цифры</td>
+</tr>
+<tr>
+<td><code>08_Article_Plan.md</code></td>
+<td>2026-09-23</td>
+<td><strong>выбросить календарь, оставить структуру статьи</strong></td>
+<td>Три разные скорости в одном файле: «12 в месяц» в тексте, 4 в месяц в календаре, 8 в месяц в KPI. Плюс нумерация кластеров в двух блоках файла разная, а «веса перелинковки» это выдуманная метрика, PageRank так не работает</td>
+</tr>
+<tr>
+<td><code>research/merch_marketing/content_plan.md</code></td>
+<td>2026-09-12</td>
+<td><strong>выбросить календарь</strong></td>
+<td>В документе с датой 2026-09 половина календаря это Q2-Q4 2025, то есть прошлый год попал в файл. Шесть тем продублированы, сбита нумерация недель, «календарь на 90 дней» длится 43 дня</td>
+</tr>
+<tr>
+<td><code>research/merch_marketing/seo_programmatic_plan.md</code></td>
+<td>2026-09-12</td>
+<td><strong>выбросить объёмы, оставить чек-лист</strong></td>
+<td>Заявлено около 860 страниц, и все они должны содержать не меньше 800 слов, а шаблон физически содержит 100-150 слов и плейсхолдер. То есть все 860 страниц провалят собственную проверку. Ижевск, единственный город с производством, в списке городов sixteenth</td>
+</tr>
+<tr>
+<td><code>skills/smm_plan.md</code></td>
+<td><strong>даты нет</strong></td>
+<td><strong>выбросить цели, оставить форматы</strong></td>
+<td>Единственный план из девяти без даты, версии и автора. Бюджет не сходится сам с собой: максимум по строкам 82 500, в итоге написано 62 500. Обещание 30 лидов в месяц из соцсетей при том, что все лиды в остальных планах имеют baseline TBD</td>
+</tr>
+<tr>
+<td><code>exports/metrica_plan.md</code>, <code>exports/topvisor_plan.md</code></td>
+<td><strong>дат нет</strong></td>
+<td><strong>выбросить</strong></td>
+<td>Это инструкции, а не планы, и ни одна выгрузка по ним не сделана. Один не знает ID собственного проекта Topvisor, другой ссылается на скрипты, которых в репозитории нет</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_7">Пять запросов запланированы на два разных адреса</h3>
+<p>Это самая дорогая находка в девяти планах. Один и тот же запрос одновременно назначен лендингу и статье, в двух разных планах, с разными URL. Это не разногласие в тексте, это две страницы, которые будут драться за одну выдачу и размывать её.</p>
+<table>
+<thead>
+<tr>
+<th>Запрос</th>
+<th>Лендинг</th>
+<th>Статья</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ролл ап или х баннер</td>
+<td><code>/comparison/roll-up-vs-h-banner/</code></td>
+<td><code>/blog/roll-up-vs-h-banner/</code></td>
+</tr>
+<tr>
+<td>цифровая или офсетная печать</td>
+<td><code>/comparison/cifrovaya-vs-ofsetnaya/</code></td>
+<td><code>/blog/cifrovaya-ili-ofsetnaya-pechat/</code></td>
+</tr>
+<tr>
+<td>крафт или дизайнерский картон</td>
+<td><code>/comparison/kraft-vs-dizaynerskiy/</code></td>
+<td><code>/blog/kraft-ili-dizaynerskiy-karton-vizitki/</code></td>
+</tr>
+<tr>
+<td>пресс волл или фотозона</td>
+<td><code>/comparison/press-voll-vs-fotozona/</code></td>
+<td><code>/blog/press-voll-ili-fotozona/</code></td>
+</tr>
+<tr>
+<td>какой календарь выбрать</td>
+<td><code>/comparison/kalendar-kvartalnyy-vs-nastennyy/</code></td>
+<td><code>/blog/kalendar-kvartalnyy-ili-nastennyy/</code></td>
+</tr>
+</tbody>
+</table>
+<p>Решение: сравнение живёт на <code>/comparison/</code>, статья не создаётся. Сравнение по бумаге и покрытию это коммерческий запрос, человек выбирает, а не читает. Статью имеет смысл писать только там, где запрос информационный и человек разбирается, а не выбирает.</p>
+<h3 id="_8">Четыре числовых конфликта между планами</h3>
+<table>
+<thead>
+<tr>
+<th>Что</th>
+<th>Версии</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Объём программатик-страниц</td>
+<td>230 в <code>MASTER_PLAN</code> и около 860 в <code>seo_programmatic_plan</code>, разница вчетверо, ссылки друг на друга нет</td>
+</tr>
+<tr>
+<td>Локальные страницы</td>
+<td>20+ в <code>MASTER_PLAN</code> и 400 в <code>seo_programmatic_plan</code></td>
+</tr>
+<tr>
+<td>Темп статей</td>
+<td>12 в месяц, 4 в месяц и 8 в месяц в трёх планах</td>
+</tr>
+<tr>
+<td>Бюджет SMM</td>
+<td>25-35 тысяч в <code>MASTER_PLAN</code> и 36-62,5 тысячи в месяц в <code>smm_plan</code></td>
+</tr>
+</tbody>
+</table>
+<p>Все четыре нельзя разрешить, не зная бюджета клиента. Поэтому в этом плане бюджет не указан ни в рублях, ни в часах: сначала договорённость о ресурсе, потом объём работ. Порядок обратный получится так, что сначала будет написано 860 страниц, а потом выяснится, что делать их некому.</p>
+<h3 id="_9">Почему цели в старых планах нельзя показывать клиенту</h3>
+<p>Ни в одном из девяти планов нет baseline. Ни в одном. При этом цели точные: трафик плюс 50 процентов, лиды плюс 50, статьи 96 за 12 месяцев, лиды из соцсетей 30 в месяц, 10 000 просмотров в Дзене. Проверить достижимость нечем, потому что точки отсчёта нет.</p>
+<p>База есть, и она посчитана: 21110 визитов за 13 месяцев, поиск даёт 9083, это 43 процента, и Ктр в первой десятке 5.19 процента. На эти четыре числа и надо опираться в разговоре, а не на цели без базы. Клиент, у которого спросят «откуда взялось плюс 50 процентов», должен получить ответ, а не мнение.</p>
+<h3 id="_10">Что нельзя публиковать ни в коем случае</h3>
+<p>В плане лендингов и в плане статей есть готовые тексты с именами клиентов и цифрами: «Юридическая фирма Право-Центр», «500 штук за 2 часа», «работаем с 2006 года», «кофейня увеличила чек на 30 процентов», «5000 визиток за 4 часа», а в SMM-плане тот же кейс описан как «5000 визиток за 3 часа». Ни у одного из этих кейсов нет источника, а два варианта одного кейса расходятся между собой.</p>
+<p>Это готовая репутационная проблема, а не вопрос стиля. Публикация выдуманного кейса с именем клиента на коммерческом сайте это ложное рекламное утверждение. До использования каждый такой текст либо подтверждается письменно от клиента, либо удаляется. Список таких мест нужно снять до начала работ, а не по ходу.</p>
+<h3 id="_11">Одна вещь, которую надо решить до всего остального</h3>
+<p>В планах указаны три разных домена: <code>cifra18.ru</code> как канонический и тестовый, <code>цифра18.рф</code> в Topvisor и <code>MASTER_PLAN</code>, <code>blog.cifra18.рф</code> в SMM. Пока это не решено, любые работы рискуют попасть не туда, а канонические теги и микроразметка будут указывать на разные адреса. Это решение владельца, и оно нужно раньше любой технической правки из первого месяца.</p>
+</main>
+<footer class="site-footer">
+  <div class="container container-wide">
+    <div class="footer-grid">
+      <div class="footer-brand"><a class="logo" href="../index.html"><span class="logo-mark">Ц18</span><span>Цифра. Аудит</span></a><p>Проверка и план продвижения цифра18.рф. Техника, контент, конкуренты, регионы, GEO, Вебмастер, дашборды. Сентябрь 2026.</p><a class="footer-toc" href="../index.html#toc">Карта отчёта, все 31 страниц</a></div>
+      <div class="footer-nav"><h4>Отчёт</h4><ul><li><a href="../index.html"><span class="fnum">1</span>Главная</a></li><li><a href="roadmap.html"><span class="fnum">8</span>90 дней</a></li><li><a href="plan-3m.html"><span class="fnum">27</span>3 месяца</a></li><li><a href="marketing.html"><span class="fnum">11</span>Маркетинг</a></li><li><a href="plan-6m.html" aria-current="page"><span class="fnum">28</span>plan-6m</a></li><li><a href="workorder.html"><span class="fnum">29</span>workorder</a></li><li><a href="page-plan.html"><span class="fnum">30</span>page-plan</a></li></ul></div>
+      <div class="footer-nav"><h4>Анализ</h4><ul><li><a href="technical.html"><span class="fnum">2</span>Техника</a></li><li><a href="content.html"><span class="fnum">3</span>Контент</a></li><li><a href="competitors.html"><span class="fnum">4</span>Конкуренты</a></li><li><a href="local.html"><span class="fnum">5</span>Регионы</a></li><li><a href="geo.html"><span class="fnum">6</span>GEO</a></li><li><a href="knowledge.html"><span class="fnum">7</span>Знания</a></li><li><a href="prices.html"><span class="fnum">9</span>Цены</a></li><li><a href="season.html"><span class="fnum">10</span>Сезон</a></li></ul></div>
+      <div class="footer-nav"><h4>Вебмастер</h4><ul><li><a href="wm-overview.html"><span class="fnum">13</span>Сводка</a></li><li><a href="wm-indexing.html"><span class="fnum">14</span>Индексация</a></li><li><a href="wm-duplicates.html"><span class="fnum">15</span>Дубли</a></li><li><a href="wm-errors.html"><span class="fnum">16</span>Ошибки</a></li><li><a href="wm-redirects.html"><span class="fnum">17</span>Редиректы</a></li><li><a href="wm-queries.html"><span class="fnum">18</span>Запросы</a></li><li><a href="wm-clusters.html"><span class="fnum">19</span>Кластеры</a></li><li><a href="wm-gaps.html"><span class="fnum">20</span>Пробелы</a></li><li><a href="wm-links.html"><span class="fnum">21</span>Ссылки</a></li><li><a href="wm-plan.html"><span class="fnum">22</span>План ВМ</a></li></ul></div>
+      <div class="footer-nav"><h4>Дашборды</h4><ul><li><a href="dash-visibility.html"><span class="fnum">23</span>Видимость</a></li><li><a href="dash-audience.html"><span class="fnum">24</span>Аудитория</a></li><li><a href="dash-money.html"><span class="fnum">25</span>Деньги</a></li><li><a href="dash-maps.html"><span class="fnum">26</span>Карта в Картах</a></li></ul></div>
+      <div class="footer-nav"><h4>Методика</h4><ul><li><a href="methodology.html"><span class="fnum">12</span>Методика</a></li><li><a href="numbers.html"><span class="fnum">31</span>numbers</a></li></ul></div>
+    </div>
+    <div class="footer-bottom"><span>Цифра18, Ижевск, сентябрь 2026</span><span>Страница 28 из 31, раздел План</span></div>
+  </div>
+</footer>
+<script src="../js/vendor/chart.umd.min.js"></script>
+<script>if(typeof Chart==="undefined"){document.write("<script src='https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js'><\/script>")}</script>
+<script src="../js/page-index.js"></script>
+<script src="../js/nav.js"></script>
+<script src="../js/search.js"></script>
+<script src="../js/main.js"></script>
+</body>
+</html>

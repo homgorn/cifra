@@ -214,47 +214,118 @@ def resolve_site_visits():
 
 # ------------------------------------------------------- 3. карта
 
+# Месяц, после которого месяцы считаются неполными.
+# Последний месяц выгрузки всегда текущий и дополняется,
+# поэтому сравнивать его между источниками нельзя.
+CUT_MONTH = "2026-09"
+
+
+def sp(n):
+    """Разделитель разрядов неразрывным пробелом."""
+    return "{:,}".format(int(n)).replace(",", "\u00a0")
+
+
 def resolve_maps():
+    """Сверка по карточке в Яндекс Картах по трём источникам сразу.
+
+    Раньше здесь выбирался один источник, а остальные записывались как
+    ошибочные. Это было неверно: все три верны, различаются датой
+    среза, и выбирать надо было по дате, а не по числу.
+
+    Источники, от самой поздней к самой ранней.
+
+    1. Живой API Метрики, cuts_maps/month_total.json, счётчик
+       59102713, срез 2026-09-27. В ответе стоит sampled false и
+       sample_share 1.0, то есть выгрузка полная.
+    2. Помесячный файл вики maps_card_monthly.csv. Отстаёт на текущий
+       месяц, потому что снят раньше.
+    3. Дневной файл вики maps_card/attendance_daily.csv. Обрывается на
+       2026-09-23 и даёт меньше всех.
+
+    Из них только один подтверждается всеми: 44 полных месяца, с
+    2023-01 по 2026-08, сходятся до нуля. Это и есть величина, которую
+    можно публиковать без оговорки о дате.
+    """
+    from collections import Counter
+    import json as _json
+
+    # 1. Живой API.
+    api_total = api_cut = api_days = None
+    # api_mon должен существовать и когда API не найден: ниже он
+    # участвует в пересечении месяцев, и отсутствие переменной падало
+    # с NameError только на одной ветке, то есть ровно там, где API
+    # был на месте.
+    api_mon = {}
+    api_dir = os.path.join(ROOT, "data", "exports", "metrica")
+    if os.path.isdir(api_dir):
+        for day in sorted(os.listdir(api_dir), reverse=True):
+            f = os.path.join(api_dir, day, "cuts_maps", "month_total.json")
+            if not os.path.isfile(f):
+                continue
+            d = _json.load(open(f, encoding="utf-8"))
+            mon = Counter()
+            last = ""
+            for r in d.get("data") or []:
+                dims = r.get("dimensions") or []
+                if not dims:
+                    continue
+                dim = dims[0]["name"]
+                mon[dim[:7]] += int(r["metrics"][0])
+                last = max(last, dim)
+            api_mon = dict(mon)
+            api_total = sum(mon.values())
+            api_days = last
+            q = (d.get("query") or {})
+            api_cut = "%s по %s" % (q.get("date2", "?"), "счётчик 59102713")
+            break
+
+    # 2. Помесячный файл вики.
     rows = read_csv(os.path.join(MET, "maps_card_monthly.csv"))
-    if len(rows) < 2:
-        return
-    head = [c.strip() for c in rows[0]]
-    mi, vi = head.index("month"), head.index("visits")
-    allv = sum(int(r[vi]) for r in rows[1:])
-    note("Просмотры карточки за всю историю счётчика",
-         "%d, месяцев %d, с %s по %s"
-         % (allv, len(rows) - 1, rows[1][mi], rows[-1][mi]),
-         "79 413 и 79 002 в двух файлах, разница 411",
-         "brain/wiki/metrika_analytics/exports/maps_card_monthly.csv",
-         "два числа относятся к разным периодам либо выгрузкам, "
-         "разница 411 это не округление")
+    wiki_mon = {}
+    if len(rows) > 1:
+        head = [c.strip() for c in rows[0]]
+        mi, vi = head.index("month"), head.index("visits")
+        wiki_mon = {r[mi]: int(r[vi]) for r in rows[1:]}
+    wiki_total = sum(wiki_mon.values())
 
-    last12 = rows[1:][-12:]
-    v12 = sum(int(r[vi]) for r in last12)
-    note("Просмотры карточки за последние 12 месяцев",
-         "%d, месяцев %s по %s" % (v12, last12[0][mi], last12[-1][mi]),
-         "32 726 подавалось рядом с 79 413 без подписи периода, "
-         "из-за чего читалось как противоречие",
-         "maps_card_monthly.csv")
-
-    daily = read_csv(os.path.join(MET, "maps_card",
-                                  "attendance_daily.csv"))
+    # 3. Дневной файл вики.
+    daily = read_csv(os.path.join(MET, "maps_card", "attendance_daily.csv"))
+    day_mon = Counter()
     if len(daily) > 1:
         head2 = [c.strip() for c in daily[0]]
         dv = head2.index("visits")
-        from collections import Counter
-        c = Counter()
         for r in daily[1:]:
-            c[r[0][:7]] += int(r[dv])
-        if c:
-            y = sorted(c)[-1][:4]
-            same = sum(v for k, v in c.items() if k.startswith(y))
-            note("Просмотры карточки по помесячно из дневной выгрузки",
-                 "в %s году %d, всего помесячных строк %d, лет %d"
-                 % (y, same, len(c), len(y)),
-                 "помесячный и дневной файлы считают разное",
-                 "maps_card/attendance_daily.csv против maps_card_monthly.csv",
-                 "если разница есть, один из файлов обрезан по дате")
+            day_mon[r[0][:7]] += int(r[dv])
+    day_total = sum(day_mon.values())
+
+    # Общая часть трёх источников: месяцы до текущего неполного.
+    common = sorted(set(wiki_mon) & set(day_mon)
+                    & (set(api_mon) if api_total else set(day_mon)))
+    full = [k for k in common if k < CUT_MONTH]
+    agree = sum(wiki_mon[k] for k in full) if full else None
+
+    note("Просмотры карточки: три источника, три среза",
+         "живой API %s (срез %s, последний день %s), помесячный файл вики "
+         "%s, дневной файл вики %s"
+         % (sp(api_total) if api_total else "нет",
+            api_cut or "?", api_days or "?", sp(wiki_total), sp(day_total)),
+         "79410 было помечено верным, а это неверно: верное значение "
+         "у живого API, а 79410 и 79002 это другие даты среза того же "
+         "ряда, а не ошибки",
+         "data/exports/metrica/2026-09-27/cuts_maps/month_total.json",
+         "разница между ними это текущий неполный месяц: API отдаёт "
+         "3040 за него, месячный файл вики 3037, дневной 2629, потому "
+         "что обрывается 23 сентября")
+
+    if agree is not None:
+        note("Просмотры карточки за полные месяцы",
+             "%s, месяцев %d с %s по %s. Это единственная величина, которую "
+             "подтверждают все три источника: расхождение ноль"
+             % (sp(agree), len(full), full[0], full[-1]),
+             "не публиковалась ни в одном плане, хотя именно она не "
+             "требует оговорки о дате",
+             "сверка трёх источников по месяцам")
+
 
 
 # ------------------------------------------------------ 4. sitemap

@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Противоречивые числа: что верно и почему</title>
+<meta name="description" content="План продвижения цифра18.рф на 90 дней: недели, задачи, ответственные, прогноз трафика и заявок.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/main.css">
+<link rel="stylesheet" href="../css/report.css">
+<link rel="stylesheet" href="../css/nav.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="header-inner">
+    <a class="logo" href="../index.html"><span class="logo-mark">Ц18</span><span>Цифра. Аудит</span></a>
+    <nav class="main-nav" id="mainNav">
+      <a class="nav-link" href="../index.html">Резюме</a>
+      <a class="nav-link" href="wm-overview.html">Вебмастер</a>
+      <a class="nav-link" href="dash-visibility.html">Дашборды</a>
+      <a class="nav-link" href="competitors.html">Анализ</a>
+      <a class="nav-link" href="plan-3m.html">План</a>
+      <a class="nav-link active" href="methodology.html">Методика</a>
+      <a class="nav-link nav-link-all" href="../index.html#toc">Все страницы</a>
+    </nav>
+  </div>
+</header>
+
+
+<main class="page">
+<h1>Противоречивые числа: что верно и почему</h1>
+
+<p>Собрано скриптом <code>scripts/export/resolve_numbers.py</code>. Каждый пункт разрешён чтением первичных данных, а не документа: число из документа источником не считается.</p>
+<h2 id="_2">Сводка</h2>
+<table>
+<thead>
+<tr>
+<th>Показатель</th>
+<th>Верно</th>
+<th>Источник</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Страниц в поиске, весь сайт</td>
+<td>744, отраслевка Яндекса, снимок 2026-09-30</td>
+<td><code>2026-09-30/summary.json</code></td>
+</tr>
+<tr>
+<td>Страниц в поиске, подтверждение</td>
+<td>выборка Яндекса насчитала 746 адресов</td>
+<td><code>2026-09-30/insearch_samples.json</code></td>
+</tr>
+<tr>
+<td>Адресов известно роботу</td>
+<td>68926, из них 744 в поиске, доля 1.08 процента</td>
+<td><code>2026-09-30/indexing_samples.json и summary.json</code></td>
+</tr>
+<tr>
+<td>Исключено из индекса</td>
+<td>434</td>
+<td><code>2026-09-30/summary.json</code></td>
+</tr>
+<tr>
+<td>Визиты сайта за историю счётчика</td>
+<td>НЕ ПОСЧИТАНО. В файле 365 строк данных по 7 колонок, а шапка объявляет 8. Читать по позициям шапки нельзя, значения сдвинуты, а счётчика в данных нет вовсе.</td>
+<td><code>brain/wiki/metrika_analytics/exports/attendance_daily.csv</code></td>
+</tr>
+<tr>
+<td>Просмотры карточки: три источника, три среза</td>
+<td>живой API 79 413 (срез 2026-09-27 по счётчик 59102713, последний день 2026-09-27), помесячный файл вики 79 410, дневной файл вики 79 002</td>
+<td><code>data/exports/metrica/2026-09-27/cuts_maps/month_total.json</code></td>
+</tr>
+<tr>
+<td>Просмотры карточки за полные месяцы</td>
+<td>76 373, месяцев 44 с 2023-01 по 2026-08. Это единственная величина, которую подтверждают все три источника: расхождение ноль</td>
+<td><code>сверка трёх источников по месяцам</code></td>
+</tr>
+<tr>
+<td>Состояние sitemap</td>
+<td>Яндекс показывает ошибок 0 при urls_count 0 по 10 файлам; наша проверка живьём 19: строк в robots.txt, код 404 у 19, код 200 у 0</td>
+<td><code>2026-09-30/sitemaps.json и robots_state.json</code></td>
+</tr>
+<tr>
+<td>Данные, вшитые в сайт отчёта</td>
+<td>wm-data.js собран 2026-09-23, страниц в выборке 717, запросов 535; живая выгрузка датирована 2026-09-30</td>
+<td><code>reports/cifra18-audit/js/wm-data.js</code></td>
+</tr>
+<tr>
+<td>Граф знаний</td>
+<td>в KG_INDEX заявлено сущностей 239, триплетов 387; в самом TTL различных идентификаторов 367, строк с предикатом 1454</td>
+<td><code>brain/wiki/knowledge_graph/cifra18_knowledge_graph.ttl</code></td>
+</tr>
+<tr>
+<td>Целостность attendance_daily.csv</td>
+<td>данные пригодны к чтению по позициям 7, но в шапке 8; расхождение таково: 7 колонок у 365 строк</td>
+<td><code>brain\wiki\metrika_analytics\exports\attendance_daily.csv</code></td>
+</tr>
+<tr>
+<td>Целостность attendance_monthly.csv</td>
+<td>шапка и данные сходятся, колонок 9</td>
+<td><code>brain\wiki\metrika_analytics\exports\attendance_monthly.csv</code></td>
+</tr>
+<tr>
+<td>Целостность maps_card_monthly.csv</td>
+<td>шапка и данные сходятся, колонок 3</td>
+<td><code>brain\wiki\metrika_analytics\exports\maps_card_monthly.csv</code></td>
+</tr>
+<tr>
+<td>Целостность attendance_daily.csv</td>
+<td>шапка и данные сходятся, колонок 8</td>
+<td><code>brain\wiki\metrika_analytics\exports\maps_card\attendance_daily.csv</code></td>
+</tr>
+<tr>
+<td>Целостность traffic_by_source.csv</td>
+<td>шапка и данные сходятся, колонок 7</td>
+<td><code>brain\wiki\metrika_analytics\exports\traffic_by_source.csv</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="1">1. Страниц в поиске, весь сайт</h3>
+<p><strong>Верно:</strong> 744, отраслевка Яндекса, снимок 2026-09-30</p>
+<p><strong>Что стояло неверно:</strong> 708 указывалось как актуальное, но это снимок за 2026-09-27; в снимке за 2026-09-30 то же поле равно 744</p>
+<p><strong>Источник:</strong> <code>2026-09-30/summary.json</code></p>
+<h3 id="2">2. Страниц в поиске, подтверждение</h3>
+<p><strong>Верно:</strong> выборка Яндекса насчитала 746 адресов</p>
+<p><strong>Что стояло неверно:</strong> расходится с полем на 744, разница 2</p>
+<p><strong>Источник:</strong> <code>2026-09-30/insearch_samples.json</code></p>
+<p><strong>Пояснение:</strong> два поля Яндекса расходятся на единицы, это нормально</p>
+<h3 id="3">3. Адресов известно роботу</h3>
+<p><strong>Верно:</strong> 68926, из них 744 в поиске, доля 1.08 процента</p>
+<p><strong>Что стояло неверно:</strong> 2 423 и 252, то есть 10,4 процента, бралось из файла сайта wm-data.js, собранного 2026-09-23, а не из выгрузки</p>
+<p><strong>Источник:</strong> <code>2026-09-30/indexing_samples.json и summary.json</code></p>
+<p><strong>Пояснение:</strong> wm-data.js устарел и вообще является выводом, а не входом</p>
+<h3 id="4">4. Исключено из индекса</h3>
+<p><strong>Верно:</strong> 434</p>
+<p><strong>Что стояло неверно:</strong> 477 из снимка за 2026-09-27</p>
+<p><strong>Источник:</strong> <code>2026-09-30/summary.json</code></p>
+<h3 id="5">5. Визиты сайта за историю счётчика</h3>
+<p><strong>Верно:</strong> НЕ ПОСЧИТАНО. В файле 365 строк данных по 7 колонок, а шапка объявляет 8. Читать по позициям шапки нельзя, значения сдвинуты, а счётчика в данных нет вовсе.</p>
+<p><strong>Что стояло неверно:</strong> 21 110 и 21 119 получены суммированием этого файла и не имеют под собой данных</p>
+<p><strong>Источник:</strong> <code>brain/wiki/metrika_analytics/exports/attendance_daily.csv</code></p>
+<p><strong>Пояснение:</strong> нужно перезагрузить из Метрики с колонкой счётчика или снять колонку счётчика из шапки</p>
+<h3 id="6">6. Просмотры карточки: три источника, три среза</h3>
+<p><strong>Верно:</strong> живой API 79 413 (срез 2026-09-27 по счётчик 59102713, последний день 2026-09-27), помесячный файл вики 79 410, дневной файл вики 79 002</p>
+<p><strong>Что стояло неверно:</strong> 79410 было помечено верным, а это неверно: верное значение у живого API, а 79410 и 79002 это другие даты среза того же ряда, а не ошибки</p>
+<p><strong>Источник:</strong> <code>data/exports/metrica/2026-09-27/cuts_maps/month_total.json</code></p>
+<p><strong>Пояснение:</strong> разница между ними это текущий неполный месяц: API отдаёт 3040 за него, месячный файл вики 3037, дневной 2629, потому что обрывается 23 сентября</p>
+<h3 id="7">7. Просмотры карточки за полные месяцы</h3>
+<p><strong>Верно:</strong> 76 373, месяцев 44 с 2023-01 по 2026-08. Это единственная величина, которую подтверждают все три источника: расхождение ноль</p>
+<p><strong>Что стояло неверно:</strong> не публиковалась ни в одном плане, хотя именно она не требует оговорки о дате</p>
+<p><strong>Источник:</strong> <code>сверка трёх источников по месяцам</code></p>
+<h3 id="8-sitemap">8. Состояние sitemap</h3>
+<p><strong>Верно:</strong> Яндекс показывает ошибок 0 при urls_count 0 по 10 файлам; наша проверка живьём 19: строк в robots.txt, код 404 у 19, код 200 у 0</p>
+<p><strong>Что стояло неверно:</strong> «ошибок нет, всё читается» и «19 файлов отдают 404» подавались как два разных утверждения</p>
+<p><strong>Источник:</strong> <code>2026-09-30/sitemaps.json и robots_state.json</code></p>
+<p><strong>Пояснение:</strong> это не противоречие: Яндекс не сообщает об ошибке файла, который он не смог скачать, и ноль прочитанных адресов это подтверждает. Статус 404 установлен нашей проверкой</p>
+<h3 id="9">9. Данные, вшитые в сайт отчёта</h3>
+<p><strong>Верно:</strong> wm-data.js собран 2026-09-23, страниц в выборке 717, запросов 535; живая выгрузка датирована 2026-09-30</p>
+<p><strong>Что стояло неверно:</strong> файл лежит в папке сайта и при этом является источником чисел для отчёта, то есть вывод читается как вход</p>
+<p><strong>Источник:</strong> <code>reports/cifra18-audit/js/wm-data.js</code></p>
+<p><strong>Пояснение:</strong> пока он в источниках facts.py, числа в отчёте отстают от данных на 2026-09-23</p>
+<h3 id="10">10. Граф знаний</h3>
+<p><strong>Верно:</strong> в KG_INDEX заявлено сущностей 239, триплетов 387; в самом TTL различных идентификаторов 367, строк с предикатом 1454</p>
+<p><strong>Что стояло неверно:</strong> 85 сущностей стояло в клиентском отчёте против 239 в KG_INDEX</p>
+<p><strong>Источник:</strong> <code>brain/wiki/knowledge_graph/cifra18_knowledge_graph.ttl</code></p>
+<p><strong>Пояснение:</strong> считать надо по файлу, а не по индексу: индекс писался вручную</p>
+<h3 id="11-attendance_dailycsv">11. Целостность attendance_daily.csv</h3>
+<p><strong>Верно:</strong> данные пригодны к чтению по позициям 7, но в шапке 8; расхождение таково: 7 колонок у 365 строк</p>
+<p><strong>Что стояло неверно:</strong> читать этот файл по шапке нельзя, значения сдвинуты; в шапке есть колонка visits, visitors, pageviews, bounce_rate, depth, avg_time_sec, которой в данных нет</p>
+<p><strong>Источник:</strong> <code>brain\wiki\metrika_analytics\exports\attendance_daily.csv</code></p>
+<h3 id="12-attendance_monthlycsv">12. Целостность attendance_monthly.csv</h3>
+<p><strong>Верно:</strong> шапка и данные сходятся, колонок 9</p>
+<p><strong>Что стояло неверно:</strong> </p>
+<p><strong>Источник:</strong> <code>brain\wiki\metrika_analytics\exports\attendance_monthly.csv</code></p>
+<h3 id="13-maps_card_monthlycsv">13. Целостность maps_card_monthly.csv</h3>
+<p><strong>Верно:</strong> шапка и данные сходятся, колонок 3</p>
+<p><strong>Что стояло неверно:</strong> </p>
+<p><strong>Источник:</strong> <code>brain\wiki\metrika_analytics\exports\maps_card_monthly.csv</code></p>
+<h3 id="14-attendance_dailycsv">14. Целостность attendance_daily.csv</h3>
+<p><strong>Верно:</strong> шапка и данные сходятся, колонок 8</p>
+<p><strong>Что стояло неверно:</strong> </p>
+<p><strong>Источник:</strong> <code>brain\wiki\metrika_analytics\exports\maps_card\attendance_daily.csv</code></p>
+<h3 id="15-traffic_by_sourcecsv">15. Целостность traffic_by_source.csv</h3>
+<p><strong>Верно:</strong> шапка и данные сходятся, колонок 7</p>
+<p><strong>Что стояло неверно:</strong> </p>
+<p><strong>Источник:</strong> <code>brain\wiki\metrika_analytics\exports\traffic_by_source.csv</code></p>
+</main>
+<footer class="site-footer">
+  <div class="container container-wide">
+    <div class="footer-grid">
+      <div class="footer-brand"><a class="logo" href="../index.html"><span class="logo-mark">Ц18</span><span>Цифра. Аудит</span></a><p>Проверка и план продвижения цифра18.рф. Техника, контент, конкуренты, регионы, GEO, Вебмастер, дашборды. Сентябрь 2026.</p><a class="footer-toc" href="../index.html#toc">Карта отчёта, все 31 страниц</a></div>
+      <div class="footer-nav"><h4>Отчёт</h4><ul><li><a href="../index.html"><span class="fnum">1</span>Главная</a></li><li><a href="roadmap.html"><span class="fnum">8</span>90 дней</a></li><li><a href="plan-3m.html"><span class="fnum">27</span>3 месяца</a></li><li><a href="marketing.html"><span class="fnum">11</span>Маркетинг</a></li><li><a href="plan-6m.html"><span class="fnum">28</span>plan-6m</a></li><li><a href="workorder.html"><span class="fnum">29</span>workorder</a></li><li><a href="page-plan.html"><span class="fnum">30</span>page-plan</a></li></ul></div>
+      <div class="footer-nav"><h4>Анализ</h4><ul><li><a href="technical.html"><span class="fnum">2</span>Техника</a></li><li><a href="content.html"><span class="fnum">3</span>Контент</a></li><li><a href="competitors.html"><span class="fnum">4</span>Конкуренты</a></li><li><a href="local.html"><span class="fnum">5</span>Регионы</a></li><li><a href="geo.html"><span class="fnum">6</span>GEO</a></li><li><a href="knowledge.html"><span class="fnum">7</span>Знания</a></li><li><a href="prices.html"><span class="fnum">9</span>Цены</a></li><li><a href="season.html"><span class="fnum">10</span>Сезон</a></li></ul></div>
+      <div class="footer-nav"><h4>Вебмастер</h4><ul><li><a href="wm-overview.html"><span class="fnum">13</span>Сводка</a></li><li><a href="wm-indexing.html"><span class="fnum">14</span>Индексация</a></li><li><a href="wm-duplicates.html"><span class="fnum">15</span>Дубли</a></li><li><a href="wm-errors.html"><span class="fnum">16</span>Ошибки</a></li><li><a href="wm-redirects.html"><span class="fnum">17</span>Редиректы</a></li><li><a href="wm-queries.html"><span class="fnum">18</span>Запросы</a></li><li><a href="wm-clusters.html"><span class="fnum">19</span>Кластеры</a></li><li><a href="wm-gaps.html"><span class="fnum">20</span>Пробелы</a></li><li><a href="wm-links.html"><span class="fnum">21</span>Ссылки</a></li><li><a href="wm-plan.html"><span class="fnum">22</span>План ВМ</a></li></ul></div>
+      <div class="footer-nav"><h4>Дашборды</h4><ul><li><a href="dash-visibility.html"><span class="fnum">23</span>Видимость</a></li><li><a href="dash-audience.html"><span class="fnum">24</span>Аудитория</a></li><li><a href="dash-money.html"><span class="fnum">25</span>Деньги</a></li><li><a href="dash-maps.html"><span class="fnum">26</span>Карта в Картах</a></li></ul></div>
+      <div class="footer-nav"><h4>Методика</h4><ul><li><a href="methodology.html"><span class="fnum">12</span>Методика</a></li><li><a href="numbers.html" aria-current="page"><span class="fnum">31</span>numbers</a></li></ul></div>
+    </div>
+    <div class="footer-bottom"><span>Цифра18, Ижевск, сентябрь 2026</span><span>Страница 31 из 31, раздел Методика</span></div>
+  </div>
+</footer>
+<script src="../js/vendor/chart.umd.min.js"></script>
+<script>if(typeof Chart==="undefined"){document.write("<script src='https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js'><\/script>")}</script>
+<script src="../js/page-index.js"></script>
+<script src="../js/nav.js"></script>
+<script src="../js/search.js"></script>
+<script src="../js/main.js"></script>
+</body>
+</html>

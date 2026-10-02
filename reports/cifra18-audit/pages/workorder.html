@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Задание на месяц 1: технические правки</title>
+<meta name="description" content="План продвижения цифра18.рф на 90 дней: недели, задачи, ответственные, прогноз трафика и заявок.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/main.css">
+<link rel="stylesheet" href="../css/report.css">
+<link rel="stylesheet" href="../css/nav.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="header-inner">
+    <a class="logo" href="../index.html"><span class="logo-mark">Ц18</span><span>Цифра. Аудит</span></a>
+    <nav class="main-nav" id="mainNav">
+      <a class="nav-link" href="../index.html">Резюме</a>
+      <a class="nav-link" href="wm-overview.html">Вебмастер</a>
+      <a class="nav-link" href="dash-visibility.html">Дашборды</a>
+      <a class="nav-link" href="competitors.html">Анализ</a>
+      <a class="nav-link active" href="plan-3m.html">План</a>
+      <a class="nav-link" href="methodology.html">Методика</a>
+      <a class="nav-link nav-link-all" href="../index.html#toc">Все страницы</a>
+    </nav>
+  </div>
+</header>
+  <div class="subnav" id="subnav">
+    <div class="subnav-inner">
+      <span class="subnav-title">План</span>
+      <a class="subnav-link" href="roadmap.html">90 дней</a>
+      <a class="subnav-link" href="marketing.html">Маркетинг</a>
+      <a class="subnav-link" href="wm-plan.html">План ВМ</a>
+      <a class="subnav-link" href="plan-3m.html">3 месяца</a>
+      <a class="subnav-link" href="plan-6m.html">plan-6m</a>
+      <a class="subnav-link active" href="workorder.html" aria-current="page">workorder</a>
+      <a class="subnav-link" href="page-plan.html">page-plan</a>
+    </div>
+  </div>
+
+
+<main class="page">
+<h1>Задание на месяц 1: технические правки</h1>
+
+<p>Собрано скриптом <code>scripts/export/technical_workorder.py</code>. Каждый пункт имеет вид: что измерено, откуда цифра, что сделать, как проверить. Пункт без измеренной цифры сюда не попал.</p>
+<p>Это задание для разработчика, у которого есть доступ к сайту. Выполняется сверху вниз: первые три пункта стоят больше остального вместе и делаются быстрее.</p>
+<h2 id="1_1">Пункт 1. Закрыть тестовый домен</h2>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Что измерено</td>
+<td>757 визитов за 92 дня из 5 036, это 15,0 %</td>
+</tr>
+<tr>
+<td>Источник</td>
+<td><code>brain/wiki/metrika_analytics/exports/</code> разбор технического трафика, окно 92 дня</td>
+</tr>
+<tr>
+<td>Сейчас</td>
+<td><code>cifra.salelib3.beget.tech</code> отдаёт 200, индексируется и приносит трафик</td>
+</tr>
+<tr>
+<td>Почему это плохо</td>
+<td>Человек попадает на тестовую копию магазина, а не на боевой сайт. Прямой заход, который клиент делает один раз, чтобы проверить «а как оно выглядит», заканчивается ничем</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Что сделать:</strong></p>
+<ol>
+<li>Добавить в <code>robots.txt</code> строку <code>Disallow: /</code> нельзя, это правило для всего хоста, а нужен отдельный. Правильный ход такой:</li>
+</ol>
+<pre><code>Disallow: /back_url_admin
+</code></pre>
+<p>Для отдельного поддомена правило задаётся в его собственном <code>robots.txt</code>, а не в общем:</p>
+<pre><code># robots.txt на cifra.salelib3.beget.tech
+User-agent: *
+Disallow: /
+</code></pre>
+<ol>
+<li>На всех страницах тестового поддомона добавить в <code>&lt;head&gt;</code>:</li>
+</ol>
+<pre><code class="language-html">&lt;meta name=&quot;robots&quot; content=&quot;noindex, nofollow&quot;&gt;
+</code></pre>
+<ol>
+<li>Убрать ссылки на тестовый поддомен из шапки, подвала и внутренней перелинковки. Ссылка с боевого сайта это передача веса и прямое приглашение роботу обойти запрет.</li>
+<li>Через <code>Яндекс.Вебмастер</code> снять тестовый поддомен из индексации через <code>Индексирование сайта</code>.</li>
+<li>Если поддомен больше не нужен, удалить его у хостинга.</li>
+</ol>
+<p><strong>Как проверить:</strong> через месяц в Метрике доля визитов на <code>cifra.salelib3.beget.tech</code> равна нулю. В Вебмастере <code>site_structure</code> по этому хосту пустая.</p>
+<h2 id="2">Пункт 2. Закрыть админку</h2>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Что измерено</td>
+<td>384 визита за 92 дня, 7,6 %</td>
+</tr>
+<tr>
+<td>Источник</td>
+<td>тот же разбор технического трафика</td>
+</tr>
+<tr>
+<td>Сейчас</td>
+<td>страницы с <code>back_url_admin</code> доступны и индексируются</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Что сделать:</strong></p>
+<ol>
+<li>В <code>robots.txt</code> закрыть <code>back_url_admin</code> и соседние служебные пути, которые отдают страницу пользователю:</li>
+</ol>
+<pre><code>Disallow: /back_url_admin
+Disallow: /*?back_url_admin
+</code></pre>
+<ol>
+<li>На эти страницы поставить <code>noindex, nofollow</code> в <code>&lt;head&gt;</code>.</li>
+<li>Убрать ссылки на них из меню, футера и любых блоков сайта.
+<strong>Запрет в robots.txt не удаляет страницу из индекса.</strong> Если страница уже в индексе, нужен ещё <code>noindex</code> и запрос на удаление. Одна только строка в robots.txt закрывает обход, а не выдачу.</li>
+</ol>
+<p><strong>Как проверить:</strong> в Вебмастере количество страниц с этим путём стремится к нулю.</p>
+<h2 id="3-https">Пункт 3. Обязательный https</h2>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Что измерено</td>
+<td>250 визитов за 92 дня, 5,0 %</td>
+</tr>
+<tr>
+<td>Источник</td>
+<td>тот же разбор технического трафика</td>
+</tr>
+<tr>
+<td>Сейчас</td>
+<td>на живом домене отдаётся обычный http</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Что сделать (nginx):</strong></p>
+<pre><code class="language-nginx">server {
+    listen 80;
+    server_name цифра18.рф www.цифра18.рф;
+    return 301 https://$host$request_uri;
+}
+</code></pre>
+<p>Отдельный блок на 443 с теми же <code>server_name</code>, <code>ssl_certificate</code> и <code>ssl_certificate_key</code>. Убедиться, что сертификат выпущен на оба имени, иначе <code>www</code> уйдёт в предупреждение браузера.</p>
+<p><strong>Как проверить:</strong> <code>curl -I http://цифра18.рф</code> отдаёт 301 на https, а не 200 и не 404.</p>
+<h2 id="4-sitemap">Пункт 4. Sitemap, который не отдаётся</h2>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Что измерено</td>
+<td>в <code>robots.txt</code> 19 строк со ссылками на sitemap, живая проверка: 19 из 19 отдают 404</td>
+</tr>
+<tr>
+<td>Источник</td>
+<td><code>C:\susa ai\2026 cifra audit\data\exports\yandex_webmaster\2026-09-30/robots_state.json</code>, проверка сделана живьём</td>
+</tr>
+<tr>
+<td>Панель показывает</td>
+<td>ошибок 0 при <code>urls_count</code> 0</td>
+</tr>
+</tbody>
+</table>
+<p>Панель не сообщает об ошибке файла, который не смогла скачать, и ноль прочитанных адресов это подтверждает, а не опровержение. Расхождения между двумя утверждениями тут нет.</p>
+<p><strong>Что сделать, выбрать одно из двух:</strong></p>
+<ol>
+<li><strong>Поднять файлы.</strong> Сгенерировать sitemap из таблицы товаров и категорий, положить по одному на <code>sitemap.xml</code> в корне, в <code>/catalog/sitemap.xml</code> и в <code>/shop/</code>. Убрать из <code>robots.txt</code> все строки, кроме одной рабочей.</li>
+<li><strong>Убрать неработающие строки.</strong> Если файлы не нужны, удалить из <code>robots.txt</code> все 19 строк и оставить пустым или написать одну рабочую. Это честнее, чем обещать роботу файлов, которых нет.</li>
+</ol>
+<p><strong>Второй вариант делается за час и решает задачу.</strong> Первый правильнее по сути, но это работа на стороне CMS.</p>
+<p><strong>Как проверить:</strong> все ссылки из <code>robots.txt</code> отдают 200. Через месяц <code>urls_count</code> в панели перестаёт быть нулём.</p>
+<h2 id="5-h1">Пункт 5. Заголовок страницы: пять H1 на главной</h2>
+<p>Это из индексации, а не из Метрики, поэтому цифра потерь тут не измерена и в оценку месяца 1 не входит. Пункт включён, потому что он дешёвый и он ломает разметку.</p>
+<p><strong>Что сделать:</strong> оставить один <code>&lt;h1&gt;</code> на страницу. Остальные заголовки уровня ниже. Проверить так же страницы каталога.</p>
+<h2 id="_1">Чего в этом задании нет</h2>
+<p><strong>Правок заголовков и сниппетов 21 страниц.</strong> Они дают больше денег, чем первые три пункта вместе, но требуют знать текущие заголовки и предлагать новые тексты, а это отдельная работа со словами каждой страницы. Сделано следующим заданием.</p>
+<p><strong>Правок канонических тегов, meta description и микроразметки.</strong> Зависит от решения по домену: пока не решено, какой основной, канонику писать не на что.</p>
+<h2 id="_2">Порядок сдачи</h2>
+<table>
+<thead>
+<tr>
+<th>Пункт</th>
+<th>Что сдаём</th>
+<th>Проверка</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>robots и noindex на тестовом домене, ссылки убраны</td>
+<td>доля визитов на поддомен стала нулём</td>
+</tr>
+<tr>
+<td>2</td>
+<td>robots и noindex на админке, ссылки убраны</td>
+<td>страниц с этим путём в индексе не осталось</td>
+</tr>
+<tr>
+<td>3</td>
+<td>редирект 80 на 443</td>
+<td>curl отдаёт 301</td>
+</tr>
+<tr>
+<td>4</td>
+<td>sitemap подняты или строки убраны</td>
+<td>все ссылки из robots дают 200</td>
+</tr>
+<tr>
+<td>5</td>
+<td>один H1</td>
+<td>валидатор не находит дублей</td>
+</tr>
+</tbody>
+</table>
+<p>Пункты 1-3 независимы друг от друга и делаются параллельно. Пункт 4 зависит от решения владельца, какие файлы нужны.</p>
+</main>
+<footer class="site-footer">
+  <div class="container container-wide">
+    <div class="footer-grid">
+      <div class="footer-brand"><a class="logo" href="../index.html"><span class="logo-mark">Ц18</span><span>Цифра. Аудит</span></a><p>Проверка и план продвижения цифра18.рф. Техника, контент, конкуренты, регионы, GEO, Вебмастер, дашборды. Сентябрь 2026.</p><a class="footer-toc" href="../index.html#toc">Карта отчёта, все 31 страниц</a></div>
+      <div class="footer-nav"><h4>Отчёт</h4><ul><li><a href="../index.html"><span class="fnum">1</span>Главная</a></li><li><a href="roadmap.html"><span class="fnum">8</span>90 дней</a></li><li><a href="plan-3m.html"><span class="fnum">27</span>3 месяца</a></li><li><a href="marketing.html"><span class="fnum">11</span>Маркетинг</a></li><li><a href="plan-6m.html"><span class="fnum">28</span>plan-6m</a></li><li><a href="workorder.html" aria-current="page"><span class="fnum">29</span>workorder</a></li><li><a href="page-plan.html"><span class="fnum">30</span>page-plan</a></li></ul></div>
+      <div class="footer-nav"><h4>Анализ</h4><ul><li><a href="technical.html"><span class="fnum">2</span>Техника</a></li><li><a href="content.html"><span class="fnum">3</span>Контент</a></li><li><a href="competitors.html"><span class="fnum">4</span>Конкуренты</a></li><li><a href="local.html"><span class="fnum">5</span>Регионы</a></li><li><a href="geo.html"><span class="fnum">6</span>GEO</a></li><li><a href="knowledge.html"><span class="fnum">7</span>Знания</a></li><li><a href="prices.html"><span class="fnum">9</span>Цены</a></li><li><a href="season.html"><span class="fnum">10</span>Сезон</a></li></ul></div>
+      <div class="footer-nav"><h4>Вебмастер</h4><ul><li><a href="wm-overview.html"><span class="fnum">13</span>Сводка</a></li><li><a href="wm-indexing.html"><span class="fnum">14</span>Индексация</a></li><li><a href="wm-duplicates.html"><span class="fnum">15</span>Дубли</a></li><li><a href="wm-errors.html"><span class="fnum">16</span>Ошибки</a></li><li><a href="wm-redirects.html"><span class="fnum">17</span>Редиректы</a></li><li><a href="wm-queries.html"><span class="fnum">18</span>Запросы</a></li><li><a href="wm-clusters.html"><span class="fnum">19</span>Кластеры</a></li><li><a href="wm-gaps.html"><span class="fnum">20</span>Пробелы</a></li><li><a href="wm-links.html"><span class="fnum">21</span>Ссылки</a></li><li><a href="wm-plan.html"><span class="fnum">22</span>План ВМ</a></li></ul></div>
+      <div class="footer-nav"><h4>Дашборды</h4><ul><li><a href="dash-visibility.html"><span class="fnum">23</span>Видимость</a></li><li><a href="dash-audience.html"><span class="fnum">24</span>Аудитория</a></li><li><a href="dash-money.html"><span class="fnum">25</span>Деньги</a></li><li><a href="dash-maps.html"><span class="fnum">26</span>Карта в Картах</a></li></ul></div>
+      <div class="footer-nav"><h4>Методика</h4><ul><li><a href="methodology.html"><span class="fnum">12</span>Методика</a></li><li><a href="numbers.html"><span class="fnum">31</span>numbers</a></li></ul></div>
+    </div>
+    <div class="footer-bottom"><span>Цифра18, Ижевск, сентябрь 2026</span><span>Страница 29 из 31, раздел План</span></div>
+  </div>
+</footer>
+<script src="../js/vendor/chart.umd.min.js"></script>
+<script>if(typeof Chart==="undefined"){document.write("<script src='https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js'><\/script>")}</script>
+<script src="../js/page-index.js"></script>
+<script src="../js/nav.js"></script>
+<script src="../js/search.js"></script>
+<script src="../js/main.js"></script>
+</body>
+</html>

@@ -40,7 +40,7 @@ REGISTRY = [
     (10, "pages/season.html", "Анализ", "Сезонный календарь спроса: когда готовить контент"),
     (11, "pages/marketing.html", "План", "Маркетинг-план и KPI продвижения"),
     (12, "pages/methodology.html", "Методика", "Откуда взяты все цифры и как они считались"),
-    (13, "pages/wm-overview.html", "Вебмастер", "Сводка: 708 страниц в поиске, SQI 220, 22 графика"),
+    (13, "pages/wm-overview.html", "Вебмастер", "Сводка: 744 страницы в поиске, срез 2026-09-30, SQI 220, 22 графика"),
     (14, "pages/wm-indexing.html", "Вебмастер", "Индексация по разделам: где в поиске, где нет"),
     (15, "pages/wm-duplicates.html", "Вебмастер", "128 дублей: шаблоны, параметры, легаси"),
     (16, "pages/wm-errors.html", "Вебмастер", "Ошибки разбора и качество: 251 страница с PARSE_ERROR"),
@@ -54,7 +54,11 @@ REGISTRY = [
     (24, "pages/dash-audience.html", "Дашборды", "Визиты, устройства, города, пол, возраст, источники"),
     (25, "pages/dash-money.html", "Дашборды", "Заказы, выручка, цели, страницы входа"),
     (26, "pages/dash-maps.html", "Дашборды", "Карточка в Яндекс Картах: просмотры, звонки, маршруты"),
-    (27, "pages/plan-3m.html", "План", "План работ на 3 месяца: расчистка, семантика, деньги"),
+    (27, "pages/plan-3m.html", "План", "План работ на 3 месяца: расчистка, семантика, деньги"),    (28, "pages/plan-6m.html", "План", "План продвижения на 4-6 месяцев из выгрузок Метрики"),
+    (29, "pages/workorder.html", "План", "Задание на месяц 1: пять технических правок с проверкой"),
+    (30, "pages/page-plan.html", "План", "627 фраз, 21 целевая страница, 59 фраз без страницы"),
+    (31, "pages/numbers.html", "Методика", "Сверка противоречивых чисел и что оказалось верным"),
+
 ]
 
 # Верхнее меню: раздел -> страница, на которую он ведёт
@@ -71,10 +75,13 @@ SUBBAR_SECTIONS = {"Вебмастер", "Дашборды", "Анализ", "П
 
 FOOTER_COLS = [
     ("Отчёт", ["index.html", "pages/roadmap.html", "pages/plan-3m.html",
-               "pages/marketing.html"]),
-    ("Анализ", ["pages/technical.html", "pages/content.html", "pages/competitors.html",
-                "pages/local.html", "pages/geo.html", "pages/knowledge.html",
-                "pages/prices.html", "pages/season.html"]),
+               "pages/marketing.html",
+               "pages/plan-6m.html", "pages/workorder.html",
+               "pages/page-plan.html"]),
+    ("Анализ", ["pages/technical.html", "pages/content.html",
+                "pages/competitors.html", "pages/local.html", "pages/geo.html",
+                "pages/knowledge.html", "pages/prices.html",
+                "pages/season.html"]),
     ("Вебмастер", ["pages/wm-overview.html", "pages/wm-indexing.html",
                    "pages/wm-duplicates.html", "pages/wm-errors.html",
                    "pages/wm-redirects.html", "pages/wm-queries.html",
@@ -82,7 +89,7 @@ FOOTER_COLS = [
                    "pages/wm-links.html", "pages/wm-plan.html"]),
     ("Дашборды", ["pages/dash-visibility.html", "pages/dash-audience.html",
                   "pages/dash-money.html", "pages/dash-maps.html"]),
-    ("Методика", ["pages/methodology.html"]),
+    ("Методика", ["pages/methodology.html", "pages/numbers.html"]),
 ]
 
 TOTAL = len(REGISTRY)

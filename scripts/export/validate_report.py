@@ -46,14 +46,34 @@ def ok(msg):
     print("ok: " + msg)
 
 
-EXPECTED_PAGES = ["index.html"] + sorted(
-    ["technical.html", "content.html", "competitors.html", "local.html", "geo.html",
-     "knowledge.html", "roadmap.html", "prices.html", "season.html", "marketing.html",
-     "methodology.html", "wm-overview.html", "wm-indexing.html", "wm-duplicates.html",
-     "wm-errors.html", "wm-redirects.html", "wm-queries.html", "wm-clusters.html",
-     "wm-gaps.html", "wm-links.html", "wm-plan.html",
-     "dash-visibility.html", "dash-audience.html", "dash-money.html", "dash-maps.html",
-     "plan-3m.html"])
+# Список страниц берётся из build_nav.py, а не из файлов на диске.
+#
+# Почему не из диска. Тогда любая забытая страница прошла бы проверку
+# молча: она лежит в папке, значит существует, значит на неё можно
+# ссылаться. Ровно это и произошло с четырьмя новыми страницами: они
+# собраны и лежат на диске, но не были в списке, и все ссылки на них
+# из двадцати девяти страниц отчитались битыми.
+#
+# Почему из build_nav.py. Это единственный список, который что-то
+# значит: из него собираются меню, подвал, нумерация и индекс поиска.
+# Если страницы нет в нём, на неё нельзя перейти и она не находится
+# поиском, то есть существовать ей незачем.
+EXPECTED_PAGES = None
+try:
+    sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+    import build_nav
+    # Список build_nav содержит пути от корня сайта, «pages/wm-plan.html»,
+    # а проверка ниже строит путь сама через page_path(), который уже
+    # добавляет папку pages. Поэтому префикс убирается здесь, иначе
+    # получается pages/pages/wm-plan.html.
+    EXPECTED_PAGES = sorted(
+        slug[len("pages/"):] if slug.startswith("pages/") else slug
+        for _n, slug, _s, _d in build_nav.REGISTRY)
+except Exception as _exc:
+    raise SystemExit("не удалось прочитать список страниц из build_nav.py: %s"
+                     % _exc)
+if not EXPECTED_PAGES:
+    raise SystemExit("build_nav.py вернул пустой список страниц")
 TOTAL_PAGES = len(EXPECTED_PAGES)
 
 # Папки вики, файлы из которых клиент получает как приложение к отчёту.
@@ -210,7 +230,15 @@ for p, h in html.items():
         fail("нет ссылки «Все страницы»: %s" % p)
     if "css/nav.css" not in h or "js/nav.js" not in h or "js/search.js" not in h:
         fail("не подключены nav.css, nav.js или search.js: %s" % p)
-    if re.search(r"Страница \d+ из (22|12|23|26)\b", h):
+    # Номер страницы берётся из реестра build_nav. Раньше здесь стоял
+    # перечень из четырёх чисел, «из 22», «из 12», «из 23», «из 26»:
+    # проверка ловила устаревшую нумерацию только для тех значений,
+    # которые кто-то успел посмотреть, и молча пропускала все
+    # остальные.
+    _nslug = p if p == "index.html" else "pages/" + p
+    _pnum = build_nav.BY_SLUG[_nslug][0]
+    if re.search(r"Страница \d+ из \d+\b", h) and \
+            ("Страница %d из %d" % (_pnum, TOTAL_PAGES)) not in h:
         fail("stale numbering in: %s" % p)
     foot = h.split("</footer>")[0]
     for m in re.finditer(r'<footer class="site-footer">.*?</footer>', h, re.DOTALL):
@@ -230,7 +258,17 @@ else:
 # подшапка: есть в разделах, нет на главной и методике
 for p, h in html.items():
     has_sub = 'class="subnav"' in h
-    should = p not in ("index.html", "methodology.html")
+    # Правило берётся из build_nav: подшапка ставится разделу, который
+    # перечислен в SUBBAR_SECTIONS и в котором больше одной страницы.
+    # Раньше здесь стояло «кроме главной и методики», то есть перечень
+    # страниц-исключений, а не правило. Он совпадал с реальностью,
+    # пока в методике была одна страница, и перестал сразу, как
+    # появилась вторая.
+    _slug = p if p == "index.html" else "pages/" + p
+    _grp = build_nav.section_of(_slug)
+    _cnt = sum(1 for _n, _s, _g, _d in build_nav.REGISTRY if _g == _grp
+               and _s != "index.html")
+    should = _grp in build_nav.SUBBAR_SECTIONS and _cnt >= 2
     if has_sub != should:
         fail("подшапка %s там, где её быть не должно: %s" % ("есть" if has_sub else "нет", p))
 if 'id="toc"' not in html.get("index.html", ""):

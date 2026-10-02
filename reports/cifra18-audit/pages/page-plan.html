@@ -1,0 +1,2378 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>План страниц по данным</title>
+<meta name="description" content="План продвижения цифра18.рф на 90 дней: недели, задачи, ответственные, прогноз трафика и заявок.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/main.css">
+<link rel="stylesheet" href="../css/report.css">
+<link rel="stylesheet" href="../css/nav.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="header-inner">
+    <a class="logo" href="../index.html"><span class="logo-mark">Ц18</span><span>Цифра. Аудит</span></a>
+    <nav class="main-nav" id="mainNav">
+      <a class="nav-link" href="../index.html">Резюме</a>
+      <a class="nav-link" href="wm-overview.html">Вебмастер</a>
+      <a class="nav-link" href="dash-visibility.html">Дашборды</a>
+      <a class="nav-link" href="competitors.html">Анализ</a>
+      <a class="nav-link active" href="plan-3m.html">План</a>
+      <a class="nav-link" href="methodology.html">Методика</a>
+      <a class="nav-link nav-link-all" href="../index.html#toc">Все страницы</a>
+    </nav>
+  </div>
+</header>
+  <div class="subnav" id="subnav">
+    <div class="subnav-inner">
+      <span class="subnav-title">План</span>
+      <a class="subnav-link" href="roadmap.html">90 дней</a>
+      <a class="subnav-link" href="marketing.html">Маркетинг</a>
+      <a class="subnav-link" href="wm-plan.html">План ВМ</a>
+      <a class="subnav-link" href="plan-3m.html">3 месяца</a>
+      <a class="subnav-link" href="plan-6m.html">plan-6m</a>
+      <a class="subnav-link" href="workorder.html">workorder</a>
+      <a class="subnav-link active" href="page-plan.html" aria-current="page">page-plan</a>
+    </div>
+  </div>
+
+
+<main class="page">
+<h1>План страниц по данным</h1>
+
+<p>Собрано скриптом <code>scripts/export/plan_pages.py</code> из трёх источников: назначение целевых страниц из Topvisor, позиции и показы из выгрузки Вебмастера, структура и дубликаты сайта. Ни одна цифра здесь не написана рукой.</p>
+<h2 id="_2">Что важно понимать про эти цифры</h2>
+<p>Из 627 фраз позиция измерена у 346, то есть у 281 из них нет данных о позиции вообще. У остальных в среднем 2.5 показа и 0.1 клика, по этим цифрам и сортируется всё ниже.</p>
+<p><strong>Ноль показов означает две разные вещи:</strong> запрос есть, но сайт по нему не показывается, и запроса просто нет в выгрузке Вебмастера за этот период. Первое это повод работать, второе повод сначала проверить спрос. Разницы в таблице видно по колонке «измерено».</p>
+<h2 id="_3">Группы по деньгам</h2>
+<table>
+<thead>
+<tr>
+<th>Группа</th>
+<th style="text-align: right;">Фраз</th>
+<th style="text-align: right;">Измерено</th>
+<th style="text-align: right;">Показы</th>
+<th style="text-align: right;">Клики</th>
+<th style="text-align: right;">Лучшая позиция</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Бренд</td>
+<td style="text-align: right;">20</td>
+<td style="text-align: right;">17</td>
+<td style="text-align: right;">60</td>
+<td style="text-align: right;">13</td>
+<td style="text-align: right;">1,0</td>
+</tr>
+<tr>
+<td>Общий спрос</td>
+<td style="text-align: right;">78</td>
+<td style="text-align: right;">57</td>
+<td style="text-align: right;">217</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">1,0</td>
+</tr>
+<tr>
+<td>Визитки</td>
+<td style="text-align: right;">36</td>
+<td style="text-align: right;">23</td>
+<td style="text-align: right;">216</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">2,0</td>
+</tr>
+<tr>
+<td>УФ-печать и спецпечать</td>
+<td style="text-align: right;">38</td>
+<td style="text-align: right;">16</td>
+<td style="text-align: right;">20</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">2,0</td>
+</tr>
+<tr>
+<td>Форматы и плоттерная печать</td>
+<td style="text-align: right;">89</td>
+<td style="text-align: right;">67</td>
+<td style="text-align: right;">100</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">2,0</td>
+</tr>
+<tr>
+<td>Плоттерная резка и ризография</td>
+<td style="text-align: right;">31</td>
+<td style="text-align: right;">12</td>
+<td style="text-align: right;">19</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">7,0</td>
+</tr>
+<tr>
+<td>Фотопечать</td>
+<td style="text-align: right;">20</td>
+<td style="text-align: right;">11</td>
+<td style="text-align: right;">14</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2,0</td>
+</tr>
+<tr>
+<td>Локальные</td>
+<td style="text-align: right;">56</td>
+<td style="text-align: right;">29</td>
+<td style="text-align: right;">50</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">2,0</td>
+</tr>
+<tr>
+<td>Кружки и магниты</td>
+<td style="text-align: right;">28</td>
+<td style="text-align: right;">20</td>
+<td style="text-align: right;">31</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">4,0</td>
+</tr>
+<tr>
+<td>Блокноты</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">16</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">3,0</td>
+</tr>
+<tr>
+<td>Сувенирка и мерч</td>
+<td style="text-align: right;">20</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">3,0</td>
+</tr>
+<tr>
+<td>Пакеты и упаковка</td>
+<td style="text-align: right;">11</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">27</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">5,0</td>
+</tr>
+<tr>
+<td>Широкоформат</td>
+<td style="text-align: right;">33</td>
+<td style="text-align: right;">13</td>
+<td style="text-align: right;">23</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">5,0</td>
+</tr>
+<tr>
+<td>Мобильные стенды</td>
+<td style="text-align: right;">36</td>
+<td style="text-align: right;">14</td>
+<td style="text-align: right;">22</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">2,0</td>
+</tr>
+<tr>
+<td>Ламинирование</td>
+<td style="text-align: right;">26</td>
+<td style="text-align: right;">12</td>
+<td style="text-align: right;">16</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">2,0</td>
+</tr>
+<tr>
+<td>Календари</td>
+<td style="text-align: right;">21</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">9</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">4,0</td>
+</tr>
+<tr>
+<td>Листовки и флаеры</td>
+<td style="text-align: right;">45</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">4,0</td>
+</tr>
+<tr>
+<td>Наклейки и плёнки</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">7,0</td>
+</tr>
+<tr>
+<td>Бейджи</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">2,0</td>
+</tr>
+<tr>
+<td>Инженерная печать</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">5,5</td>
+</tr>
+<tr>
+<td>Пластиковые карты</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">5,0</td>
+</tr>
+<tr>
+<td>Информационные</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">9,0</td>
+</tr>
+<tr>
+<td>Конверты</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">нет данных</td>
+</tr>
+<tr>
+<td>Цифровая печать</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">нет данных</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_4">Бренд</h3>
+<p>Фраз 20, измерено 17, показов 60, кликов 13. Нужна новая страница под 0 фраз, цель назначена у 20, не назначена у 0.</p>
+<table>
+<thead>
+<tr>
+<th>Фраза</th>
+<th style="text-align: right;">Показы</th>
+<th style="text-align: right;">Клики</th>
+<th style="text-align: right;">Позиция</th>
+<th>Цель</th>
+<th>Нужна страница</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>типография цифра</td>
+<td style="text-align: right;">33</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">6,9</td>
+<td><code>/catalog/mobilnye-stendy/</code></td>
+<td>нет</td>
+</tr>
+<tr>
+<td>типография цифра ижевск официальный сайт</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">1,0</td>
+<td><code>/</code></td>
+<td>нет</td>
+</tr>
+<tr>
+<td>цифра ижевск печатный салон</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">1,2</td>
+<td><code>/</code></td>
+<td>нет</td>
+</tr>
+<tr>
+<td>цифра типография ижевск</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1,2</td>
+<td><code>/</code></td>
+<td>нет</td>
+</tr>
+<tr>
+<td>типография цифра ижевск</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1,0</td>
+<td><code>/</code></td>
+<td>нет</td>
+</tr>
+<tr>
+<td>цифра ижевск типография</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1,0</td>
+<td><code>/</code></td>
+<td>нет</td>
+</tr>
+<tr>
+<td>цифра печать визиток</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1,0</td>
+<td><code>/</code></td>
+<td>нет</td>
+</tr>
+<tr>
+<td>типография \цифра\""</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1,0</td>
+<td><code>/</code></td>
+<td>нет</td>
+</tr>
+<tr>
+<td>а цифра ролл ап</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">3,0</td>
+<td><code>/</code></td>
+<td>нет</td>
+</tr>
+<tr>
+<td>типография цифра иин</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">3,0</td>
+<td><code>/</code></td>
+<td>нет</td>
+</tr>
+<tr>
+<td>цифра 18 типография ижевск</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">2,0</td>
+<td><code>/</code></td>
+<td>нет</td>
+</tr>
+<tr>
+<td>цифра печать ижевск</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">2,0</td>
+<td><code>/</code></td>
+<td>нет</td>
+</tr>
+<tr>
+<td>цифра типография</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">2,0</td>
+<td><code>/</code></td>
+<td>нет</td>
+</tr>
+<tr>
+<td>цифра пакет</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">3,0</td>
+<td><code>/</code></td>
+<td>нет</td>
+</tr>
+</tbody>
+</table>
+<p>Ещё 6 фраз этой группы в файле Topvisor, здесь первые 14 по деньгам.</p>
+<h3 id="_5">Общий спрос</h3>
+<p>Фраз 78, измерено 57, показов 217, кликов 6. Нужна новая страница под 0 фраз, цель назначена у 78, не назначена у 0.</p>
+<table>
+<thead>
+<tr>
+<th>Фраза</th>
+<th style="text-align: right;">Показы</th>
+<th style="text-align: right;">Клики</th>
+<th style="text-align: right;">Позиция</th>
+<th>Цель</th>
+<th>Нужна страница</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>типография ижевск</td>
+<td style="text-align: right;">71</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">5,8</td>
+<td><code>/catalog/poligrafiya/</code></td>
+<td>нет</td>
+</tr>
+<tr>
+<td>типография ижевск цены</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">8,5</td>
+<td><code>/catalog/poligrafiya/</code></td>
+<td>нет</td>
+</tr>
+<tr>
+<td>типография 18</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1,0</td>
+<td><code>/catalog/poligrafiya/</code></td>
+<td>нет</td>
+</tr>
+<tr>
+<td>печатный салон ижевск</td>
+<td style="text-align: right;">25</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">9,7</td>
+<td><code>/catalog/poligrafiya/</code></td>
+<td>нет</td>
+</tr>
+<tr>
+<td>типография</td>
+<td style="text-align: right;">16</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">8,2</td>
+<td><code>/catalog/poligrafiya/</code></td>
+<td>нет</td>
+</tr>
+<tr>
+<td>печатный салон</td>
+<td style="text-align: right;">13</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">10,4</td>
+<td><code>/catalog/poligrafiya/</code></td>
+<td>нет</td>
+</tr>
+<tr>
+<td>типографии ижевск</td>
+<td style="text-align: right;">12</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">7,2</td>
+<td><code>/catalog/poligrafiya/</code></td>
+<td>нет</td>
+</tr>
+<tr>
+<td>типография в ижевске</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">8,6</td>
+<td><code>/catalog/poligrafiya/</code></td>
+<td>нет</td>
+</tr>
+<tr>
+<td>типографии ижевска</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">7,0</td>
+<td><code>/catalog/poligrafiya/</code></td>
+<td>нет</td>
+</tr>
+<tr>
+<td>типография и полиграфия ижевск</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">3,5</td>
+<td><code>/catalog/poligrafiya/</code></td>
+<td>нет</td>
+</tr>
+<tr>
+<td>ижевск типография</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">5,0</td>
+<td><code>/catalog/poligrafiya/</code></td>
+<td>нет</td>
+</tr>
+<tr>
+<td>листок ижевск типография</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">6,0</td>
+<td><code>/catalog/poligrafiya/</code></td>
+<td>нет</td>
+</tr>
+<tr>
+<td>типография ижевск официальный сайт</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1,0</td>
+<td><code>/catalog/poligrafiya/</code></td>
+<td>нет</td>
+</tr>
+<tr>
+<td>цифровые типографии в ижевске</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">4,5</td>
+<td><code>/catalog/poligrafiya/</code></td>
+<td>нет</td>
+</tr>
+</tbody>
+</table>
+<p>Ещё 64 фраз этой группы в файле Topvisor, здесь первые 14 по деньгам.</p>
+<h3 id="_6">Визитки</h3>
+<p>Фраз 36, измерено 23, показов 216, кликов 5. Нужна новая страница под 0 фраз, цель назначена у 36, не назначена у 0.</p>
+<table>
+<thead>
+<tr>
+<th>Фраза</th>
+<th style="text-align: right;">Показы</th>
+<th style="text-align: right;">Клики</th>
+<th style="text-align: right;">Позиция</th>
+<th>Цель</th>
+<th>Нужна страница</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>печать визиток ижевск</td>
+<td style="text-align: right;">68</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">2,8</td>
+<td><code>/catalog/poligrafiya/vizitki/</code></td>
+<td>нет</td>
+</tr>
+<tr>
+<td>сделать визитки ижевск</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">2,5</td>
+<td><code>/catalog/poligrafiya/vizitki/</code></td>
+<td>нет</td>
+</tr>
+<tr>
+<td>визитки ижевск заказать дешево</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">2,0</td>
+<td><code>/catalog/poligrafiya/vizitki/</code></td>
+<td>нет</td>
+</tr>
+<tr>
+<td>визитка заказать ижевск</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">3,0</td>
+<td><code>/catalog/poligrafiya/vizitki/</code></td>
+<td>нет</td>
+</tr>
+<tr>
+<td>напечатать визитки ижевск</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">5,0</td>
+<td><code>/catalog/poligrafiya/vizitki/</code></td>
+<td>нет</td>
+</tr>
+<tr>
+<td>визитки ижевск</td>
+<td style="text-align: right;">73</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">2,0</td>
+<td><code>/catalog/poligrafiya/vizitki/</code></td>
+<td>нет</td>
+</tr>
+<tr>
+<td>печать визиток</td>
+<td style="text-align: right;">37</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">5,0</td>
+<td><code>/catalog/poligrafiya/vizitki/</code></td>
+<td>нет</td>
+</tr>
+<tr>
+<td>печать визиток на дизайнерской бумаге</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">2,7</td>
+<td><code>/catalog/poligrafiya/vizitki/</code></td>
+<td>нет</td>
+</tr>
+<tr>
+<td>визитки</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">8,3</td>
+<td><code>/catalog/poligrafiya/vizitki/</code></td>
+<td>нет</td>
+</tr>
+<tr>
+<td>визитки ижевск заказать</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">3,5</td>
+<td><code>/catalog/poligrafiya/vizitki/</code></td>
+<td>нет</td>
+</tr>
+<tr>
+<td>визитка</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">9,2</td>
+<td><code>/catalog/poligrafiya/vizitki/</code></td>
+<td>нет</td>
+</tr>
+<tr>
+<td>удмуртская печать визиток</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">5,0</td>
+<td><code>/catalog/poligrafiya/vizitki/</code></td>
+<td>нет</td>
+</tr>
+<tr>
+<td>контур фото ижевск сколько стоит визитка</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">7,0</td>
+<td><code>/catalog/poligrafiya/vizitki/</code></td>
+<td>нет</td>
+</tr>
+<tr>
+<td>печать визитки</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">15,0</td>
+<td><code>/catalog/poligrafiya/vizitki/</code></td>
+<td>нет</td>
+</tr>
+</tbody>
+</table>
+<p>Ещё 22 фраз этой группы в файле Topvisor, здесь первые 14 по деньгам.</p>
+<h3 id="-">УФ-печать и спецпечать</h3>
+<p>Фраз 38, измерено 16, показов 20, кликов 4. Нужна новая страница под 0 фраз, цель назначена у 38, не назначена у 0.</p>
+<table>
+<thead>
+<tr>
+<th>Фраза</th>
+<th style="text-align: right;">Показы</th>
+<th style="text-align: right;">Клики</th>
+<th style="text-align: right;">Позиция</th>
+<th>Цель</th>
+<th>Нужна страница</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>уф печать ижевск</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">3,0</td>
+<td><code>/catalog/poligrafiya/uf-pechat1/</code></td>
+<td>нет</td>
+</tr>
+<tr>
+<td>печать на пластике ижевск</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">4,5</td>
+<td><code>/catalog/poligrafiya/uf-pechat1/</code></td>
+<td>нет</td>
+</tr>
+<tr>
+<td>печать на пластике уф</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">3,0</td>
+<td><code>/catalog/poligrafiya/uf-pechat1/</code></td>
+<td>нет</td>
+</tr>
+<tr>
+<td>фотопечать на стекле в ижевске</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">6,0</td>
+<td><code>/catalog/poligrafiya/uf-pechat1/</code></td>
+<td>нет</td>
+</tr>
+<tr>
+<td>уф печать на флешках</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">8,0</td>
+<td><code>/catalog/poligrafiya/uf-pechat1/</code></td>
+<td>нет</td>
+</tr>
+<tr>
+<td>уф печать на оргстекле ижевск</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">2,0</td>
+<td><code>/catalog/poligrafiya/uf-pechat1/</code></td>
+<td>нет</td>
+</tr>
+<tr>
+<td>уф печать на стелкотоварах.</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">2,0</td>
+<td><code>/catalog/poligrafiya/uf-pechat1/</code></td>
+<td>нет</td>
+</tr>
+<tr>
+<td>уф печать в ижевске</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">3,0</td>
+<td><code>/catalog/poligrafiya/uf-pechat1/</code></td>
+<td>нет</td>
+</tr>
+<tr>
+<td>уф печать на коробках</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">7,0</td>
+<td><code>/catalog/poligrafiya/uf-pechat1/</code></td>
+<td>нет</td>
+</tr>
+<tr>
+<td>фотопечать на стекле</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">7,0</td>
+<td><code>/catalog/poligrafiya/uf-pechat1/</code></td>
+<td>нет</td>
+</tr>
+<tr>
+<td>печать на стекле цветная ижевск</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">8,0</td>
+<td><code>/catalog/poligrafiya/uf-pechat1/</code></td>
+<td>нет</td>
+</tr>
+<tr>
+<td>уф печать на флешке это в цвете?</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">8,0</td>
+<td><code>/catalog/poligrafiya/uf-pechat1/</code></td>
+<td>нет</td>
+</tr>
+<tr>
+<td>золотое тиснение ижевск</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">12,0</td>
+<td><code>/catalog/poligrafiya/uf-pechat1/</code></td>
+<td>нет</td>
+</tr>
+<tr>
+<td>уф печать</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">12,0</td>
+<td><code>/catalog/poligrafiya/uf-pechat1/</code></td>
+<td>нет</td>
+</tr>
+</tbody>
+</table>
+<p>Ещё 24 фраз этой группы в файле Topvisor, здесь первые 14 по деньгам.</p>
+<h3 id="_7">Форматы и плоттерная печать</h3>
+<p>Фраз 89, измерено 67, показов 100, кликов 3. Нужна новая страница под 0 фраз, цель назначена у 89, не назначена у 0.</p>
+<table>
+<thead>
+<tr>
+<th>Фраза</th>
+<th style="text-align: right;">Показы</th>
+<th style="text-align: right;">Клики</th>
+<th style="text-align: right;">Позиция</th>
+<th>Цель</th>
+<th>Нужна страница</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>распечатать фото ижевск на дереве</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">9,0</td>
+<td><code>/catalog/poligrafiya/tsifrovaya-pechat/</code></td>
+<td>нет</td>
+</tr>
+<tr>
+<td>стоимость копии ижевск а4 цена черно белая</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">12,0</td>
+<td><code>/catalog/poligrafiya/tsifrovaya-pechat/</code></td>
+<td>нет</td>
+</tr>
+<tr>
+<td>распечатать а3</td>
+<td style="text-align: right;">11</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">14,1</td>
+<td><code>/catalog/poligrafiya/tsifrovaya-pechat/</code></td>
+<td>нет</td>
+</tr>
+<tr>
+<td>распечатка</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">10,8</td>
+<td><code>/catalog/poligrafiya/tsifrovaya-pechat/</code></td>
+<td>нет</td>
+</tr>
+<tr>
+<td>печать а1 цена</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">5,5</td>
+<td><code>/catalog/poligrafiya/tsifrovaya-pechat/</code></td>
+<td>нет</td>
+</tr>
+<tr>
+<td>распечатать документ</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">11,0</td>
+<td><code>/catalog/poligrafiya/tsifrovaya-pechat/</code></td>
+<td>нет</td>
+</tr>
+<tr>
+<td>где можно сделать распечатки на цветном принтере</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">11,0</td>
+<td><code>/catalog/poligrafiya/tsifrovaya-pechat/</code></td>
+<td>нет</td>
+</tr>
+<tr>
+<td>х принт распечатка ижевск</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">4,5</td>
+<td><code>/catalog/poligrafiya/tsifrovaya-pechat/</code></td>
+<td>нет</td>
+</tr>
+<tr>
+<td>печать на а2 ижевск</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">5,5</td>
+<td><code>/catalog/poligrafiya/tsifrovaya-pechat/</code></td>
+<td>нет</td>
+</tr>
+<tr>
+<td>где можно распечатать а1 формат ижевск</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">6,0</td>
+<td><code>/catalog/poligrafiya/tsifrovaya-pechat/</code></td>
+<td>нет</td>
+</tr>
+<tr>
+<td>распечатать цветном принтере цена</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">6,0</td>
+<td><code>/catalog/poligrafiya/tsifrovaya-pechat/</code></td>
+<td>нет</td>
+</tr>
+<tr>
+<td>сколько стоит распечатать 1000 листовок</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">6,0</td>
+<td><code>/catalog/poligrafiya/tsifrovaya-pechat/</code></td>
+<td>нет</td>
+</tr>
+<tr>
+<td>печать а1 ижевск</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">6,5</td>
+<td><code>/catalog/poligrafiya/tsifrovaya-pechat/</code></td>
+<td>нет</td>
+</tr>
+<tr>
+<td>сколько стоит распечатать цветное фото а4</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">7,0</td>
+<td><code>/catalog/poligrafiya/tsifrovaya-pechat/</code></td>
+<td>нет</td>
+</tr>
+</tbody>
+</table>
+<p>Ещё 75 фраз этой группы в файле Topvisor, здесь первые 14 по деньгам.</p>
+<h3 id="_8">Плоттерная резка и ризография</h3>
+<p>Фраз 31, измерено 12, показов 19, кликов 2. Нужна новая страница под 0 фраз, цель назначена у 31, не назначена у 0.</p>
+<table>
+<thead>
+<tr>
+<th>Фраза</th>
+<th style="text-align: right;">Показы</th>
+<th style="text-align: right;">Клики</th>
+<th style="text-align: right;">Позиция</th>
+<th>Цель</th>
+<th>Нужна страница</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ризографная</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">7,0</td>
+<td><code>/catalog/poligrafiya/plotternaya-rezka/</code></td>
+<td>нет</td>
+</tr>
+<tr>
+<td>кубик с гравировкой ижевск</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">16,0</td>
+<td><code>/catalog/poligrafiya/plotternaya-rezka/</code></td>
+<td>нет</td>
+</tr>
+<tr>
+<td>плоттерная резка форматсити 1</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">8,5</td>
+<td><code>/catalog/poligrafiya/plotternaya-rezka/</code></td>
+<td>нет</td>
+</tr>
+<tr>
+<td>ризография цена</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">27,7</td>
+<td><code>/catalog/poligrafiya/plotternaya-rezka/</code></td>
+<td>нет</td>
+</tr>
+<tr>
+<td>плоттерная резка</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">9,5</td>
+<td><code>/catalog/poligrafiya/plotternaya-rezka/</code></td>
+<td>нет</td>
+</tr>
+<tr>
+<td>черно-белая ризографическая печать что это</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">7,0</td>
+<td><code>/catalog/poligrafiya/plotternaya-rezka/</code></td>
+<td>нет</td>
+</tr>
+<tr>
+<td>черновая печать ризограф</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">7,0</td>
+<td><code>/catalog/poligrafiya/plotternaya-rezka/</code></td>
+<td>нет</td>
+</tr>
+<tr>
+<td>дерево на резку плоттер</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">9,0</td>
+<td><code>/catalog/poligrafiya/plotternaya-rezka/</code></td>
+<td>нет</td>
+</tr>
+<tr>
+<td>лазерная резка самоклеящаяся пленка текст</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">12,0</td>
+<td><code>/catalog/poligrafiya/plotternaya-rezka/</code></td>
+<td>нет</td>
+</tr>
+<tr>
+<td>печать на ризографе</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">38,0</td>
+<td><code>/catalog/poligrafiya/plotternaya-rezka/</code></td>
+<td>нет</td>
+</tr>
+<tr>
+<td>печать ризографией</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">44,0</td>
+<td><code>/catalog/poligrafiya/plotternaya-rezka/</code></td>
+<td>нет</td>
+</tr>
+<tr>
+<td>печать на ризографе цена</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">50,0</td>
+<td><code>/catalog/poligrafiya/plotternaya-rezka/</code></td>
+<td>нет</td>
+</tr>
+</tbody>
+</table>
+<p>Ещё 19 фраз этой группы в файле Topvisor, здесь первые 12 по деньгам.</p>
+<h3 id="_9">Фотопечать</h3>
+<p>Фраз 20, измерено 11, показов 14, кликов 2. Нужна новая страница под 0 фраз, цель назначена у 20, не назначена у 0.</p>
+<table>
+<thead>
+<tr>
+<th>Фраза</th>
+<th style="text-align: right;">Показы</th>
+<th style="text-align: right;">Клики</th>
+<th style="text-align: right;">Позиция</th>
+<th>Цель</th>
+<th>Нужна страница</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>печать на пазлах</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">2,0</td>
+<td><code>/catalog/suvenirnaya-produktsiya/fotopaneli</code></td>
+<td>нет</td>
+</tr>
+<tr>
+<td>пазлы из фотографий на заказ ижевск</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">4,0</td>
+<td><code>/catalog/suvenirnaya-produktsiya/fotopaneli</code></td>
+<td>нет</td>
+</tr>
+<tr>
+<td>фотопечать на обоях</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">6,7</td>
+<td><code>/catalog/suvenirnaya-produktsiya/fotopaneli</code></td>
+<td>нет</td>
+</tr>
+<tr>
+<td>пазл с фотографией на заказ ижевск</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">4,5</td>
+<td><code>/catalog/suvenirnaya-produktsiya/fotopaneli</code></td>
+<td>нет</td>
+</tr>
+<tr>
+<td>пазл на заказ по фотографии ижевск</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">6,0</td>
+<td><code>/catalog/suvenirnaya-produktsiya/fotopaneli</code></td>
+<td>нет</td>
+</tr>
+<tr>
+<td>где в ижевске есть фотопечать на кружки</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">8,0</td>
+<td><code>/catalog/suvenirnaya-produktsiya/fotopaneli</code></td>
+<td>нет</td>
+</tr>
+<tr>
+<td>пазл из фотографии на заказ</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">9,0</td>
+<td><code>/catalog/suvenirnaya-produktsiya/fotopaneli</code></td>
+<td>нет</td>
+</tr>
+<tr>
+<td>заказать магнитный пазл по фото в ижевске</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">10,0</td>
+<td><code>/catalog/suvenirnaya-produktsiya/fotopaneli</code></td>
+<td>нет</td>
+</tr>
+<tr>
+<td>пазлы по фото на заказ</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">11,0</td>
+<td><code>/catalog/suvenirnaya-produktsiya/fotopaneli</code></td>
+<td>нет</td>
+</tr>
+<tr>
+<td>фото куб из кубиков трансформер</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">19,0</td>
+<td><code>/catalog/suvenirnaya-produktsiya/fotopaneli</code></td>
+<td>нет</td>
+</tr>
+<tr>
+<td>фотопечать ижевск</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">25,0</td>
+<td><code>/catalog/suvenirnaya-produktsiya/fotopaneli</code></td>
+<td>нет</td>
+</tr>
+</tbody>
+</table>
+<p>Ещё 9 фраз этой группы в файле Topvisor, здесь первые 11 по деньгам.</p>
+<h3 id="_10">Локальные</h3>
+<p>Фраз 56, измерено 29, показов 50, кликов 1. Нужна новая страница под 56 фраз, цель назначена у 0, не назначена у 56.</p>
+<table>
+<thead>
+<tr>
+<th>Фраза</th>
+<th style="text-align: right;">Показы</th>
+<th style="text-align: right;">Клики</th>
+<th style="text-align: right;">Позиция</th>
+<th>Цель</th>
+<th>Нужна страница</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>штендер рекламный купить ижевск</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">10,0</td>
+<td>не назначена</td>
+<td>да</td>
+</tr>
+<tr>
+<td>печать ижевск</td>
+<td style="text-align: right;">16</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">9,7</td>
+<td>не назначена</td>
+<td>да</td>
+</tr>
+<tr>
+<td>печать в ижевске</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">9,0</td>
+<td>не назначена</td>
+<td>да</td>
+</tr>
+<tr>
+<td>печать карт ижевск</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">7,0</td>
+<td>не назначена</td>
+<td>да</td>
+</tr>
+<tr>
+<td>печать логотипа ижевск</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">10,0</td>
+<td>не назначена</td>
+<td>да</td>
+</tr>
+<tr>
+<td>печать фото на пластике ижевск</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">10,5</td>
+<td>не назначена</td>
+<td>да</td>
+</tr>
+<tr>
+<td>шоколад с логотипом ижевск</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">2,0</td>
+<td>не назначена</td>
+<td>да</td>
+</tr>
+<tr>
+<td>печать сервис ижевск</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">4,0</td>
+<td>не назначена</td>
+<td>да</td>
+</tr>
+<tr>
+<td>50 на 70 печать ижевск</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">5,0</td>
+<td>не назначена</td>
+<td>да</td>
+</tr>
+<tr>
+<td>печать на картоне ижевск</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">6,0</td>
+<td>не назначена</td>
+<td>да</td>
+</tr>
+<tr>
+<td>печатное производство ижевск на принтере</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">7,0</td>
+<td>не назначена</td>
+<td>да</td>
+</tr>
+<tr>
+<td>печать на посуде ижевск</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">7,0</td>
+<td>не назначена</td>
+<td>да</td>
+</tr>
+<tr>
+<td>печать полиграфии ижевск</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">7,0</td>
+<td>не назначена</td>
+<td>да</td>
+</tr>
+<tr>
+<td>услуги печати в ижевске</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">7,0</td>
+<td>не назначена</td>
+<td>да</td>
+</tr>
+</tbody>
+</table>
+<p>Ещё 42 фраз этой группы в файле Topvisor, здесь первые 14 по деньгам.</p>
+<h3 id="_11">Кружки и магниты</h3>
+<p>Фраз 28, измерено 20, показов 31, кликов 1. Нужна новая страница под 0 фраз, цель назначена у 28, не назначена у 0.</p>
+<table>
+<thead>
+<tr>
+<th>Фраза</th>
+<th style="text-align: right;">Показы</th>
+<th style="text-align: right;">Клики</th>
+<th style="text-align: right;">Позиция</th>
+<th>Цель</th>
+<th>Нужна страница</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>печать на кружках ижевск</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">8,0</td>
+<td><code>/catalog/suvenirnaya-produktsiya/pechat-na-kruzhkakh</code></td>
+<td>нет</td>
+</tr>
+<tr>
+<td>создай рекламу кружка</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">8,0</td>
+<td><code>/catalog/suvenirnaya-produktsiya/pechat-na-kruzhkakh</code></td>
+<td>нет</td>
+</tr>
+<tr>
+<td>фото на кружку</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">10,0</td>
+<td><code>/catalog/suvenirnaya-produktsiya/pechat-na-kruzhkakh</code></td>
+<td>нет</td>
+</tr>
+<tr>
+<td>заказать кружку со своим принтом</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">4,0</td>
+<td><code>/catalog/suvenirnaya-produktsiya/pechat-na-kruzhkakh</code></td>
+<td>нет</td>
+</tr>
+<tr>
+<td>кружки на заказ</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">4,5</td>
+<td><code>/catalog/suvenirnaya-produktsiya/pechat-na-kruzhkakh</code></td>
+<td>нет</td>
+</tr>
+<tr>
+<td>печать на кружках</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">7,5</td>
+<td><code>/catalog/suvenirnaya-produktsiya/pechat-na-kruzhkakh</code></td>
+<td>нет</td>
+</tr>
+<tr>
+<td>печать на кружках для класса</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">7,5</td>
+<td><code>/catalog/suvenirnaya-produktsiya/pechat-na-kruzhkakh</code></td>
+<td>нет</td>
+</tr>
+<tr>
+<td>кружка на заказ со своим дизайном ижевск</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">8,5</td>
+<td><code>/catalog/suvenirnaya-produktsiya/pechat-na-kruzhkakh</code></td>
+<td>нет</td>
+</tr>
+<tr>
+<td>изготовление магнитов ижевск</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">5,0</td>
+<td><code>/catalog/suvenirnaya-produktsiya/pechat-na-kruzhkakh</code></td>
+<td>нет</td>
+</tr>
+<tr>
+<td>кружки с принтом на заказ ижевск</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">5,0</td>
+<td><code>/catalog/suvenirnaya-produktsiya/pechat-na-kruzhkakh</code></td>
+<td>нет</td>
+</tr>
+<tr>
+<td>печать на кружке ижевск</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">5,0</td>
+<td><code>/catalog/suvenirnaya-produktsiya/pechat-na-kruzhkakh</code></td>
+<td>нет</td>
+</tr>
+<tr>
+<td>заказать кружку с печатью на заказ</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">6,0</td>
+<td><code>/catalog/suvenirnaya-produktsiya/pechat-na-kruzhkakh</code></td>
+<td>нет</td>
+</tr>
+<tr>
+<td>какой размер картинки нужен для магнита 7*10</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">7,0</td>
+<td><code>/catalog/suvenirnaya-produktsiya/pechat-na-kruzhkakh</code></td>
+<td>нет</td>
+</tr>
+<tr>
+<td>принт на кружке ижевск</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">8,0</td>
+<td><code>/catalog/suvenirnaya-produktsiya/pechat-na-kruzhkakh</code></td>
+<td>нет</td>
+</tr>
+</tbody>
+</table>
+<p>Ещё 14 фраз этой группы в файле Topvisor, здесь первые 14 по деньгам.</p>
+<h3 id="_12">Блокноты</h3>
+<p>Фраз 8, измерено 6, показов 16, кликов 1. Нужна новая страница под 0 фраз, цель назначена у 8, не назначена у 0.</p>
+<table>
+<thead>
+<tr>
+<th>Фраза</th>
+<th style="text-align: right;">Показы</th>
+<th style="text-align: right;">Клики</th>
+<th style="text-align: right;">Позиция</th>
+<th>Цель</th>
+<th>Нужна страница</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>печать на блокнотах ижевск</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">3,0</td>
+<td><code>/catalog/poligrafiya/bloknoty/</code></td>
+<td>нет</td>
+</tr>
+<tr>
+<td>печать блокнотов</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">7,6</td>
+<td><code>/catalog/poligrafiya/bloknoty/</code></td>
+<td>нет</td>
+</tr>
+<tr>
+<td>блокнот на заказ</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">8,5</td>
+<td><code>/catalog/poligrafiya/bloknoty/</code></td>
+<td>нет</td>
+</tr>
+<tr>
+<td>печать блокнотов на заказ</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">5,0</td>
+<td><code>/catalog/poligrafiya/bloknoty/</code></td>
+<td>нет</td>
+</tr>
+<tr>
+<td>блокноты печать цена</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">8,0</td>
+<td><code>/catalog/poligrafiya/bloknoty/</code></td>
+<td>нет</td>
+</tr>
+<tr>
+<td>блокноты на заказ</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">12,0</td>
+<td><code>/catalog/poligrafiya/bloknoty/</code></td>
+<td>нет</td>
+</tr>
+</tbody>
+</table>
+<p>Ещё 2 фраз этой группы в файле Topvisor, здесь первые 6 по деньгам.</p>
+<h3 id="_13">Сувенирка и мерч</h3>
+<p>Фраз 20, измерено 10, показов 10, кликов 1. Нужна новая страница под 0 фраз, цель назначена у 20, не назначена у 0.</p>
+<table>
+<thead>
+<tr>
+<th>Фраза</th>
+<th style="text-align: right;">Показы</th>
+<th style="text-align: right;">Клики</th>
+<th style="text-align: right;">Позиция</th>
+<th>Цель</th>
+<th>Нужна страница</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>сувениры ижевск сделать</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">10,0</td>
+<td><code>/catalog/suvenirnaya-produktsiya/</code></td>
+<td>нет</td>
+</tr>
+<tr>
+<td>печать сувенирной продукции с логотипом ижевск</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">3,0</td>
+<td><code>/catalog/suvenirnaya-produktsiya/</code></td>
+<td>нет</td>
+</tr>
+<tr>
+<td>изготовление сувениров ижевск</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">6,0</td>
+<td><code>/catalog/suvenirnaya-produktsiya/</code></td>
+<td>нет</td>
+</tr>
+<tr>
+<td>печать сувениров на акриловом стекле ижевск</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">7,0</td>
+<td><code>/catalog/suvenirnaya-produktsiya/</code></td>
+<td>нет</td>
+</tr>
+<tr>
+<td>печать на сувенирах ижевск</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">8,0</td>
+<td><code>/catalog/suvenirnaya-produktsiya/</code></td>
+<td>нет</td>
+</tr>
+<tr>
+<td>сувенирная печатная продукция</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">10,0</td>
+<td><code>/catalog/suvenirnaya-produktsiya/</code></td>
+<td>нет</td>
+</tr>
+<tr>
+<td>сувениры с фото быстро ижевск</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">10,0</td>
+<td><code>/catalog/suvenirnaya-produktsiya/</code></td>
+<td>нет</td>
+</tr>
+<tr>
+<td>печать ижевск на сувенирах</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">11,0</td>
+<td><code>/catalog/suvenirnaya-produktsiya/</code></td>
+<td>нет</td>
+</tr>
+<tr>
+<td>ручки с логотипом на заказ</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">11,0</td>
+<td><code>/catalog/suvenirnaya-produktsiya/</code></td>
+<td>нет</td>
+</tr>
+<tr>
+<td>печать сувенирной продукции цена</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">29,0</td>
+<td><code>/catalog/suvenirnaya-produktsiya/</code></td>
+<td>нет</td>
+</tr>
+</tbody>
+</table>
+<p>Ещё 10 фраз этой группы в файле Topvisor, здесь первые 10 по деньгам.</p>
+<h3 id="_14">Пакеты и упаковка</h3>
+<p>Фраз 11, измерено 7, показов 27, кликов 0. Нужна новая страница под 0 фраз, цель назначена у 11, не назначена у 0.</p>
+<table>
+<thead>
+<tr>
+<th>Фраза</th>
+<th style="text-align: right;">Показы</th>
+<th style="text-align: right;">Клики</th>
+<th style="text-align: right;">Позиция</th>
+<th>Цель</th>
+<th>Нужна страница</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>пакеты на заказ</td>
+<td style="text-align: right;">13</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">8,7</td>
+<td><code>/catalog/poligrafiya/pakety/</code></td>
+<td>нет</td>
+</tr>
+<tr>
+<td>печать на пакетах ижевск</td>
+<td style="text-align: right;">9</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">10,7</td>
+<td><code>/catalog/poligrafiya/pakety/</code></td>
+<td>нет</td>
+</tr>
+<tr>
+<td>пакеты бумажные с логотипом на заказ ижевск</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">5,0</td>
+<td><code>/catalog/poligrafiya/pakety/</code></td>
+<td>нет</td>
+</tr>
+<tr>
+<td>дизайнер визиток наклеек логотипов на упаковку</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">8,0</td>
+<td><code>/catalog/poligrafiya/pakety/</code></td>
+<td>нет</td>
+</tr>
+<tr>
+<td>печать на пакетах полиэтиленовых ижевск</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">8,0</td>
+<td><code>/catalog/poligrafiya/pakety/</code></td>
+<td>нет</td>
+</tr>
+<tr>
+<td>дизайнер визиток наклеек на упаковку</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">9,0</td>
+<td><code>/catalog/poligrafiya/pakety/</code></td>
+<td>нет</td>
+</tr>
+<tr>
+<td>пакеты с логотипом на заказ</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">9,0</td>
+<td><code>/catalog/poligrafiya/pakety/</code></td>
+<td>нет</td>
+</tr>
+</tbody>
+</table>
+<p>Ещё 4 фраз этой группы в файле Topvisor, здесь первые 7 по деньгам.</p>
+<h3 id="_15">Широкоформат</h3>
+<p>Фраз 33, измерено 13, показов 23, кликов 0. Нужна новая страница под 0 фраз, цель назначена у 33, не назначена у 0.</p>
+<table>
+<thead>
+<tr>
+<th>Фраза</th>
+<th style="text-align: right;">Показы</th>
+<th style="text-align: right;">Клики</th>
+<th style="text-align: right;">Позиция</th>
+<th>Цель</th>
+<th>Нужна страница</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>фотопостер ижевск</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">9,5</td>
+<td><code>/catalog/reklama/</code></td>
+<td>нет</td>
+</tr>
+<tr>
+<td>печать на холсте ижевск</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">7,0</td>
+<td><code>/catalog/reklama/</code></td>
+<td>нет</td>
+</tr>
+<tr>
+<td>печать на холсте</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">8,5</td>
+<td><code>/catalog/reklama/</code></td>
+<td>нет</td>
+</tr>
+<tr>
+<td>аренда стойки для баннера ижевск</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">6,5</td>
+<td><code>/catalog/reklama/</code></td>
+<td>нет</td>
+</tr>
+<tr>
+<td>печатать на холсте</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">11,0</td>
+<td><code>/catalog/reklama/</code></td>
+<td>нет</td>
+</tr>
+<tr>
+<td>ролапы спецтехника баннер</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">11,0</td>
+<td><code>/catalog/reklama/</code></td>
+<td>нет</td>
+</tr>
+<tr>
+<td>печать картины на холсте</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">5,0</td>
+<td><code>/catalog/reklama/</code></td>
+<td>нет</td>
+</tr>
+<tr>
+<td>широкоформатная печать ижевск типография</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">5,0</td>
+<td><code>/catalog/reklama/</code></td>
+<td>нет</td>
+</tr>
+<tr>
+<td>печать картины на холсте ижевск</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">6,0</td>
+<td><code>/catalog/reklama/</code></td>
+<td>нет</td>
+</tr>
+<tr>
+<td>печать постеров на заказ ижевск</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">6,0</td>
+<td><code>/catalog/reklama/</code></td>
+<td>нет</td>
+</tr>
+<tr>
+<td>фотопостер ижевск эмблема москвича</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">7,0</td>
+<td><code>/catalog/reklama/</code></td>
+<td>нет</td>
+</tr>
+<tr>
+<td>штендер x баннер фикс прайс</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">11,0</td>
+<td><code>/catalog/reklama/</code></td>
+<td>нет</td>
+</tr>
+<tr>
+<td>печать картины на холсте ижевск листок</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">14,0</td>
+<td><code>/catalog/reklama/</code></td>
+<td>нет</td>
+</tr>
+</tbody>
+</table>
+<p>Ещё 20 фраз этой группы в файле Topvisor, здесь первые 13 по деньгам.</p>
+<h3 id="_16">Мобильные стенды</h3>
+<p>Фраз 36, измерено 14, показов 22, кликов 0. Нужна новая страница под 0 фраз, цель назначена у 36, не назначена у 0.</p>
+<table>
+<thead>
+<tr>
+<th>Фраза</th>
+<th style="text-align: right;">Показы</th>
+<th style="text-align: right;">Клики</th>
+<th style="text-align: right;">Позиция</th>
+<th>Цель</th>
+<th>Нужна страница</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>пресс волл</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">5,8</td>
+<td><code>/catalog/mobilnye-stendy/</code></td>
+<td>нет</td>
+</tr>
+<tr>
+<td>изготовление мобильных стендов</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">44,2</td>
+<td><code>/catalog/mobilnye-stendy/</code></td>
+<td>нет</td>
+</tr>
+<tr>
+<td>пресс волл с логотипами</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">2,0</td>
+<td><code>/catalog/mobilnye-stendy/</code></td>
+<td>нет</td>
+</tr>
+<tr>
+<td>прессволл</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">3,0</td>
+<td><code>/catalog/mobilnye-stendy/</code></td>
+<td>нет</td>
+</tr>
+<tr>
+<td>стенд 1,5х1,5м, (акп, печать пленки с ламинацией)</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">6,0</td>
+<td><code>/catalog/mobilnye-stendy/</code></td>
+<td>нет</td>
+</tr>
+<tr>
+<td>плесура стенд</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">9,0</td>
+<td><code>/catalog/mobilnye-stendy/</code></td>
+<td>нет</td>
+</tr>
+<tr>
+<td>ролл апов, штендер</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">9,0</td>
+<td><code>/catalog/mobilnye-stendy/</code></td>
+<td>нет</td>
+</tr>
+<tr>
+<td>аренда конструкции для ролл-апа</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">10,0</td>
+<td><code>/catalog/mobilnye-stendy/</code></td>
+<td>нет</td>
+</tr>
+<tr>
+<td>зенон х стенд</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">10,0</td>
+<td><code>/catalog/mobilnye-stendy/</code></td>
+<td>нет</td>
+</tr>
+<tr>
+<td>ролл ап</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">10,0</td>
+<td><code>/catalog/mobilnye-stendy/</code></td>
+<td>нет</td>
+</tr>
+<tr>
+<td>застройка выставочных стендов в ижевске</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">11,0</td>
+<td><code>/catalog/mobilnye-stendy/</code></td>
+<td>нет</td>
+</tr>
+<tr>
+<td>аренда баннера для мобильной сцены ижевск</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">12,0</td>
+<td><code>/catalog/mobilnye-stendy/</code></td>
+<td>нет</td>
+</tr>
+<tr>
+<td>баннерные стенды</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">12,0</td>
+<td><code>/catalog/mobilnye-stendy/</code></td>
+<td>нет</td>
+</tr>
+<tr>
+<td>изготовление мобильных выставочных и рекламных стендов</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">50,0</td>
+<td><code>/catalog/mobilnye-stendy/</code></td>
+<td>нет</td>
+</tr>
+</tbody>
+</table>
+<p>Ещё 22 фраз этой группы в файле Topvisor, здесь первые 14 по деньгам.</p>
+<h3 id="_17">Ламинирование</h3>
+<p>Фраз 26, измерено 12, показов 16, кликов 0. Нужна новая страница под 0 фраз, цель назначена у 26, не назначена у 0.</p>
+<table>
+<thead>
+<tr>
+<th>Фраза</th>
+<th style="text-align: right;">Показы</th>
+<th style="text-align: right;">Клики</th>
+<th style="text-align: right;">Позиция</th>
+<th>Цель</th>
+<th>Нужна страница</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ламинирование документов ижевск</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">7,2</td>
+<td><code>/catalog/poligrafiya/laminirovanie/</code></td>
+<td>нет</td>
+</tr>
+<tr>
+<td>заменить ламинирование ижевск</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">10,0</td>
+<td><code>/catalog/poligrafiya/laminirovanie/</code></td>
+<td>нет</td>
+</tr>
+<tr>
+<td>печати пленка вклейка для документов</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">10,0</td>
+<td><code>/catalog/poligrafiya/laminirovanie/</code></td>
+<td>нет</td>
+</tr>
+<tr>
+<td>ламинирование п4 это</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">2,0</td>
+<td><code>/catalog/poligrafiya/laminirovanie/</code></td>
+<td>нет</td>
+</tr>
+<tr>
+<td>ламинация вгуст</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">5,0</td>
+<td><code>/catalog/poligrafiya/laminirovanie/</code></td>
+<td>нет</td>
+</tr>
+<tr>
+<td>ламинирование листа</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">5,0</td>
+<td><code>/catalog/poligrafiya/laminirovanie/</code></td>
+<td>нет</td>
+</tr>
+<tr>
+<td>ламинация документов в ижевске</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">8,0</td>
+<td><code>/catalog/poligrafiya/laminirovanie/</code></td>
+<td>нет</td>
+</tr>
+<tr>
+<td>ламинация документов</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">11,0</td>
+<td><code>/catalog/poligrafiya/laminirovanie/</code></td>
+<td>нет</td>
+</tr>
+<tr>
+<td>ламинация документов рядом со мной</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">11,0</td>
+<td><code>/catalog/poligrafiya/laminirovanie/</code></td>
+<td>нет</td>
+</tr>
+<tr>
+<td>ламинация табличек</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">11,0</td>
+<td><code>/catalog/poligrafiya/laminirovanie/</code></td>
+<td>нет</td>
+</tr>
+<tr>
+<td>типография брошюра 6 стр</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">11,0</td>
+<td><code>/catalog/poligrafiya/laminirovanie/</code></td>
+<td>нет</td>
+</tr>
+<tr>
+<td>заказать фото ламинированное</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">13,0</td>
+<td><code>/catalog/poligrafiya/laminirovanie/</code></td>
+<td>нет</td>
+</tr>
+</tbody>
+</table>
+<p>Ещё 14 фраз этой группы в файле Topvisor, здесь первые 12 по деньгам.</p>
+<h3 id="_18">Календари</h3>
+<p>Фраз 21, измерено 8, показов 9, кликов 0. Нужна новая страница под 0 фраз, цель назначена у 21, не назначена у 0.</p>
+<table>
+<thead>
+<tr>
+<th>Фраза</th>
+<th style="text-align: right;">Показы</th>
+<th style="text-align: right;">Клики</th>
+<th style="text-align: right;">Позиция</th>
+<th>Цель</th>
+<th>Нужна страница</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>печать визиток календари типография</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">10,0</td>
+<td><code>/catalog/poligrafiya/kalendari/</code></td>
+<td>нет</td>
+</tr>
+<tr>
+<td>печать календарей в ижевске</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">4,0</td>
+<td><code>/catalog/poligrafiya/kalendari/</code></td>
+<td>нет</td>
+</tr>
+<tr>
+<td>акция на печать календарей</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">7,0</td>
+<td><code>/catalog/poligrafiya/kalendari/</code></td>
+<td>нет</td>
+</tr>
+<tr>
+<td>печать календарей на заказ</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">7,0</td>
+<td><code>/catalog/poligrafiya/kalendari/</code></td>
+<td>нет</td>
+</tr>
+<tr>
+<td>г ижевск где делают именные ежедневники</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">12,0</td>
+<td><code>/catalog/poligrafiya/kalendari/</code></td>
+<td>нет</td>
+</tr>
+<tr>
+<td>идеи календарей для производства на 2027 год</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">13,0</td>
+<td><code>/catalog/poligrafiya/kalendari/</code></td>
+<td>нет</td>
+</tr>
+<tr>
+<td>календари майера ижевск</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">13,0</td>
+<td><code>/catalog/poligrafiya/kalendari/</code></td>
+<td>нет</td>
+</tr>
+<tr>
+<td>контур фото заказать календарь</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">13,0</td>
+<td><code>/catalog/poligrafiya/kalendari/</code></td>
+<td>нет</td>
+</tr>
+</tbody>
+</table>
+<p>Ещё 13 фраз этой группы в файле Topvisor, здесь первые 8 по деньгам.</p>
+<h3 id="_19">Листовки и флаеры</h3>
+<p>Фраз 45, измерено 6, показов 8, кликов 0. Нужна новая страница под 0 фраз, цель назначена у 45, не назначена у 0.</p>
+<table>
+<thead>
+<tr>
+<th>Фраза</th>
+<th style="text-align: right;">Показы</th>
+<th style="text-align: right;">Клики</th>
+<th style="text-align: right;">Позиция</th>
+<th>Цель</th>
+<th>Нужна страница</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>печать флаеров ижевск</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">4,8</td>
+<td><code>/catalog/poligrafiya/listovki-tsifrovaya-pechat/</code></td>
+<td>нет</td>
+</tr>
+<tr>
+<td>изготовление флаеров на заказ</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">4,0</td>
+<td><code>/catalog/poligrafiya/listovki-tsifrovaya-pechat/</code></td>
+<td>нет</td>
+</tr>
+<tr>
+<td>типографии ижевск вселистовки</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">7,0</td>
+<td><code>/catalog/poligrafiya/listovki-tsifrovaya-pechat/</code></td>
+<td>нет</td>
+</tr>
+<tr>
+<td>листовка удмуртия</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">8,0</td>
+<td><code>/catalog/poligrafiya/listovki-tsifrovaya-pechat/</code></td>
+<td>нет</td>
+</tr>
+<tr>
+<td>типография буклет 6 стр</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">9,0</td>
+<td><code>/catalog/poligrafiya/listovki-tsifrovaya-pechat/</code></td>
+<td>нет</td>
+</tr>
+<tr>
+<td>листовки ижевск</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">11,0</td>
+<td><code>/catalog/poligrafiya/listovki-tsifrovaya-pechat/</code></td>
+<td>нет</td>
+</tr>
+</tbody>
+</table>
+<p>Ещё 39 фраз этой группы в файле Topvisor, здесь первые 6 по деньгам.</p>
+<h3 id="_20">Наклейки и плёнки</h3>
+<p>Фраз 10, измерено 5, показов 7, кликов 0. Нужна новая страница под 0 фраз, цель назначена у 10, не назначена у 0.</p>
+<table>
+<thead>
+<tr>
+<th>Фраза</th>
+<th style="text-align: right;">Показы</th>
+<th style="text-align: right;">Клики</th>
+<th style="text-align: right;">Позиция</th>
+<th>Цель</th>
+<th>Нужна страница</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>наклейки прочные на заказ ижевск</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">7,3</td>
+<td><code>/catalog/poligrafiya/pechat-na-samokleyashchikhsya-materialakh/</code></td>
+<td>нет</td>
+</tr>
+<tr>
+<td>спасти наклейку х делать ижевск</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">7,0</td>
+<td><code>/catalog/poligrafiya/pechat-na-samokleyashchikhsya-materialakh/</code></td>
+<td>нет</td>
+</tr>
+<tr>
+<td>что это за наклейка на складе ижевск</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">10,0</td>
+<td><code>/catalog/poligrafiya/pechat-na-samokleyashchikhsya-materialakh/</code></td>
+<td>нет</td>
+</tr>
+<tr>
+<td>ижевск на самоклеящаяся</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">13,0</td>
+<td><code>/catalog/poligrafiya/pechat-na-samokleyashchikhsya-materialakh/</code></td>
+<td>нет</td>
+</tr>
+<tr>
+<td>этикеток на металлизированной пленке ижевск</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">23,0</td>
+<td><code>/catalog/poligrafiya/pechat-na-samokleyashchikhsya-materialakh/</code></td>
+<td>нет</td>
+</tr>
+</tbody>
+</table>
+<p>Ещё 5 фраз этой группы в файле Topvisor, здесь первые 5 по деньгам.</p>
+<h3 id="_21">Бейджи</h3>
+<p>Фраз 8, измерено 6, показов 6, кликов 0. Нужна новая страница под 0 фраз, цель назначена у 8, не назначена у 0.</p>
+<table>
+<thead>
+<tr>
+<th>Фраза</th>
+<th style="text-align: right;">Показы</th>
+<th style="text-align: right;">Клики</th>
+<th style="text-align: right;">Позиция</th>
+<th>Цель</th>
+<th>Нужна страница</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>бейджи.на заказ ижевск</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">2,0</td>
+<td><code>/catalog/poligrafiya/beydzhi/</code></td>
+<td>нет</td>
+</tr>
+<tr>
+<td>бейджик ижевск на заказ</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">2,0</td>
+<td><code>/catalog/poligrafiya/beydzhi/</code></td>
+<td>нет</td>
+</tr>
+<tr>
+<td>где можно прошить бейджей х70 в ижевске</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">2,0</td>
+<td><code>/catalog/poligrafiya/beydzhi/</code></td>
+<td>нет</td>
+</tr>
+<tr>
+<td>изготовление бейджей в ижевске</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">5,0</td>
+<td><code>/catalog/poligrafiya/beydzhi/</code></td>
+<td>нет</td>
+</tr>
+<tr>
+<td>бейдж на заказ</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">7,0</td>
+<td><code>/catalog/poligrafiya/beydzhi/</code></td>
+<td>нет</td>
+</tr>
+<tr>
+<td>печать бейджей стоимость</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">7,0</td>
+<td><code>/catalog/poligrafiya/beydzhi/</code></td>
+<td>нет</td>
+</tr>
+</tbody>
+</table>
+<p>Ещё 2 фраз этой группы в файле Topvisor, здесь первые 6 по деньгам.</p>
+<h3 id="_22">Инженерная печать</h3>
+<p>Фраз 3, измерено 3, показов 4, кликов 0. Нужна новая страница под 0 фраз, цель назначена у 3, не назначена у 0.</p>
+<table>
+<thead>
+<tr>
+<th>Фраза</th>
+<th style="text-align: right;">Показы</th>
+<th style="text-align: right;">Клики</th>
+<th style="text-align: right;">Позиция</th>
+<th>Цель</th>
+<th>Нужна страница</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>размножить чертежи формат а3 в ижевске где</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">5,5</td>
+<td><code>/catalog/inzhenernaya-pechat/</code></td>
+<td>нет</td>
+</tr>
+<tr>
+<td>чертеж на миллиметровке а1 цена</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">9,0</td>
+<td><code>/catalog/inzhenernaya-pechat/</code></td>
+<td>нет</td>
+</tr>
+<tr>
+<td>отрисовка чертеж на миллиметровке а1 цена</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">10,0</td>
+<td><code>/catalog/inzhenernaya-pechat/</code></td>
+<td>нет</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_23">Пластиковые карты</h3>
+<p>Фраз 3, измерено 2, показов 2, кликов 0. Нужна новая страница под 0 фраз, цель назначена у 3, не назначена у 0.</p>
+<table>
+<thead>
+<tr>
+<th>Фраза</th>
+<th style="text-align: right;">Показы</th>
+<th style="text-align: right;">Клики</th>
+<th style="text-align: right;">Позиция</th>
+<th>Цель</th>
+<th>Нужна страница</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>тираж пластиковых карт формат сити 1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">5,0</td>
+<td><code>/catalog/poligrafiya/karty-plastikovye/</code></td>
+<td>нет</td>
+</tr>
+<tr>
+<td>пластиковые карты на заказ форматсити 1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">14,0</td>
+<td><code>/catalog/poligrafiya/karty-plastikovye/</code></td>
+<td>нет</td>
+</tr>
+</tbody>
+</table>
+<p>Ещё 1 фраз этой группы в файле Topvisor, здесь первые 2 по деньгам.</p>
+<h3 id="_24">Информационные</h3>
+<p>Фраз 3, измерено 2, показов 2, кликов 0. Нужна новая страница под 3 фраз, цель назначена у 0, не назначена у 3.</p>
+<table>
+<thead>
+<tr>
+<th>Фраза</th>
+<th style="text-align: right;">Показы</th>
+<th style="text-align: right;">Клики</th>
+<th style="text-align: right;">Позиция</th>
+<th>Цель</th>
+<th>Нужна страница</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>сколько стоит забрендировать шоколад 35х35мм 50шт</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">9,0</td>
+<td>не назначена</td>
+<td>да</td>
+</tr>
+<tr>
+<td>сколько стоит напечатать 10 листов реферата</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">10,0</td>
+<td>не назначена</td>
+<td>да</td>
+</tr>
+</tbody>
+</table>
+<p>Ещё 1 фраз этой группы в файле Topvisor, здесь первые 2 по деньгам.</p>
+<h3 id="_25">Конверты</h3>
+<p>Фраз 3, измерено 0, показов 0, кликов 0. Нужна новая страница под 0 фраз, цель назначена у 3, не назначена у 0.</p>
+<p>Ещё 3 фраз этой группы в файле Topvisor, здесь первые 0 по деньгам.</p>
+<h3 id="_26">Цифровая печать</h3>
+<p>Фраз 1, измерено 0, показов 0, кликов 0. Нужна новая страница под 0 фраз, цель назначена у 1, не назначена у 0.</p>
+<p>Ещё 1 фраз этой группы в файле Topvisor, здесь первые 0 по деньгам.</p>
+</main>
+<footer class="site-footer">
+  <div class="container container-wide">
+    <div class="footer-grid">
+      <div class="footer-brand"><a class="logo" href="../index.html"><span class="logo-mark">Ц18</span><span>Цифра. Аудит</span></a><p>Проверка и план продвижения цифра18.рф. Техника, контент, конкуренты, регионы, GEO, Вебмастер, дашборды. Сентябрь 2026.</p><a class="footer-toc" href="../index.html#toc">Карта отчёта, все 31 страниц</a></div>
+      <div class="footer-nav"><h4>Отчёт</h4><ul><li><a href="../index.html"><span class="fnum">1</span>Главная</a></li><li><a href="roadmap.html"><span class="fnum">8</span>90 дней</a></li><li><a href="plan-3m.html"><span class="fnum">27</span>3 месяца</a></li><li><a href="marketing.html"><span class="fnum">11</span>Маркетинг</a></li><li><a href="plan-6m.html"><span class="fnum">28</span>plan-6m</a></li><li><a href="workorder.html"><span class="fnum">29</span>workorder</a></li><li><a href="page-plan.html" aria-current="page"><span class="fnum">30</span>page-plan</a></li></ul></div>
+      <div class="footer-nav"><h4>Анализ</h4><ul><li><a href="technical.html"><span class="fnum">2</span>Техника</a></li><li><a href="content.html"><span class="fnum">3</span>Контент</a></li><li><a href="competitors.html"><span class="fnum">4</span>Конкуренты</a></li><li><a href="local.html"><span class="fnum">5</span>Регионы</a></li><li><a href="geo.html"><span class="fnum">6</span>GEO</a></li><li><a href="knowledge.html"><span class="fnum">7</span>Знания</a></li><li><a href="prices.html"><span class="fnum">9</span>Цены</a></li><li><a href="season.html"><span class="fnum">10</span>Сезон</a></li></ul></div>
+      <div class="footer-nav"><h4>Вебмастер</h4><ul><li><a href="wm-overview.html"><span class="fnum">13</span>Сводка</a></li><li><a href="wm-indexing.html"><span class="fnum">14</span>Индексация</a></li><li><a href="wm-duplicates.html"><span class="fnum">15</span>Дубли</a></li><li><a href="wm-errors.html"><span class="fnum">16</span>Ошибки</a></li><li><a href="wm-redirects.html"><span class="fnum">17</span>Редиректы</a></li><li><a href="wm-queries.html"><span class="fnum">18</span>Запросы</a></li><li><a href="wm-clusters.html"><span class="fnum">19</span>Кластеры</a></li><li><a href="wm-gaps.html"><span class="fnum">20</span>Пробелы</a></li><li><a href="wm-links.html"><span class="fnum">21</span>Ссылки</a></li><li><a href="wm-plan.html"><span class="fnum">22</span>План ВМ</a></li></ul></div>
+      <div class="footer-nav"><h4>Дашборды</h4><ul><li><a href="dash-visibility.html"><span class="fnum">23</span>Видимость</a></li><li><a href="dash-audience.html"><span class="fnum">24</span>Аудитория</a></li><li><a href="dash-money.html"><span class="fnum">25</span>Деньги</a></li><li><a href="dash-maps.html"><span class="fnum">26</span>Карта в Картах</a></li></ul></div>
+      <div class="footer-nav"><h4>Методика</h4><ul><li><a href="methodology.html"><span class="fnum">12</span>Методика</a></li><li><a href="numbers.html"><span class="fnum">31</span>numbers</a></li></ul></div>
+    </div>
+    <div class="footer-bottom"><span>Цифра18, Ижевск, сентябрь 2026</span><span>Страница 30 из 31, раздел План</span></div>
+  </div>
+</footer>
+<script src="../js/vendor/chart.umd.min.js"></script>
+<script>if(typeof Chart==="undefined"){document.write("<script src='https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js'><\/script>")}</script>
+<script src="../js/page-index.js"></script>
+<script src="../js/nav.js"></script>
+<script src="../js/search.js"></script>
+<script src="../js/main.js"></script>
+</body>
+</html>

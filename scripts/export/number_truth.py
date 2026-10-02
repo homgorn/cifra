@@ -56,6 +56,12 @@ KEEP_DIRS = (
 # Файлы, где старое число должно остаться: это запись самой сверки, и
 # стирание из неё уничтожает след, по которому ошибку нашли.
 KEEP = (
+    # Пересказ самой сверки. Старые числа в нём стоят как
+    # перечень того, что было неверно, и на место их не
+    # подставляются: это запись разбора, а не действующая
+    # величина.
+    os.path.join("reports", "cifra18-audit", "pages",
+               "numbers.html"),
     os.path.relpath(TRUTH_JSON, ROOT),
     "brain\\wiki\\webmaster_analytics\\13_Number_Reconciliation.md",
     "brain/wiki/webmaster_analytics/13_Number_Reconciliation.md",
