@@ -16,11 +16,57 @@ from collections import defaultdict
 sys.stdout.reconfigure(encoding="utf-8")
 
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-WM_API = os.path.join(ROOT, "data", "exports", "yandex_webmaster", "2026-09-27")
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from wm_latest import latest_day  # noqa: E402
+
+# Дата выгрузки берётся из новейшей папки, а не зашивается в коде.
+# Зашитая дата 2026-09-27 держала в собранном site-data.js числа
+# трёхдневной давности, и пересборка выглядела исправной, потому что
+# отрабатывала без ошибки. Единственный способ увидеть, что файл
+# старый, было посмотреть на поле generated руками.
+WM_BASE = os.path.join(ROOT, "data", "exports", "yandex_webmaster")
 MT_ROOT = os.path.join(ROOT, "data", "exports", "metrica")
-MT_API = os.path.join(MT_ROOT, "2026-09-27")
+# Метка у каждого дерева своя, и запасного варианта нет. Раньше
+# здесь стояло «latest_day(MT_ROOT) or _WM_DAY»: в выгрузке
+# Метрики нет файла summary.json, поиск ничего не находил,
+# срабатывал запасной вариант и сборщик получал путь
+# metrica/2026-09-30, которого не существует. Вместо ошибки
+# печатались нули, а ноль это правдоподобное значение: файл
+# собирался без исключения и выглядел собранным.
+#
+# Метка Метрики это ecommerce.json: он есть только в завершённой
+# выгрузке, а summary.json там не встречается ни разу.
+WM_MARKER = "summary.json"
+MT_MARKER = "ecommerce.json"
+_WM_DAY = latest_day(WM_BASE, WM_MARKER)
+_MT_DAY = latest_day(MT_ROOT, MT_MARKER)
+if not _WM_DAY:
+    sys.exit("в %s нет папки с %s: пересоберите выгрузку "
+             "Вебмастера" % (WM_BASE, WM_MARKER))
+if not _MT_DAY:
+    sys.exit("в %s нет папки с %s: пересоберите выгрузку "
+             "Метрики" % (MT_ROOT, MT_MARKER))
+WM_API = os.path.join(WM_BASE, _WM_DAY)
+MT_API = os.path.join(MT_ROOT, _MT_DAY)
 WM_WIKI = os.path.join(ROOT, "brain", "wiki", "webmaster_analytics", "exports")
 OUT = os.path.join(ROOT, "reports", "cifra18-audit", "js", "site-data.js")
+
+# Обязательные входы проверяются до сборки. Раньше отсутствие
+# файла всплывало серединой работы, и уже накопленные в памяти
+# нули успевали попасть в результат.
+REQUIRED = [
+    (WM_API, "summary.json"),
+    (MT_API, "ecommerce.json"),
+    (MT_API, "goals.json"),
+    (MT_API, "sources_summary.json"),
+]
+_missing = [os.path.join(d, n) for d, n in REQUIRED
+             if not os.path.isfile(os.path.join(d, n))]
+if _missing:
+    sys.exit("не хватает входных файлов, сборка остановлена, чтобы "
+             "не записать нули вместо данных:\n  "
+             + "\n  ".join(os.path.relpath(m, ROOT) for m in _missing))
+print("собираю из выгрузок: Вебмастер %s, Метрика %s" % (_WM_DAY, _MT_DAY))
 
 # Счётчики Метрики. У сайта и у карточки в Яндекс Картах они разные, и
 # путаница между ними уже случалась дважды: сначала в тексте отчёта,

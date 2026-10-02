@@ -139,6 +139,69 @@ def robots_state():
             "checked_at": None, "source": "нет проверки, запусти fetch_robots_state.py"}
 
 
+def live_indexing():
+    """Индексация по живому API Вебмастера, а не по файлу сайта.
+
+    Здесь была причина расхождения 708 против 744. Файл wm-data.js
+    лежит в папке сайта отчёта и собирается build_wm_data.py, то есть
+    это вывод сборки. facts.py читал его как источник, и числа для
+    отчёта брались из файла, который сам построен из выгрузки
+    прошлого дня. На дату разбора файл был собран 2026-09-23, а
+    выгрузка лежала за 2026-09-30, и отчёт печатал прошлую неделю,
+    не показывая этого.
+
+    Разделено на две величины, потому что это разные вещи.
+
+    Числа всего сайта берутся из summary.json: сколько страниц в
+    поиске и сколько исключено. Это то, что панель показывает
+    клиенту, и это единственное, что можно сравнивать с показом
+    отраслевой панели.
+
+    Сумма по разделам это выборка. Разделов двадцать, в каждом своя
+    выгрузка, и сумма их searchable не равна полю на весь сайт. Из
+    неё нельзя считать долю индексации сайта: знаменатель и числитель
+    взяты из разных по охвату источников. Доля по выборке годна
+    только внутри выборки.
+    """
+    day = newest(WM_API)
+    out = {
+        "day": os.path.basename(day) if day else None,
+        "searchable": None, "excluded": None, "sqi": None,
+        "known_to_bot": None, "insearch_sample": None,
+        "sec_known": None, "sec_searchable": None,
+        "source": "нет выгрузки Вебмастера",
+    }
+    if not day:
+        return out
+
+    summ = os.path.join(day, "summary.json")
+    if os.path.isfile(summ):
+        d = json.load(open(summ, encoding="utf-8"))
+        out["searchable"] = d.get("searchable_pages_count")
+        out["excluded"] = d.get("excluded_pages_count")
+        out["sqi"] = d.get("sqi")
+
+    idx = os.path.join(day, "indexing_samples.json")
+    if os.path.isfile(idx):
+        d = json.load(open(idx, encoding="utf-8"))
+        out["known_to_bot"] = d.get("count")
+
+    ins = os.path.join(day, "insearch_samples.json")
+    if os.path.isfile(ins):
+        d = json.load(open(ins, encoding="utf-8"))
+        out["insearch_sample"] = d.get("count")
+
+    w = wm()
+    secs = w.get("sections") or []
+    out["sec_known"] = sum(int(s.get("indexed") or 0) for s in secs)
+    out["sec_searchable"] = sum(int(s.get("searchable") or 0) for s in secs)
+    out["wm_data_js"] = (w.get("meta") or {}).get("generated")
+    out["source"] = "summary.json выгрузки %s; сумма по разделам из "\
+                    "wm-data.js, собранного %s" % (out["day"],
+                                                    out["wm_data_js"])
+    return out
+
+
 def wm():
     t = open(WM_DATA, encoding="utf-8").read()
     return json.loads(t[t.index("{"):].rstrip().rstrip(";"))
@@ -192,6 +255,7 @@ def _section(d, name, key):
 
 
 def collect():
+    live = live_indexing()
     d = wm()
     qs = d.get("queryStats") or {}
     clusters = d.get("clusters") or []
@@ -233,8 +297,21 @@ def collect():
         "sitemap_404": rb["sitemap_404"] if rb["sitemap_404"] is not None else -1,
 
         # индексация: два знаменателя, оба публикуются с подписью
-        "idx_known": sum(int(s.get("indexed") or 0) for s in (d.get("sections") or [])),
-        "idx_searchable": sum(int(s.get("searchable") or 0) for s in (d.get("sections") or [])),
+        # Числа всего сайта берутся из живого API. Сумма по разделам,
+        # которая раньше стояла на их месте, это выборка: разделов двадцать,
+        # у каждого своя выгрузка, и сумма их searchable не равна полю на
+        # весь сайт. Из неё нельзя считать долю индексации сайта, потому
+        # что числитель и знаменатель взяты из источников разного охвата.
+        "idx_known": live.get("known_to_bot"),
+        "idx_searchable": live.get("searchable"),
+        "idx_excluded": live.get("excluded"),
+        "idx_sqi": live.get("sqi"),
+        "idx_day": live.get("day"),
+        "idx_insearch_sample": live.get("insearch_sample"),
+        "idx_sec_known": live.get("sec_known"),
+        "idx_sec_searchable": live.get("sec_searchable"),
+        "idx_sec_date": live.get("wm_data_js"),
+        "idx_source": live.get("source"),
         "idx_downloaded": sum(int(s.get("downloaded") or 0) for s in (d.get("sections") or [])),
         "idx_cat_known": _section(d, "/catalog", "indexed"),
         "idx_cat_searchable": _section(d, "/catalog", "searchable"),
@@ -286,7 +363,14 @@ def collect():
     # в отчёте живёт 60% от знаменателя «проверенная выборка». Оба верны,
     # и без подписи знаменателя они читаются как противоречие.
     f["idx_of_known_pct"] = (round(f["idx_searchable"] / f["idx_known"] * 100, 1)
-                             if f["idx_known"] else 0)
+                             if (f.get("idx_searchable") and f.get("idx_known"))
+                             else 0)
+    # Доля по выборке разделов считается отдельно и подписывается
+    # отдельно. Смешивать её с долей по всему сайту нельзя: у них
+    # разные знаменатели, и рядом они читаются как противоречие.
+    f["idx_of_sec_pct"] = (round(f["idx_sec_searchable"] / f["idx_sec_known"] * 100, 1)
+                         if (f.get("idx_sec_searchable") and f.get("idx_sec_known"))
+                         else 0)
 
     _tv_project(f)
     return f
@@ -336,8 +420,11 @@ def phrases():
             f["top10_rows"], f["top10_rows_base"], f["top10_rows_pct"]),
         "top10_core": "%d из %d (%.0f%%)" % (
             f["top10_core"], f["top10_core_base"], f["top10_core_pct"]),
-        "idx_known": "%d из %s страниц, известных роботу (%.1f%%)" % (
-            f["idx_searchable"], _sp(f["idx_known"]), f["idx_of_known_pct"]),
+        "idx_known": "%d из %s адресов, известных роботу (%.1f%%). "
+            "Знаменатель включает легаси с ошибкой, поэтому доля "
+            "занижена и как показатель индексации не годится"
+            % (f["idx_searchable"], _sp(f["idx_known"]),
+               f["idx_of_known_pct"]),
         "robots": ("%d строк Sitemap в robots.txt, отдают 404 все %d, проверено %s"
                    % (f["robots"]["sitemap_lines"], f["robots"]["sitemap_404"],
                       f["robots"]["checked_at"]))

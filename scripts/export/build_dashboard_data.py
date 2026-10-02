@@ -24,12 +24,42 @@ from collections import defaultdict
 from datetime import datetime
 from pathlib import Path
 
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from wm_latest import latest_day  # noqa: E402
+
 sys.stdout.reconfigure(encoding="utf-8")
 
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-DATE = datetime.now().strftime("%Y-%m-%d")
-WM = Path(ROOT) / "data" / "exports" / "yandex_webmaster" / DATE
-MT = Path(ROOT) / "data" / "exports" / "metrica" / DATE
+WM_BASE = Path(ROOT) / "data" / "exports" / "yandex_webmaster"
+MT_BASE = Path(ROOT) / "data" / "exports" / "metrica"
+# Дата берётся из выгрузки, а не из сегодняшнего дня и не по
+# умолчанию. И то и другое давало нули вместо данных, молча: при
+# сегодняшней дате запуск в любой другой день уходил в
+# несуществующую папку, а нули это правдоподобное значение, и
+# собранный файл выглядел собранным.
+#
+# Метки разные: у Вебмастера summary.json, у Метрики
+# ecommerce.json, которого summary.json там не заменяет, потому
+# что его там нет вовсе.
+DATE = latest_day(str(WM_BASE), "summary.json")
+MT_DATE = latest_day(str(MT_BASE), "ecommerce.json")
+if not DATE:
+    sys.exit("в %s нет выгрузки Вебмастера с summary.json" % WM_BASE)
+if not MT_DATE:
+    sys.exit("в %s нет выгрузки Метрики с ecommerce.json" % MT_BASE)
+WM = WM_BASE / DATE
+MT = MT_BASE / MT_DATE
+
+# Ноль в собранном файле должен быть заслуженным, а не следствием
+# неверного пути. Если обязательного входа нет, падаем до сборки.
+for _d, _n in ((WM, "summary.json"),
+                (MT, "ecommerce.json"),
+                (MT, "search_queries.json")):
+    if not (_d / _n).is_file():
+        sys.exit("в выгрузке %s нет %s, сборка остановлена, чтобы "
+                 "не записать нули вместо данных"
+                 % (_d.name, _n))
+print("собираю из выгрузок: Вебмастер %s, Метрика %s" % (DATE, MT_DATE))
 MT_CUTS = MT / "cuts"
 MT_MAPS = MT / "cuts_maps"
 PARSED = Path(ROOT) / "webmaster" / "parsed_data.json"
