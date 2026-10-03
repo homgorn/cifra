@@ -1,0 +1,1410 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Сувенирная продукция с логотипом — Типография «Цифра», Ижевск</title>
+<meta name="description" content="Кружки, ручки, блокноты, значки, шоколад и текстиль с фирменным логотипом. Собственное производство в Ижевске.">
+
+<script type="text/javascript">
+   /* Яндекс.Метрика — id подставлен из config.analytics.yandexMetrikaId.
+      Инициализация ОТЛОЖЕНА до согласия на cookie (см. cookie-banner ниже и
+      script.js: initCookieConsent) — счётчик не должен ставить cookie до
+      явного согласия пользователя (требование по 152-ФЗ/рекомендации РКН). */
+   window.__initYandexMetrika = function () {
+     (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+     m[i].l=1*new Date();for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+     k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+     (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+     ym(50863157, "init", { clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true });
+   };
+</script>
+
+<!-- JSON-LD: LocalBusiness — для SEO и для ответов нейросетей (GEO/AEO), генерируется render.js из config.business/contact -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Типография Цифра",
+  "url": "https://цифра18.рф",
+  "telephone": "+73412323241",
+  "email": "izhcifra@yandex.ru",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "426069, Удмуртская Респ., г. Ижевск, ул. 7-я Подлесная, д. 34"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": "56.869771",
+    "longitude": "53.189062"
+  },
+  "legalName": "ИП Данилов Константин Леонидович"
+}
+</script>
+<!-- JSON-LD: FAQPage — из config.faq, те же вопросы что в блоке 8 -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Цена «от» на сайте — это итоговая стоимость?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Нет, это стартовая цена на базовое исполнение без тиражной скидки и без стоимости нанесения логотипа. Точную сумму под ваш тираж и макет посчитаем в квизе или по заявке."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Нужен ли готовый макет логотипа?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Нет. Если макета нет — разработаем и подготовим к печати. Если есть — адаптируем под носитель."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Какой минимальный тираж?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Зависит от позиции — уточнит менеджер после квиза или заявки."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Как быстро вы свяжетесь после заявки?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "В рабочее время — в течение 15 минут."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Почему стоит заказывать именно у вас, а не у федеральных сервисов?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Своё производство в Ижевске — быстрее по срокам и проще по логистике, чем заказ через федеральный сервис с доставкой из другого региона."
+      }
+    }
+  ]
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+/* ===== TOKENS v2 — из дизайн-токенов e-commerce storefront (бренд-гайд, предоставлен пользователем) =====
+   Для совместимости со всем остальным файлом ИМЕНА переменных оставлены старые
+   (--brand-green, --forest-900 и т.п.), меняются только ЗНАЧЕНИЯ — это даёт
+   полную перекраску без построчного рефакторинга 300 строк CSS.
+   Отступления от буквальных токенов — см. комментарии ниже и CHANGELOG. */
+:root{
+  --brand-green:#5EBF1B;      /* color.surface.raised — акцент/CTA */
+  --forest-900:#000000;       /* color.surface.base — хедер/футер/тёмные зоны */
+  --forest-700:#222222;       /* color.text.primary — акцентный текст/ссылки */
+  --green-600:#4CA617;        /* более тёмный оттенок raised для hover-состояний (в токенах не задан отдельно) */
+  --lime-500:#5EBF1B;
+  --mint-100:#F5F5F9;         /* color.surface.muted — подложки, hover-фоны */
+  --ink:#222222;              /* color.text.primary */
+  --paper:#FFFFFF;            /* карточки — чистый белый для контраста с surface.muted фоном страницы (ниже) */
+  --page-bg:#F5F5F9;          /* color.surface.muted — фон body (НЕ surface.base: чёрный фон целиком конфликтовал бы с тёмным text.primary #222 — см. CHANGELOG) */
+  --grey-bg:#F5F5F9;
+  --grey-card:#FFFFFF;
+  --line:rgba(0,0,0,.12);
+  --radius:24px;               /* radius.md — дефолт для карточек */
+  --radius-xs:3px; --radius-sm:18px; --radius-md:24px; --radius-lg:28px; --radius-xl:32px; --radius-2xl:50px; --radius-pill:999px;
+  --shadow-1:rgba(14,25,39,.22) 0 12px 30px 0;
+  --shadow-2:rgba(0,0,0,.03) 0 4px 12px 0;
+  --shadow-3:rgba(25,25,25,.14) 0 16px 40px 0;
+  --shadow-4:rgba(14,25,39,.2) 0 12px 30px 0;
+  --motion-instant:200ms; --motion-fast:300ms; --motion-normal:500ms; --motion-slow:7000ms;
+  --space-1:4px; --space-2:7px; --space-3:8px; --space-4:9px; --space-5:12px; --space-6:15px; --space-7:16px; --space-8:17px;
+  --font-display:'JetBrains Mono', monospace;
+  --font-body:'JetBrains Mono', monospace;
+  --maxw:1160px;
+}
+
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  margin:0; background:var(--page-bg); color:var(--ink);
+  font-family:var(--font-body); font-size:14px; line-height:1.5;
+  /* ЛГ не поставлена буквально 14px (= font.lineHeight.base): это высота строки
+     ровно в размер шрифта, абзацы были бы нечитаемы (строки наезжали бы друг на
+     друга). 1.5 — компромисс, сохраняющий размер/гарнитуру из токенов, но не
+     ломающий читаемость; возвращайте 1.0, только если это осознанный выбор
+     для плотного UI (не для текста абзацами). */
+}
+@media (prefers-reduced-motion: reduce){
+  *{animation-duration:.01ms !important; animation-iteration-count:1 !important; transition-duration:.01ms !important; scroll-behavior:auto !important;}
+}
+
+h1,h2,h3{font-family:var(--font-display); font-weight:700; margin:0 0 .5em; line-height:1.08; letter-spacing:-.01em;}
+h1{font-size:clamp(2.2rem,5vw,3.6rem);}
+h2{font-size:clamp(1.5rem,3vw,2.2rem);}
+h3{font-size:1.05rem;}
+p{margin:0 0 1em; max-width:60ch; color:#3B3D34;}
+a{color:inherit;}
+img{max-width:100%; display:block;}
+.wrap{max-width:var(--maxw); margin:0 auto; padding:0 24px;}
+section{padding:80px 0;}
+
+.btn{
+  display:inline-flex; align-items:center; justify-content:center; gap:8px;
+  font-family:var(--font-body); font-weight:700; font-size:.95rem;
+  padding:15px 28px; border-radius:var(--radius-pill); border:2px solid transparent;
+  text-decoration:none; cursor:pointer; transition:transform .15s ease, box-shadow .15s ease;
+}
+.btn:hover{transform:translateY(-2px);}
+.btn-primary{background:var(--brand-green); color:var(--forest-900); box-shadow:0 6px 18px rgba(143,211,0,.35);}
+.btn-primary:hover{box-shadow:0 10px 24px rgba(143,211,0,.45);}
+.btn-outline{background:transparent; color:var(--ink); border-color:var(--ink);}
+.btn-outline:hover{background:var(--ink); color:var(--paper);}
+.btn-block{width:100%;}
+
+/* ===== HEADER ===== */
+.site-header{position:sticky; top:0; z-index:50; background:rgba(255,255,255,.92); backdrop-filter:blur(6px); border-bottom:1px solid var(--line);}
+.header-row{display:flex; align-items:center; justify-content:space-between; min-height:76px; gap:16px; flex-wrap:nowrap;}
+.logo-img{height:34px; width:auto; flex-shrink:0;}
+.header-right{display:flex; align-items:center; gap:20px; flex-shrink:0;}
+.tel{font-weight:700; text-decoration:none; font-size:.95rem; white-space:nowrap;}
+.header-right .btn{white-space:nowrap;}
+.cta-short{display:none;}
+
+/* ===== HERO ===== */
+.hero{padding:64px 0 40px; overflow:hidden; position:relative;}
+.hero-grid{display:grid; grid-template-columns:1fr .95fr; gap:48px; align-items:center;}
+.eyebrow{display:inline-flex; align-items:center; gap:8px; background:var(--mint-100); color:var(--forest-700); font-weight:700; font-size:.8rem; padding:8px 16px; border-radius:var(--radius-pill); margin-bottom:20px;}
+.hero-lead{font-size:1.15rem;}
+.hero-cta{display:flex; gap:14px; flex-wrap:wrap; margin:28px 0 36px;}
+.hero-stats{list-style:none; padding:0; margin:0; display:flex; gap:28px; flex-wrap:wrap;}
+.hero-stats li{font-size:.82rem; color:#5B5E52;}
+.hero-stats b{display:block; font-family:var(--font-display); font-size:1.4rem; color:var(--forest-900);}
+
+.hero-visual{position:relative; padding:24px 24px 0 0;}
+.hero-visual .deco-triangles{position:absolute; top:-28px; right:-28px; width:220px; z-index:0; pointer-events:none;}
+.hero-visual .hero-photo{position:relative; z-index:1; border-radius:24px; overflow:hidden; box-shadow:0 24px 60px rgba(15,77,42,.18);}
+.hero-visual .hero-photo img{width:100%; height:auto;}
+
+/* ===== USP STRIP ===== */
+.usp{background:var(--forest-900); color:var(--paper);}
+.usp .wrap{display:grid; grid-template-columns:repeat(4,1fr);}
+.usp-card{padding:28px 24px; border-left:1px solid rgba(255,255,255,.15);}
+.usp-card:first-child{border-left:none;}
+.usp-card h3{color:var(--brand-green); margin-bottom:.4em;}
+.usp-card p{color:rgba(255,255,255,.78); font-size:.88rem; margin:0; max-width:none;}
+
+/* ===== METHODS STRIP ===== */
+.methods{background:var(--grey-bg);}
+.methods-row{display:flex; flex-wrap:wrap; gap:14px; margin-top:24px;}
+.method-chip{background:var(--paper); border:1.5px solid var(--line); border-radius:var(--radius-pill); padding:10px 20px; font-weight:700; font-size:.88rem; display:flex; align-items:center; gap:8px;}
+.method-chip .dot{width:8px; height:8px; border-radius:50%; background:var(--brand-green);}
+
+/* ===== CATALOG ===== */
+.catalog-group{margin-top:48px;}
+.catalog-group h3{font-size:1.3rem; margin-bottom:20px; padding-bottom:12px; border-bottom:2px solid var(--line);}
+.catalog-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:24px;}
+.item-card{background:var(--grey-card); border-radius:var(--radius); overflow:hidden; border:1px solid var(--line); transition:transform .2s ease, box-shadow .2s ease;}
+.item-card:hover{transform:translateY(-4px); box-shadow:0 16px 32px rgba(15,20,10,.1);}
+.item-card .thumb{aspect-ratio:4/3; overflow:hidden; background:#E9EAE4; display:flex; align-items:center; justify-content:center;}
+.item-card .thumb img{width:100%; height:100%; object-fit:contain;}
+.item-card .body{padding:18px 20px;}
+.item-card h4{font-family:var(--font-body); font-weight:700; font-size:1rem; margin:0 0 6px;}
+.item-card .specs{font-size:.82rem; color:#63665A; margin:0 0 10px;}
+.item-card .method-tag{display:inline-block; background:var(--mint-100); color:var(--forest-700); font-size:.75rem; font-weight:700; padding:4px 10px; border-radius:var(--radius-pill);}
+
+/* ===== CONFIGURATOR ===== */
+.configurator{background:var(--forest-900); color:var(--paper); border-radius:24px; overflow:hidden; margin-top:8px;}
+.configurator-grid{display:grid; grid-template-columns:1fr 1fr; gap:2px; background:rgba(255,255,255,.1);}
+.configurator .col{background:var(--forest-900); padding:36px;}
+.field{display:grid; gap:8px; margin-bottom:20px;}
+.field label{font-size:.78rem; text-transform:uppercase; letter-spacing:.04em; color:#5B5E52; font-weight:700;}
+.field select, .field input, .field textarea{
+  font-family:var(--font-body); font-size:1rem; padding:13px 16px;
+  border:1.5px solid var(--line); background:var(--grey-card); color:var(--ink); border-radius:10px;
+}
+.field select:focus, .field input:focus, .field textarea:focus{outline:2px solid var(--brand-green); outline-offset:1px;}
+
+/* конфигуратор — тёмный фон, поэтому поля светлые поверх тёмно-зелёного */
+.configurator .field label{color:rgba(255,255,255,.6);}
+.configurator .field select, .configurator .field input, .configurator .field textarea{
+  border-color:rgba(255,255,255,.25); background:rgba(255,255,255,.06); color:var(--paper);
+}
+.configurator .field select option{color:var(--ink);}
+.configurator .summary-box{background:rgba(255,255,255,.06); border-radius:14px; padding:20px; margin-bottom:20px; font-size:.92rem; color:rgba(255,255,255,.85); min-height:64px;}
+.configurator .summary-box b{color:var(--brand-green);}
+
+/* ===== REVIEWS / TRUST (текст УТП повторно как соц.доказательство контекста) ===== */
+.trust{text-align:center;}
+.trust-badges{display:flex; justify-content:center; gap:48px; flex-wrap:wrap; margin-top:32px;}
+.trust-badges div b{display:block; font-family:var(--font-display); font-size:2.2rem; color:var(--forest-900);}
+.trust-badges div span{font-size:.85rem; color:#63665A;}
+
+/* ===== FORM ===== */
+.lead-section{background:var(--grey-bg);}
+.form-wrap{display:grid; grid-template-columns:.9fr 1.1fr; gap:56px; align-items:start;}
+address{font-style:normal; margin-top:20px; font-size:.92rem; color:#4B4E42; line-height:1.9;}
+address a{text-decoration:none; font-weight:700; color:var(--forest-700);}
+.lead-form{display:grid; gap:16px; background:var(--paper); border:1px solid var(--line); border-radius:var(--radius); padding:32px; box-shadow:0 12px 30px rgba(15,20,10,.06);}
+.lead-form .field input, .lead-form .field textarea{background:var(--grey-card); border:1.5px solid var(--line); color:var(--ink); border-radius:10px; padding:13px 16px;}
+.hp-field{position:absolute; left:-9999px; width:1px; height:1px; overflow:hidden;}
+.form-status{font-size:.85rem; min-height:1.2em; margin:0; font-weight:700;}
+.form-status[data-state="ok"]{color:var(--forest-700);}
+.form-status[data-state="error"]{color:#C23B22;}
+.form-disclaimer{font-size:.74rem; color:#8A8D80; margin:0;}
+
+/* ===== FOOTER ===== */
+.site-footer{padding:40px 0; background:var(--ink); color:rgba(255,255,255,.7);}
+.footer-row{display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:20px;}
+.footer-row .logo-img{filter:brightness(0) invert(1); height:28px;}
+.footer-row a{color:#fff; text-decoration:none; font-weight:700;}
+.footer-row p{margin:0; font-size:.82rem; max-width:none;}
+
+/* ===== reveal base ===== */
+[data-reveal]{opacity:1;}
+[data-stamp]{opacity:1;}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width:960px){
+  .hero-grid{grid-template-columns:1fr;}
+  .hero-visual{order:-1;}
+  .usp .wrap{grid-template-columns:repeat(2,1fr);}
+  .catalog-grid{grid-template-columns:repeat(2,1fr);}
+  .configurator-grid{grid-template-columns:1fr;}
+  .form-wrap{grid-template-columns:1fr;}
+  .trust-badges{gap:28px;}
+}
+@media (max-width:560px){
+  .catalog-grid{grid-template-columns:1fr;}
+  .usp .wrap{grid-template-columns:1fr;}
+  .header-right .tel{display:none;}
+  .cta-full{display:none;}
+  .cta-short{display:inline;}
+  .header-right .btn{padding:12px 20px; font-size:.88rem;}
+  .logo-img{height:28px;}
+}
+
+/* ===== CATALOG group intro (добавлено вместе с квизом) ===== */
+.catalog-group-intro{font-size:.92rem; margin:-8px 0 20px; max-width:60ch;}
+
+/* ===== PROCESS (блок 5, новый) ===== */
+.process{background:var(--grey-bg);}
+.process-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:24px; margin-top:24px;}
+.process-step{background:var(--paper); border:1px solid var(--line); border-radius:var(--radius); padding:24px 20px;}
+.process-step .step-num{
+  display:inline-flex; align-items:center; justify-content:center; width:32px; height:32px;
+  border-radius:50%; background:var(--brand-green); color:var(--forest-900);
+  font-family:var(--font-display); font-weight:700; margin-bottom:14px;
+}
+.process-step h3{margin-bottom:.4em; font-size:1rem;}
+.process-step p{font-size:.86rem; margin:0; max-width:none;}
+
+/* ===== QUIZ WIZARD (блок 6, новый) ===== */
+.quiz-section{background:var(--paper);}
+.quiz{background:var(--grey-card); border:1px solid var(--line); border-radius:24px; padding:32px; margin-top:24px;}
+
+.quiz-progress{margin-bottom:32px;}
+.quiz-progress-steps{display:flex; justify-content:space-between; gap:8px; margin-bottom:12px;}
+.qp-step{
+  flex:1; text-align:center; font-family:var(--font-display); font-weight:700; font-size:.95rem;
+  color:#B9BCB0; display:flex; flex-direction:column; gap:4px;
+}
+.qp-step em{font-style:normal; font-family:var(--font-body); font-weight:700; font-size:.72rem; text-transform:uppercase; letter-spacing:.03em;}
+.qp-step.is-active{color:var(--forest-900);}
+.qp-step.is-done{color:var(--green-600);}
+.quiz-progress-bar{height:4px; background:var(--line); border-radius:var(--radius-pill); overflow:hidden;}
+.quiz-progress-fill{height:100%; width:0; background:var(--brand-green); transition:width .3s ease;}
+
+.quiz-step{display:none;}
+.quiz-step.is-active{display:block;}
+.quiz-step h3{margin-bottom:20px;}
+
+.quiz-cards{display:grid; grid-template-columns:repeat(auto-fill,minmax(180px,1fr)); gap:14px; margin-bottom:20px;}
+.quiz-card{
+  display:flex; flex-direction:column; align-items:flex-start; gap:4px; text-align:left;
+  background:var(--paper); border:1.5px solid var(--line); border-radius:14px; padding:16px;
+  cursor:pointer; font-family:var(--font-body); transition:border-color .15s ease, transform .15s ease;
+}
+.quiz-card:hover{transform:translateY(-2px); border-color:var(--green-600);}
+.quiz-card.is-selected{border-color:var(--brand-green); background:var(--mint-100);}
+.quiz-card-title{font-weight:700; font-size:.92rem; color:var(--ink);}
+.quiz-card-sub{font-size:.78rem; color:#63665A;}
+.quiz-card-item img{width:100%; aspect-ratio:4/3; object-fit:contain; background:#E9EAE4; border-radius:8px; margin-bottom:8px;}
+
+.quiz-summary-mini{background:var(--paper); border:1px solid var(--line); border-radius:12px; padding:14px 16px; margin-bottom:20px; font-size:.88rem;}
+.quiz-summary-mini span{color:#63665A;}
+
+.quiz-radio-row{display:flex; flex-wrap:wrap; gap:10px;}
+.quiz-radio{
+  display:flex; align-items:center; gap:8px; background:var(--paper); border:1.5px solid var(--line);
+  border-radius:var(--radius-pill); padding:10px 16px; font-size:.88rem; cursor:pointer; transition:border-color .15s ease;
+}
+.quiz-radio input{accent-color:var(--brand-green);}
+.quiz-radio.is-selected{border-color:var(--brand-green); background:var(--mint-100);}
+
+.quiz-nav{display:flex; gap:12px; margin-top:24px; flex-wrap:wrap;}
+.quiz-nav .btn-primary{flex:1;}
+.quiz-back{flex-shrink:0;}
+
+.quiz-contact-form .field{margin-bottom:16px;}
+#quiz-final-summary{background:var(--forest-900); color:var(--paper); border-radius:14px; padding:18px 20px; margin-bottom:24px; font-size:.9rem; line-height:1.7;}
+
+/* ===== FAQ (блок 8, новый) ===== */
+.faq-list{display:grid; gap:12px; margin-top:24px;}
+.faq-item{background:var(--grey-card); border:1px solid var(--line); border-radius:14px; padding:18px 22px;}
+.faq-item summary{font-weight:700; cursor:pointer; list-style:none; display:flex; justify-content:space-between; align-items:center;}
+.faq-item summary::-webkit-details-marker{display:none;}
+.faq-item summary::after{content:'+'; font-family:var(--font-display); font-size:1.3rem; color:var(--forest-700); margin-left:12px;}
+.faq-item[open] summary::after{content:'–';}
+.faq-item p{margin:14px 0 0; font-size:.92rem;}
+
+/* ===== CONTACT CHANNELS (блок 9) ===== */
+.contact-channels{margin-top:24px;}
+.contact-channels-label{font-size:.82rem; font-weight:700; color:#5B5E52; margin-bottom:10px;}
+.channel-row{display:flex; gap:10px; flex-wrap:wrap;}
+.channel-chip{
+  display:inline-flex; align-items:center; background:var(--mint-100); color:var(--forest-700);
+  font-weight:700; font-size:.85rem; padding:9px 18px; border-radius:var(--radius-pill); text-decoration:none;
+}
+
+/* ===== RESPONSIVE доп. правила под новые блоки ===== */
+@media (max-width:960px){
+  .process-grid{grid-template-columns:repeat(2,1fr);}
+  .qp-step em{display:none;}
+}
+@media (max-width:560px){
+  .process-grid{grid-template-columns:1fr;}
+  .quiz{padding:20px;}
+  .quiz-cards{grid-template-columns:repeat(auto-fill,minmax(140px,1fr));}
+  .quiz-nav{flex-direction:column;}
+  .quiz-nav .quiz-back{order:2;}
+}
+
+/* ===== MAILTO alt link в шаге 4 квиза (добавлено) ===== */
+.mailto-alt-link{
+  display:inline-block; margin-bottom:24px; font-size:.85rem; font-weight:700;
+  color:var(--forest-700); text-decoration:underline; text-underline-offset:3px;
+}
+.mailto-alt-link:hover{color:var(--forest-900);}
+
+/* ===== PRICE TAG (улучшение: опциональная открытая цена "от", если есть в config.catalog) ===== */
+.item-card-footer{display:flex; align-items:center; justify-content:space-between; gap:8px; flex-wrap:wrap; margin-top:10px;}
+.price-tag{
+  display:inline-flex; align-items:center; background:var(--forest-900); color:var(--paper);
+  font-weight:700; font-size:.78rem; padding:4px 12px; border-radius:var(--radius-pill); white-space:nowrap;
+}
+
+/* ===== CONSENT CHECKBOX (152-ФЗ) — заменяет декоративный disclaimer-текст ===== */
+.consent-row{
+  display:flex; align-items:flex-start; gap:10px; font-size:.82rem; color:#5B5E52;
+  margin:4px 0 16px; cursor:pointer; line-height:1.4;
+}
+.consent-row input{margin-top:3px; accent-color:var(--brand-green); flex-shrink:0;}
+.consent-row a{color:var(--forest-700); text-decoration:underline;}
+
+/* ===== FOOTER legal line (152-ФЗ: реквизиты оператора ПДн) ===== */
+.legal-line{font-size:.76rem; opacity:.75; margin-top:4px;}
+
+/* ===== MAP EMBED + ROUTE BUTTON (блок 9) ===== */
+.map-embed-wrap{margin-top:24px; border-radius:16px; overflow:hidden; border:1px solid var(--line);}
+.map-embed-wrap iframe{display:block; width:100%; height:280px; border:0;}
+.map-route-btn{
+  display:inline-flex; align-items:center; gap:8px; margin-top:12px;
+  font-weight:700; font-size:.86rem; color:var(--forest-700); text-decoration:none;
+}
+.map-route-btn:hover{color:var(--forest-900);}
+
+/* ===== COOKIE BANNER ===== */
+.cookie-banner{
+  position:fixed; left:16px; right:16px; bottom:16px; z-index:1000;
+  max-width:640px; margin:0 auto; background:var(--forest-900); color:var(--paper);
+  border-radius:16px; padding:18px 22px; display:flex; align-items:center; gap:16px;
+  flex-wrap:wrap; box-shadow:0 12px 30px rgba(0,0,0,.25);
+}
+.cookie-banner p{margin:0; font-size:.85rem; flex:1 1 260px;}
+.cookie-banner a{color:var(--mint-100); text-decoration:underline;}
+.cookie-banner .btn{flex-shrink:0;}
+@media (max-width:480px){
+  .cookie-banner{flex-direction:column; align-items:stretch; text-align:left;}
+}
+
+</style>
+</head>
+<body>
+<div style="background:#000;color:#fff;text-align:center;font-size:12.5px;padding:10px 16px;position:sticky;top:0;z-index:999;line-height:1.5;">
+  Демо v3: новые дизайн-токены (JetBrains Mono, чёрный/зелёный #5EBF1B), контакты+карта+маршрут+152-ФЗ+cookie+JSON-LD.
+  Формы — мок, Метрика не грузится в канвасе, privacy.html в этом однофайловом превью не откроется (генерируется отдельно).
+</div>
+
+
+<header class="site-header">
+  <div class="wrap header-row">
+    <span class="logo-text">Типография Цифра</span>
+    <div class="header-right">
+      <a class="tel" href="tel:+73412323241">+7 (3412) 32-32-41</a>
+      <a href="#quiz" class="btn btn-primary"><span class="cta-full">Рассчитать</span><span class="cta-short">Расчёт</span></a>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <!-- ============ 1. ATTENTION — HERO ============ -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
+        <span class="eyebrow" data-reveal>рекламно-производственная компания · собственное производство</span>
+        <h1 data-stamp>Сувениры с вашим<br>логотипом — от кружки<br>до фирменного шоколада</h1>
+        <p class="hero-lead" data-reveal>Блокноты, ручки, значки, брелки, шоколад и текстиль с брендированием. Печатаем сами — без посредников, поэтому быстрее и точнее по срокам.</p>
+        <div class="hero-cta" data-reveal>
+          <a href="#quiz" class="btn btn-primary">Пройти квиз и получить расчёт</a>
+          <a href="#catalog" class="btn btn-outline">Смотреть каталог</a>
+        </div>
+        <ul class="hero-stats" data-reveal>
+          <li><b>18+ лет</b>на рынке Ижевска</li>
+          <li><b>4</b>способа нанесения</li>
+          <li><b>13+</b>видов продукции</li>
+        </ul>
+      </div>
+      <div class="hero-visual" data-reveal>
+        <div class="hero-photo">
+          <img src="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 400 300%22%3E%3Crect width=%22400%22 height=%22300%22 fill=%22%23E9EAE4%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 font-family=%22sans-serif%22 font-size=%2222%22 fill=%22%238B8E82%22 text-anchor=%22middle%22 dy=%22.3em%22%3E%D1%84%D0%BE%D1%82%D0%BE %D1%82%D0%BE%D0%B2%D0%B0%D1%80%D0%B0%3C/text%3E%3C/svg%3E" alt="Пример сувенирной продукции с логотипом (фото уточняется у заказчика)" width="1100" height="777">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 2. ATTENTION/TRUST — USP ============ -->
+  <section class="usp">
+    <div class="wrap">
+      <div class="usp-card" data-reveal><h3>Своё производство</h3><p>Печатаем на месте, без подрядчиков — поэтому контролируем сроки и качество на каждом этапе.</p></div>
+      <div class="usp-card" data-reveal><h3>Персональный менеджер</h3><p>Один контакт на весь проект, быстрые согласования.</p></div>
+      <div class="usp-card" data-reveal><h3>Дизайн и препресс</h3><p>Подготовим макет к печати, даже если его пока нет.</p></div>
+      <div class="usp-card" data-reveal><h3>Открытые цены</h3><p>У части позиций указана стартовая цена — понятно, от чего отталкиваться, точную сумму считаем под ваш тираж.</p></div>
+    </div>
+  </section>
+
+  <!-- ============ 3. INTEREST — МЕТОДЫ ============ -->
+  <section class="methods">
+    <div class="wrap">
+      <h2 data-reveal>Как мы работаем</h2>
+      <div class="methods-row" data-reveal>
+        <span class="method-chip"><span class="dot"></span>УФ-печать</span>
+        <span class="method-chip"><span class="dot"></span>Лазерная гравировка</span>
+        <span class="method-chip"><span class="dot"></span>Сублимация</span>
+        <span class="method-chip"><span class="dot"></span>Тиснение</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 4. INTEREST — КАТАЛОГ ============ -->
+  <section class="catalog" id="catalog">
+    <div class="wrap">
+      <h2 data-reveal>Каталог</h2>
+      <p data-reveal>Реальный ассортимент из нашего коммерческого предложения. Точные параметры уточняйте у менеджера.</p>
+      <div id="catalog-container"><!-- рендерится из catalog.js --></div>
+    </div>
+  </section>
+
+  <!-- ============ 5. INTEREST → DESIRE — КАК ПРОХОДИТ ЗАКАЗ ============ -->
+  <section class="process">
+    <div class="wrap">
+      <h2 data-reveal>Как проходит заказ</h2>
+      <div class="process-grid" data-reveal>
+        <div class="process-step">
+          <span class="step-num">1</span>
+          <h3>Заявка или квиз</h3>
+          <p>Выбираете товар и параметры — фиксируем тираж и пожелания.</p>
+        </div>
+        <div class="process-step">
+          <span class="step-num">2</span>
+          <h3>Макет и препресс</h3>
+          <p>Разработаем макет или адаптируем готовый под конкретный носитель.</p>
+        </div>
+        <div class="process-step">
+          <span class="step-num">3</span>
+          <h3>Производство</h3>
+          <p>Печатаем сами — без передачи заказа сторонним цехам.</p>
+        </div>
+        <div class="process-step">
+          <span class="step-num">4</span>
+          <h3>Контроль и выдача</h3>
+          <p>Проверяем каждую партию перед выдачей.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 6. DESIRE — КВИЗ-КАЛЬКУЛЯТОР ============ -->
+  <section class="quiz-section" id="quiz">
+    <div class="wrap">
+      <h2 data-reveal>Квиз-расчёт</h2>
+      <p data-reveal>Несколько коротких шагов — пришлём точный расчёт на почту.</p>
+
+      <div class="quiz" id="quiz-app" data-reveal>
+
+        <div class="quiz-progress">
+          <div class="quiz-progress-steps">
+            <span class="qp-step is-active" data-step-indicator="1">1<em>Категория</em></span>
+            <span class="qp-step" data-step-indicator="2">2<em>Товар</em></span>
+            <span class="qp-step" data-step-indicator="3">3<em>Параметры</em></span>
+            <span class="qp-step" data-step-indicator="4">4<em>Контакты</em></span>
+          </div>
+          <div class="quiz-progress-bar"><div class="quiz-progress-fill" id="quiz-progress-fill"></div></div>
+        </div>
+
+        <div class="quiz-step is-active" data-step="1">
+          <h3>Что вас интересует?</h3>
+          <div class="quiz-cards" id="quiz-groups"></div>
+        </div>
+
+        <div class="quiz-step" data-step="2">
+          <h3>Какой товар/услуга?</h3>
+          <div class="quiz-cards" id="quiz-items"></div>
+          <button type="button" class="btn btn-outline quiz-back" data-back="1">Назад</button>
+        </div>
+
+        <div class="quiz-step" data-step="3">
+          <h3>Параметры заказа</h3>
+          <div class="quiz-summary-mini" id="quiz-selected-item"></div>
+
+          <div class="field">
+            <label for="q-qty">Количество / тираж</label>
+            <input type="number" id="q-qty" min="1" max="5000" value="20" inputmode="numeric">
+          </div>
+
+          <div class="field">
+            <label>Готовность</label>
+            <div class="quiz-radio-row" id="q-layout"></div>
+          </div>
+
+          <div class="field">
+            <label>Срок</label>
+            <div class="quiz-radio-row" id="q-deadline"></div>
+          </div>
+
+          <div class="field">
+            <label for="q-notes">Пожелания (необязательно)</label>
+            <textarea id="q-notes" rows="2"></textarea>
+          </div>
+
+          <div class="quiz-nav">
+            <button type="button" class="btn btn-outline quiz-back" data-back="2">Назад</button>
+            <button type="button" class="btn btn-primary" id="quiz-to-step4">Далее</button>
+          </div>
+        </div>
+
+        <div class="quiz-step" data-step="4">
+          <h3>Куда прислать расчёт?</h3>
+          <div class="summary-box" id="quiz-final-summary"></div>
+          <a href="#" id="quiz-mailto-link" class="mailto-alt-link" target="_blank" rel="noopener">
+            Или сразу открыть письмо на почту — уже с этим запросом внутри
+          </a>
+
+          <form id="quiz-form" class="quiz-contact-form" novalidate>
+            <div class="field">
+              <label for="q-name">Имя</label>
+              <input type="text" id="q-name" name="name" required autocomplete="name">
+            </div>
+            <div class="field">
+              <label for="q-phone">Телефон</label>
+              <input type="tel" id="q-phone" name="phone" required autocomplete="tel" placeholder="+7 (___) ___-__-__">
+            </div>
+            <div class="field">
+              <label for="q-email">Email (необязательно)</label>
+              <input type="email" id="q-email" name="email" autocomplete="email">
+            </div>
+
+            <div class="hp-field" aria-hidden="true">
+              <label for="q-website">Website</label>
+              <input type="text" id="q-website" name="website" tabindex="-1" autocomplete="off">
+            </div>
+
+            <label class="consent-row">
+              <input type="checkbox" id="q-consent" name="consent" required>
+              <span>Согласен(-на) на <a href="privacy.html" target="_blank" rel="noopener">обработку персональных данных</a></span>
+            </label>
+
+            <div class="quiz-nav">
+              <button type="button" class="btn btn-outline quiz-back" data-back="3">Назад</button>
+              <button type="submit" class="btn btn-primary btn-block">Получить расчёт на почту</button>
+            </div>
+            <p id="quiz-status" role="status" class="form-status"></p>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 7. DESIRE — ЦИФРЫ ДОВЕРИЯ ============ -->
+  <section class="trust">
+    <div class="wrap">
+      <h2 data-reveal>Почему заказывают у нас</h2>
+      <div class="trust-badges" data-reveal>
+        <div><b>18+</b><span>лет на рынке</span></div>
+        <div><b>4</b><span>способа нанесения</span></div>
+        <div><b>13+</b><span>видов продукции в каталоге</span></div>
+        <div><b>1</b><span>менеджер на весь заказ</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 8. DESIRE — FAQ ============ -->
+  <section class="faq">
+    <div class="wrap">
+      <h2 data-reveal>Частые вопросы</h2>
+      <div class="faq-list" data-reveal>
+        <details class="faq-item">
+          <summary>Цена «от» на сайте — это итоговая стоимость?</summary>
+          <p>Нет, это стартовая цена на базовое исполнение без тиражной скидки и без стоимости нанесения логотипа. Точную сумму под ваш тираж и макет посчитаем в квизе или по заявке.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Нужен ли готовый макет логотипа?</summary>
+          <p>Нет. Если макета нет — разработаем и подготовим к печати. Если есть — адаптируем под носитель.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Какой минимальный тираж?</summary>
+          <p>Зависит от позиции — уточнит менеджер после квиза или заявки.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Как быстро вы свяжетесь после заявки?</summary>
+          <p>В рабочее время — в течение 15 минут.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Почему стоит заказывать именно у вас, а не у федеральных сервисов?</summary>
+          <p>Своё производство в Ижевске — быстрее по срокам и проще по логистике, чем заказ через федеральный сервис с доставкой из другого региона.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 9. ACTION — КОНТАКТЫ + ФОРМА ============ -->
+  <section class="lead-section" id="form">
+    <div class="wrap form-wrap">
+      <div data-reveal>
+        <h2>Оставить заявку</h2>
+        <p>Не хотите проходить квиз — просто оставьте контакты, менеджер перезвонит и уточнит детали.</p>
+        <address>
+          426069, Удмуртская Респ., г. Ижевск, ул. 7-я Подлесная, д. 34<br>
+          <a href="tel:+73412323241">+7 (3412) 32-32-41</a><br>
+          <a href="tel:+79658423241">+7 (965) 842-32-41</a><br>
+          <a href="mailto:izhcifra@yandex.ru?subject=%D0%97%D0%B0%D1%8F%D0%B2%D0%BA%D0%B0%20%D1%81%20%D1%81%D0%B0%D0%B9%D1%82%D0%B0%20%D1%86%D0%B8%D1%84%D1%80%D0%B018.%D1%80%D1%84%20%E2%80%94%20%D0%A2%D0%B8%D0%BF%D0%BE%D0%B3%D1%80%D0%B0%D1%84%D0%B8%D1%8F%20%D0%A6%D0%B8%D1%84%D1%80%D0%B0&body=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%0A%0A%D0%9F%D0%B8%D1%88%D1%83%20%D1%81%20%D1%81%D0%B0%D0%B9%D1%82%D0%B0%20%D1%86%D0%B8%D1%84%D1%80%D0%B018.%D1%80%D1%84.%0A%0A%D0%A7%D1%82%D0%BE%20%D1%85%D0%BE%D1%87%D1%83%20%D1%83%D0%B7%D0%BD%D0%B0%D1%82%D1%8C%2F%D0%BF%D0%BE%D1%81%D1%87%D0%B8%D1%82%D0%B0%D1%82%D1%8C%3A%0A%E2%80%94%20%D0%A2%D0%BE%D0%B2%D0%B0%D1%80%2F%D1%83%D1%81%D0%BB%D1%83%D0%B3%D0%B0%3A%20%0A%E2%80%94%20%D0%9A%D0%BE%D0%BB%D0%B8%D1%87%D0%B5%D1%81%D1%82%D0%B2%D0%BE%2F%D0%BE%D0%B1%D1%8A%D1%91%D0%BC%3A%20%0A%E2%80%94%20%D0%A1%D1%80%D0%BE%D0%BA%D0%B8%3A%20">izhcifra@yandex.ru</a>
+        </address>
+
+        <div class="contact-channels">
+          <p class="contact-channels-label">Написать в мессенджер:</p>
+          <div class="channel-row">
+            <a class="channel-chip" href="https://wa.me/79658423241" target="_blank" rel="noopener">WhatsApp</a>
+            <a class="channel-chip" href="https://vk.com/cifraprint18" target="_blank" rel="noopener">VK</a>
+            <a class="channel-chip" href="https://max.ru/id182501416864_bot" target="_blank" rel="noopener">MAX</a>
+          </div>
+        </div>
+
+      <div class="map-embed-wrap">
+        <iframe src="https://yandex.ru/maps/44/izhevsk/?from=mapframe&amp;ll=53.189062%2C56.869771&amp;mode=usermaps&amp;source=mapframe&amp;um=constructor%3Ad147fe90814645d06a362eb5beed3a1b4af8094cf1216f1b1e942eaf1acf2e6c&amp;utm_source=mapframe&amp;z=14" title="Карта: 426069, Удмуртская Респ., г. Ижевск, ул. 7-я Подлесная, д. 34" loading="lazy" allowfullscreen></iframe>
+      </div>
+      <a class="map-route-btn" href="https://yandex.ru/maps/?rtext=~56.869771,53.189062&amp;rtt=auto" target="_blank" rel="noopener">Проложить маршрут →</a>
+      </div>
+
+      <form id="lead-form" class="lead-form" novalidate>
+        <div class="field">
+          <label for="f-name">Имя</label>
+          <input type="text" id="f-name" name="name" required autocomplete="name">
+        </div>
+        <div class="field">
+          <label for="f-phone">Телефон</label>
+          <input type="tel" id="f-phone" name="phone" required autocomplete="tel" placeholder="+7 (___) ___-__-__">
+        </div>
+        <div class="field">
+          <label for="f-comment">Комментарий</label>
+          <textarea id="f-comment" name="comment" rows="3"></textarea>
+        </div>
+
+        <div class="hp-field" aria-hidden="true">
+          <label for="f-website">Website</label>
+          <input type="text" id="f-website" name="website" tabindex="-1" autocomplete="off">
+        </div>
+
+        <input type="hidden" id="f-calc-summary" name="calcSummary">
+        <input type="hidden" id="f-utm" name="utm">
+
+        <label class="consent-row">
+          <input type="checkbox" id="f-consent" name="consent" required>
+          <span>Согласен(-на) на <a href="privacy.html" target="_blank" rel="noopener">обработку персональных данных</a></span>
+        </label>
+
+        <button type="submit" class="btn btn-primary btn-block">Отправить заявку</button>
+        <p id="form-status" role="status" class="form-status"></p>
+      </form>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-row">
+    <span class="logo-text">Типография Цифра</span>
+    <p>426069, Удмуртская Респ., г. Ижевск, ул. 7-я Подлесная, д. 34 · <a href="tel:+73412323241">+7 (3412) 32-32-41</a> · <a href="mailto:izhcifra@yandex.ru">izhcifra@yandex.ru</a></p>
+    <p class="legal-line">ИП Данилов Константин Леонидович, ИНН 182501416864, ОГРН(ИП) 307183731200018 · <a href="privacy.html">Политика обработки персональных данных</a></p>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script>
+/* Автосгенерировано render.js из config.catalog — правьте config.json и перезапустите рендер, а не этот файл. */
+const CATALOG_GROUPS = [
+  {
+    "id": "textile",
+    "title": "Текстиль",
+    "intro": "Футболки, свитшоты, толстовки, бейсболки с печатью.",
+    "items": [
+      {
+        "id": "tshirt-unisex",
+        "name": "Футболка унисекс, белая",
+        "img": "data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 400 300%22%3E%3Crect width=%22400%22 height=%22300%22 fill=%22%23E9EAE4%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 font-family=%22sans-serif%22 font-size=%2222%22 fill=%22%238B8E82%22 text-anchor=%22middle%22 dy=%22.3em%22%3E%D1%84%D0%BE%D1%82%D0%BE %D1%82%D0%BE%D0%B2%D0%B0%D1%80%D0%B0%3C/text%3E%3C/svg%3E",
+        "method": "Печать на текстиле",
+        "specs": "Полиэстер 100%"
+      },
+      {
+        "id": "hoodie-cap",
+        "name": "Свитшот / толстовка / бейсболка",
+        "img": "data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 400 300%22%3E%3Crect width=%22400%22 height=%22300%22 fill=%22%23E9EAE4%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 font-family=%22sans-serif%22 font-size=%2222%22 fill=%22%238B8E82%22 text-anchor=%22middle%22 dy=%22.3em%22%3E%D1%84%D0%BE%D1%82%D0%BE %D1%82%D0%BE%D0%B2%D0%B0%D1%80%D0%B0%3C/text%3E%3C/svg%3E",
+        "method": "Печать на текстиле",
+        "specs": "Фирменная символика на разных видах текстиля"
+      }
+    ]
+  },
+  {
+    "id": "drinkware",
+    "title": "Посуда",
+    "intro": "Кружки с фирменным логотипом или изображением.",
+    "items": [
+      {
+        "id": "mug-330",
+        "name": "Кружка с логотипом",
+        "img": "data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 400 300%22%3E%3Crect width=%22400%22 height=%22300%22 fill=%22%23E9EAE4%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 font-family=%22sans-serif%22 font-size=%2222%22 fill=%22%238B8E82%22 text-anchor=%22middle%22 dy=%22.3em%22%3E%D1%84%D0%BE%D1%82%D0%BE %D1%82%D0%BE%D0%B2%D0%B0%D1%80%D0%B0%3C/text%3E%3C/svg%3E",
+        "method": "Сублимация / УФ-печать",
+        "specs": "Белая кружка, цветная ручка и дно, 330 мл"
+      }
+    ]
+  },
+  {
+    "id": "stationery",
+    "title": "Канцелярия",
+    "intro": "Блокноты, ежедневники и ручки — что остаётся на столе месяцами.",
+    "items": [
+      {
+        "id": "planner",
+        "name": "Блокнот / ежедневник / планинг",
+        "img": "data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 400 300%22%3E%3Crect width=%22400%22 height=%22300%22 fill=%22%23E9EAE4%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 font-family=%22sans-serif%22 font-size=%2222%22 fill=%22%238B8E82%22 text-anchor=%22middle%22 dy=%22.3em%22%3E%D1%84%D0%BE%D1%82%D0%BE %D1%82%D0%BE%D0%B2%D0%B0%D1%80%D0%B0%3C/text%3E%3C/svg%3E",
+        "method": "Печать обложки",
+        "specs": "Корпоративное оформление обложки"
+      },
+      {
+        "id": "pen-title-m",
+        "name": "Ручка шариковая Title М",
+        "img": "data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 400 300%22%3E%3Crect width=%22400%22 height=%22300%22 fill=%22%23E9EAE4%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 font-family=%22sans-serif%22 font-size=%2222%22 fill=%22%238B8E82%22 text-anchor=%22middle%22 dy=%22.3em%22%3E%D1%84%D0%BE%D1%82%D0%BE %D1%82%D0%BE%D0%B2%D0%B0%D1%80%D0%B0%3C/text%3E%3C/svg%3E",
+        "method": "УФ-печать",
+        "specs": "Пластиковый корпус",
+        "priceFrom": "от 100 ₽/шт."
+      },
+      {
+        "id": "pen-kraft",
+        "name": "Ручка из крафтовой бумаги",
+        "img": "data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 400 300%22%3E%3Crect width=%22400%22 height=%22300%22 fill=%22%23E9EAE4%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 font-family=%22sans-serif%22 font-size=%2222%22 fill=%22%238B8E82%22 text-anchor=%22middle%22 dy=%22.3em%22%3E%D1%84%D0%BE%D1%82%D0%BE %D1%82%D0%BE%D0%B2%D0%B0%D1%80%D0%B0%3C/text%3E%3C/svg%3E",
+        "method": "УФ-печать",
+        "specs": "Эко-материал корпуса"
+      }
+    ]
+  },
+  {
+    "id": "gifts",
+    "title": "Подарки и аксессуары",
+    "intro": "Небольшие сувениры для промо и деловых подарков.",
+    "items": [
+      {
+        "id": "chocolate-5g",
+        "name": "Шоколад с логотипом, 5 г",
+        "img": "data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 400 300%22%3E%3Crect width=%22400%22 height=%22300%22 fill=%22%23E9EAE4%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 font-family=%22sans-serif%22 font-size=%2222%22 fill=%22%238B8E82%22 text-anchor=%22middle%22 dy=%22.3em%22%3E%D1%84%D0%BE%D1%82%D0%BE %D1%82%D0%BE%D0%B2%D0%B0%D1%80%D0%B0%3C/text%3E%3C/svg%3E",
+        "method": "Печать на упаковке",
+        "specs": "Мини-формат для промо",
+        "priceFrom": "от 15 ₽/шт."
+      },
+      {
+        "id": "medal-acrylic",
+        "name": "Медаль из оргстекла",
+        "img": "data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 400 300%22%3E%3Crect width=%22400%22 height=%22300%22 fill=%22%23E9EAE4%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 font-family=%22sans-serif%22 font-size=%2222%22 fill=%22%238B8E82%22 text-anchor=%22middle%22 dy=%22.3em%22%3E%D1%84%D0%BE%D1%82%D0%BE %D1%82%D0%BE%D0%B2%D0%B0%D1%80%D0%B0%3C/text%3E%3C/svg%3E",
+        "method": "Лазерная гравировка",
+        "specs": "Наградная/сувенирная продукция"
+      },
+      {
+        "id": "keychain-magnet",
+        "name": "Брелок / магнит",
+        "img": "data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 400 300%22%3E%3Crect width=%22400%22 height=%22300%22 fill=%22%23E9EAE4%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 font-family=%22sans-serif%22 font-size=%2222%22 fill=%22%238B8E82%22 text-anchor=%22middle%22 dy=%22.3em%22%3E%D1%84%D0%BE%D1%82%D0%BE %D1%82%D0%BE%D0%B2%D0%B0%D1%80%D0%B0%3C/text%3E%3C/svg%3E",
+        "method": "УФ-печать / гравировка",
+        "specs": "Компактный промо-сувенир"
+      },
+      {
+        "id": "flash-drive",
+        "name": "Флешка с индивидуальным дизайном",
+        "img": "data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 400 300%22%3E%3Crect width=%22400%22 height=%22300%22 fill=%22%23E9EAE4%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 font-family=%22sans-serif%22 font-size=%2222%22 fill=%22%238B8E82%22 text-anchor=%22middle%22 dy=%22.3em%22%3E%D1%84%D0%BE%D1%82%D0%BE %D1%82%D0%BE%D0%B2%D0%B0%D1%80%D0%B0%3C/text%3E%3C/svg%3E",
+        "method": "УФ-печать / гравировка корпуса",
+        "specs": "USB-накопитель под бренд"
+      },
+      {
+        "id": "badge",
+        "name": "Закатной значок",
+        "img": "data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 400 300%22%3E%3Crect width=%22400%22 height=%22300%22 fill=%22%23E9EAE4%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 font-family=%22sans-serif%22 font-size=%2222%22 fill=%22%238B8E82%22 text-anchor=%22middle%22 dy=%22.3em%22%3E%D1%84%D0%BE%D1%82%D0%BE %D1%82%D0%BE%D0%B2%D0%B0%D1%80%D0%B0%3C/text%3E%3C/svg%3E",
+        "method": "Печать + закатка",
+        "specs": "Разные размеры"
+      },
+      {
+        "id": "watch",
+        "name": "Часы с логотипом",
+        "img": "data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 400 300%22%3E%3Crect width=%22400%22 height=%22300%22 fill=%22%23E9EAE4%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 font-family=%22sans-serif%22 font-size=%2222%22 fill=%22%238B8E82%22 text-anchor=%22middle%22 dy=%22.3em%22%3E%D1%84%D0%BE%D1%82%D0%BE %D1%82%D0%BE%D0%B2%D0%B0%D1%80%D0%B0%3C/text%3E%3C/svg%3E",
+        "method": "Гравировка / УФ-печать",
+        "specs": "Корпоративный подарок"
+      }
+    ]
+  },
+  {
+    "id": "packaging-print",
+    "title": "Упаковка и крупный формат",
+    "intro": "Пакеты, календари и рекламные конструкции в фирменном стиле.",
+    "items": [
+      {
+        "id": "bag-plastic-kraft",
+        "name": "Пластиковый / крафт-пакет",
+        "img": "data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 400 300%22%3E%3Crect width=%22400%22 height=%22300%22 fill=%22%23E9EAE4%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 font-family=%22sans-serif%22 font-size=%2222%22 fill=%22%238B8E82%22 text-anchor=%22middle%22 dy=%22.3em%22%3E%D1%84%D0%BE%D1%82%D0%BE %D1%82%D0%BE%D0%B2%D0%B0%D1%80%D0%B0%3C/text%3E%3C/svg%3E",
+        "method": "Печать по фирменному стилю",
+        "specs": "Под упаковку сувениров и подарков"
+      },
+      {
+        "id": "calendar",
+        "name": "Календарь (квартальный / домик / листовой)",
+        "img": "data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 400 300%22%3E%3Crect width=%22400%22 height=%22300%22 fill=%22%23E9EAE4%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 font-family=%22sans-serif%22 font-size=%2222%22 fill=%22%238B8E82%22 text-anchor=%22middle%22 dy=%22.3em%22%3E%D1%84%D0%BE%D1%82%D0%BE %D1%82%D0%BE%D0%B2%D0%B0%D1%80%D0%B0%3C/text%3E%3C/svg%3E",
+        "method": "Офсетная/цифровая печать",
+        "specs": "Несколько форматов на выбор"
+      },
+      {
+        "id": "rollup",
+        "name": "Roll-Up 1×2 м",
+        "img": "data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 400 300%22%3E%3Crect width=%22400%22 height=%22300%22 fill=%22%23E9EAE4%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 font-family=%22sans-serif%22 font-size=%2222%22 fill=%22%238B8E82%22 text-anchor=%22middle%22 dy=%22.3em%22%3E%D1%84%D0%BE%D1%82%D0%BE %D1%82%D0%BE%D0%B2%D0%B0%D1%80%D0%B0%3C/text%3E%3C/svg%3E",
+        "method": "Широкоформатная печать",
+        "specs": "Мобильная рекламная стойка"
+      }
+    ]
+  }
+];
+const QUIZ_COMMON_FIELDS = {
+  "layoutOptions": [
+    {
+      "value": "ready",
+      "label": "Есть готовый макет"
+    },
+    {
+      "value": "need_design",
+      "label": "Макета нет, нужна разработка"
+    }
+  ],
+  "deadlineOptions": [
+    {
+      "value": "standard",
+      "label": "Стандартный срок"
+    },
+    {
+      "value": "urgent",
+      "label": "Нужно срочно (обсудим сроки отдельно)"
+    }
+  ]
+};
+
+if (typeof module !== 'undefined' && module.exports) {
+  module.exports = { CATALOG_GROUPS, QUIZ_COMMON_FIELDS };
+} else {
+  window.Catalog = { CATALOG_GROUPS, QUIZ_COMMON_FIELDS };
+}
+
+</script>
+<script>
+
+  const _origFetch = window.fetch.bind(window);
+  window.fetch = function (url, opts) {
+    if (typeof url === 'string' && (url === '/api/lead' || url === '/api/quiz-lead')) {
+      return new Promise((resolve) => {
+        setTimeout(() => resolve(new Response(JSON.stringify({ ok: true, demo: true }), { status: 200 })), 600);
+      });
+    }
+    return _origFetch(url, opts);
+  };
+  window.__initYandexMetrika = function () {
+    console.log('[demo] Метрика не грузится в канвасе (CSP артефактов); в реальной сборке — работает после согласия на cookie.');
+  };
+
+(function () {
+  'use strict';
+
+  const LEAD_ENDPOINT = '/api/lead';
+  const QUIZ_ENDPOINT = '/api/quiz-lead';
+  const { CATALOG_GROUPS, QUIZ_COMMON_FIELDS } = window.Catalog;
+
+  // Единственные бизнес-специфичные константы во всём движке —
+  // подставляются render.js из config.contact / config.site.
+  const FALLBACK_PHONE_DISPLAY = '+7 (3412) 32-32-41';
+  const CONTACT_EMAIL = 'izhcifra@yandex.ru';
+  const SITE_DOMAIN = 'цифра18.рф';
+
+  // ---------- Рендер каталога (блок 4, витрина) ----------
+  function renderCatalog() {
+    const container = document.getElementById('catalog-container');
+    CATALOG_GROUPS.forEach((group) => {
+      const groupEl = document.createElement('div');
+      groupEl.className = 'catalog-group';
+      groupEl.dataset.reveal = '';
+
+      const heading = document.createElement('h3');
+      heading.textContent = group.title;
+      groupEl.appendChild(heading);
+
+      if (group.intro) {
+        const introP = document.createElement('p');
+        introP.className = 'catalog-group-intro';
+        introP.textContent = group.intro;
+        groupEl.appendChild(introP);
+      }
+
+      const grid = document.createElement('div');
+      grid.className = 'catalog-grid';
+
+      group.items.forEach((item) => {
+        const card = document.createElement('article');
+        card.className = 'item-card';
+        card.innerHTML = `
+          <div class="thumb"><img src="${item.img}" alt="${item.name}" loading="lazy" width="1100" height="777"></div>
+          <div class="body">
+            <h4>${item.name}</h4>
+            <p class="specs">${item.specs}</p>
+            <div class="item-card-footer">
+              <span class="method-tag">${item.method}</span>
+              ${item.priceFrom ? `<span class="price-tag">${item.priceFrom}</span>` : ''}
+            </div>
+          </div>`;
+        grid.appendChild(card);
+      });
+
+      groupEl.appendChild(grid);
+      container.appendChild(groupEl);
+    });
+  }
+
+  // ---------- Анимации (опционально, сайт рабочий и без них) ----------
+  function initAnimations() {
+    if (!window.gsap) return;
+    gsap.registerPlugin(ScrollTrigger);
+
+    const stampTarget = document.querySelector('[data-stamp]');
+    if (stampTarget) {
+      gsap.fromTo(stampTarget,
+        { opacity: 0, y: 20, scale: 1.03 },
+        { opacity: 1, y: 0, scale: 1, duration: 0.7, ease: 'power3.out' });
+    }
+
+    gsap.from('.hero-lead, .eyebrow, .hero-cta, .hero-stats, .hero-visual', {
+      opacity: 0, y: 16, duration: 0.6, delay: 0.2, stagger: 0.08, ease: 'power2.out'
+    });
+
+    document.querySelectorAll('section').forEach((section) => {
+      const items = section.querySelectorAll('[data-reveal]');
+      if (!items.length) return;
+      gsap.from(items, {
+        opacity: 0, y: 20, duration: 0.5, stagger: 0.05, ease: 'power2.out',
+        scrollTrigger: { trigger: section, start: 'top 80%' }
+      });
+    });
+  }
+
+  // ============================================================
+  //  КВИЗ-ВИЗАРД (блок 6) — 4 шага. Общий движок, специфика бизнеса
+  //  живёт только в catalog.js (сгенерирован render.js из config.catalog).
+  // ============================================================
+  function initQuiz() {
+    const app = document.getElementById('quiz-app');
+    if (!app) return;
+
+    const state = { step: 1, groupId: null, itemId: null, qty: 20, layout: null, deadline: null, notes: '' };
+
+    const groupsEl = document.getElementById('quiz-groups');
+    const itemsEl = document.getElementById('quiz-items');
+    const layoutEl = document.getElementById('q-layout');
+    const deadlineEl = document.getElementById('q-deadline');
+    const qtyInput = document.getElementById('q-qty');
+    const notesInput = document.getElementById('q-notes');
+    const selectedItemBox = document.getElementById('quiz-selected-item');
+    const finalSummaryBox = document.getElementById('quiz-final-summary');
+    const progressFill = document.getElementById('quiz-progress-fill');
+
+    function currentGroup() {
+      return CATALOG_GROUPS.find((g) => g.id === state.groupId) || null;
+    }
+    function currentItem() {
+      const g = currentGroup();
+      return g ? g.items.find((i) => i.id === state.itemId) : null;
+    }
+
+    function renderGroups() {
+      groupsEl.innerHTML = '';
+      CATALOG_GROUPS.forEach((g) => {
+        const card = document.createElement('button');
+        card.type = 'button';
+        card.className = 'quiz-card' + (g.id === state.groupId ? ' is-selected' : '');
+        card.innerHTML = `<span class="quiz-card-title">${g.title}</span><span class="quiz-card-sub">${g.items.length} позиций</span>`;
+        card.addEventListener('click', () => {
+          state.groupId = g.id;
+          state.itemId = null;
+          renderGroups();
+          renderItems();
+          goToStep(2);
+        });
+        groupsEl.appendChild(card);
+      });
+    }
+
+    function renderItems() {
+      const g = currentGroup();
+      itemsEl.innerHTML = '';
+      if (!g) return;
+      g.items.forEach((item) => {
+        const card = document.createElement('button');
+        card.type = 'button';
+        card.className = 'quiz-card quiz-card-item' + (item.id === state.itemId ? ' is-selected' : '');
+        card.innerHTML = `
+          <img src="${item.img}" alt="" loading="lazy">
+          <span class="quiz-card-title">${item.name}</span>
+          <span class="quiz-card-sub">${item.method}${item.priceFrom ? ' · ' + item.priceFrom : ''}</span>`;
+        card.addEventListener('click', () => {
+          state.itemId = item.id;
+          renderItems();
+          renderStep3();
+          goToStep(3);
+        });
+        itemsEl.appendChild(card);
+      });
+    }
+
+    function renderRadioRow(container, options, groupName, currentValue, onPick) {
+      container.innerHTML = '';
+      options.forEach((opt) => {
+        const id = `${groupName}-${opt.value}`;
+        const label = document.createElement('label');
+        label.className = 'quiz-radio' + (currentValue === opt.value ? ' is-selected' : '');
+        label.innerHTML = `<input type="radio" name="${groupName}" id="${id}" value="${opt.value}"${currentValue === opt.value ? ' checked' : ''}> ${opt.label}`;
+        label.querySelector('input').addEventListener('change', () => onPick(opt.value));
+        container.appendChild(label);
+      });
+    }
+
+    function renderStep3() {
+      const item = currentItem();
+      selectedItemBox.innerHTML = item
+        ? `<b>${item.name}</b>${item.priceFrom ? ` <span class="price-tag">${item.priceFrom}</span>` : ''}<br><span>${item.method} · ${item.specs}</span>`
+        : '';
+
+      renderRadioRow(layoutEl, QUIZ_COMMON_FIELDS.layoutOptions, 'q-layout', state.layout, (v) => { state.layout = v; renderStep3(); });
+      renderRadioRow(deadlineEl, QUIZ_COMMON_FIELDS.deadlineOptions, 'q-deadline', state.deadline, (v) => { state.deadline = v; renderStep3(); });
+    }
+
+    qtyInput.addEventListener('input', () => { state.qty = Number(qtyInput.value) || 0; });
+    notesInput.addEventListener('input', () => { state.notes = notesInput.value.trim(); });
+
+    function goToStep(n) {
+      state.step = n;
+      app.querySelectorAll('.quiz-step').forEach((el) => {
+        el.classList.toggle('is-active', Number(el.dataset.step) === n);
+      });
+      app.querySelectorAll('.qp-step').forEach((el) => {
+        const idx = Number(el.dataset.stepIndicator);
+        el.classList.toggle('is-active', idx === n);
+        el.classList.toggle('is-done', idx < n);
+      });
+      progressFill.style.width = `${(n - 1) / 3 * 100}%`;
+      if (n === 4) renderFinalSummary();
+      app.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    app.querySelectorAll('.quiz-back').forEach((btn) => {
+      btn.addEventListener('click', () => goToStep(Number(btn.dataset.back)));
+    });
+
+    document.getElementById('quiz-to-step4').addEventListener('click', () => {
+      if (!currentItem()) { goToStep(2); return; }
+      goToStep(4);
+    });
+
+    function layoutLabel(v) {
+      const f = QUIZ_COMMON_FIELDS.layoutOptions.find((o) => o.value === v);
+      return f ? f.label : 'не указано';
+    }
+    function deadlineLabel(v) {
+      const f = QUIZ_COMMON_FIELDS.deadlineOptions.find((o) => o.value === v);
+      return f ? f.label : 'не указано';
+    }
+
+    function buildSummaryText() {
+      const g = currentGroup();
+      const item = currentItem();
+      if (!g || !item) return '';
+      const parts = [
+        `Категория: ${g.title}`,
+        `Товар: ${item.name} (${item.method})`,
+        `Количество: ${state.qty} шт.`,
+        `Готовность: ${layoutLabel(state.layout)}`,
+        `Срок: ${deadlineLabel(state.deadline)}`
+      ];
+      if (state.notes) parts.push(`Пожелания: ${state.notes}`);
+      return parts.join('\n');
+    }
+
+    function renderFinalSummary() {
+      finalSummaryBox.innerHTML = buildSummaryText().split('\n').map((l) => `<div>${l}</div>`).join('');
+      updateMailtoLink();
+    }
+
+    const mailtoLink = document.getElementById('quiz-mailto-link');
+    function updateMailtoLink() {
+      if (!mailtoLink) return;
+      const item = currentItem();
+      const name = (document.getElementById('q-name') || {}).value || '';
+      const phone = (document.getElementById('q-phone') || {}).value || '';
+
+      const subject = `Расчёт с сайта ${SITE_DOMAIN}${item ? ' — ' + item.name : ''}`;
+      const bodyLines = [
+        'Здравствуйте!',
+        '',
+        `Пишу с сайта ${SITE_DOMAIN} — прошёл(-ла) квиз-расчёт, вот что интересует:`,
+        '',
+        buildSummaryText(),
+        ''
+      ];
+      if (name.trim()) bodyLines.push(`Имя: ${name.trim()}`);
+      if (phone.trim()) bodyLines.push(`Телефон: ${phone.trim()}`);
+
+      mailtoLink.href = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(bodyLines.join('\n'))}`;
+    }
+
+    ['q-name', 'q-phone'].forEach((id) => {
+      const el = document.getElementById(id);
+      if (el) el.addEventListener('input', () => { if (state.step === 4) updateMailtoLink(); });
+    });
+
+    const quizForm = document.getElementById('quiz-form');
+    const quizStatus = document.getElementById('quiz-status');
+
+    function isPlausiblePhone(value) {
+      const digits = value.replace(/\D/g, '');
+      return digits.length >= 10 && digits.length <= 12;
+    }
+
+    quizForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      quizStatus.textContent = '';
+      quizStatus.removeAttribute('data-state');
+
+      const name = quizForm.name.value.trim();
+      const phone = quizForm.phone.value.trim();
+      const email = quizForm.email.value.trim();
+      const website = quizForm.website.value;
+
+      if (website) {
+        quizStatus.textContent = 'Расчёт отправлен, спасибо!';
+        quizStatus.setAttribute('data-state', 'ok');
+        quizForm.reset();
+        return;
+      }
+
+      if (!name || !isPlausiblePhone(phone)) {
+        quizStatus.textContent = 'Проверьте, пожалуйста, имя и телефон.';
+        quizStatus.setAttribute('data-state', 'error');
+        return;
+      }
+      if (!quizForm.consent.checked) {
+        quizStatus.textContent = 'Нужно согласие на обработку персональных данных — отметьте галочку.';
+        quizStatus.setAttribute('data-state', 'error');
+        return;
+      }
+      if (!currentItem()) {
+        quizStatus.textContent = 'Похоже, товар не выбран — вернитесь на шаг 2.';
+        quizStatus.setAttribute('data-state', 'error');
+        return;
+      }
+
+      const g = currentGroup();
+      const item = currentItem();
+
+      const payload = {
+        name, phone, email, website,
+        utm: window.location.search || '',
+        quiz: {
+          group: g.title,
+          item: item.name,
+          method: item.method,
+          qty: state.qty,
+          layout: layoutLabel(state.layout),
+          deadline: deadlineLabel(state.deadline),
+          notes: state.notes
+        },
+        summary: buildSummaryText()
+      };
+
+      const submitBtn = quizForm.querySelector('button[type="submit"]');
+      submitBtn.disabled = true;
+      quizStatus.textContent = 'Отправляем расчёт…';
+
+      try {
+        const res = await fetch(QUIZ_ENDPOINT, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+        if (!res.ok) throw new Error('bad_status_' + res.status);
+
+        quizStatus.textContent = 'Готово! Расчёт получен, менеджер свяжется с вами и продублирует его на почту.';
+        quizStatus.setAttribute('data-state', 'ok');
+        quizForm.reset();
+        if (window.ym) { try { ym(12345678, 'reachGoal', 'quiz_submit'); } catch (_) {} }
+      } catch (err) {
+        quizStatus.textContent = `Не получилось отправить. Позвоните нам: ${FALLBACK_PHONE_DISPLAY}`;
+        quizStatus.setAttribute('data-state', 'error');
+      } finally {
+        submitBtn.disabled = false;
+      }
+    });
+
+    renderGroups();
+  }
+
+  // ---------- Простая форма заявки (блок 9, без квиза) ----------
+  function initForm() {
+    const form = document.getElementById('lead-form');
+    const statusEl = document.getElementById('form-status');
+    const utmField = document.getElementById('f-utm');
+    utmField.value = window.location.search || '';
+
+    function isPlausiblePhone(value) {
+      const digits = value.replace(/\D/g, '');
+      return digits.length >= 10 && digits.length <= 12;
+    }
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      statusEl.textContent = '';
+      statusEl.removeAttribute('data-state');
+
+      const name = form.name.value.trim();
+      const phone = form.phone.value.trim();
+      const website = form.website.value;
+
+      if (website) {
+        statusEl.textContent = 'Заявка отправлена, спасибо!';
+        statusEl.setAttribute('data-state', 'ok');
+        form.reset();
+        return;
+      }
+
+      if (!name || !isPlausiblePhone(phone)) {
+        statusEl.textContent = 'Проверьте, пожалуйста, имя и телефон.';
+        statusEl.setAttribute('data-state', 'error');
+        return;
+      }
+      if (!form.consent.checked) {
+        statusEl.textContent = 'Нужно согласие на обработку персональных данных — отметьте галочку.';
+        statusEl.setAttribute('data-state', 'error');
+        return;
+      }
+
+      const payload = {
+        name, phone,
+        comment: form.comment.value.trim(),
+        calcSummary: form.calcSummary.value,
+        utm: form.utm.value,
+        website
+      };
+
+      const submitBtn = form.querySelector('button[type="submit"]');
+      submitBtn.disabled = true;
+      statusEl.textContent = 'Отправляем…';
+
+      try {
+        const res = await fetch(LEAD_ENDPOINT, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+        if (!res.ok) throw new Error('bad_status_' + res.status);
+
+        statusEl.textContent = 'Заявка отправлена, свяжемся в ближайшее время!';
+        statusEl.setAttribute('data-state', 'ok');
+        form.reset();
+        if (window.ym) { try { ym(12345678, 'reachGoal', 'lead_submit'); } catch (_) {} }
+      } catch (err) {
+        statusEl.textContent = `Не получилось отправить. Позвоните нам: ${FALLBACK_PHONE_DISPLAY}`;
+        statusEl.setAttribute('data-state', 'error');
+      } finally {
+        submitBtn.disabled = false;
+      }
+    });
+  }
+
+  // ---------- Cookie-баннер (152-ФЗ): Метрика стартует только после согласия ----------
+  function initCookieConsent() {
+    const KEY = 'cookie_consent_v1';
+    const banner = document.getElementById('cookie-banner');
+    const acceptBtn = document.getElementById('cookie-accept');
+    if (!banner || !acceptBtn) return;
+
+    function startAnalytics() {
+      if (typeof window.__initYandexMetrika === 'function') {
+        try { window.__initYandexMetrika(); } catch (_) {}
+      }
+    }
+
+    let alreadyAccepted = false;
+    try { alreadyAccepted = localStorage.getItem(KEY) === '1'; } catch (_) {}
+
+    if (alreadyAccepted) {
+      startAnalytics();
+    } else {
+      banner.hidden = false;
+    }
+
+    acceptBtn.addEventListener('click', () => {
+      try { localStorage.setItem(KEY, '1'); } catch (_) {}
+      banner.hidden = true;
+      startAnalytics();
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    renderCatalog();
+    initQuiz();
+    initForm();
+    initAnimations();
+    initCookieConsent();
+  });
+})();
+
+</script>
+
+<!-- Cookie-баннер (152-ФЗ / рекомендации РКН): аналитика (Метрика) включается
+     только после явного согласия. Текст и ссылка на политику — ниже.
+     Логика — initCookieConsent() в script.js. -->
+<div class="cookie-banner" id="cookie-banner" role="dialog" aria-live="polite" hidden>
+  <p>Сайт использует cookie для аналитики и работы форм. Продолжая пользоваться сайтом, вы соглашаетесь с
+     <a href="privacy.html" target="_blank" rel="noopener">политикой обработки персональных данных</a>.</p>
+  <button type="button" id="cookie-accept" class="btn btn-primary">Принять</button>
+</div>
+</body>
+</html>
