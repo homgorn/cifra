@@ -46,6 +46,21 @@ try {
   fail(`не удалось прочитать/распарсить ${configPath}: ${e.message}`);
 }
 
+// ---------- обязательные поля ----------
+// render-wp.js обязан валидировать конфиг так же строго, как render.js. Раньше
+// проверки не было, и при неполном конфиге он молча собирал полстраницы:
+// пропавший contact.email уносил и mailto, и текст в подвале, и это выглядело
+// как успешная сборка. Явная ошибка лучше молчаливого дырявого результата.
+const REQUIRED_PATHS = [
+  'business.name', 'site.domain', 'meta.title', 'meta.description',
+  'contact.phoneDisplay', 'contact.phoneTel', 'contact.email', 'contact.address'
+];
+function getPath(obj, p) {
+  return p.split('.').reduce((acc, key) => (acc && acc[key] !== undefined ? acc[key] : undefined), obj);
+}
+const missing = REQUIRED_PATHS.filter((p) => getPath(config, p) === undefined);
+if (missing.length) fail(`в конфиге не хватает обязательных полей: ${missing.join(', ')}`);
+
 function esc(str) {
   return String(str ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 }
@@ -54,9 +69,10 @@ function escAttr(str) {
 }
 
 // ---------- базовые core-блоки ----------
-function heading(text, level) {
+function heading(text, level, idAttr) {
   const tag = `h${level}`;
-  return `<!-- wp:heading {"level":${level}} -->\n<${tag} class="wp-block-heading">${esc(text)}</${tag}>\n<!-- /wp:heading -->`;
+  const id = idAttr ? ` id="${escAttr(idAttr)}"` : '';
+  return `<!-- wp:heading {"level":${level}} -->\n<${tag}${id} class="wp-block-heading">${esc(text)}</${tag}>\n<!-- /wp:heading -->`;
 }
 function paragraph(text) {
   return `<!-- wp:paragraph -->\n<p>${esc(text)}</p>\n<!-- /wp:paragraph -->`;
@@ -88,6 +104,18 @@ function rawHtml(html) {
 }
 
 // ---------- секции из config, те же данные что в render.js ----------
+// Переключатель цен — тот же, что в render.js: цены показываются только при
+// явном catalog.showPrices === true. Значения по умолчанию в config.example*
+// демонстрационные, а на опубликованной странице цена выглядит как оферта.
+const SHOW_PRICES = config.catalog?.showPrices === true;
+
+function stripPrices(groups) {
+  return (groups || []).map((g) => ({
+    ...g,
+    items: (g.items || []).map(({ priceFrom, ...rest }) => rest)
+  }));
+}
+
 const blocks = [];
 
 // 1. Hero
@@ -117,7 +145,9 @@ if (config.methods?.length) {
 
 // 4. Каталог — по группам, товары колонками (картинка+название+специфика+метод/цена)
 if (config.catalog?.groups?.length) {
-  blocks.push(heading('Каталог', 2));
+  // id="catalog" обязателен: кнопка в hero блоке 1 указывает на #catalog, и без
+  // якоря она просто ничего не делает.
+  blocks.push(heading('Каталог', 2, 'catalog'));
   config.catalog.groups.forEach((g) => {
     blocks.push(heading(g.title, 3));
     if (g.intro) blocks.push(paragraph(g.intro));
@@ -147,9 +177,10 @@ function buildQuizHtmlBlock(cfg) {
   const scriptTpl = fs.readFileSync(path.join(__dirname, 'templates', 'script.template.js'), 'utf8')
     .split('{{PHONE_DISPLAY}}').join(cfg.contact.phoneDisplay)
     .split('{{EMAIL}}').join(cfg.contact.email)
-    .split('{{SITE_DOMAIN}}').join(cfg.site.domain);
+    .split('{{SITE_DOMAIN}}').join(cfg.site.domain)
+    .split('{{YMETRIKA_ID}}').join(cfg.analytics?.yandexMetrikaId || '0');
   const catalogJs = `window.Catalog = ${JSON.stringify({
-    CATALOG_GROUPS: cfg.catalog?.groups || [],
+    CATALOG_GROUPS: (SHOW_PRICES ? cfg.catalog?.groups || [] : stripPrices(cfg.catalog?.groups || [])),
     QUIZ_COMMON_FIELDS: cfg.catalog?.quizCommonFields || { layoutOptions: [], deadlineOptions: [] }
   })};`;
   const cssTpl = fs.readFileSync(path.join(__dirname, 'templates', 'styles.template.css'), 'utf8');
@@ -219,4 +250,23 @@ const contentHtml = blocks.join('\n\n');
 fs.writeFileSync(path.join(outDir, 'content.html'), contentHtml);
 
 console.log(`OK: собрано в ${outDir}/content.html (Gutenberg-блоки, ${blocks.length} верхнеуровневых блоков)`);
+
+// ---------- что этот рендер НЕ переносит ----------
+// Секции ниже есть в index.template.html, но не воспроизводятся здесь. Раньше
+// они терялись молча, и собранная страница выглядела готовой. Список выводится
+// при каждой сборке, чтобы потеря была видна на этапе сборки, а не на проде.
+const DROPPED = [
+  ['heroStats (цифры в hero)', !!config.heroStats?.length],
+  ['contactChannels (мессенджеры)', !!config.contactChannels?.length],
+  ['cookie-баннер и согласие на Метрику', true],
+  ['аналитика, счётчик Метрика', !!config.analytics?.yandexMetrikaId],
+  ['JSON-LD LocalBusiness и FAQPage', true],
+  ['privacy.html, страница согласия по ПДн', true],
+  ['форма заявки блока 9, lead-form', true]
+];
+const actuallyDropped = DROPPED.filter(([, present]) => present).map(([name]) => name);
+if (actuallyDropped.length) {
+  console.warn(`WARN: WordPress-версия НЕ содержит: ${actuallyDropped.join('; ')}.`);
+  console.warn('      Для лендинга с юридическим слоем (согласие, cookie-баннер, реквизиты, разметка) используйте render.js, а не этот файл.');
+}
 console.log('Перед импортом десятков лендингов — протестируйте ОДИН вручную (создать черновик страницы → вкладка Код редактора → вставить содержимое content.html → переключиться на визуальный редактор): так увидите, как именно Astra/Spectra отрисуют core-блоки на вашей установке, прежде чем гнать пакетный импорт.');

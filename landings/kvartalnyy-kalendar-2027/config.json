@@ -1,0 +1,341 @@
+{
+  "landing": {
+    "slug": "kvartalnyy-kalendar-2027",
+    "title": "Квартальный календарь 2027"
+  },
+  "business": {
+    "name": "Типография Цифра",
+    "legalEntity_TODO": "подставить реквизиты ИП письменно от заказчика"
+  },
+  "site": {
+    "domain": "xn--18-6kc5a3bxam.xn--p1ai"
+  },
+  "meta": {
+    "title": "Квартальный календарь 2027 с рекламными полями, Типография «Цифра», Ижевск",
+    "description": "Квартальные календари на 2027 год: Стандарт с одним рекламным полем, Бизнес с тремя, Бизнес+ с тремя широкими, МИНИ 3в1 и PREMIUM. Тираж от 20 до 1000 шт. Расчёт по вашему макету."
+  },
+  "contact": {
+    "phoneDisplay": "+7 (3412) 32-32-41",
+    "phoneTel": "+73412323241",
+    "phone2Display": "+7 (965) 842-32-41",
+    "phone2Tel": "+79658423241",
+    "email": "izhcifra@yandex.ru",
+    "address": "426069, Удмуртская Респ., г. Ижевск, ул. 7-я Подлесная, д. 34",
+    "mapEmbedUrl": "https://yandex.ru/maps/44/izhevsk/?from=mapframe&ll=53.189062%2C56.869771&mode=usermaps&source=mapframe&um=constructor%3Ad147fe90814645d06a362eb5beed3a1b4af8094cf1216f1b1e942eaf1acf2e6c&utm_source=mapframe&z=14",
+    "mapLat": "56.869771",
+    "mapLon": "53.189062"
+  },
+  "analytics": {
+    "yandexMetrikaId": "50863157"
+  },
+  "hero": {
+    "eyebrow": "типография «Цифра», Ижевск · календарь на 2027 год",
+    "h1": "Квартальный календарь<br>на 2027 год с рекламными полями",
+    "lead": "Выбираете исполнение и тираж, отмечаете пожелания, получаете расчёт. Без фиксированной цены «вот столько»: сумма считается под ваш макет и тираж.",
+    "photo": "assets/web/kvartalnyy-kalendar-premium-1-rekl-pole-svetodiodnyy__kvartalnyy_kalendar_premium_1_rekl_pole_svetodiodnyy_tipografia_cifra18_izhevsk.jpg",
+    "photoAlt": "КВАРТАЛЬНЫЙ КАЛЕНДАРЬ \"PREMIUM\" 1 рекл. поле светодиодный"
+  },
+  "heroStats": [
+    {
+      "value": "9",
+      "label": "вариантов исполнения"
+    },
+    {
+      "value": "7",
+      "label": "тиражей от 20 до 1000 шт"
+    },
+    {
+      "value": "3",
+      "label": "рекламных поля в модели «Бизнес»"
+    }
+  ],
+  "usp": [
+    {
+      "title": "9 исполнений",
+      "text": "Стандарт с одним рекламным полем, Бизнес с тремя, Бизнес+ с тремя широкими, МИНИ 3в1 и PREMIUM с неоном, фигурной резкой и прозрачным пластиком."
+    },
+    {
+      "title": "Тираж от 20 шт",
+      "text": "В калькуляторе на сайте это семь шагов: 20, 50, 100, 200, 300, 500 и 1000 шт. Цена за штуку считается от тиража, а не наоборот."
+    },
+    {
+      "title": "Расчёт, а не прайс",
+      "text": "Точная сумма зависит от макета, исполнения и тиража. Заполните квиз или оставьте заявку, посчитаем под вашу задачу."
+    }
+  ],
+  "methods": [
+    "Цифровая печать",
+    "Офсетная печать",
+    "Ризография"
+  ],
+  "process": [
+    {
+      "title": "Выбор",
+      "text": "Отмечаете исполнение и тираж в квизе."
+    },
+    {
+      "title": "Заявка",
+      "text": "Оставляете имя и телефон, по желанию пожелания к макету."
+    },
+    {
+      "title": "Расчёт",
+      "text": "Считаем стоимость под ваш макет и тираж, присылаем на почту."
+    },
+    {
+      "title": "Согласование",
+      "text": "Подтверждаете состав заказа и макет до запуска в работу."
+    }
+  ],
+  "trustBadges": [
+    {
+      "value": "9",
+      "label": "вариантов квартальных календарей"
+    },
+    {
+      "value": "7",
+      "label": "ступеней тиража"
+    },
+    {
+      "value": "1",
+      "label": "рекламное поле в модели «Стандарт»"
+    },
+    {
+      "value": "3",
+      "label": "широких поля в модели «Бизнес+»"
+    }
+  ],
+  "faq": [
+    {
+      "q": "Почему на странице нет цен?",
+      "a": "Стоимость календаря зависит от макета, исполнения и тиража, поэтому фиксированной цены нет. Расчёт присылаем после заявки, с расчётом по конкретному тиражу."
+    },
+    {
+      "q": "Чем отличаются модели?",
+      "a": "«Стандарт» это одно рекламное поле, «Бизнес» это три поля, «Бизнес+» это три широких рекламных поля, «МИНИ 3в1» это компактный формат. «PREMIUM» бывает со светодиодным полем, неоном, фигурной резкой или прозрачным пластиком на 1 либо 3 поля."
+    },
+    {
+      "q": "Какие тиражи доступны?",
+      "a": "В калькуляторе на сайте 20, 50, 100, 200, 300, 500, 1000 шт. Для части моделей лестница короче, точный набор тиражей подберём под выбранное исполнение."
+    },
+    {
+      "q": "Нужен ли готовый макет?",
+      "a": "Подойдёт и готовый макет, и его отсутствие: отметьте это в квизе, и мы уточним требования к файлам до запуска в работу."
+    },
+    {
+      "q": "Вы печатаете календари сами?",
+      "a": "Мы типография, календари печатаем на своём оборудовании в Ижевске. Подробности и год основания уточним по запросу: https://xn--18-6kc5a3bxam.xn--p1ai/catalog/"
+    },
+    {
+      "q": "Когда будет готово?",
+      "a": "Срок зависит от тиража и исполнения, поэтому называем его после того, как посчитали объём работы. В квизе есть отдельный пункт «нужно срочно»."
+    }
+  ],
+  "contactChannels": [
+    {
+      "label": "WhatsApp",
+      "url": "https://wa.me/79658423241"
+    },
+    {
+      "label": "VK",
+      "url": "https://vk.com/cifraprint18"
+    },
+    {
+      "label": "MAX",
+      "url": "https://max.ru/id182501416864_bot"
+    }
+  ],
+  "catalog": {
+    "showPrices": false,
+    "groups": [
+      {
+        "id": "quarterly-2027",
+        "title": "Квартальные календари на 2027 год",
+        "intro": "Модели из раздела «Календари» на сайте цифра18.рф, 9 вариантов исполнения. Тираж и цена за штуку считаются в калькуляторе.",
+        "items": [
+          {
+            "id": "kvartalnyy-kalendar-premium-1-rekl-pole-svetodiodnyy",
+            "name": "КВАРТАЛЬНЫЙ КАЛЕНДАРЬ \"PREMIUM\" 1 рекл. поле светодиодный",
+            "img": "assets/web/kvartalnyy-kalendar-premium-1-rekl-pole-svetodiodnyy__kvartalnyy_kalendar_premium_1_rekl_pole_svetodiodnyy_tipografia_cifra18_izhevsk.jpg",
+            "method": "Печать обложки и блока рекламных полей",
+            "specs": "КВАРТАЛЬНЫЙ КАЛЕНДАРЬ \"PREMIUM\" 1 рекл. поле светодиодный · тиражи от 20 до 1000 шт",
+            "priceFrom": "от 210 ₽/шт.",
+            "priceSource": "https://xn--18-6kc5a3bxam.xn--p1ai/catalog/poligrafiya/kalendari/kvartalnyy-kalendar-premium-1-rekl-pole-svetodiodnyy/"
+          },
+          {
+            "id": "kvartalnyy-kalendar-premium-prozrachnyy-plastik-s-1-rekl-polem",
+            "name": "КВАРТАЛЬНЫЙ КАЛЕНДАРЬ \"PREMIUM\",прозрачный пластик с 1 рекл. полем",
+            "img": "assets/web/kvartalnyy-kalendar-premium-prozrachnyy-plastik-s-1-rekl-polem__kvartalnyy_kalendar_premium_prozrachnyy_plastik_tipografia_cifra18_izhevsk.jpg",
+            "method": "Печать обложки и блока рекламных полей",
+            "specs": "КВАРТАЛЬНЫЙ КАЛЕНДАРЬ \"PREMIUM\",прозрачный пластик с 1 рекл. полем · тиражи от 20 до 200 шт",
+            "priceFrom": "от 460 ₽/шт.",
+            "priceSource": "https://xn--18-6kc5a3bxam.xn--p1ai/catalog/poligrafiya/kalendari/kvartalnyy-kalendar-premium-prozrachnyy-plastik-s-1-rekl-polem/"
+          },
+          {
+            "id": "kvartalnyy-kalendar-premium-prozrachnyy-plastik-s-3-rekl-polyami",
+            "name": "КВАРТАЛЬНЫЙ КАЛЕНДАРЬ \"PREMIUM\",прозрачный пластик с 3 рекл. полями",
+            "img": "assets/web/kvartalnyy-kalendar-premium-prozrachnyy-plastik-s-3-rekl-polyami__kvartalnyy_kalendar_premium_prozrachnyy_plastik_tipografia_cifra18_izhevsk.jpg",
+            "method": "Печать обложки и блока рекламных полей",
+            "specs": "КВАРТАЛЬНЫЙ КАЛЕНДАРЬ \"PREMIUM\",прозрачный пластик с 3 рекл. полями · тиражи от 20 до 200 шт",
+            "priceFrom": "от 731 ₽/шт.",
+            "priceSource": "https://xn--18-6kc5a3bxam.xn--p1ai/catalog/poligrafiya/kalendari/kvartalnyy-kalendar-premium-prozrachnyy-plastik-s-3-rekl-polyami/"
+          },
+          {
+            "id": "kvartalnyy-kalendar-2027-god-biznes-3-shirokikh-reklamnykh-polya",
+            "name": "КВАРТАЛЬНЫЙ КАЛЕНДАРЬ 2027 год \"БИЗНЕС+\" 3 широких рекламных поля",
+            "img": "assets/web/kvartalnyy-kalendar-2027-god-biznes-3-shirokikh-reklamnykh-polya__kvartalnyy_kalendar_2027_god_biznes_3_shirokikh_reklamnykh_polya_tipografia_cifra18_izhevsk.jpg",
+            "method": "Печать обложки и блока рекламных полей",
+            "specs": "КВАРТАЛЬНЫЙ КАЛЕНДАРЬ 2027 год \"БИЗНЕС+\" 3 широких рекламных поля · тиражи от 20 до 1000 шт",
+            "priceFrom": "от 210 ₽/шт.",
+            "priceSource": "https://xn--18-6kc5a3bxam.xn--p1ai/catalog/poligrafiya/kalendari/kvartalnyy-kalendar-2027-god-biznes-3-shirokikh-reklamnykh-polya/"
+          },
+          {
+            "id": "kvartalnyy-kalendar-premium-1-rekl-pole-neon",
+            "name": "КВАРТАЛЬНЫЙ КАЛЕНДАРЬ «PREMIUM» 1 рекл. поле НЕОН",
+            "img": "assets/web/kvartalnyy-kalendar-premium-1-rekl-pole-neon__kvartalnyy_kalendar_premium_1_rekl_pole_neon_tipografia_cifra18_izhevsk.jpg",
+            "method": "Печать обложки и блока рекламных полей",
+            "specs": "КВАРТАЛЬНЫЙ КАЛЕНДАРЬ «PREMIUM» 1 рекл. поле НЕОН · тиражи от 20 до 1000 шт",
+            "priceFrom": "от 210 ₽/шт.",
+            "priceSource": "https://xn--18-6kc5a3bxam.xn--p1ai/catalog/poligrafiya/kalendari/kvartalnyy-kalendar-premium-1-rekl-pole-neon/"
+          },
+          {
+            "id": "kvartalnyy-kalendar-premium-1-rekl-pole-s-figurnoy-rezkoy",
+            "name": "КВАРТАЛЬНЫЙ КАЛЕНДАРЬ «PREMIUM» 1 рекл. поле с фигурной резкой",
+            "img": "assets/web/kvartalnyy-kalendar-premium-1-rekl-pole-s-figurnoy-rezkoy__vyrubka.jpg",
+            "method": "Печать обложки и блока рекламных полей",
+            "specs": "КВАРТАЛЬНЫЙ КАЛЕНДАРЬ «PREMIUM» 1 рекл. поле с фигурной резкой · тиражи от 20 до 1000 шт",
+            "priceFrom": "от 210 ₽/шт.",
+            "priceSource": "https://xn--18-6kc5a3bxam.xn--p1ai/catalog/poligrafiya/kalendari/kvartalnyy-kalendar-premium-1-rekl-pole-s-figurnoy-rezkoy/"
+          },
+          {
+            "id": "kvartalnye-3v1",
+            "name": "КВАРТАЛЬНЫЙ КАЛЕНДАРЬ «МИНИ 3в1»",
+            "img": "assets/web/kvartalnye-3v1__kvartalnye_3v1_tipografia_cifra18_izhevsk.jpg",
+            "method": "Печать обложки и блока рекламных полей",
+            "specs": "КВАРТАЛЬНЫЙ КАЛЕНДАРЬ «МИНИ 3в1» · тиражи от 20 до 1000 шт",
+            "priceFrom": "от 210 ₽/шт.",
+            "priceSource": "https://xn--18-6kc5a3bxam.xn--p1ai/catalog/poligrafiya/kalendari/kvartalnye-3v1/"
+          },
+          {
+            "id": "kvartalnyy-kalendar-2027-biznes-3-reklamnykh-polya",
+            "name": "Квартальный календарь 2027 «Бизнес» 3 рекламных поля",
+            "img": "assets/web/kvartalnyy-kalendar-2027-biznes-3-reklamnykh-polya__kvartalnyy_kalendar_2027_biznes_3_reklamnykh_polya_tipografia_cifra18_izhevsk.jpg",
+            "method": "Печать обложки и блока рекламных полей",
+            "specs": "Квартальный календарь 2027 «Бизнес» 3 рекламных поля · тиражи от 20 до 1000 шт",
+            "priceFrom": "от 210 ₽/шт.",
+            "priceSource": "https://xn--18-6kc5a3bxam.xn--p1ai/catalog/poligrafiya/kalendari/kvartalnyy-kalendar-2027-biznes-3-reklamnykh-polya-/"
+          },
+          {
+            "id": "kvartalnyy-kalendar-2027-standart-s-1-reklamnym-polem",
+            "name": "Квартальный календарь 2027 «Стандарт» с 1 рекламным полем",
+            "img": "assets/web/kvartalnyy-kalendar-2027-standart-s-1-reklamnym-polem__kvartalnyy_kalendar_2027_standart_s_1_reklamnym_polem_tipografia_cifra18_izhevsk.jpg",
+            "method": "Печать обложки и блока рекламных полей",
+            "specs": "Квартальный календарь 2027 «Стандарт» с 1 рекламным полем · тиражи от 20 до 1000 шт",
+            "priceFrom": "от 210 ₽/шт.",
+            "priceSource": "https://xn--18-6kc5a3bxam.xn--p1ai/catalog/poligrafiya/kalendari/kvartalnyy-kalendar-2027-standart-s-1-reklamnym-polem-/"
+          }
+        ]
+      },
+      {
+        "id": "other-formats",
+        "title": "Календари других форматов",
+        "intro": "Из того же раздела, если квартальный формат не подходит.",
+        "items": [
+          {
+            "id": "kalendar-domik-s-perekidnymi-listami",
+            "name": "Календарь «домик» с перекидными листами",
+            "img": "assets/web/kalendar-domik-s-perekidnymi-listami__kalendar_domik_s_perekidnymi_listami_tipografia_cifra18_izhevsk.jpg",
+            "method": "Печать обложки и блока рекламных полей",
+            "specs": "Календарь «домик» с перекидными листами · тиражи от 10 до 300 шт",
+            "priceFrom": "от 121 ₽/шт.",
+            "priceSource": "https://xn--18-6kc5a3bxam.xn--p1ai/catalog/poligrafiya/kalendari/kalendar-domik-s-perekidnymi-listami/"
+          },
+          {
+            "id": "kalendar-domik-samosbornyy",
+            "name": "Календарь «домик» самосборный",
+            "img": "assets/web/kalendar-domik-samosbornyy__kalendar_domik_samosbornyy_tipografia_cifra18_izhevsk.jpg",
+            "method": "Печать обложки и блока рекламных полей",
+            "specs": "Календарь «домик» самосборный · тиражи от 50 до 500 шт",
+            "priceFrom": "от 24 ₽/шт.",
+            "priceSource": "https://xn--18-6kc5a3bxam.xn--p1ai/catalog/poligrafiya/kalendari/kalendar-domik-samosbornyy/"
+          },
+          {
+            "id": "kalendar-karmannyy",
+            "name": "Календарь карманный",
+            "img": "assets/web/kalendar-karmannyy__kalendar_karmannyy_tipografia_cifra18_izhevsk1.jpg",
+            "method": "Печать обложки и блока рекламных полей",
+            "specs": "Календарь карманный · тиражи от 304 до 1000 шт",
+            "priceFrom": "от 14 ₽/шт.",
+            "priceSource": "https://xn--18-6kc5a3bxam.xn--p1ai/catalog/poligrafiya/kalendari/kalendar-karmannyy/"
+          },
+          {
+            "id": "nastennyy-kalendar-s-perekidnymi-listami",
+            "name": "Настенный календарь с перекидными листами",
+            "img": "assets/web/nastennyy-kalendar-s-perekidnymi-listami__nastennyy_kalendar_s_perekidnymi_listami_tipografia_cifra18_izhevsk.jpg",
+            "method": "Печать обложки и блока рекламных полей",
+            "specs": "Настенный календарь с перекидными листами"
+          }
+        ]
+      },
+      {
+        "id": "accessories",
+        "title": "Аксессуары",
+        "intro": "Дополнение к календарю.",
+        "items": [
+          {
+            "id": "korobka-dlya-kalendarya",
+            "name": "Коробка для календаря",
+            "img": "assets/web/korobka-dlya-kalendarya__korobka.jpg",
+            "method": "Печать обложки и блока рекламных полей",
+            "specs": "Коробка для календаря · тиражи от 1 до 100 шт",
+            "priceFrom": "от 120 ₽/шт.",
+            "priceSource": "https://xn--18-6kc5a3bxam.xn--p1ai/catalog/poligrafiya/kalendari/korobka-dlya-kalendarya/"
+          }
+        ]
+      }
+    ],
+    "quizCommonFields": {
+      "layoutOptions": [
+        {
+          "value": "ready",
+          "label": "Есть готовый макет"
+        },
+        {
+          "value": "need_design",
+          "label": "Макета нет, нужна разработка"
+        },
+        {
+          "value": "discuss",
+          "label": "Обсудить требования"
+        }
+      ],
+      "deadlineOptions": [
+        {
+          "value": "standard",
+          "label": "Стандартный срок"
+        },
+        {
+          "value": "urgent",
+          "label": "Нужно срочно"
+        }
+      ]
+    }
+  },
+  "backend": {
+    "mailTo": "izhcifra@yandex.ru"
+  },
+  "sources": {
+    "sliceDate": "2026-10-03",
+    "catalogFile": "landings/_scrape/out/catalog.json",
+    "rules": [
+      "Названия позиций, фотографии и цены взяты со страниц товаров раздела «Календари» сайта цифра18.рф, срез 2026-10-03.",
+      "Цены не публикуются: catalog.showPrices = false, письменного подтверждения заказчика нет.",
+      "Контакты, счётчик Метрика 50863157 и ссылки на мессенджеры взяты из футера и разметки сайта заказчика.",
+      "Реквизиты ИП не подставлены: требуют письменного подтверждения.",
+      "Цифры «18+ лет» и SLA «в течение 15 минут» не использованы: источника нет."
+    ],
+    "knownAnomalies": [
+      "«Календарь карманный»: в калькуляторе 512 шт по 14 ₽ и 1000 шт по 50 ₽, то есть цена за штуку растёт с тиражом. Возможно, ошибка данных на сайте. Цена не публикуется, вопрос заказчику.",
+      "Фотография «Календарь домик с перекидными листами» весит около 9 МБ. Перед публикацией нужно ужать, это полный вес оригинала с сайта."
+    ]
+  }
+}

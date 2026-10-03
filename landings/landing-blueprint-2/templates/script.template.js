@@ -12,8 +12,16 @@
   const SITE_DOMAIN = '{{SITE_DOMAIN}}';
 
   // ---------- Рендер каталога (блок 4, витрина) ----------
+  // Каждая функция инициализации проверяет свой корень и молча выходит, если его
+  // нет. Раньше проверял только initQuiz, а renderCatalog() начинал с
+  // getElementById('catalog-container') и падал на null ВЫШЕ по цепочке:
+  // TypeError обрывал весь обработчик DOMContentLoaded, и ни квиз, ни форма,
+  // ни cookie-баннер не навешивались. Набор блоков на странице меняется
+  // (рендер-wp.js собирает не все секции), поэтому корень отсутствует — это
+  // норма, а не ошибка сборки.
   function renderCatalog() {
     const container = document.getElementById('catalog-container');
+    if (!container) return;
     CATALOG_GROUPS.forEach((group) => {
       const groupEl = document.createElement('div');
       groupEl.className = 'catalog-group';
@@ -33,7 +41,7 @@
       const grid = document.createElement('div');
       grid.className = 'catalog-grid';
 
-      group.items.forEach((item) => {
+      (group.items || []).forEach((item) => {
         const card = document.createElement('article');
         card.className = 'item-card';
         card.innerHTML = `
@@ -56,7 +64,9 @@
 
   // ---------- Анимации (опционально, сайт рабочий и без них) ----------
   function initAnimations() {
-    if (!window.gsap) return;
+    // ScrollTrigger грузится отдельным CDN-скриптом: если gsap есть, а плагин
+    // ещё не загрузился, registerPlugin бросает и обрывает цепочку инициализации.
+    if (!window.gsap || !window.ScrollTrigger) return;
     gsap.registerPlugin(ScrollTrigger);
 
     const stampTarget = document.querySelector('[data-stamp]');
@@ -327,7 +337,10 @@
         quizStatus.textContent = 'Готово! Расчёт получен, менеджер свяжется с вами и продублирует его на почту.';
         quizStatus.setAttribute('data-state', 'ok');
         quizForm.reset();
-        if (window.ym) { try { ym(12345678, 'reachGoal', 'quiz_submit'); } catch (_) {} }
+        // Номер счётчика приходит из config.analytics.yandexMetrikaId — раньше он был
+        // зашит как 12345678, и цели уходили в чужой счётчик, даже если в HTML
+        // подставлялся правильный. Плейсхолдер обязателен: '0' означает «счётчик не задан».
+        if (window.ym) { try { ym({{YMETRIKA_ID}}, 'reachGoal', 'quiz_submit'); } catch (_) {} }
       } catch (err) {
         quizStatus.textContent = `Не получилось отправить. Позвоните нам: ${FALLBACK_PHONE_DISPLAY}`;
         quizStatus.setAttribute('data-state', 'error');
@@ -342,9 +355,10 @@
   // ---------- Простая форма заявки (блок 9, без квиза) ----------
   function initForm() {
     const form = document.getElementById('lead-form');
+    if (!form) return;
     const statusEl = document.getElementById('form-status');
     const utmField = document.getElementById('f-utm');
-    utmField.value = window.location.search || '';
+    if (utmField) utmField.value = window.location.search || '';
 
     function isPlausiblePhone(value) {
       const digits = value.replace(/\D/g, '');
@@ -401,7 +415,7 @@
         statusEl.textContent = 'Заявка отправлена, свяжемся в ближайшее время!';
         statusEl.setAttribute('data-state', 'ok');
         form.reset();
-        if (window.ym) { try { ym(12345678, 'reachGoal', 'lead_submit'); } catch (_) {} }
+        if (window.ym) { try { ym({{YMETRIKA_ID}}, 'reachGoal', 'lead_submit'); } catch (_) {} }
       } catch (err) {
         statusEl.textContent = `Не получилось отправить. Позвоните нам: ${FALLBACK_PHONE_DISPLAY}`;
         statusEl.setAttribute('data-state', 'error');

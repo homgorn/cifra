@@ -57,7 +57,15 @@ const missing = REQUIRED_PATHS.filter((p) => getPath(config, p) === undefined);
 if (missing.length) fail(`в конфиге не хватает обязательных полей: ${missing.join(', ')}`);
 
 function esc(str) {
-  return String(str ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+  // Кавычки экранируются обязательно: значения из конфига попадают не только
+  // в текст, но и в атрибуты (href, src, alt, title, value), и неэкранированная
+  // " ломает атрибут. В текстовом узле сущности отображаются как сами кавычки.
+  return String(str ?? '')
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
 }
 
 function readTemplate(...segments) {
@@ -133,8 +141,14 @@ function renderMapEmbed(contact) {
       ${directionsButton}`;
 }
 
+// ---------- реквизиты оператора ПДн в подвале ----------
+// Без реквизитов страница юридически неполна, и молча прятать это нельзя.
+// Но строка должна быть ЯВНЫМ ТОДО без знака em-dash: он запрещён в текстах
+// для клиента, а подвал виден каждому. Формулировка совпадает с проверкой
+// «TODO» в validate_landing.py, гейт 8, поэтому незаполненные реквизиты
+// ловятся автоматически, а не только при чтении.
 function renderLegalEntityLine(business) {
-  if (!business.legalEntity) return 'ИП/ООО не указано в конфиге — TODO';
+  if (!business.legalEntity) return 'Реквизиты не указаны в конфиге, TODO: запросить у заказчика';
   const { fullName, inn, ogrn } = business.legalEntity;
   const parts = [fullName, inn ? `ИНН ${inn}` : null, ogrn ? `ОГРН(ИП) ${ogrn}` : null].filter(Boolean);
   return esc(parts.join(', '));
@@ -260,20 +274,60 @@ if (!config.business.legalEntity) {
 fs.copyFileSync(path.join(__dirname, 'templates', 'styles.template.css'), path.join(outDir, 'styles.css'));
 
 // ---------- 3. script.js ----------
+// Подставляются ВСЕ бизнес-специфичные константы шаблона. Список здесь и в
+// script.template.js должен совпадать: константа, добавленная в шаблон без
+// подстановки здесь, попадёт в dist как есть, вместе с плейсхолдером.
+// Номер счётчика обязателен: '0' означает «счётчик не задан» и цели просто
+// не отправятся. Молча подставить заглушку 12345678 нельзя — цели уйдут
+// в чужой счётчик, и это выглядит как «аналитика работает».
+const YMETRIKA_ID = String(config.analytics?.yandexMetrikaId || '0');
+// Заглушки, которые встречаются в демо-конфигах. Подстановка теперь следует за
+// конфигом, и это правильно, но вместе с тем config.example.json несёт в себе
+// 12345678: рендер без ворнинга собрал бы страницу, отправляющую цели в
+// чужой счётчик. Промах по счётчику не виден ни в HTML, ни в консоли без
+// сверки, поэтому проверка явная.
+if (/^(0+|1+)$/.test(YMETRIKA_ID) || YMETRIKA_ID === '12345678') {
+  console.warn(`WARN: analytics.yandexMetrikaId = "${YMETRIKA_ID}" похож на заглушку. Цели reachGoal уйдут в этот счётчик. Укажите номер из .env (METRIKA_COUNTER_ID).`);
+}
 let script = readTemplate('script.template.js');
 script = script
   .split('{{PHONE_DISPLAY}}').join(config.contact.phoneDisplay)
   .split('{{EMAIL}}').join(config.contact.email)
-  .split('{{SITE_DOMAIN}}').join(config.site.domain);
+  .split('{{SITE_DOMAIN}}').join(config.site.domain)
+  .split('{{YMETRIKA_ID}}').join(YMETRIKA_ID);
 fs.writeFileSync(path.join(outDir, 'script.js'), script);
 
 // ---------- 4. catalog.js (генерация, не текстовый темплейтинг) ----------
+// Переключатель цен. По умолчанию цены ВЫКЛЮЧЕНЫ: showPrices должно быть
+// явно true, иначе цена не попадает ни в витрину, ни в карточку квиза.
+// Причина: цена в config.catalog может быть устаревшей или демонстрационной,
+// а на странице она выглядит как оферта. Механика и проверки — reference/.
+const SHOW_PRICES = config.catalog?.showPrices === true;
+if (!SHOW_PRICES && JSON.stringify(config.catalog?.groups || []).includes('"priceFrom"')) {
+  console.log('Цены: выключены (catalog.showPrices != true). Поле priceFrom вырезано из catalog.js.');
+}
+
+function stripPrices(groups) {
+  return (groups || []).map((g) => ({
+    ...g,
+    items: (g.items || []).map((it) => {
+      const { priceFrom, ...rest } = it;
+      return rest;
+    })
+  }));
+}
+
+function buildCatalogGroups() {
+  const groups = config.catalog?.groups || [];
+  return SHOW_PRICES ? groups : stripPrices(groups);
+}
+
 if (!config.catalog || !config.catalog.groups || !config.catalog.groups.length) {
   console.warn('WARN: config.catalog пуст — квиз-секция на странице будет нерабочей (пустые списки). '
     + 'Для бизнеса без переменного каталога см. SKILL.md раздел "Границы применимости" — замените блок 6 на прайс-блок вручную.');
 }
 const catalogJs = `/* Автосгенерировано render.js из config.catalog — правьте config.json и перезапустите рендер, а не этот файл. */
-const CATALOG_GROUPS = ${JSON.stringify(config.catalog?.groups || [], null, 2)};
+const CATALOG_GROUPS = ${JSON.stringify(buildCatalogGroups(), null, 2)};
 const QUIZ_COMMON_FIELDS = ${JSON.stringify(config.catalog?.quizCommonFields || { layoutOptions: [], deadlineOptions: [] }, null, 2)};
 
 if (typeof module !== 'undefined' && module.exports) {
@@ -285,11 +339,14 @@ if (typeof module !== 'undefined' && module.exports) {
 fs.writeFileSync(path.join(outDir, 'catalog.js'), catalogJs);
 
 // ---------- 5. backend ----------
+// Идентификатор лендинга подставляется в бэкенд, иначе все лиды с разных
+// лендингов неразличимы: у каждого одинаковые TITLE и SOURCE_DESCRIPTION.
 fs.mkdirSync(path.join(outDir, 'backend'), { recursive: true });
 let server = readTemplate('backend', 'server.template.js');
 server = server
   .split('{{DEFAULT_MAIL_TO}}').join(config.backend?.mailTo || config.contact.email)
-  .split('{{BUSINESS_NAME}}').join(config.business.name);
+  .split('{{BUSINESS_NAME}}').join(config.business.name)
+  .split('{{LANDING_TITLE}}').join(config.landing?.title || 'лендинг');
 fs.writeFileSync(path.join(outDir, 'backend', 'server.js'), server);
 fs.copyFileSync(path.join(__dirname, 'templates', 'backend', 'package.json'), path.join(outDir, 'backend', 'package.json'));
 

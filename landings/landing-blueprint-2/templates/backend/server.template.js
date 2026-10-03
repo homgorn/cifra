@@ -1,6 +1,8 @@
 /**
  * server.js — прокси между формами лендинга (простая заявка + квиз-расчёт)
- * и двумя каналами доставки лида: Bitrix24 (CRM) и почта (nodemailer).
+ * и тремя каналами доставки лида: Bitrix24 (CRM), почта (nodemailer) и
+ * универсальный вебхук. Ни один канал не является обязательным: см. описание
+ * Promise.allSettled ниже.
  *
  * ЗАЧЕМ ОТДЕЛЬНЫЙ БЭКЕНД, А НЕ ПРЯМОЙ ЗАПРОС ИЗ БРАУЗЕРА:
  *   1) Входящий webhook Bitrix24 — секрет уровня API-ключа. Вызов прямо из
@@ -9,12 +11,14 @@
  *   Прокси держит оба секрета на сервере и решает, какие поля вообще
  *   долетают до CRM/почты.
  *
- * ДВА КАНАЛА, ОБА — «ЛУЧШЕЕ УСИЛИЕ» (Promise.allSettled):
- *   Заказчик просил, чтобы расчёт из квиза уходил на почту — это сделано
- *   безусловно на обоих роутах. Bitrix оставлен как было раньше (нужен для
- *   учёта лидов в CRM). Если один канал недоступен — второй всё равно
- *   должен доставить заявку; лид не должен теряться из-за падения одного
- *   сервиса. Роут отвечает ok, если сработал хотя бы один канал.
+ * ТРИ КАНАЛА ДОСТАВКИ, ВСЕ — «ЛУЧШЕЕ УСИЛИЕ» (Promise.allSettled):
+ *   1) Bitrix24 через входящий вебхук, метод crm.lead.add (нужен для учёта
+ *      лидов в CRM),
+ *   2) почта nodemailer — расчёт из квиза должен уходить менеджеру всегда,
+ *   3) универсальный вебхук (Zapier/Make/любая CRM, принимающая JSON POST).
+ *   Если один канал недоступен — остальные всё равно должны доставить заявку;
+ *   лид не должен теряться из-за падения одного сервиса. Роут отвечает ok,
+ *   если сработал хотя бы один канал, и 502 если не сработал ни один.
  *
  * Запуск:
  *   BITRIX_WEBHOOK_URL="https://your.bitrix24.ru/rest/1/xxxxxxxx/" \
@@ -38,6 +42,11 @@ const nodemailer = require('nodemailer');
 
 const PORT = process.env.PORT || 3000;
 const BITRIX_WEBHOOK_URL = process.env.BITRIX_WEBHOOK_URL; // если не задан — канал в CRM просто пропускается
+// Идентификатор лендинга. Подставляется render.js из config.landing.title.
+// Без него все лиды с разных лендингов выглядят в CRM одинаково: заголовок
+// и SOURCE_DESCRIPTION не сказали бы, с какой страницы пришла заявка.
+// Слово «мерч» здесь больше не зашито: оно было верно только для одного оффера.
+const LANDING_TITLE = '{{LANDING_TITLE}}';
 // Универсальный webhook (Zapier/Make/любая другая CRM, принимающая JSON POST) —
 // третий канал, независимый от Bitrix24. Полезен, пока CRM не выбрана
 // окончательно: подключаете Zapier "Catch Hook" → внутри Zapier уже решаете,
@@ -81,18 +90,23 @@ app.use(cors({ origin: ALLOWED_ORIGIN, methods: ['POST'] }));
 app.use(express.json({ limit: '10kb' })); // лид маленький; ограничение — защита от переливания тела запроса
 
 // ---------- Простой rate limit по IP, без внешних зависимостей ----------
+// Счётчик ведётся по паре ip+route. Общий счётчик на оба роута означал, что
+// пять промахов валидации в простой форме блокировали отправку квиза: один
+// счётчик на процесс — это не «защита от спама», а способ отказать живому
+// посетителю после пяти опечаток в другой форме.
 // Для продакшена с несколькими инстансами замените на Redis-backed лимитер
 // (напр. rate-limiter-flexible) — этот вариант работает только в памяти одного процесса.
 const RATE_LIMIT_WINDOW_MS = 60_000;
 const RATE_LIMIT_MAX = 5;
 const hits = new Map();
 
-function isRateLimited(ip) {
+function isRateLimited(ip, routeName) {
+  const key = `${routeName}:${ip}`;
   const now = Date.now();
   const windowStart = now - RATE_LIMIT_WINDOW_MS;
-  const timestamps = (hits.get(ip) || []).filter((t) => t > windowStart);
+  const timestamps = (hits.get(key) || []).filter((t) => t > windowStart);
   timestamps.push(now);
-  hits.set(ip, timestamps);
+  hits.set(key, timestamps);
   return timestamps.length > RATE_LIMIT_MAX;
 }
 
@@ -191,7 +205,7 @@ async function sendLeadEmail({ subject, text, replyTo }) {
 // ---------- Роут 1: простая заявка (форма в блоке 9) ----------
 app.post('/api/lead', async (req, res) => {
   const ip = req.headers['x-forwarded-for']?.split(',')[0]?.trim() || req.ip;
-  if (isRateLimited(ip)) return res.status(429).json({ ok: false, error: 'rate_limited' });
+  if (isRateLimited(ip, 'lead')) return res.status(429).json({ ok: false, error: 'rate_limited' });
 
   const { errors, clean } = validateContact(req.body || {});
   if (clean.honeypot) return res.status(200).json({ ok: true }); // похоже на бота — «успех», ничего не создаём
@@ -202,15 +216,15 @@ app.post('/api/lead', async (req, res) => {
   const calcSummary = String(req.body.calcSummary || '').trim().slice(0, 500);
 
   const title = calcSummary
-    ? `Заявка с лендинга (мерч): ${calcSummary.slice(0, 80)}`
-    : 'Заявка с лендинга (мерч)';
+    ? `${LANDING_TITLE}: ${calcSummary.slice(0, 80)}`
+    : `Заявка: ${LANDING_TITLE}`;
   const commentsParts = [comment, calcSummary && `Расчёт: ${calcSummary}`, clean.utm && `UTM: ${clean.utm}`]
     .filter(Boolean).join('\n');
 
   const results = await Promise.allSettled([
     createBitrixLead({
       title, name: clean.name, phoneDigits: clean.phoneDigits, email: clean.email,
-      comments: commentsParts, sourceDescription: 'Лендинг {{BUSINESS_NAME}} — форма'
+      comments: commentsParts, sourceDescription: 'Лендинг {{BUSINESS_NAME}} — {{LANDING_TITLE}} — форма'
     }),
     sendLeadEmail({
       subject: title,
@@ -219,7 +233,7 @@ app.post('/api/lead', async (req, res) => {
     }),
     sendToGenericWebhook({
       title, name: clean.name, phoneDigits: clean.phoneDigits, email: clean.email,
-      comments: commentsParts, sourceDescription: 'Лендинг {{BUSINESS_NAME}} — форма', raw: req.body
+      comments: commentsParts, sourceDescription: 'Лендинг {{BUSINESS_NAME}} — {{LANDING_TITLE}} — форма', raw: req.body
     })
   ]);
 
@@ -233,7 +247,7 @@ app.post('/api/lead', async (req, res) => {
 // ---------- Роут 2: квиз-расчёт (блок 6) — приоритет почты по требованию заказчика ----------
 app.post('/api/quiz-lead', async (req, res) => {
   const ip = req.headers['x-forwarded-for']?.split(',')[0]?.trim() || req.ip;
-  if (isRateLimited(ip)) return res.status(429).json({ ok: false, error: 'rate_limited' });
+  if (isRateLimited(ip, 'quiz')) return res.status(429).json({ ok: false, error: 'rate_limited' });
 
   const { errors, clean } = validateContact(req.body || {});
   if (clean.honeypot) return res.status(200).json({ ok: true });
@@ -255,7 +269,7 @@ app.post('/api/quiz-lead', async (req, res) => {
     quiz.notes && `Пожелания: ${String(quiz.notes).slice(0, 500)}`
   ].filter(Boolean).join('\n');
 
-  const title = `Квиз-расчёт мерча: ${String(quiz.item || 'товар не указан').slice(0, 80)}`;
+  const title = `Расчёт: ${LANDING_TITLE}, ${String(quiz.item || 'товар не указан').slice(0, 80)}`;
   const bodyText =
     `Имя: ${clean.name}\nТелефон: +${clean.phoneDigits}\n${clean.email ? 'Email: ' + clean.email + '\n' : ''}\n` +
     `${quizLines || summary}\n${clean.utm ? '\nUTM: ' + clean.utm : ''}`;
@@ -264,11 +278,11 @@ app.post('/api/quiz-lead', async (req, res) => {
     sendLeadEmail({ subject: title, text: bodyText, replyTo: clean.email }),
     createBitrixLead({
       title, name: clean.name, phoneDigits: clean.phoneDigits, email: clean.email,
-      comments: bodyText, sourceDescription: 'Лендинг {{BUSINESS_NAME}} — квиз'
+      comments: bodyText, sourceDescription: 'Лендинг {{BUSINESS_NAME}} — {{LANDING_TITLE}} — квиз'
     }),
     sendToGenericWebhook({
       title, name: clean.name, phoneDigits: clean.phoneDigits, email: clean.email,
-      comments: bodyText, sourceDescription: 'Лендинг {{BUSINESS_NAME}} — квиз', raw: req.body
+      comments: bodyText, sourceDescription: 'Лендинг {{BUSINESS_NAME}} — {{LANDING_TITLE}} — квиз', raw: req.body
     })
   ]);
 
