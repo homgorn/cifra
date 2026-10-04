@@ -20,17 +20,11 @@ const CATALOG_GROUPS = [
         "name": "КВАРТАЛЬНЫЙ КАЛЕНДАРЬ \"PREMIUM\",прозрачный пластик с 1 рекл. полем",
         "img": "assets/web/kvartalnyy-kalendar-premium-prozrachnyy-plastik-s-1-rekl-polem__kvartalnyy_kalendar_premium_prozrachnyy_plastik_tipografia_cifra18_izhevsk.jpg",
         "method": "Печать обложки и блока рекламных полей",
-        "specs": "КВАРТАЛЬНЫЙ КАЛЕНДАРЬ \"PREMIUM\",прозрачный пластик с 1 рекл. полем · тиражи от 20 до 200 шт",
+        "specs": "КВАРТАЛЬНЫЙ КАЛЕНДАРЬ \"PREMIUM\",прозрачный пластик с 1 рекл. полем · тиражи от 20 до 200 шт. Варианты: КВАРТАЛЬНЫЙ КАЛЕНДАРЬ \"PREMIUM\",прозрачный пластик с 3 рекл. полями",
+        "variantsOf": [
+          "КВАРТАЛЬНЫЙ КАЛЕНДАРЬ \"PREMIUM\",прозрачный пластик с 3 рекл. полями"
+        ],
         "priceSource": "https://xn--18-6kc5a3bxam.xn--p1ai/catalog/poligrafiya/kalendari/kvartalnyy-kalendar-premium-prozrachnyy-plastik-s-1-rekl-polem/"
-      },
-      {
-        "id": "kvartalnyy-kalendar-premium-prozrachnyy-plastik-s-3-rekl-polyami",
-        "src": "https://xn--18-6kc5a3bxam.xn--p1ai/upload/iblock/b3a/gubzcyhai88feii1b5kmlf8690pid20k/kvartalnyy_kalendar_premium_prozrachnyy_plastik_tipografia_cifra18_izhevsk.png",
-        "name": "КВАРТАЛЬНЫЙ КАЛЕНДАРЬ \"PREMIUM\",прозрачный пластик с 3 рекл. полями",
-        "img": "assets/web/kvartalnyy-kalendar-premium-prozrachnyy-plastik-s-3-rekl-polyami__kvartalnyy_kalendar_premium_prozrachnyy_plastik_tipografia_cifra18_izhevsk.jpg",
-        "method": "Печать обложки и блока рекламных полей",
-        "specs": "КВАРТАЛЬНЫЙ КАЛЕНДАРЬ \"PREMIUM\",прозрачный пластик с 3 рекл. полями · тиражи от 20 до 200 шт",
-        "priceSource": "https://xn--18-6kc5a3bxam.xn--p1ai/catalog/poligrafiya/kalendari/kvartalnyy-kalendar-premium-prozrachnyy-plastik-s-3-rekl-polyami/"
       },
       {
         "id": "kvartalnyy-kalendar-2027-god-biznes-3-shirokikh-reklamnykh-polya",

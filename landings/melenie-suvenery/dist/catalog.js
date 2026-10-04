@@ -121,6 +121,38 @@ const CATALOG_GROUPS = [
         "img": "assets/web/kubik-transformer__42b0hrifo4u5cex2h814hd0fgbnel01p.jpg",
         "method": "Печать по носителю",
         "specs": "Тираж и размер по расчёту"
+      },
+      {
+        "id": "golovolomka-pyatnashki-geometricheskie",
+        "src": "https://xn--18-6kc5a3bxam.xn--p1ai/upload/iblock/424/se1g7buv08l31u0va0xy3d553pc86vkz/1600-_2_.jpg",
+        "name": "Головоломка «Пятнашки геометрические»",
+        "img": "assets/web/golovolomka-pyatnashki-geometricheskie__1600-_2_.jpg",
+        "method": "Печать по носителю",
+        "specs": "Тираж и размер по расчёту"
+      },
+      {
+        "id": "golovolomka-pyatnashki",
+        "src": "https://xn--18-6kc5a3bxam.xn--p1ai/upload/iblock/85e/q9enfgpxvlhr6d4u2vl0tayryjnn6p53/11019.40_6219_2000x2000.jpg",
+        "name": "Головоломка «Пятнашки»",
+        "img": "assets/web/golovolomka-pyatnashki__11019.40_6219_2000x2000.jpg",
+        "method": "Печать по носителю",
+        "specs": "Тираж и размер по расчёту"
+      },
+      {
+        "id": "domino-numero",
+        "src": "https://xn--18-6kc5a3bxam.xn--p1ai/upload/iblock/f25/zvtibmece34oarp1j91sqocfafzso8yb/20127.00_11_2000x2000.jpg",
+        "name": "Домино Numero",
+        "img": "assets/web/domino-numero__20127.00_11_2000x2000.jpg",
+        "method": "Печать по носителю",
+        "specs": "Тираж и размер по расчёту"
+      },
+      {
+        "id": "igra-derevyannaya-bashnya-mini",
+        "src": "https://xn--18-6kc5a3bxam.xn--p1ai/upload/iblock/04e/nrvpnj6bfilvr3m8e8d3p61p3bbkbb5u/5351.00_7-_1_.jpg",
+        "name": "Игра «Деревянная башня мини»",
+        "img": "assets/web/igra-derevyannaya-bashnya-mini__5351.00_7-_1_.jpg",
+        "method": "Печать по носителю",
+        "specs": "Тираж и размер по расчёту"
       }
     ]
   },

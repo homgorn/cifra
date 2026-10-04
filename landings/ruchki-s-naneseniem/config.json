@@ -1,0 +1,378 @@
+{
+  "landing": {
+    "slug": "ruchki-s-naneseniem",
+    "title": "Ручки с нанесением"
+  },
+  "business": {
+    "name": "Типография Цифра",
+    "legalEntity": {
+      "fullName": "ИП Данилов Константин Леонидович",
+      "inn": "182501416864",
+      "ogrn": "307183731200018",
+      "policyDate": "2026-10-04",
+      "confirmedBy": "письменное подтверждение заказчика, 2026-10-04"
+    }
+  },
+  "site": {
+    "domain": "xn--18-6kc5a3bxam.xn--p1ai"
+  },
+  "meta": {
+    "title": "Ручки с нанесением: металлические софт-тач, шариковые, Ижевск, Типография «Цифра»",
+    "description": "Печать на ручках в Ижевске: металлические ручки с покрытием софт-тач, шариковые ручки, нанесение логотипа. Расчёт по тиражу. Доставка по всей России СДЭК."
+  },
+  "contact": {
+    "phoneDisplay": "+7 (3412) 32-32-41",
+    "phoneTel": "+73412323241",
+    "phone2Display": "+7 (965) 842-32-41",
+    "phone2Tel": "+79658423241",
+    "email": "izhcifra@yandex.ru",
+    "address": "426069, Удмуртская Респ., г. Ижевск, ул. 7-я Подлесная, д. 34",
+    "mapLat": "56.869771",
+    "mapLon": "53.189062",
+    "mapImage": "assets/web/map.png"
+  },
+  "analytics": {
+    "yandexMetrikaId": "50863157"
+  },
+  "hero": {
+    "eyebrow": "типография «Цифра», Ижевск · ручки",
+    "h1": "Ручки<br>с нанесением",
+    "lead": "Металлические ручки с покрытием софт-тач и шариковые ручки. Отмечаете модель и тираж, получаете расчёт под ваш макет.",
+    "photo": "assets/web/ruchka-metallicheskaya-dallas-touch__ruchka_metallicheskaya_dallas_touch_tipografia_cifra18_izhevsk.jpg",
+    "photoAlt": "Ручка металлическая Dallas Touch"
+  },
+  "heroStats": [
+    {
+      "value": "2",
+      "label": "группы товаров на странице"
+    },
+    {
+      "value": "16",
+      "label": "позиций в блоке на странице"
+    },
+    {
+      "value": "РФ",
+      "label": "доставка СДЭК"
+    }
+  ],
+  "usp": [
+    {
+      "title": "Два типа корпуса",
+      "text": "В каталоге металлические ручки, в том числе с покрытием софт-тач, и шариковые. Что лучше смотрится под логотип, скажем после заявки."
+    },
+    {
+      "title": "Двадцать три модели",
+      "text": "Dallas Touch, Legend, Palina, Sharm, софт-тач серии Title, шариковые Title и Senator. Полный список на сайте заказчика."
+    },
+    {
+      "title": "Нанесение под задачу",
+      "text": "Лазерная гравировка для металла, печать по пластику и УФ для пластиковых корпусов. Что подойдёт конкретной модели, уточним."
+    },
+    {
+      "title": "Расчёт по тиражу",
+      "text": "Стоимость зависит от модели, тиража и способа нанесения. Считаем под ваш заказ, присылаем на почту."
+    }
+  ],
+  "methods": [
+    "Лазерная гравировка",
+    "УФ-печать",
+    "Печать по металлу",
+    "Печать по пластику",
+    "Тиснение"
+  ],
+  "process": [
+    {
+      "title": "Выбор",
+      "text": "Отмечаете модель ручки и тираж в квизе."
+    },
+    {
+      "title": "Заявка",
+      "text": "Оставляете имя и телефон, по желанию пожелания к макету."
+    },
+    {
+      "title": "Расчёт",
+      "text": "Считаем стоимость под ваш макет и тираж, присылаем на почту."
+    },
+    {
+      "title": "Согласование",
+      "text": "Подтверждаете модель и макет до запуска в работу."
+    },
+    {
+      "title": "Доставка",
+      "text": "Готовый тираж отправляем в ваш город через СДЭК."
+    }
+  ],
+  "trustBadges": [
+    {
+      "value": "23",
+      "label": "позиции в подразделе «Печать на ручках»"
+    },
+    {
+      "value": "5",
+      "label": "способов нанесения"
+    },
+    {
+      "value": "РФ",
+      "label": "доставка через СДЭК"
+    },
+    {
+      "value": "1",
+      "label": "менеджер на заказ"
+    }
+  ],
+  "faq": [
+    {
+      "q": "Чем софт-тач отличается от обычного покрытия?",
+      "a": "Софт-тач это мягкое покрытие, по нему не скользит рука и на нём меньше видны отпечатки. Названия моделей с этим покрытием есть в каталоге, выберите нужную в квизе."
+    },
+    {
+      "q": "Что лучше наносить на металлическую ручку?",
+      "a": "Зависит от покрытия. Скажите, какая модель и что хотите нанести, и мы подскажем, какой способ подойдёт на конкретном покрытии."
+    },
+    {
+      "q": "Можно ли нанести на шариковую ручку?",
+      "a": "Да, шариковые ручки есть отдельными позициями каталога. Нанесение зависит от материала корпуса, уточним по модели."
+    },
+    {
+      "q": "Нужен ли готовый макет?",
+      "a": "Подойдёт и готовый макет, и его отсутствие. Отметьте в квизе, и мы уточним требования к файлам до запуска в работу."
+    },
+    {
+      "q": "Сколько стоит?",
+      "a": "Зависит от модели, тиража и способа нанесения. Фиксированной цены нет, расчёт присылаем после заявки под конкретный заказ."
+    },
+    {
+      "q": "Доставляете в другие города?",
+      "a": "Да, доставляем по всей России через СДЭК, включая Ижевск и область. Стоимость и срок зависят от города и тиража, посчитаем их вместе с заказом."
+    }
+  ],
+  "contactChannels": [
+    {
+      "label": "WhatsApp",
+      "url": "https://wa.me/79658423241"
+    },
+    {
+      "label": "VK",
+      "url": "https://vk.com/cifraprint18"
+    },
+    {
+      "label": "MAX",
+      "url": "https://max.ru/id182501416864_bot"
+    }
+  ],
+  "catalog": {
+    "showPrices": false,
+    "groups": [
+      {
+        "id": "metall",
+        "title": "Металлические ручки",
+        "intro": "",
+        "items": [
+          {
+            "id": "ruchka-metallicheskaya-dallas-touch",
+            "src": "https://xn--18-6kc5a3bxam.xn--p1ai/upload/iblock/3fc/v35s8mbg1byhjckze0gsivvjvmsx74s0/ruchka_metallicheskaya_dallas_touch_tipografia_cifra18_izhevsk.jpg",
+            "name": "Ручка металлическая Dallas Touch",
+            "img": "assets/web/ruchka-metallicheskaya-dallas-touch__ruchka_metallicheskaya_dallas_touch_tipografia_cifra18_izhevsk.jpg",
+            "method": "Гравировка и печать",
+            "specs": "Тираж и размер по расчёту"
+          },
+          {
+            "id": "ruchka-metallicheskaya-legend",
+            "src": "https://xn--18-6kc5a3bxam.xn--p1ai/upload/iblock/878/y14hvhp88ef69pd2lg78dr8b7pcbgl24/ruchka_metallicheskaya_s_pokrytiem_soft_tach_legend_tipografia_cifra18_izhevsk.jpg",
+            "name": "Ручка металлическая Legend",
+            "img": "assets/web/ruchka-metallicheskaya-legend__ruchka_metallicheskaya_s_pokrytiem_soft_tach_legend_tipografia_cifra18_izhevsk.jpg",
+            "method": "Гравировка и печать",
+            "specs": "Тираж и размер по расчёту"
+          },
+          {
+            "id": "ruchka-metallicheskaya-palina",
+            "src": "https://xn--18-6kc5a3bxam.xn--p1ai/upload/iblock/c53/t8os0yxjmzsit2fuatgco85a5fcott70/ruchka_metallicheskaya_palina_tipografia_cifra18_izhevsk.jpg",
+            "name": "Ручка металлическая Palina",
+            "img": "assets/web/ruchka-metallicheskaya-palina__ruchka_metallicheskaya_palina_tipografia_cifra18_izhevsk.jpg",
+            "method": "Гравировка и печать",
+            "specs": "Тираж и размер по расчёту"
+          },
+          {
+            "id": "ruchka-metallicheskaya-sharm",
+            "src": "https://xn--18-6kc5a3bxam.xn--p1ai/upload/iblock/6e1/qzbtd83a86ud5opyyw3fj2116kozfpcu/ruchka_metallicheskaya_sharm_tipografia_cifra18_izhevsk.jpg",
+            "name": "Ручка металлическая Sharm",
+            "img": "assets/web/ruchka-metallicheskaya-sharm__ruchka_metallicheskaya_sharm_tipografia_cifra18_izhevsk.jpg",
+            "method": "Гравировка и печать",
+            "specs": "Тираж и размер по расчёту"
+          },
+          {
+            "id": "ruchka-metallicheskaya-s-pokrytiem-soft-tach-story",
+            "src": "https://xn--18-6kc5a3bxam.xn--p1ai/upload/iblock/c78/8jfq6wedn0f11243af03gn5132xtsxqa/ruchka_metallicheskaya_s_pokrytiem_soft_tach_story_tipografia_cifra18_izhevsk.jpg",
+            "name": "Ручка металлическая с покрытием софт-тач Story",
+            "img": "assets/web/ruchka-metallicheskaya-s-pokrytiem-soft-tach-story__ruchka_metallicheskaya_s_pokrytiem_soft_tach_story_tipografia_cifra18_izhevsk.jpg",
+            "method": "Гравировка и печать",
+            "specs": "Тираж и размер по расчёту"
+          },
+          {
+            "id": "ruchka-metallicheskaya-s-pokrytiem-soft-tach-title-rebecca",
+            "src": "https://xn--18-6kc5a3bxam.xn--p1ai/upload/iblock/af4/odtmmq6bc7ll42biolq5vbqrlnd3m9an/Ruchka_metallicheskaya_Rebecca_soft_tach.gif",
+            "name": "Ручка металлическая с покрытием софт-тач Title Rebecca",
+            "img": "assets/web/ruchka-metallicheskaya-s-pokrytiem-soft-tach-title-rebecca__Ruchka_metallicheskaya_Rebecca_soft_tach.jpg",
+            "method": "Гравировка и печать",
+            "specs": "Тираж и размер по расчёту"
+          },
+          {
+            "id": "ruchka-metallicheskaya-s-pokrytiem-soft-tach-title-k-molly",
+            "src": "https://xn--18-6kc5a3bxam.xn--p1ai/upload/iblock/a7b/73zaba3s4al2tynsi5518ryilc36r92y/Sotft_tach_TITL_K.gif",
+            "name": "Ручка металлическая с покрытием софт-тач Title К Molly",
+            "img": "assets/web/ruchka-metallicheskaya-s-pokrytiem-soft-tach-title-k-molly__Sotft_tach_TITL_K.jpg",
+            "method": "Гравировка и печать",
+            "specs": "Тираж и размер по расчёту"
+          },
+          {
+            "id": "ruchka-metallicheskaya-s-pokrytiem-soft-tach-title-t-tinny",
+            "src": "https://xn--18-6kc5a3bxam.xn--p1ai/upload/iblock/3bc/4djiv034123nkqa1lsi76z9b8pk4wobg/Sotft_tach_TITL_P.gif",
+            "name": "Ручка металлическая с покрытием софт-тач Title Т Tinny",
+            "img": "assets/web/ruchka-metallicheskaya-s-pokrytiem-soft-tach-title-t-tinny__Sotft_tach_TITL_P.jpg",
+            "method": "Гравировка и печать",
+            "specs": "Тираж и размер по расчёту"
+          },
+          {
+            "id": "ruchka-metallicheskaya-s-pokrytiem-soft-tach-sanshayn",
+            "src": "https://xn--18-6kc5a3bxam.xn--p1ai/upload/iblock/448/c960en1zvz5wlx2s1x9u9fom8rwx6v7i/ruchka_metallicheskaya_s_pokrytiem_soft_tach_sanshayn_tipografia_cifra18_izhevsk.jpg",
+            "name": "Ручка металлическая с покрытием софт-тач Саншайн",
+            "img": "assets/web/ruchka-metallicheskaya-s-pokrytiem-soft-tach-sanshayn__ruchka_metallicheskaya_s_pokrytiem_soft_tach_sanshayn_tipografia_cifra18_izhevsk.jpg",
+            "method": "Гравировка и печать",
+            "specs": "Тираж и размер по расчёту"
+          }
+        ]
+      },
+      {
+        "id": "sharikovye",
+        "title": "Шариковые ручки",
+        "intro": "",
+        "items": [
+          {
+            "id": "ruchka-sharikovaya-title-e6562",
+            "src": "https://xn--18-6kc5a3bxam.xn--p1ai/upload/iblock/a3f/gdm3ca86alo11pkvjfwds0fzzfvtmhqy.jpg",
+            "name": "Ручка шариковая Senator Title К",
+            "img": "assets/web/ruchka-sharikovaya-title-e6562__gdm3ca86alo11pkvjfwds0fzzfvtmhqy.jpg",
+            "method": "Печать по корпусу",
+            "specs": "Тираж и размер по расчёту"
+          },
+          {
+            "id": "ruchka-sharikovaya-title-ts",
+            "src": "https://xn--18-6kc5a3bxam.xn--p1ai/upload/iblock/41e/vqelyvhix3grgw4dykw0s6mirf1wwx4l.jpg",
+            "name": "Ручка шариковая Senator Title Ц",
+            "img": "assets/web/ruchka-sharikovaya-title-ts__vqelyvhix3grgw4dykw0s6mirf1wwx4l.jpg",
+            "method": "Печать по корпусу",
+            "specs": "Тираж и размер по расчёту"
+          },
+          {
+            "id": "ruchka-sharikovaya-soft-touch-title-l",
+            "src": "https://xn--18-6kc5a3bxam.xn--p1ai/upload/iblock/143/6leqtcs6kmx33sncd5awcccsb3rssx8j/Sotft_tach_TITL_L.gif",
+            "name": "Ручка шариковая Soft touch Title Л",
+            "img": "assets/web/ruchka-sharikovaya-soft-touch-title-l__Sotft_tach_TITL_L.jpg",
+            "method": "Печать по корпусу",
+            "specs": "Тираж и размер по расчёту"
+          },
+          {
+            "id": "ruchka-sharikovaya-title-f",
+            "src": "https://xn--18-6kc5a3bxam.xn--p1ai/upload/iblock/27b/hisnmouo338vn2ga180rxnq7f3zbmpd0/soft_tach_120kh90.gif",
+            "name": "Ручка шариковая Soft touch Title Ф",
+            "img": "assets/web/ruchka-sharikovaya-title-f__soft_tach_120kh90.jpg",
+            "method": "Печать по корпусу",
+            "specs": "Тираж и размер по расчёту"
+          },
+          {
+            "id": "ruchka-sharikovaya-title-sh1",
+            "src": "https://xn--18-6kc5a3bxam.xn--p1ai/upload/iblock/6c6/uy3hhpi3e9lhsduc79tlr5cnds1ftrjp.jpg",
+            "name": "Ручка шариковая Soft touch Title Ш1",
+            "img": "assets/web/ruchka-sharikovaya-title-sh1__uy3hhpi3e9lhsduc79tlr5cnds1ftrjp.jpg",
+            "method": "Печать по корпусу",
+            "specs": "Тираж и размер по расчёту"
+          },
+          {
+            "id": "ruchka-sharikovaya-title-d",
+            "src": "https://xn--18-6kc5a3bxam.xn--p1ai/upload/iblock/4f8/g9qg50pv91a97gsx51f86rlsbg30hov5.jpg",
+            "name": "Ручка шариковая Title Д",
+            "img": "assets/web/ruchka-sharikovaya-title-d__g9qg50pv91a97gsx51f86rlsbg30hov5.jpg",
+            "method": "Печать по корпусу",
+            "specs": "Тираж и размер по расчёту"
+          },
+          {
+            "id": "ruchka-sharikovaya-title-e",
+            "src": "https://xn--18-6kc5a3bxam.xn--p1ai/upload/iblock/d6f/jpi4q5dn7kbvu2ij1ikvsug5i6p8tns2.jpg",
+            "name": "Ручка шариковая Title Е",
+            "img": "assets/web/ruchka-sharikovaya-title-e__jpi4q5dn7kbvu2ij1ikvsug5i6p8tns2.jpg",
+            "method": "Печать по корпусу",
+            "specs": "Тираж и размер по расчёту"
+          }
+        ]
+      }
+    ],
+    "quizCommonFields": {
+      "layoutOptions": [
+        {
+          "value": "ready",
+          "label": "Есть готовый макет"
+        },
+        {
+          "value": "need_design",
+          "label": "Макета нет, нужна разработка"
+        },
+        {
+          "value": "discuss",
+          "label": "Обсудить требования"
+        }
+      ],
+      "deadlineOptions": [
+        {
+          "value": "standard",
+          "label": "Стандартный срок"
+        },
+        {
+          "value": "urgent",
+          "label": "Нужно срочно"
+        }
+      ],
+      "deliveryOptions": [
+        {
+          "value": "izh",
+          "label": "Ижевск, заберу сам"
+        },
+        {
+          "value": "russia",
+          "label": "Другой город, доставка СДЭК"
+        }
+      ]
+    }
+  },
+  "backend": {
+    "mailTo": "izhcifra@yandex.ru"
+  },
+  "sources": {
+    "sliceDate": "2026-10-04",
+    "catalogFile": "landings/_scrape/out/catalog.json",
+    "demand": "Метрика 50863157, срез 2026-10-04: 93 визита по ключам «ручка», «перо», 79 строк запросов. Это вторая по спросу группа после сувенирки в целом и первая среди отдельных подразделов. На лендинге мерча показаны три ручки из двадцати трёх.",
+    "rules": [
+      "Позиции и фото взяты из подраздела «Печать на ручках» раздела «Сувенирная продукция» сайта цифра18.рф: 23 позиции, у всех уникальные фотографии.",
+      "Названия моделей приведены как в каталоге: Dallas Touch, Legend, Palina, Sharm, софт-тач серии Title, шариковые Title и Senator.",
+      "Покрытие софт-тач названо по позициям каталога, описание его свойств дано в FAQ и требует подтверждения менеджером.",
+      "Цены не публикуются: калькулятора тиражей на этом подразделе нет.",
+      "«Собственное производство» НЕ написано: поставщик мерча не выбран, см. landings/reports/08_SUPPLIERS_NOT_CHECKED.md.",
+      "Две группы делят один подраздел по корпусу: металлические ручки и шариковые. На сайте такого деления нет."
+    ],
+    "customerProvided": {
+      "map": {
+        "claim": "Координаты из ссылки на карту в футере сайта, 56.869771, 53.189062",
+        "verifiedOnSite": true
+      },
+      "delivery": {
+        "claim": "Доставка по всей России СДЭК",
+        "givenBy": "заказчик устно, 2026-10-04",
+        "verifiedOnSite": false,
+        "check": "На сайте цифра18.рф «СДЭК» не найдено ни разу. Подтвердить письменно вместе с тарифом и сроками."
+      }
+    },
+    "knownAnomalies": [
+      "Две группы берут позиции из одного подраздела: разделение на металлические и шариковые сделано по названиям, на сайте такого деления нет.",
+      "Названия моделей на сайте частично на английском, приведены без перевода: перевод означал бы подмену названия."
+    ]
+  }
+}

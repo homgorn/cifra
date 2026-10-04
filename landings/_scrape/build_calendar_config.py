@@ -112,7 +112,36 @@ def specs_from_name(name: str, tiers: list[dict]) -> str:
     return " · ".join(parts)
 
 
-def build_item(i: dict) -> dict:
+def build_group(items: list[dict]) -> list[dict]:
+    """Карточки группы без повторов по фотографии.
+
+    Вариант с тем же снимком не показывается второй карточкой: он уже
+    назван в подписи выжившей позиции. Иначе на странице стоят два
+    одинаковых снимка под двумя почти одинаковыми названиями, и человек
+    не понимает, это два товара или один.
+    """
+    cards: list[dict] = []
+    seen: set[str] = set()
+    for i in items:
+        photo = (i.get("photos") or [""])[0]
+        card = build_item(i, items)
+        if photo in seen:
+            continue
+        seen.add(photo)
+        cards.append(card)
+    return cards
+
+
+def build_item(i: dict, siblings: list[dict] | None = None) -> dict:
+    """Карточка позиции.
+
+    `siblings` нужны ради вариантов. На сайте «Квартальный календарь
+    PREMIUM, прозрачный пластик» с 1 рекламным полем и с 3 рекламными
+    полями это два товара с одной фотографией. Без обработки на странице
+    появлялись две карточки с одинаковым снимком, и человек видел два
+    «разных» календаря, которые на самом деле отличаются числом полей.
+    """
+
     tiers = i.get("priceTiers") or []
     item = {
         "id": slugify(i["url"]),
@@ -128,6 +157,17 @@ def build_item(i: dict) -> dict:
         "method": "Печать обложки и блока рекламных полей",
         "specs": specs_from_name(i["name"], tiers),
     }
+    if siblings and i.get("photos"):
+        same_photo = [" ".join(x["name"].split())
+                      for x in siblings
+                      if x is not i and x.get("photos")
+                      and x["photos"][0] == i["photos"][0]]
+        if same_photo:
+            own = " ".join(i["name"].split())
+            others = [n for n in same_photo if n != own]
+            if others:
+                item["specs"] += ". Варианты: " + ", ".join(others[:4])
+                item["variantsOf"] = others
     if i.get("price", {}).get("raw"):
         # Кладём настоящую цену с сайта. render.js вырежет её из catalog.js,
         # потому что showPrices = false. Если заказчик разрешит показывать
@@ -359,19 +399,19 @@ def main() -> int:
                         f"Модели из раздела «Календари» на сайте цифра18.рф, {len(quarterly)} "
                         "вариантов исполнения. Тираж и цена за штуку считаются в калькуляторе."
                     ),
-                    "items": [build_item(i) for i in quarterly],
+                    "items": build_group(quarterly),
                 },
                 {
                     "id": "other-formats",
                     "title": "Календари других форматов",
                     "intro": "Из того же раздела, если квартальный формат не подходит.",
-                    "items": [build_item(i) for i in other],
+                    "items": build_group(other),
                 },
                 {
                     "id": "accessories",
                     "title": "Аксессуары",
                     "intro": "Дополнение к календарю.",
-                    "items": [build_item(i) for i in accessory],
+                    "items": build_group(accessory),
                 },
             ],
             "quizCommonFields": {

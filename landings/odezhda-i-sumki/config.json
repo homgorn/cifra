@@ -1,0 +1,369 @@
+{
+  "landing": {
+    "slug": "odezhda-i-sumki",
+    "title": "Одежда и сумки с нанесением"
+  },
+  "business": {
+    "name": "Типография Цифра",
+    "legalEntity": {
+      "fullName": "ИП Данилов Константин Леонидович",
+      "inn": "182501416864",
+      "ogrn": "307183731200018",
+      "policyDate": "2026-10-04",
+      "confirmedBy": "письменное подтверждение заказчика, 2026-10-04"
+    }
+  },
+  "site": {
+    "domain": "xn--18-6kc5a3bxam.xn--p1ai"
+  },
+  "meta": {
+    "title": "Футболки, бейсболки, рюкзаки и шоперы с нанесением, Ижевск, Типография «Цифра»",
+    "description": "Брендирование одежды и сумок в Ижевске: футболки, бейсболки, кепки, рюкзаки, шоперы, сумки для обуви. DTF и сублимационная печать. Расчёт по тиражу. Доставка по всей России СДЭК."
+  },
+  "contact": {
+    "phoneDisplay": "+7 (3412) 32-32-41",
+    "phoneTel": "+73412323241",
+    "phone2Display": "+7 (965) 842-32-41",
+    "phone2Tel": "+79658423241",
+    "email": "izhcifra@yandex.ru",
+    "address": "426069, Удмуртская Респ., г. Ижевск, ул. 7-я Подлесная, д. 34",
+    "mapLat": "56.869771",
+    "mapLon": "53.189062",
+    "mapImage": "assets/web/map.png"
+  },
+  "analytics": {
+    "yandexMetrikaId": "50863157"
+  },
+  "hero": {
+    "eyebrow": "типография «Цифра», Ижевск · одежда и сумки",
+    "h1": "Одежда и сумки<br>с нанесением",
+    "lead": "Футболки, бейсболки и кепки, рюкзаки, шоперы и сумки для обуви. Отмечаете позицию и тираж, получаете расчёт под ваш макет.",
+    "photo": "assets/web/brendirovanie-beysbolki-kepki__brendirovanie_beysbolki_kepki_tipografia_cifra18_izhevsk.jpg",
+    "photoAlt": "Брендирование бейсболки, кепки"
+  },
+  "heroStats": [
+    {
+      "value": "4",
+      "label": "группы товаров на странице"
+    },
+    {
+      "value": "13",
+      "label": "позиций в блоке на странице"
+    },
+    {
+      "value": "РФ",
+      "label": "доставка СДЭК"
+    }
+  ],
+  "usp": [
+    {
+      "title": "Футболки четырёх видов",
+      "text": "СЭНДВИЧ REVOLUTION с имитацией хлопка, хлопок-билио, унисекс из полиэстера и унисекс чёрная или цветная. Разница в ткани и посадке, скажем что подходит под задачу."
+    },
+    {
+      "title": "DTF и сублимация",
+      "text": "Отдельные позиции каталога: DTF-печать, сублимационная печать, термопленка и термотрансфер. Что лучше на хлопке, а что на полиэстере, уточним."
+    },
+    {
+      "title": "Шоперы трёх цветов",
+      "text": "Белый, бежевый и чёрный плюс цветной. На тёмном шопере светлый логотип читается иначе, чем на светлом, учтём при расчёте."
+    },
+    {
+      "title": "Рюкзаки и сумки для обуви",
+      "text": "Рюкзаки BASIS, BEAVIS, Simplicity и сумки для обуви Tip и LUKMORY. Отдельными позициями каталога."
+    }
+  ],
+  "methods": [
+    "DTF-печать",
+    "Сублимационная печать",
+    "Термотрансфер",
+    "Печать по ткани",
+    "УФ-печать"
+  ],
+  "process": [
+    {
+      "title": "Выбор",
+      "text": "Отмечаете позицию и тираж в квизе."
+    },
+    {
+      "title": "Заявка",
+      "text": "Оставляете имя и телефон, по желанию пожелания к макету."
+    },
+    {
+      "title": "Расчёт",
+      "text": "Считаем стоимость под ваш макет и тираж, присылаем на почту."
+    },
+    {
+      "title": "Согласование",
+      "text": "Подтверждаете размеры, цвет и макет до запуска в работу."
+    },
+    {
+      "title": "Доставка",
+      "text": "Готовый тираж отправляем в ваш город через СДЭК."
+    }
+  ],
+  "trustBadges": [
+    {
+      "value": "20",
+      "label": "позиций в подразделах одежды и сумок"
+    },
+    {
+      "value": "5",
+      "label": "способов нанесения"
+    },
+    {
+      "value": "РФ",
+      "label": "доставка через СДЭК"
+    },
+    {
+      "value": "1",
+      "label": "менеджер на заказ"
+    }
+  ],
+  "faq": [
+    {
+      "q": "Как понять, какой размер заказывать?",
+      "a": "Размерная сетка в каталоге не приведена, поэтому мы её не выдумываем. Напишите, на каких размерах у вас сотрудники или клиенты, и менеджер подскажет, что заказывать."
+    },
+    {
+      "q": "DTF или сублимация?",
+      "a": "Зависит от ткани и от того, нужна ли стойкость к стирке. Укажите материал футболки и как часто её будут стирать, и мы скажем, что подойдёт."
+    },
+    {
+      "q": "Что лучше на чёрный шопер?",
+      "a": "На тёмной ткани светлый логотип читается контрастом, на светлой тёмный. Скажите, какой фон нужен, и мы подскажем по цветам."
+    },
+    {
+      "q": "Нужен ли готовый макет?",
+      "a": "Подойдёт и готовый макет, и его отсутствие. Отметьте в квизе, и мы уточним требования к файлам до запуска в работу."
+    },
+    {
+      "q": "Сколько стоит?",
+      "a": "Зависит от позиции, ткани, тиража и способа печати. Фиксированной цены нет, расчёт присылаем после заявки под конкретный заказ."
+    },
+    {
+      "q": "Доставляете в другие города?",
+      "a": "Да, доставляем по всей России через СДЭК, включая Ижевск и область. Стоимость и срок зависят от города и тиража, посчитаем их вместе с заказом."
+    }
+  ],
+  "contactChannels": [
+    {
+      "label": "WhatsApp",
+      "url": "https://wa.me/79658423241"
+    },
+    {
+      "label": "VK",
+      "url": "https://vk.com/cifraprint18"
+    },
+    {
+      "label": "MAX",
+      "url": "https://max.ru/id182501416864_bot"
+    }
+  ],
+  "catalog": {
+    "showPrices": false,
+    "groups": [
+      {
+        "id": "futbolki",
+        "title": "Футболки и бейсболки",
+        "intro": "",
+        "items": [
+          {
+            "id": "brendirovanie-beysbolki-kepki",
+            "src": "https://xn--18-6kc5a3bxam.xn--p1ai/upload/iblock/b8b/a8t1i0x73vu3689qngf6pdg64t72ohtp/brendirovanie_beysbolki_kepki_tipografia_cifra18_izhevsk.gif",
+            "name": "Брендирование бейсболки, кепки",
+            "img": "assets/web/brendirovanie-beysbolki-kepki__brendirovanie_beysbolki_kepki_tipografia_cifra18_izhevsk.jpg",
+            "method": "Печать по текстилю",
+            "specs": "Тираж и размер по расчёту"
+          },
+          {
+            "id": "futbolka-belaya-sendvich-revolution-imitatsiya-khlopka",
+            "src": "https://xn--18-6kc5a3bxam.xn--p1ai/upload/iblock/bf0/9sev96strpf3tj13mbl45of0sgc7mub6/futbolka_belaya_sendvich_revolution_imitatsiya_khlopka_tipografia_cifra18_izhevsk.jpg",
+            "name": "Футболка белая СЭНДВИЧ REVOLUTION имитация хлопка",
+            "img": "assets/web/futbolka-belaya-sendvich-revolution-imitatsiya-khlopka__futbolka_belaya_sendvich_revolution_imitatsiya_khlopka_tipografia_cifra18_izhevsk.jpg",
+            "method": "Печать по текстилю",
+            "specs": "Тираж и размер по расчёту"
+          },
+          {
+            "id": "futbolka-uniseks-belaya-poliester-100",
+            "src": "https://xn--18-6kc5a3bxam.xn--p1ai/upload/iblock/f68/1fetkq6wjv7ra2j72umry9k1b3wt5vv6/futbolka_uniseks_belaya_poliester_100_tipografia_cifra18_izhevsk.jpg",
+            "name": "Футболка унисекс белая полиэстер 100%",
+            "img": "assets/web/futbolka-uniseks-belaya-poliester-100__futbolka_uniseks_belaya_poliester_100_tipografia_cifra18_izhevsk.jpg",
+            "method": "Печать по текстилю",
+            "specs": "Тираж и размер по расчёту"
+          },
+          {
+            "id": "futbolka-uniseks-chernaya-tsvetnaya",
+            "src": "https://xn--18-6kc5a3bxam.xn--p1ai/upload/iblock/44a/5c62qrm71pqeb9iyc9le0xhja179ohbn/futbolka_uniseks_chernaya_tsvetnaya_tipografia_cifra18_izhevsk.jpg",
+            "name": "Футболка унисекс черная/цветная",
+            "img": "assets/web/futbolka-uniseks-chernaya-tsvetnaya__futbolka_uniseks_chernaya_tsvetnaya_tipografia_cifra18_izhevsk.jpg",
+            "method": "Печать по текстилю",
+            "specs": "Тираж и размер по расчёту"
+          },
+          {
+            "id": "futbolka-kh-b-polo",
+            "src": "https://xn--18-6kc5a3bxam.xn--p1ai/upload/iblock/d1f/t12wvy5i67hl0jx9fa2ooiwv3syp2cci/futbolka_kh_b_polo_tipografia_cifra18_izhevsk.jpg",
+            "name": "Футболка х/б ПОЛО",
+            "img": "assets/web/futbolka-kh-b-polo__futbolka_kh_b_polo_tipografia_cifra18_izhevsk.jpg",
+            "method": "Печать по текстилю",
+            "specs": "Тираж и размер по расчёту"
+          }
+        ]
+      },
+      {
+        "id": "ryukzaki",
+        "title": "Рюкзаки",
+        "intro": "",
+        "items": [
+          {
+            "id": "ryukzak-basis",
+            "src": "https://xn--18-6kc5a3bxam.xn--p1ai/upload/iblock/10a/3xxrpckcmg0sixr20m7mpulwqvtw0h5t/c8142f86_2967_11ef_aeb9_005056ad1cd2_2.jpg",
+            "name": "Рюкзак BASIS",
+            "img": "assets/web/ryukzak-basis__c8142f86_2967_11ef_aeb9_005056ad1cd2_2.jpg",
+            "method": "Печать по ткани",
+            "specs": "Тираж и размер по расчёту"
+          },
+          {
+            "id": "ryukzak-beavis",
+            "src": "https://xn--18-6kc5a3bxam.xn--p1ai/upload/iblock/187/22mbxcupppjpg4wp62585r8qg2sa9642/91ebe440_2d69_11ef_aebe_005056ad1cd2.jpg",
+            "name": "Рюкзак BEAVIS",
+            "img": "assets/web/ryukzak-beavis__91ebe440_2d69_11ef_aebe_005056ad1cd2.jpg",
+            "method": "Печать по ткани",
+            "specs": "Тираж и размер по расчёту"
+          },
+          {
+            "id": "ryukzak-simplicity",
+            "src": "https://xn--18-6kc5a3bxam.xn--p1ai/upload/iblock/26e/ndj51nn2ban4d3fy4qpuzlb3s54bev2u/a6c48d2e_b0dd_11f0_b02f_000c2936abcb_1.jpg",
+            "name": "Рюкзак Simplicity",
+            "img": "assets/web/ryukzak-simplicity__a6c48d2e_b0dd_11f0_b02f_000c2936abcb_1.jpg",
+            "method": "Печать по ткани",
+            "specs": "Тираж и размер по расчёту"
+          }
+        ]
+      },
+      {
+        "id": "shoper",
+        "title": "Шоперы и сумки для обуви",
+        "intro": "",
+        "items": [
+          {
+            "id": "sumka-dlya-obuvi-tip6932",
+            "src": "https://xn--18-6kc5a3bxam.xn--p1ai/upload/iblock/47f/kj256084n1149o1fca1cae2ycacwanky/03a13b07_20d7_11f0_afde_000c2936abcb_3.jpg",
+            "name": "Сумка для обуви LUKMORY",
+            "img": "https://xn--18-6kc5a3bxam.xn--p1ai/upload/iblock/47f/kj256084n1149o1fca1cae2ycacwanky/03a13b07_20d7_11f0_afde_000c2936abcb_3.jpg",
+            "method": "Печать по ткани",
+            "specs": "Тираж и размер по расчёту"
+          },
+          {
+            "id": "sumka-dlya-obuvi-tip",
+            "src": "https://xn--18-6kc5a3bxam.xn--p1ai/upload/iblock/067/0v6jb9tnnvonxng29e23vnzq33yeu8kg/81fa6112_9aa3_11ea_9746_005056adbb94.jpg",
+            "name": "Сумка для обуви Tip",
+            "img": "https://xn--18-6kc5a3bxam.xn--p1ai/upload/iblock/067/0v6jb9tnnvonxng29e23vnzq33yeu8kg/81fa6112_9aa3_11ea_9746_005056adbb94.jpg",
+            "method": "Печать по ткани",
+            "specs": "Тираж и размер по расчёту"
+          }
+        ]
+      },
+      {
+        "id": "metody",
+        "title": "Способы печати на одежде",
+        "intro": "",
+        "items": [
+          {
+            "id": "dtf-dtf-pechat",
+            "src": "https://xn--18-6kc5a3bxam.xn--p1ai/upload/iblock/a38/jybcwkfzrbm9gvpw1abuuj7uqaw57rur/DTF_Xpress_Ink_Cost_Reduction.jpg",
+            "name": "DTF ДТФ печать",
+            "img": "https://xn--18-6kc5a3bxam.xn--p1ai/upload/iblock/a38/jybcwkfzrbm9gvpw1abuuj7uqaw57rur/DTF_Xpress_Ink_Cost_Reduction.jpg",
+            "method": "Способ нанесения",
+            "specs": "Тираж и размер по расчёту"
+          },
+          {
+            "id": "sublimatsionnaya-pechat",
+            "src": "https://xn--18-6kc5a3bxam.xn--p1ai/upload/iblock/0b8/kwvyktqw40t7ty4m4e95ad6vqtxzv0uh/1842a45da7976df62e2f4084e3434cf1.png",
+            "name": "Сублимационная печать",
+            "img": "https://xn--18-6kc5a3bxam.xn--p1ai/upload/iblock/0b8/kwvyktqw40t7ty4m4e95ad6vqtxzv0uh/1842a45da7976df62e2f4084e3434cf1.png",
+            "method": "Способ нанесения",
+            "specs": "Тираж и размер по расчёту"
+          },
+          {
+            "id": "termoplenka-termotransfer-na-odezhdu",
+            "src": "https://xn--18-6kc5a3bxam.xn--p1ai/upload/iblock/507/kc1m1fj695gpb5ghhz3q4j9cf7xvzyoz/f3486047_afe3_458b_a28b_fd761d18d652_h.jpg",
+            "name": "Термопленка/ термотрансфер на одежду",
+            "img": "https://xn--18-6kc5a3bxam.xn--p1ai/upload/iblock/507/kc1m1fj695gpb5ghhz3q4j9cf7xvzyoz/f3486047_afe3_458b_a28b_fd761d18d652_h.jpg",
+            "method": "Способ нанесения",
+            "specs": "Тираж и размер по расчёту"
+          }
+        ]
+      }
+    ],
+    "quizCommonFields": {
+      "layoutOptions": [
+        {
+          "value": "ready",
+          "label": "Есть готовый макет"
+        },
+        {
+          "value": "need_design",
+          "label": "Макета нет, нужна разработка"
+        },
+        {
+          "value": "discuss",
+          "label": "Обсудить требования"
+        }
+      ],
+      "deadlineOptions": [
+        {
+          "value": "standard",
+          "label": "Стандартный срок"
+        },
+        {
+          "value": "urgent",
+          "label": "Нужно срочно"
+        }
+      ],
+      "deliveryOptions": [
+        {
+          "value": "izh",
+          "label": "Ижевск, заберу сам"
+        },
+        {
+          "value": "russia",
+          "label": "Другой город, доставка СДЭК"
+        }
+      ]
+    }
+  },
+  "backend": {
+    "mailTo": "izhcifra@yandex.ru"
+  },
+  "sources": {
+    "sliceDate": "2026-10-04",
+    "catalogFile": "landings/_scrape/out/catalog.json",
+    "demand": "Метрика 50863157, срез 2026-10-04: 42 визита по ключам «футболка», «одежда», «свитшот», «бейсболк» и 11 визитов по «рюкзак», «сумка», «шопер», суммарно 53. На лендинге мерча показаны две футболки из десяти позиций подраздела, на лендинге подарков три сумки из десяти.",
+    "rules": [
+      "Позиции и фото взяты из подразделов «Брендирование одежды» и «Рюкзаки и сумки» раздела «Сувенирная продукция» сайта цифра18.рф: 10 и 10 позиций, у всех уникальные фотографии.",
+      "Названия моделей и виды футболок приведены как в каталоге, включая имитацию хлопка у модели REVOLUTION.",
+      "Размерная сетка НЕ приведена: в каталоге её нет, и выдумывать размеры значило бы подставить заказчику то, чего он не обещал.",
+      "Позиции «Брендирование одежды» и «Рюкзаки и сумки» из подборки убраны: это страницы подразделов.",
+      "«Коробка для футболок» отнесена к упаковке и собрана на лендинге «Упаковка».",
+      "Цены не публикуются: калькулятора тиражей на этих подразделах нет.",
+      "«Вышивка» в методы не попала: такой позиции в каталоге нет, и обещать её без подтверждения значило бы выдумать услугу.",
+      "Группы футболок и способов печати делят один подраздел: футболки, бейсболки и кепки в первой, DTF, сублимация и термотрансфер во второй. На сайте такого деления нет."
+    ],
+    "customerProvided": {
+      "map": {
+        "claim": "Координаты из ссылки на карту в футере сайта, 56.869771, 53.189062",
+        "verifiedOnSite": true
+      },
+      "delivery": {
+        "claim": "Доставка по всей России СДЭК",
+        "givenBy": "заказчик устно, 2026-10-04",
+        "verifiedOnSite": false,
+        "check": "На сайте цифра18.рф «СДЭК» не найдено ни разу. Подтвердить письменно вместе с тарифом и сроками."
+      }
+    },
+    "knownAnomalies": [
+      "Четыре группы берут позиции из двух подразделов: разделение сделано по смыслу, на сайте такого деления нет."
+    ]
+  }
+}

@@ -61,6 +61,22 @@ const CATALOG_GROUPS = [
         "img": "assets/web/kubki__223083vs9t1hg0sp2qh188kv3wjpxrqh.jpg",
         "method": "Гравировка и закалка",
         "specs": "Тираж и размер по расчёту"
+      },
+      {
+        "id": "kubki-iz-orgstekla",
+        "src": "https://xn--18-6kc5a3bxam.xn--p1ai/upload/iblock/8a3/ckarw2cxh4i87wxfvgzxxpgvo9io2uoo/FullSizeRender_28.jpg",
+        "name": "Кубки из оргстекла",
+        "img": "assets/web/kubki-iz-orgstekla__FullSizeRender_28.jpg",
+        "method": "Гравировка и закалка",
+        "specs": "Тираж и размер по расчёту"
+      },
+      {
+        "id": "medali-iz-orgstekla",
+        "src": "https://xn--18-6kc5a3bxam.xn--p1ai/upload/iblock/b3b/5fhae2tos5duazqp4su5lsk6md0wed2l/AABIEtaN4PQnIcktx_gmqwUKgUIdjy4ic6hh9Ssz3_IoOZB7HXOGbF26K6COC9BdOUsGZ8MxIVIgRj1Pq9Y05vIi.jpg",
+        "name": "Медали из оргстекла",
+        "img": "assets/web/medali-iz-orgstekla__AABIEtaN4PQnIcktx_gmqwUKgUIdjy4ic6hh9Ssz3_IoOZB7HXOGbF26K6COC9BdOUsGZ8MxIVIgRj1Pq9Y05vIi.jpg",
+        "method": "Гравировка и закалка",
+        "specs": "Тираж и размер по расчёту"
       }
     ]
   },

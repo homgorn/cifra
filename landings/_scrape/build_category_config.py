@@ -147,7 +147,7 @@ def check_subsections(spec: dict, items: list[dict]) -> list[str]:
     return problems
 
 
-def pick_group(items: list[dict], spec: dict) -> list[dict]:
+def pick_group(items: list[dict], spec: dict, landing_excludes: set[str] | None = None) -> list[dict]:
     """Позиции одной группы по подразделу, без дублей по фотографии.
 
     Дедупликация обязательна. В «Магнитах виниловых» на сайте десять
@@ -166,8 +166,39 @@ def pick_group(items: list[dict], spec: dict) -> list[dict]:
         out += [i for i in items
                 if i["subsection"] == sub and i.get("photos")]
     out = [i for i in out if not is_junk(i)]
-    for excl in spec.get("excludeNames", []):
-        out = [i for i in out if clean_name(i["name"]) != excl]
+
+    # Страницы подразделов исключаются на уровне лендинга, а не группы.
+    #
+    # Раньше excludeNames действовал только в своей группе, и страница
+    # подраздела «Кружки, термосы, термостаканы», исключённая из группы
+    # «Кружки», тут же всплывала в группе «Термокружки и термобутылки»:
+    # фильтр и набор позиций общий, а исключение применялось позже и не
+    # везде. На странице появлялась карточка, названная именем раздела.
+    excluded = set(spec.get("excludeNames") or []) | (landing_excludes or set())
+    if excluded:
+        out = [i for i in out if clean_name(i["name"]) not in excluded]
+
+    # Семантическое деление внутри одного подраздела.
+    #
+    # Зачем. На сайте подраздел «Печать на кружках» один, а на лендинге
+    # это кружки, термокружки и бутылки для воды, три группы с разными
+    # подписями. Без фильтра все три брали первые позиции подраздела по
+    # алфавиту, то есть одни и те же карточки попадали на страницу по
+    # два-три раза, а подписи под ними не соответствовали содержимому.
+    #
+    # `nameIncludes` и `nameExcludes` работают по подстроке, без
+    # регулярных выражений: регулярка в JSON-спецификации требует
+    # экранирования, а опечатка в ней молча убирает группу с позициями.
+    low = lambda t: " ".join(str(t or "").split()).lower()
+    inc = spec.get("nameIncludes")
+    if inc:
+        needles = [low(x) for x in inc]
+        out = [i for i in out if any(n in low(i["name"]) for n in needles)]
+    exc = spec.get("nameExcludes")
+    if exc:
+        needles = [low(x) for x in exc]
+        out = [i for i in out
+               if not any(n in low(i["name"]) for n in needles)]
 
     # Дедупликация по названию и по фотографии. Обе нужны, и они ловят
     # разное.
@@ -337,9 +368,13 @@ def build(spec: dict, items: list[dict]) -> dict:
     # id позже, пути разойдутся. Так и было: карточка переименовывалась в
     # `konverty-1`, а фотография искалась по `konverty`, файл лежал на
     # диске под другим именем, и страница ссылалась на удалённый адрес.
+    # Общий для всего лендинга список исключений: объединение excludeNames
+    # всех его групп.
+    landing_excludes = {n for gs in spec["groups"]
+                        for n in (gs.get("excludeNames") or [])}
     picks: list[tuple[dict, dict]] = []
     for gs in spec["groups"]:
-        picked = pick_group(items, gs)
+        picked = pick_group(items, gs, landing_excludes)
         if not picked:
             raise SystemExit(f"  ! группа {gs['id']}: подходящих позиций нет. "
                              f"Проверь subsections в category_specs.json и выкачку.")
@@ -357,6 +392,21 @@ def build(spec: dict, items: list[dict]) -> dict:
         else:
             used[base] += 1
             ids.append(f"{base}-{used[base]}")
+
+    # Повторов между группами одной страницы быть не должно. Фильтры
+    # выше снимают most частый случай, но если две группы заданы без
+    # них, одна позиция может попасть в обе. Здесь отбор доводится до
+    # конца: уже взятая позиция пропускается, а не показывается дважды.
+    used_src: set[str] = set()
+    clean_picks: list[tuple[dict, dict]] = []
+    for gs, i in picks:
+        if i["photos"][0] in used_src:
+            continue
+        used_src.add(i["photos"][0])
+        clean_picks.append((gs, i))
+    ids = ids[:len(clean_picks)]
+    picks = clean_picks
+    total = len(picks)
 
     for (gs, i), card_id in zip(picks, ids):
         same = variants_of(items, i)

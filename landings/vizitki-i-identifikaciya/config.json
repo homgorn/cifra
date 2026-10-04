@@ -47,7 +47,7 @@
       "label": "группы товаров на странице"
     },
     {
-      "value": "12",
+      "value": "14",
       "label": "позиций в блоке на странице"
     },
     {
@@ -227,6 +227,26 @@
             "specs": "Тираж и размер по расчёту",
             "priceFrom": "от 15 ₽/шт.",
             "priceSource": "https://xn--18-6kc5a3bxam.xn--p1ai/catalog/poligrafiya/vizitki/vizitki-plastikovye/"
+          },
+          {
+            "id": "vizitki-s-laminatsiey-soft-tach",
+            "src": "https://xn--18-6kc5a3bxam.xn--p1ai/upload/iblock/533/2cjwkyt3olp3bgmyxi5thfqywxb3kb8q/vizitki_s_laminatsiey_soft_tach_tipografia_cifra18_izhevsk.jpg",
+            "name": "Визитки с ламинацией софт тач",
+            "img": "assets/web/vizitki-s-laminatsiey-soft-tach__vizitki_s_laminatsiey_soft_tach_tipografia_cifra18_izhevsk.jpg",
+            "method": "Печать визиток",
+            "specs": "Тираж и размер по расчёту",
+            "priceFrom": "от 8 ₽/шт.",
+            "priceSource": "https://xn--18-6kc5a3bxam.xn--p1ai/catalog/poligrafiya/vizitki/vizitki-s-laminatsiey-soft-tach/"
+          },
+          {
+            "id": "vizitki-s-folgirovaniem",
+            "src": "https://xn--18-6kc5a3bxam.xn--p1ai/upload/iblock/e69/8wqzubqxhvylfbdjx9tow92cc6noz29p/photo_2025_10_06_22_44_36.jpg",
+            "name": "Визитки с фольгированием",
+            "img": "assets/web/vizitki-s-folgirovaniem__photo_2025_10_06_22_44_36.jpg",
+            "method": "Печать визиток",
+            "specs": "Тираж и размер по расчёту",
+            "priceFrom": "от 21 ₽/шт.",
+            "priceSource": "https://xn--18-6kc5a3bxam.xn--p1ai/catalog/poligrafiya/vizitki/vizitki-s-folgirovaniem/"
           }
         ]
       },
