@@ -250,7 +250,7 @@
             "id": "sumka-dlya-obuvi-tip6932",
             "src": "https://xn--18-6kc5a3bxam.xn--p1ai/upload/iblock/47f/kj256084n1149o1fca1cae2ycacwanky/03a13b07_20d7_11f0_afde_000c2936abcb_3.jpg",
             "name": "Сумка для обуви LUKMORY",
-            "img": "https://xn--18-6kc5a3bxam.xn--p1ai/upload/iblock/47f/kj256084n1149o1fca1cae2ycacwanky/03a13b07_20d7_11f0_afde_000c2936abcb_3.jpg",
+            "img": "assets/web/sumka-dlya-obuvi-tip6932__03a13b07_20d7_11f0_afde_000c2936abcb_3.jpg",
             "method": "Печать по ткани",
             "specs": "Тираж и размер по расчёту"
           },
@@ -258,7 +258,7 @@
             "id": "sumka-dlya-obuvi-tip",
             "src": "https://xn--18-6kc5a3bxam.xn--p1ai/upload/iblock/067/0v6jb9tnnvonxng29e23vnzq33yeu8kg/81fa6112_9aa3_11ea_9746_005056adbb94.jpg",
             "name": "Сумка для обуви Tip",
-            "img": "https://xn--18-6kc5a3bxam.xn--p1ai/upload/iblock/067/0v6jb9tnnvonxng29e23vnzq33yeu8kg/81fa6112_9aa3_11ea_9746_005056adbb94.jpg",
+            "img": "assets/web/sumka-dlya-obuvi-tip__81fa6112_9aa3_11ea_9746_005056adbb94.jpg",
             "method": "Печать по ткани",
             "specs": "Тираж и размер по расчёту"
           }
@@ -273,7 +273,7 @@
             "id": "dtf-dtf-pechat",
             "src": "https://xn--18-6kc5a3bxam.xn--p1ai/upload/iblock/a38/jybcwkfzrbm9gvpw1abuuj7uqaw57rur/DTF_Xpress_Ink_Cost_Reduction.jpg",
             "name": "DTF ДТФ печать",
-            "img": "https://xn--18-6kc5a3bxam.xn--p1ai/upload/iblock/a38/jybcwkfzrbm9gvpw1abuuj7uqaw57rur/DTF_Xpress_Ink_Cost_Reduction.jpg",
+            "img": "assets/web/dtf-dtf-pechat__DTF_Xpress_Ink_Cost_Reduction.jpg",
             "method": "Способ нанесения",
             "specs": "Тираж и размер по расчёту"
           },
@@ -281,7 +281,7 @@
             "id": "sublimatsionnaya-pechat",
             "src": "https://xn--18-6kc5a3bxam.xn--p1ai/upload/iblock/0b8/kwvyktqw40t7ty4m4e95ad6vqtxzv0uh/1842a45da7976df62e2f4084e3434cf1.png",
             "name": "Сублимационная печать",
-            "img": "https://xn--18-6kc5a3bxam.xn--p1ai/upload/iblock/0b8/kwvyktqw40t7ty4m4e95ad6vqtxzv0uh/1842a45da7976df62e2f4084e3434cf1.png",
+            "img": "assets/web/sublimatsionnaya-pechat__1842a45da7976df62e2f4084e3434cf1.jpg",
             "method": "Способ нанесения",
             "specs": "Тираж и размер по расчёту"
           },
@@ -289,7 +289,7 @@
             "id": "termoplenka-termotransfer-na-odezhdu",
             "src": "https://xn--18-6kc5a3bxam.xn--p1ai/upload/iblock/507/kc1m1fj695gpb5ghhz3q4j9cf7xvzyoz/f3486047_afe3_458b_a28b_fd761d18d652_h.jpg",
             "name": "Термопленка/ термотрансфер на одежду",
-            "img": "https://xn--18-6kc5a3bxam.xn--p1ai/upload/iblock/507/kc1m1fj695gpb5ghhz3q4j9cf7xvzyoz/f3486047_afe3_458b_a28b_fd761d18d652_h.jpg",
+            "img": "assets/web/termoplenka-termotransfer-na-odezhdu__f3486047_afe3_458b_a28b_fd761d18d652_h.jpg",
             "method": "Способ нанесения",
             "specs": "Тираж и размер по расчёту"
           }

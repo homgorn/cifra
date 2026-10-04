@@ -277,6 +277,121 @@ def main() -> int:
     gate("19b. Нет повторов между группами страницы", not dups,
          "; ".join(sorted(set(dups))[:3]) if dups else "повторов нет")
 
+    # ---- 21. Нет тёмного текста на тёмном фоне ----
+    # Проверка идёт по собранному CSS, а не по скриншоту. Скриншот
+    # показывает дефект, но не объясняет его: в блюпринте общий селектор
+    # `p` задавал тёмный цвет, и тёмные блоки, задавая себе белый, всё
+    # равно получали тёмные абзацы, потому что правило для `p` сильнее
+    # наследования от родителя. Текст про cookie был тёмно-серым на
+    # чёрном, и гейт на текст его не видел: буквы верные, нечитаема
+    # только краска.
+    css_text = ""
+    for cand in sorted(dist.glob("*.css")):
+        css_text += cand.read_text(encoding="utf-8", errors="replace")
+    html_text = (dist / "index.html").read_text(encoding="utf-8", errors="replace")
+    js_text = ""
+    for cand in sorted(dist.glob("*.js")):
+        js_text += cand.read_text(encoding="utf-8", errors="replace")
+
+    def var_value(name: str) -> str:
+        m = re.search(rf"--{name}\s*:\s*(#[0-9a-fA-F]{{3,8}})", css_text)
+        return m.group(1).lower() if m else ""
+
+    def luminance(color: str) -> float | None:
+        m = re.fullmatch(r"#([0-9a-f]{3}|[0-9a-f]{6})", color)
+        if not m:
+            return None
+        h = m.group(1)
+        if len(h) == 3:
+            h = "".join(c * 2 for c in h)
+        r, g, b = (int(h[i:i + 2], 16) / 255 for i in (0, 2, 4))
+        return 0.2126 * r + 0.7152 * g + 0.0722 * b
+
+    contrast_ok = True
+    detail = "контраст в норме"
+
+    # 1. Токены: тёмный фон и тёмный текст не должны совпадать по тону.
+    dark_bg = var_value("forest-900")
+    dark_ink = var_value("ink")
+    if dark_bg and dark_ink:
+        lb, li = luminance(dark_bg), luminance(dark_ink)
+        if lb is not None and li is not None and abs(lb - li) < 0.12:
+            contrast_ok = False
+            detail = f"фон {dark_bg} и текст {dark_ink} почти одного тона"
+
+    # 2. Каждый ЖИВОЙ блок с тёмным фоном обязан задавать себе цвет.
+    #
+    # Живым считается селектор, чей класс или id встречается либо в
+    # собранном HTML, либо в скриптах. Проверяются только живые, и это
+    # не упрощение: `#quiz-final-summary` создаётся скриптом в финале
+    # квиза и в статической разметке не виден, а `.price-tag`
+    # вставляется скриптом при заполненной цене, то есть сейчас не
+    # вставляется. Поиск только по разметке объявил бы оба мёртвыми и
+    # правка в неиспользуемой секции выглядела бы как проверка.
+    #
+    # Не задавать цвет нельзя: правило для `p` сильнее наследования, и
+    # без явного цвета абзац внутри тёмного блока получит цвет из
+    # общих правил, то есть тёмный.
+    # Комментарии вырезаются до разбора правил. Без этого в сообщение
+    # попадал не селектор, а последняя строка комментария над ним:
+    # «у .usp убран свой цвет» печаталось как «у /* ===== USP STR
+    css_nc = re.sub(r"/\*.*?\*/", "", css_text, flags=re.S)
+
+    dark_rules = []
+    for m in re.finditer(r"([^{}]+)\{([^}]*)\}", css_nc):
+        body = m.group(2)
+        if not re.search(r"background(?:-color)?\s*:\s*(var\(--forest-900\)|#000000)",
+                         body):
+            continue
+        for one in m.group(1).split(","):
+            sel = one.strip()
+            if re.match(r"^[a-z]+\s*$|^[a-z]+\s+[a-z]+$", sel):
+                continue  # теги вроде "section p", не блоки-контейнеры
+            dark_rules.append((sel, body))
+
+    def is_live(sel: str) -> bool:
+        token = None
+        mid = re.search(r"#([\w-]+)", sel)
+        if mid:
+            token = mid.group(1)
+        else:
+            mcl = re.search(r"\.([\w-]+)", sel)
+            token = mcl.group(1) if mcl else None
+        if not token:
+            return False
+        return (token in html_text) or (token in js_text)
+
+    live_dark, no_color = [], []
+    for sel, body in dark_rules:
+        if not is_live(sel):
+            continue
+        live_dark.append(sel)
+        if "color" not in body:
+            no_color.append(sel)
+
+    if not live_dark:
+        # Молчание здесь хуже ошибки: страница без тёмных блоков прошла бы
+        # гейт, ни разу не проверив ничего. Значит разбор css сломался.
+        contrast_ok = False
+        detail = "не найден ни один тёмный блок, проверка не выполнялась"
+    elif no_color:
+        contrast_ok = False
+        detail = ("тёмный фон без своего цвета у " + ", ".join(sorted(no_color)[:3]))
+    elif not contrast_ok:
+        pass
+    else:
+        detail = f"живых тёмных блоков {len(live_dark)}, все задают свой цвет"
+
+    # 3. Баннер проверяется отдельно и жёстче остальных: он поверх любой
+    # страницы и поверх фотографий, полагаться на один только порядок
+    # каскада здесь рискованно.
+    m_cb = re.search(r"\.cookie-banner p\{([^}]*)\}", css_text)
+    if m_cb and "color" not in m_cb.group(1):
+        contrast_ok = False
+        detail = "у .cookie-banner p нет явного цвета"
+
+    gate("21. Нет тёмного текста на тёмном фоне", contrast_ok, detail)
+
     # ---- 20. Числительные согласованы с существительными ----
     # На странице было «3 групп товаров» и «31 позиций». В русском языке
     # форма слова зависит от числа: 1 позиция, 2 позиции, 5 позиций, но

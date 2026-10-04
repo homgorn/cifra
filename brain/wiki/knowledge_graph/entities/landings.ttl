@@ -1,0 +1,444 @@
+{
+  "@context": {
+    "cifra": "https://cifra18.ru/ontology#",
+    "schema": "https://schema.org/",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "not_published": "cifra:landing_status_not_published"
+  },
+  "@graph": [
+    {
+      "@id": "cifra:landing_inzhenernaya_pechat",
+      "@type": "cifra:Landing",
+      "schema:name": "Инженерная печать и документы",
+      "cifra:slug": "inzhenernaya-pechat",
+      "cifra:groupCount": "4",
+      "cifra:itemCount": "13",
+      "cifra:status": "cifra:landing_status_not_published",
+      "cifra:builtOn": "2026-10-04",
+      "rdfs:comment": "Метрика 50863157, срез 2026-10-04: 67 визитов по запросам про чертежи, ксерокопии, сканирование, брошюровку и переплёт, 64 строки запросов.",
+      "cifra:coversSubsection": [
+        {
+          "@id": "cifra:service_inzhenernaya_skanirovanie"
+        },
+        {
+          "@id": "cifra:service_inzhenernaya_kserokopiya"
+        },
+        {
+          "@id": "cifra:service_inzhenernaya_faltsovka"
+        },
+        {
+          "@id": "cifra:service_inzhenernaya_broshyurovka"
+        }
+      ]
+    },
+    {
+      "@id": "cifra:landing_kruzhki_i_posuda",
+      "@type": "cifra:Landing",
+      "schema:name": "Кружки, термокружки и посуда",
+      "cifra:slug": "kruzhki-i-posuda",
+      "cifra:groupCount": "3",
+      "cifra:itemCount": "19",
+      "cifra:status": "cifra:landing_status_not_published",
+      "cifra:builtOn": "2026-10-04",
+      "rdfs:comment": "Метрика 50863157, срез 2026-10-04: 62 визита по ключу «кружка», 53 строки запросов. На лендинге мерча показаны три кружки из двадцати восьми позиций подраздела.",
+      "cifra:coversSubsection": [
+        {
+          "@id": "cifra:service_suvenirnaya_pechat_na_kruzhkakh"
+        },
+        {
+          "@id": "cifra:service_suvenirnaya_lazernaya_gravirovka_markirovka"
+        }
+      ]
+    },
+    {
+      "@id": "cifra:landing_kvartalnyy_kalendar_2027",
+      "@type": "cifra:Landing",
+      "schema:name": "Квартальный календарь 2027",
+      "cifra:slug": "kvartalnyy-kalendar-2027",
+      "cifra:groupCount": "3",
+      "cifra:itemCount": "13",
+      "cifra:status": "cifra:landing_status_not_published",
+      "cifra:builtOn": "2026-10-04",
+      "cifra:coversSubsection": [
+        {
+          "@id": "cifra:service_poligrafiya_kalendari"
+        }
+      ]
+    },
+    {
+      "@id": "cifra:landing_listovki_i_bloknoty",
+      "@type": "cifra:Landing",
+      "schema:name": "Листовки, блокноты, открытки",
+      "cifra:slug": "listovki-i-bloknoty",
+      "cifra:groupCount": "3",
+      "cifra:itemCount": "13",
+      "cifra:status": "cifra:landing_status_not_published",
+      "cifra:builtOn": "2026-10-04",
+      "rdfs:comment": "Метрика 50863157, срез 2026-10-04: 159 визитов по запросам про листовки, флаеры, блокноты, ежедневники, открытки, буклеты и журналы, 102 строки запросов.",
+      "cifra:coversSubsection": [
+        {
+          "@id": "cifra:service_poligrafiya_listovki_ofsetnaya_pechat"
+        },
+        {
+          "@id": "cifra:service_poligrafiya_listovki_tsifrovaya_pechat"
+        },
+        {
+          "@id": "cifra:service_poligrafiya_bloknoty"
+        },
+        {
+          "@id": "cifra:service_poligrafiya_bloki_dlya_zapisey_kubariki"
+        },
+        {
+          "@id": "cifra:service_poligrafiya_otkrytki_sertifikaty"
+        }
+      ]
+    },
+    {
+      "@id": "cifra:landing_melenie_suvenery",
+      "@type": "cifra:Landing",
+      "schema:name": "Мелкие сувениры с нанесением",
+      "cifra:slug": "melenie-suvenery",
+      "cifra:groupCount": "5",
+      "cifra:itemCount": "20",
+      "cifra:status": "cifra:landing_status_not_published",
+      "cifra:builtOn": "2026-10-04",
+      "rdfs:comment": "Метрика 50863157, срез 2026-10-04, по отдельным ключам: «пазл, попсокет, плакетка, попкет» 40 визитов, «чехлы, карандаши, крафт-ручки» 37, «цифровая печать, лекала» 35, «часы, кубики, браслеты» 25, «USB, флешки» 18, «тубусы, коробки подарок, термос» 17. Ключи перекрываются с общим срезом по сувенирке, поэтому эти числа нельзя складывать и нельзя сравнивать с 374 визитами по разделу. Добавлен подраздел «Игры и головоломки»: 38 визитов по ключам «пазл», «головоломка», «настолка».",
+      "cifra:coversSubsection": [
+        {
+          "@id": "cifra:service_suvenirnaya_pechat_na_usb_ustroystvakh"
+        },
+        {
+          "@id": "cifra:service_suvenirnaya_chekhly_dlya_ruchek"
+        },
+        {
+          "@id": "cifra:service_suvenirnaya_pechat_na_karandashakh"
+        },
+        {
+          "@id": "cifra:service_suvenirnaya_pechat_na_kraft_ruchkakh"
+        },
+        {
+          "@id": "cifra:service_suvenirnaya_pechat_na_pazlakh"
+        },
+        {
+          "@id": "cifra:service_suvenirnaya_popsokety"
+        },
+        {
+          "@id": "cifra:service_suvenirnaya_plaketki"
+        },
+        {
+          "@id": "cifra:service_suvenirnaya_kubik_transformer"
+        },
+        {
+          "@id": "cifra:service_suvenirnaya_igry_i_golovolomki"
+        },
+        {
+          "@id": "cifra:service_suvenirnaya_tubus_brendirovannyy"
+        },
+        {
+          "@id": "cifra:service_suvenirnaya_magnity_akrilovye"
+        },
+        {
+          "@id": "cifra:service_suvenirnaya_braslety_silikonovye"
+        }
+      ]
+    },
+    {
+      "@id": "cifra:landing_merch_s_l_logotipom",
+      "@type": "cifra:Landing",
+      "schema:name": "Мерч с вашим логотипом",
+      "cifra:slug": "merch-s-l-logotipom",
+      "cifra:groupCount": "7",
+      "cifra:itemCount": "16",
+      "cifra:status": "cifra:landing_status_not_published",
+      "cifra:builtOn": "2026-10-04",
+      "cifra:coversSubsection": [
+        {
+          "@id": "cifra:service_suvenirnaya_pechat_na_kruzhkakh"
+        },
+        {
+          "@id": "cifra:service_suvenirnaya_pechat_na_ruchkakh"
+        },
+        {
+          "@id": "cifra:service_suvenirnaya_brendirovanie_odezhdy"
+        },
+        {
+          "@id": "cifra:service_suvenirnaya_magnity_vinilovye"
+        },
+        {
+          "@id": "cifra:service_suvenirnaya_shokolad"
+        }
+      ]
+    },
+    {
+      "@id": "cifra:landing_nakleyki_i_plenki",
+      "@type": "cifra:Landing",
+      "schema:name": "Наклейки, плёнки, этикетки",
+      "cifra:slug": "nakleyki-i-plenki",
+      "cifra:groupCount": "3",
+      "cifra:itemCount": "11",
+      "cifra:status": "cifra:landing_status_not_published",
+      "cifra:builtOn": "2026-10-04",
+      "rdfs:comment": "Метрика 50863157, срез 2026-10-04: 93 визита по запросам про наклейки, стикеры, этикетки, плёнку и скотч, 89 строк запросов. Это самый большой подраздел полиграфии: 18 позиций на печать по самоклеящимся материалам.",
+      "cifra:coversSubsection": [
+        {
+          "@id": "cifra:service_poligrafiya_pechat_na_samokleyashchikhsya_materialakh"
+        },
+        {
+          "@id": "cifra:service_poligrafiya_pechat_belym_tonerom"
+        },
+        {
+          "@id": "cifra:service_poligrafiya_plotternaya_rezka"
+        }
+      ]
+    },
+    {
+      "@id": "cifra:landing_odezhda_i_sumki",
+      "@type": "cifra:Landing",
+      "schema:name": "Одежда и сумки с нанесением",
+      "cifra:slug": "odezhda-i-sumki",
+      "cifra:groupCount": "4",
+      "cifra:itemCount": "13",
+      "cifra:status": "cifra:landing_status_not_published",
+      "cifra:builtOn": "2026-10-04",
+      "rdfs:comment": "Метрика 50863157, срез 2026-10-04: 42 визита по ключам «футболка», «одежда», «свитшот», «бейсболк» и 11 визитов по «рюкзак», «сумка», «шопер», суммарно 53. На лендинге мерча показаны две футболки из десяти позиций подраздела, на лендинге подарков три сумки из десяти.",
+      "cifra:coversSubsection": [
+        {
+          "@id": "cifra:service_suvenirnaya_brendirovanie_odezhdy"
+        },
+        {
+          "@id": "cifra:service_suvenirnaya_ryukzaki_i_sumki"
+        }
+      ]
+    },
+    {
+      "@id": "cifra:landing_podarki_i_gravirovka",
+      "@type": "cifra:Landing",
+      "schema:name": "Подарки, гравировка, медали",
+      "cifra:slug": "podarki-i-gravirovka",
+      "cifra:groupCount": "5",
+      "cifra:itemCount": "16",
+      "cifra:status": "cifra:landing_status_not_published",
+      "cifra:builtOn": "2026-10-04",
+      "rdfs:comment": "Метрика 50863157, срез 2026-10-04: спрос виден через смежные запросы про сувениры и брендирование, суммарно 374 визита на весь раздел. Первый мерч-лендинг закрыл кружки, ручки, одежду, магниты, шоколад, ежедневники и значки. Этот закрывает остаток раздела.",
+      "cifra:coversSubsection": [
+        {
+          "@id": "cifra:service_suvenirnaya_lazernaya_gravirovka_markirovka"
+        },
+        {
+          "@id": "cifra:service_suvenirnaya_medali_kubki_nagradnaya_produktsiya"
+        },
+        {
+          "@id": "cifra:service_suvenirnaya_ryukzaki_i_sumki"
+        },
+        {
+          "@id": "cifra:service_suvenirnaya_breloki"
+        },
+        {
+          "@id": "cifra:service_suvenirnaya_korporativnye_podarki"
+        },
+        {
+          "@id": "cifra:service_suvenirnaya_igry_i_golovolomki"
+        }
+      ]
+    },
+    {
+      "@id": "cifra:landing_ruchki_s_naneseniem",
+      "@type": "cifra:Landing",
+      "schema:name": "Ручки с нанесением",
+      "cifra:slug": "ruchki-s-naneseniem",
+      "cifra:groupCount": "2",
+      "cifra:itemCount": "16",
+      "cifra:status": "cifra:landing_status_not_published",
+      "cifra:builtOn": "2026-10-04",
+      "rdfs:comment": "Метрика 50863157, срез 2026-10-04: 93 визита по ключам «ручка», «перо», 79 строк запросов. Это вторая по спросу группа после сувенирки в целом и первая среди отдельных подразделов. На лендинге мерча показаны три ручки из двадцати трёх.",
+      "cifra:coversSubsection": [
+        {
+          "@id": "cifra:service_suvenirnaya_pechat_na_ruchkakh"
+        }
+      ]
+    },
+    {
+      "@id": "cifra:landing_shirokoformatnaya_i_interyer",
+      "@type": "cifra:Landing",
+      "schema:name": "Широкоформатная печать и интерьер",
+      "cifra:slug": "shirokoformatnaya-i-interyer",
+      "cifra:groupCount": "4",
+      "cifra:itemCount": "16",
+      "cifra:status": "cifra:landing_status_not_published",
+      "cifra:builtOn": "2026-10-04",
+      "rdfs:comment": "Метрика 50863157, срез 2026-10-04: 204 визита по запросам про баннеры, растяжки, фотообои, постеры и холст, 160 строк запросов. Второй по спросу блок после сувенирки. Ключи перекрываются с другими группами, абсолютное значение занижено-завышено вместе с методикой подбора.",
+      "cifra:coversSubsection": [
+        {
+          "@id": "cifra:service_shirokoformatnaya_pechat_na_plenke_grey_back"
+        },
+        {
+          "@id": "cifra:service_shirokoformatnaya_pechat_na_plenke_translyutsentnoy_backlit"
+        },
+        {
+          "@id": "cifra:service_shirokoformatnaya_pechat_na_flazhnoy_tkani"
+        },
+        {
+          "@id": "cifra:service_shirokoformatnaya_pechat_na_poliesterovoy_tkani"
+        },
+        {
+          "@id": "cifra:service_shirokoformatnaya_pechat_na_posternoy_bumage"
+        },
+        {
+          "@id": "cifra:service_shirokoformatnaya_pechat_na_posternoy_bumage_blue_back"
+        },
+        {
+          "@id": "cifra:service_shirokoformatnaya_pechat_na_samokleyashcheysya_plenke"
+        },
+        {
+          "@id": "cifra:service_interer_fotooboi"
+        },
+        {
+          "@id": "cifra:service_interer_kartiny_na_kholste"
+        },
+        {
+          "@id": "cifra:service_interer_pechat_na_kholste_v_rulone"
+        },
+        {
+          "@id": "cifra:service_interer_fotopostery_na_penokartone"
+        },
+        {
+          "@id": "cifra:service_interer_postery"
+        }
+      ]
+    },
+    {
+      "@id": "cifra:landing_stendy_i_mobilnye_stendy",
+      "@type": "cifra:Landing",
+      "schema:name": "Стенды, таблички, мобильные стенды",
+      "cifra:slug": "stendy-i-mobilnye-stendy",
+      "cifra:groupCount": "5",
+      "cifra:itemCount": "18",
+      "cifra:status": "cifra:landing_status_not_published",
+      "cifra:builtOn": "2026-10-04",
+      "rdfs:comment": "Метрика 50863157, срез 2026-10-04: 142 визита по запросам про стенды, таблички, вывески, навигацию, ролл-апы, штендеры и пресс-воллы, 139 строк запросов.",
+      "cifra:coversSubsection": [
+        {
+          "@id": "cifra:service_stendy_stendy"
+        },
+        {
+          "@id": "cifra:service_stendy_tablichki"
+        },
+        {
+          "@id": "cifra:service_stendy_karman_pet_ploskiy"
+        },
+        {
+          "@id": "cifra:service_stendy_karman_pet_s_prozrachnym_skotchem"
+        },
+        {
+          "@id": "cifra:service_stendy_izdeliya_iz_orgstekla"
+        },
+        {
+          "@id": "cifra:service_mobilnye_press_voll"
+        },
+        {
+          "@id": "cifra:service_mobilnye_arenda_press_voll"
+        },
+        {
+          "@id": "cifra:service_mobilnye_shtender"
+        },
+        {
+          "@id": "cifra:service_mobilnye_kh_banner"
+        },
+        {
+          "@id": "cifra:service_mobilnye_l_banner"
+        },
+        {
+          "@id": "cifra:service_poligrafiya_teybl_tent"
+        }
+      ]
+    },
+    {
+      "@id": "cifra:landing_uf_pechat_i_dop_uslugi",
+      "@type": "cifra:Landing",
+      "schema:name": "Допуслуги: УФ-печать, ламинация, фольга",
+      "cifra:slug": "uf-pechat-i-dop-uslugi",
+      "cifra:groupCount": "6",
+      "cifra:itemCount": "19",
+      "cifra:status": "cifra:landing_status_not_published",
+      "cifra:builtOn": "2026-10-04",
+      "rdfs:comment": "Метрика 50863157, срез 2026-10-04: отдельного среза по этим услугам в выгрузке нет. Спрос виден только через смежные запросы: наклейки, плёнки, ламинация, печать по бумаге и картону. Лендинг ставится как дополнение к остальным, а не как самостоятельная точка входа.",
+      "cifra:coversSubsection": [
+        {
+          "@id": "cifra:service_poligrafiya_laminirovanie"
+        },
+        {
+          "@id": "cifra:service_poligrafiya_folgirovanie"
+        },
+        {
+          "@id": "cifra:service_poligrafiya_vysechnaya_produktsiya"
+        },
+        {
+          "@id": "cifra:service_poligrafiya_pechat_belym_tonerom"
+        },
+        {
+          "@id": "cifra:service_poligrafiya_rizografiya"
+        },
+        {
+          "@id": "cifra:service_poligrafiya_plotternaya_rezka"
+        },
+        {
+          "@id": "cifra:service_poligrafiya_postpechatnye_raboty"
+        },
+        {
+          "@id": "cifra:service_poligrafiya_listovki_tsifrovaya_pechat"
+        },
+        {
+          "@id": "cifra:service_poligrafiya_lekala_vykroyki"
+        }
+      ]
+    },
+    {
+      "@id": "cifra:landing_upakovka",
+      "@type": "cifra:Landing",
+      "schema:name": "Упаковка: коробки, пакеты, папки",
+      "cifra:slug": "upakovka",
+      "cifra:groupCount": "4",
+      "cifra:itemCount": "19",
+      "cifra:status": "cifra:landing_status_not_published",
+      "cifra:builtOn": "2026-10-04",
+      "rdfs:comment": "Метрика 50863157, срез 2026-10-04: 127 визитов по запросам про коробки, пакеты, папки, конверты, упаковку и шоперы, 121 строка запросов. Добавлен подраздел «Корпоративные подарки»: 17 визитов по группе «тубусы, коробки подарок, термос».",
+      "cifra:coversSubsection": [
+        {
+          "@id": "cifra:service_poligrafiya_korobki_vyrubnye"
+        },
+        {
+          "@id": "cifra:service_poligrafiya_pakety"
+        },
+        {
+          "@id": "cifra:service_suvenirnaya_korporativnye_podarki"
+        }
+      ]
+    },
+    {
+      "@id": "cifra:landing_vizitki_i_identifikaciya",
+      "@type": "cifra:Landing",
+      "schema:name": "Визитки и идентификация",
+      "cifra:slug": "vizitki-i-identifikaciya",
+      "cifra:groupCount": "3",
+      "cifra:itemCount": "14",
+      "cifra:status": "cifra:landing_status_not_published",
+      "cifra:builtOn": "2026-10-04",
+      "rdfs:comment": "Метрика 50863157, срез 2026-10-04: 175 визитов по запросам про визитки, бирки, пластиковые карты, бейджи, удостоверения и пропуска, 125 строк запросов. Внутри полиграфии это самая частая группа.",
+      "cifra:coversSubsection": [
+        {
+          "@id": "cifra:service_poligrafiya_vizitki"
+        },
+        {
+          "@id": "cifra:service_poligrafiya_birki"
+        },
+        {
+          "@id": "cifra:service_poligrafiya_beydzhi"
+        },
+        {
+          "@id": "cifra:service_poligrafiya_karty_plastikovye"
+        }
+      ]
+    }
+  ]
+}

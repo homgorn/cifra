@@ -4,12 +4,39 @@
 Complete knowledge graph for Типография «Цифра» (цифра18.рф, Ижевск) covering all services, products, materials, equipment, locations, competitors, industries, intents, and relationships across the Russian market.
 
 **Version:** 1.0  
-**Last Updated:** 2026-09-13  
-**Entities:** 239 unique entities  
+**Last Updated:** 2026-10-04  
+**Entities:** 254 in the combined graph, 215 in `entities/`  
 **Triplets:** 387 relationships  
 **Format:** JSON-LD (Turtle-compatible)
 
 ---
+
+## Что изменилось 2026-10-04
+
+Добавлены сущности лендингов: `entities/landings.ttl`, 15 штук, тип
+`cifra:Landing`. Сгенерировано из `config.json` скриптом
+`landings/_scrape/export_kg_landings.py --apply`, вручную не
+редактировалось: граф и страницы разошлись бы через месяц, и выглядело бы
+это как правда о проекте.
+
+Каждая сущность несёт slug, название, число групп и позиций, статус
+`cifra:landing_status_not_published` и дату сборки. Статус один у всех и
+он честный: страницы собраны и проверены гейтами, но ни одна не
+выложена. Значение называется `not_published`, а не `built_not_deployed`,
+потому что прежнее заканчивалось на `deployed` и при беглом чтении
+означало обратное.
+
+Ссылки `cifra:coversSubsection` ведут на существующие сущности услуг.
+Подразделов каталога 88, описание услуги в графе есть для 71. Список
+недостающих, 16 штук, лежит в `landings_subsections_without_service.md`
+рядом с этим индексом, с указанием, в какой файл дописывать.
+
+**Рассинхрон, который надо знать.** `cifra18_knowledge_graph.ttl` это
+снимок, а не сборка: скрипта, который собирает его из `entities/`, в
+проекте нет. Он отставал и до этого, и сейчас экспорт дописывает в него
+только лендинги, остальное не трогает. Считать полноту графа по сводному
+файлу нельзя: в `entities/` 215 сущностей, в сводном было 239 до
+экспорта и 254 после, и эти цифры не сопоставимы.
 
 ## File Structure
 
@@ -18,6 +45,7 @@ brain/wiki/knowledge_graph/
 ├── cifra18_knowledge_graph.ttl      # Main combined KG (239 entities)
 ├── cifra18_triplets.ttl             # Explicit triplet relationships (387)
 ├── entities/
+│   ├── landings.ttl                   # Лендинги (15), из config.json
 │   ├── company.ttl                  # Company entity (1)
 │   ├── materials.ttl                # Materials (18)
 │   ├── equipment.ttl                # Equipment (11)

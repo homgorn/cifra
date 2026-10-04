@@ -48,7 +48,16 @@ h1,h2,h3{font-family:var(--font-display); font-weight:700; margin:0 0 .5em; line
 h1{font-size:clamp(2.2rem,5vw,3.6rem);}
 h2{font-size:clamp(1.5rem,3vw,2.2rem);}
 h3{font-size:1.05rem;}
-p{margin:0 0 1em; max-width:60ch; color:#3B3D34;}
+/* Цвет абзаца НЕ задаётся здесь, он наследуется от body.
+   Раньше стояло color:#3B3D34 прямо в этом правиле, и тёмные блоки
+   ломались: баннер cookie задаёт себе color:var(--paper), то есть белый,
+   но абзац внутри получал тёмный цвет из этого правила, потому что
+   правило для `p` сильнее наследования от родителя. Текст про cookie
+   оказывался тёмно-серым на чёрном и был почти нечитаем.
+   Тот же механизм задевал любой тёмный блок с абзацами: конфигуратор
+   квиза, подпись под картой. Наследование вместо прямого правила
+   чинит их все разом. */
+p{margin:0 0 1em; max-width:60ch;}
 a{color:inherit;}
 img{max-width:100%; display:block;}
 .wrap{max-width:var(--maxw); margin:0 auto; padding:0 24px;}
@@ -336,7 +345,11 @@ address a{text-decoration:none; font-weight:700; color:var(--forest-700);}
   border-radius:16px; padding:18px 22px; display:flex; align-items:center; gap:16px;
   flex-wrap:wrap; box-shadow:0 12px 30px rgba(0,0,0,.25);
 }
-.cookie-banner p{margin:0; font-size:.85rem; flex:1 1 260px;}
+/* Цвет дублируется явно, а не только наследуется. Баннер виден поверх
+   любой страницы и поверх фото, и полагаться на один только порядок
+   каскада здесь рискованно: правило с буквой класса может перестать
+   совпадать при правке разметки, и дефект вернётся молча. */
+.cookie-banner p{margin:0; font-size:.85rem; flex:1 1 260px; color:var(--paper);}
 .cookie-banner a{color:var(--mint-100); text-decoration:underline;}
 .cookie-banner .btn{flex-shrink:0;}
 @media (max-width:480px){
