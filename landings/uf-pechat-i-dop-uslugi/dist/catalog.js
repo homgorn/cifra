@@ -76,6 +76,14 @@ const CATALOG_GROUPS = [
     "intro": "",
     "items": [
       {
+        "id": "folgirovanie",
+        "src": "https://xn--18-6kc5a3bxam.xn--p1ai/upload/iblock/9ff/11ctjp4emldzf72o1wxdt16fqaasilpz/p2NVObevY9E.jpg",
+        "name": "Фольгирование",
+        "img": "assets/web/folgirovanie__p2NVObevY9E.jpg",
+        "method": "Обработка",
+        "specs": "Тираж и размер по расчёту"
+      },
+      {
         "id": "vysechnaya-produktsiya-kartona",
         "src": "https://xn--18-6kc5a3bxam.xn--p1ai/upload/iblock/9c7/knihv065qxs9timq4kcw0bivjb8vn9ez/605d902699c5f.jpg",
         "name": "Высечная продукция картона",
@@ -92,18 +100,10 @@ const CATALOG_GROUPS = [
         "specs": "Тираж и размер по расчёту"
       },
       {
-        "id": "rezka-mikrogofrokartona",
-        "src": "http://xn--18-6kc5a3bxam.xn--p1ai/upload/iblock/ad6/67jyw56n5hmyvyw91zfc06se90cnppz8/0LDZqD7XCjf5yNuWilxfWmtD64V3_J9AWkUDR5vwL3asPWS9geq2KJoBa2nwkJxN_hn0Aq6PAQCiaWXsxjvlh3_F.jpg",
-        "name": "Резка микрогофрокартона",
-        "img": "assets/web/rezka-mikrogofrokartona__0LDZqD7XCjf5yNuWilxfWmtD64V3_J9AWkUDR5vwL3asPWS9geq2KJoBa2nwkJxN_hn0Aq6PAQCiaWXsxjvlh3_F.jpg",
-        "method": "Обработка",
-        "specs": "Тираж и размер по расчёту"
-      },
-      {
-        "id": "folgirovanie",
-        "src": "https://xn--18-6kc5a3bxam.xn--p1ai/upload/iblock/9ff/11ctjp4emldzf72o1wxdt16fqaasilpz/p2NVObevY9E.jpg",
-        "name": "Фольгирование",
-        "img": "assets/web/folgirovanie__p2NVObevY9E.jpg",
+        "id": "tsifrovoe-folgirovanie",
+        "src": "https://xn--18-6kc5a3bxam.xn--p1ai/upload/iblock/878/1mdq1wnequlh71598vhmpbu93vq68hs9/pechatbelymtonerom.jpg",
+        "name": "Цифровое фольгирование",
+        "img": "assets/web/tsifrovoe-folgirovanie__pechatbelymtonerom.jpg",
         "method": "Обработка",
         "specs": "Тираж и размер по расчёту"
       }
@@ -115,20 +115,20 @@ const CATALOG_GROUPS = [
     "intro": "",
     "items": [
       {
+        "id": "rizografiya",
+        "src": "http://xn--18-6kc5a3bxam.xn--p1ai/upload/iblock/cb1/bnlgpp9865brvgj61ktw1j6lbk8u72an.gif",
+        "name": "Ризография",
+        "img": "assets/web/rizografiya__bnlgpp9865brvgj61ktw1j6lbk8u72an.jpg",
+        "method": "Печать и подготовка",
+        "specs": "Тираж и размер по расчёту"
+      },
+      {
         "id": "plotternaya-rezka",
         "src": "http://xn--18-6kc5a3bxam.xn--p1ai/upload/iblock/ba3/psobhv9pjulyn018d0pjy5eag8kms7sl.jpg",
         "name": "Плоттерная резка",
         "img": "assets/web/plotternaya-rezka__psobhv9pjulyn018d0pjy5eag8kms7sl.jpg",
         "method": "Печать и подготовка",
         "specs": "Тираж и размер по расчёту"
-      },
-      {
-        "id": "plotternaya-rezka-listami-sra3",
-        "src": "https://xn--18-6kc5a3bxam.xn--p1ai/upload/iblock/03e/v3kai56tt398qjlatlpev2l24kw4hime.jpg",
-        "name": "Плоттерная резка листами SRA3",
-        "img": "assets/web/plotternaya-rezka-listami-sra3__v3kai56tt398qjlatlpev2l24kw4hime.jpg",
-        "method": "Печать и подготовка",
-        "specs": "Варианты: Рулонная плоттерная резка пленки до 1.6м"
       },
       {
         "id": "postpechatnye-raboty",
@@ -139,11 +139,57 @@ const CATALOG_GROUPS = [
         "specs": "Тираж и размер по расчёту"
       },
       {
-        "id": "rizografiya",
-        "src": "http://xn--18-6kc5a3bxam.xn--p1ai/upload/iblock/cb1/bnlgpp9865brvgj61ktw1j6lbk8u72an.gif",
-        "name": "Ризография",
-        "img": "assets/web/rizografiya__bnlgpp9865brvgj61ktw1j6lbk8u72an.jpg",
+        "id": "rizografiya-a4",
+        "src": "https://xn--18-6kc5a3bxam.xn--p1ai/upload/iblock/309/afo1vpyjzyx3051trz538kzud8j3q2tz.jpg",
+        "name": "Ризография А3",
+        "img": "assets/web/rizografiya-a4__afo1vpyjzyx3051trz538kzud8j3q2tz.jpg",
         "method": "Печать и подготовка",
+        "specs": "Варианты: Ризография А4"
+      }
+    ]
+  },
+  {
+    "id": "cifrovaya",
+    "title": "Цифровая печать",
+    "intro": "",
+    "items": [
+      {
+        "id": "tsifrovaya-listovaya-lazernaya-pechat-a3",
+        "src": "https://xn--18-6kc5a3bxam.xn--p1ai/upload/iblock/2f5/p31knmkgipjxpw47zd18d3sg84i35gtf/tsifrovayalistovayalazernayapechata3.jpg",
+        "name": "Цифровая листовая лазерная печать А3+",
+        "img": "assets/web/tsifrovaya-listovaya-lazernaya-pechat-a3__tsifrovayalistovayalazernayapechata3.jpg",
+        "method": "Лазерная печать",
+        "specs": "Тираж и размер по расчёту"
+      },
+      {
+        "id": "tsifrovaya-listovaya-lazernaya-pechat-a4",
+        "src": "https://xn--18-6kc5a3bxam.xn--p1ai/upload/iblock/657/7gsdok2rjklndq324g2tg8h6dimf88ky/tsifrovaya_listovaya_lazernaya_pechat_a4.gif",
+        "name": "Цифровая листовая лазерная печать А4",
+        "img": "assets/web/tsifrovaya-listovaya-lazernaya-pechat-a4__tsifrovaya_listovaya_lazernaya_pechat_a4.jpg",
+        "method": "Лазерная печать",
+        "specs": "Тираж и размер по расчёту"
+      },
+      {
+        "id": "tsifrovaya-pechat",
+        "src": "http://xn--18-6kc5a3bxam.xn--p1ai/upload/iblock/828/qws60hgww6wazcmlpo7ipdp01n5f58ic.jpg",
+        "name": "Цифровая печать",
+        "img": "assets/web/tsifrovaya-pechat__qws60hgww6wazcmlpo7ipdp01n5f58ic.jpg",
+        "method": "Лазерная печать",
+        "specs": "Тираж и размер по расчёту"
+      }
+    ]
+  },
+  {
+    "id": "lekala",
+    "title": "Лекала и выкройки",
+    "intro": "",
+    "items": [
+      {
+        "id": "lekala-vykroyki",
+        "src": "https://xn--18-6kc5a3bxam.xn--p1ai/upload/iblock/2dc/wwybn0bt3uf9ltqxantajtye357115il/03_1_1920x1440.jpg",
+        "name": "Лекала, выкройки",
+        "img": "assets/web/lekala-vykroyki__03_1_1920x1440.jpg",
+        "method": "Подготовка макета",
         "specs": "Тираж и размер по расчёту"
       }
     ]

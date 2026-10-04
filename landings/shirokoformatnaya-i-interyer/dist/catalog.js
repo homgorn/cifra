@@ -45,6 +45,14 @@ const CATALOG_GROUPS = [
     "intro": "",
     "items": [
       {
+        "id": "pechat-na-flazhnoy-tkani",
+        "src": "https://xn--18-6kc5a3bxam.xn--p1ai/upload/iblock/4f7/5vahiiwjay9v5mrbopvjdo1anyofw3g1.jpg",
+        "name": "Печать на флажной ткани",
+        "img": "assets/web/pechat-na-flazhnoy-tkani__5vahiiwjay9v5mrbopvjdo1anyofw3g1.jpg",
+        "method": "Печать на носителе",
+        "specs": "Тираж и размер по расчёту"
+      },
+      {
         "id": "pechat-na-poliesterovoy-tkani",
         "src": "http://xn--18-6kc5a3bxam.xn--p1ai/upload/iblock/8ba/o3g04ad3ucxlifk03x2sfqlmh7baoveg.jpg",
         "name": "Печать на полиэстеровой ткани",
@@ -99,6 +107,14 @@ const CATALOG_GROUPS = [
     "intro": "",
     "items": [
       {
+        "id": "fotooboi",
+        "src": "https://xn--18-6kc5a3bxam.xn--p1ai/upload/iblock/1aa/vfb2f8831cqi60q53ppjwqla2f73i559.jpg",
+        "name": "Фотообои и фрески бесшовные",
+        "img": "assets/web/fotooboi__vfb2f8831cqi60q53ppjwqla2f73i559.jpg",
+        "method": "Печать на интерьер",
+        "specs": "Тираж и размер по расчёту"
+      },
+      {
         "id": "kartiny-na-kholste",
         "src": "https://xn--18-6kc5a3bxam.xn--p1ai/upload/iblock/d0e/i7y16buw34u09he6f63wx1654byjlx60.jpg",
         "name": "Картины на холсте",
@@ -123,18 +139,18 @@ const CATALOG_GROUPS = [
         "specs": "Тираж и размер по расчёту"
       },
       {
-        "id": "postery",
-        "src": "http://xn--18-6kc5a3bxam.xn--p1ai/upload/iblock/8ad/g3n52deh8jb8ie8i0r0inhjxhvlk1qjp/postery_tipografia_cifra18_izhevsk.jpg",
-        "name": "Постеры",
-        "img": "assets/web/postery__postery_tipografia_cifra18_izhevsk.jpg",
+        "id": "fotopostery-na-penokartone",
+        "src": "https://xn--18-6kc5a3bxam.xn--p1ai/upload/iblock/b22/5saznwabc0l9lnhee3rrti4eaqncksoq/fotopostery_na_penokartone.jpg",
+        "name": "Фотопостеры на пенокартоне",
+        "img": "assets/web/fotopostery-na-penokartone__fotopostery_na_penokartone.jpg",
         "method": "Печать на интерьер",
         "specs": "Тираж и размер по расчёту"
       },
       {
-        "id": "fotooboi",
-        "src": "https://xn--18-6kc5a3bxam.xn--p1ai/upload/iblock/1aa/vfb2f8831cqi60q53ppjwqla2f73i559.jpg",
-        "name": "Фотообои и фрески бесшовные",
-        "img": "assets/web/fotooboi__vfb2f8831cqi60q53ppjwqla2f73i559.jpg",
+        "id": "postery",
+        "src": "http://xn--18-6kc5a3bxam.xn--p1ai/upload/iblock/8ad/g3n52deh8jb8ie8i0r0inhjxhvlk1qjp/postery_tipografia_cifra18_izhevsk.jpg",
+        "name": "Постеры",
+        "img": "assets/web/postery__postery_tipografia_cifra18_izhevsk.jpg",
         "method": "Печать на интерьер",
         "specs": "Тираж и размер по расчёту"
       }

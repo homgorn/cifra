@@ -1,0 +1,399 @@
+{
+  "landing": {
+    "slug": "melenie-suvenery",
+    "title": "Мелкие сувениры с нанесением"
+  },
+  "business": {
+    "name": "Типография Цифра",
+    "legalEntity": {
+      "fullName": "ИП Данилов Константин Леонидович",
+      "inn": "182501416864",
+      "ogrn": "307183731200018",
+      "policyDate": "2026-10-04",
+      "confirmedBy": "письменное подтверждение заказчика, 2026-10-04"
+    }
+  },
+  "site": {
+    "domain": "xn--18-6kc5a3bxam.xn--p1ai"
+  },
+  "meta": {
+    "title": "Флешки-визитки, чехлы, пазлы, карандаши, сувениры с нанесением, Типография «Цифра», Ижевск",
+    "description": "Мелкие сувениры с нанесением в Ижевске: флешки-визитки, печать на пауэрбанках, чехлы для ручек, пазлы, карандаши, попсокеты, плакетки. Расчёт по тиражу. Доставка по всей России СДЭК."
+  },
+  "contact": {
+    "phoneDisplay": "+7 (3412) 32-32-41",
+    "phoneTel": "+73412323241",
+    "phone2Display": "+7 (965) 842-32-41",
+    "phone2Tel": "+79658423241",
+    "email": "izhcifra@yandex.ru",
+    "address": "426069, Удмуртская Респ., г. Ижевск, ул. 7-я Подлесная, д. 34",
+    "mapLat": "56.869771",
+    "mapLon": "53.189062",
+    "mapImage": "assets/web/map.png"
+  },
+  "analytics": {
+    "yandexMetrikaId": "50863157"
+  },
+  "hero": {
+    "eyebrow": "типография «Цифра», Ижевск · мелкие сувениры",
+    "h1": "Мелкие сувениры<br>с нанесением",
+    "lead": "Флешки-визитки и пауэрбанки, чехлы для ручек, пазлы и попсокеты, карандаши, крафт-ручки, плакетки, сувенирные часы и тубусы. Отмечаете товар и тираж, получаете расчёт.",
+    "photo": "assets/web/pechat-na-usb-ustroystvakh__60rho14049x3xtt2qirlpkmi2zj25dib.jpg",
+    "photoAlt": "Печать на USB-устройствах"
+  },
+  "heroStats": [
+    {
+      "value": "5",
+      "label": "групп товаров на странице"
+    },
+    {
+      "value": "16",
+      "label": "позиций в блоке на странице"
+    },
+    {
+      "value": "РФ",
+      "label": "доставка СДЭК"
+    }
+  ],
+  "usp": [
+    {
+      "title": "Флешка как визитка",
+      "text": "Отдельная позиция каталога: «Флешка-визитка». Носитель с нанесением вместо бумажной визитки, когда визитку не выбрасывают сразу."
+    },
+    {
+      "title": "Печать на пауэрбанках",
+      "text": "Тоже отдельная позиция. Что читается на тёмном корпусе, а что нет, скажем после заявки."
+    },
+    {
+      "title": "Пазлы и попсокеты",
+      "text": "Пазл по вашему фото и попсокеты. Отдайте файл с нужным разрешением, а требования к нему пришлём до запуска."
+    },
+    {
+      "title": "Карандаши и крафт-ручки",
+      "text": "Печать по корпусу. Два отдельных подраздела каталога, нанесение одно, но носители разные."
+    }
+  ],
+  "methods": [
+    "УФ-печать",
+    "Лазерная гравировка",
+    "Печать по пластику",
+    "Печать по ткани",
+    "Тиснение"
+  ],
+  "process": [
+    {
+      "title": "Выбор",
+      "text": "Отмечаете товар и тираж в квизе."
+    },
+    {
+      "title": "Заявка",
+      "text": "Оставляете имя и телефон, по желанию пожелания к макету."
+    },
+    {
+      "title": "Расчёт",
+      "text": "Считаем стоимость под ваш макет и тираж, присылаем на почту."
+    },
+    {
+      "title": "Согласование",
+      "text": "Подтверждаете состав заказа и макет до запуска в работу."
+    },
+    {
+      "title": "Доставка",
+      "text": "Готовый тираж отправляем в ваш город через СДЭК."
+    }
+  ],
+  "trustBadges": [
+    {
+      "value": "27",
+      "label": "позиций в блоке мелких сувениров"
+    },
+    {
+      "value": "5",
+      "label": "способов нанесения"
+    },
+    {
+      "value": "РФ",
+      "label": "доставка через СДЭК"
+    },
+    {
+      "value": "1",
+      "label": "менеджер на заказ"
+    }
+  ],
+  "faq": [
+    {
+      "q": "Нужны ли файлы высокого разрешения?",
+      "a": "Для пазла и попсокета да, качество видно на готовой вещи. Пришлите исходник, и мы скажем, хватает ли его для печати, или нужно переснять."
+    },
+    {
+      "q": "Флешку можно использовать как визитку?",
+      "a": "Да, «Флешка-визитка» есть отдельной позицией каталога. Напишите, сколько штук нужно, и мы посчитаем."
+    },
+    {
+      "q": "Что лучше нанести на тёмный корпус?",
+      "a": "Зависит от материала и способа. Скажите, какой корпус и что хотите нанести, и мы подскажем, что будет читаться."
+    },
+    {
+      "q": "Есть ли минимальный тираж?",
+      "a": "Зависит от позиции, уточнит менеджер после квиза или заявки. Напишите нужное количество, и мы скажем, возможно ли его сделать."
+    },
+    {
+      "q": "Сколько стоит?",
+      "a": "Зависит от товара, тиража, материала и способа нанесения. Фиксированной цены нет, расчёт присылаем после заявки под конкретный заказ."
+    },
+    {
+      "q": "Вы печатаете мерч сами?",
+      "a": "По сувенирной продукции вопрос открытый, и мы не будем утверждать то, чего не подтвердили. Скажите, что нужно, и менеджер ответит по конкретной позиции: своё производство или подряд."
+    }
+  ],
+  "contactChannels": [
+    {
+      "label": "WhatsApp",
+      "url": "https://wa.me/79658423241"
+    },
+    {
+      "label": "VK",
+      "url": "https://vk.com/cifraprint18"
+    },
+    {
+      "label": "MAX",
+      "url": "https://max.ru/id182501416864_bot"
+    }
+  ],
+  "catalog": {
+    "showPrices": false,
+    "groups": [
+      {
+        "id": "usb",
+        "title": "Флешки и USB-носители",
+        "intro": "",
+        "items": [
+          {
+            "id": "pechat-na-usb-ustroystvakh",
+            "src": "http://xn--18-6kc5a3bxam.xn--p1ai/upload/iblock/12b/60rho14049x3xtt2qirlpkmi2zj25dib.jpg",
+            "name": "Печать на USB-устройствах",
+            "img": "assets/web/pechat-na-usb-ustroystvakh__60rho14049x3xtt2qirlpkmi2zj25dib.jpg",
+            "method": "Печать на корпусе",
+            "specs": "Тираж и размер по расчёту"
+          },
+          {
+            "id": "pechat-na-pauer-bankakh",
+            "src": "https://xn--18-6kc5a3bxam.xn--p1ai/upload/iblock/48c/6ximnfsd5muqw480ptamkwtlp0fk2hgm/pechat_na_pauer_bankakh_tipografia_cifra18_izhevsk.jpg",
+            "name": "Печать на пауэр банках",
+            "img": "assets/web/pechat-na-pauer-bankakh__pechat_na_pauer_bankakh_tipografia_cifra18_izhevsk.jpg",
+            "method": "Печать на корпусе",
+            "specs": "Тираж и размер по расчёту"
+          },
+          {
+            "id": "pechat-na-fleshkakh",
+            "src": "https://xn--18-6kc5a3bxam.xn--p1ai/upload/iblock/67a/1gu9n58tbx6e3dakfda67wncpjp63wxk/pechat_na_fleshkakh_tipografia_cifra18_izhevsk.jpg",
+            "name": "Печать на флешках",
+            "img": "assets/web/pechat-na-fleshkakh__pechat_na_fleshkakh_tipografia_cifra18_izhevsk.jpg",
+            "method": "Печать на корпусе",
+            "specs": "Тираж и размер по расчёту"
+          },
+          {
+            "id": "fleshka-vizitka",
+            "src": "https://xn--18-6kc5a3bxam.xn--p1ai/upload/iblock/23a/tutmus5zpguoh2awagklpfavk2yw7392/fleshka_vizitka_tipografia_cifra18_izhevsk.jpg",
+            "name": "Флешка-визитка",
+            "img": "assets/web/fleshka-vizitka__fleshka_vizitka_tipografia_cifra18_izhevsk.jpg",
+            "method": "Печать на корпусе",
+            "specs": "Тираж и размер по расчёту"
+          }
+        ]
+      },
+      {
+        "id": "chekhly",
+        "title": "Чехлы для ручек",
+        "intro": "",
+        "items": [
+          {
+            "id": "chekhly-dlya-ruchek",
+            "src": "http://xn--18-6kc5a3bxam.xn--p1ai/upload/iblock/4dc/g3uti3zu13ja7ifo3m1jnqh8n145qlk9.jpg",
+            "name": "Чехлы для ручек",
+            "img": "assets/web/chekhly-dlya-ruchek__g3uti3zu13ja7ifo3m1jnqh8n145qlk9.jpg",
+            "method": "Печать по чехлу",
+            "specs": "Тираж и размер по расчёту"
+          },
+          {
+            "id": "chekhol-dlya-ruchki",
+            "src": "https://xn--18-6kc5a3bxam.xn--p1ai/upload/iblock/c34/wakl0mz8a45f8icmc9saemiwlm19j1zi.jpg",
+            "name": "Чехол для ручки",
+            "img": "assets/web/chekhol-dlya-ruchki__wakl0mz8a45f8icmc9saemiwlm19j1zi.jpg",
+            "method": "Печать по чехлу",
+            "specs": "Тираж и размер по расчёту"
+          }
+        ]
+      },
+      {
+        "id": "kant",
+        "title": "Карандаши и крафт-ручки",
+        "intro": "",
+        "items": [
+          {
+            "id": "pechat-na-karandashakh",
+            "src": "http://xn--18-6kc5a3bxam.xn--p1ai/upload/iblock/a62/st3l5hmirgwu9r2i1wnlgpfy9s8syf1q.jpg",
+            "name": "Печать на карандашах",
+            "img": "assets/web/pechat-na-karandashakh__st3l5hmirgwu9r2i1wnlgpfy9s8syf1q.jpg",
+            "method": "Печать по корпусу",
+            "specs": "Тираж и размер по расчёту"
+          },
+          {
+            "id": "kraft-ruchki",
+            "src": "https://xn--18-6kc5a3bxam.xn--p1ai/upload/iblock/ae6/jv6lcc3gars2fgnbdxcwgmw5g5g4g1au/maxresdefault-_2_.jpg",
+            "name": "Бумажные крафт ручки",
+            "img": "assets/web/kraft-ruchki__maxresdefault-_2_.jpg",
+            "method": "Печать по корпусу",
+            "specs": "Тираж и размер по расчёту"
+          }
+        ]
+      },
+      {
+        "id": "igry",
+        "title": "Пазлы, попсокеты, плакетки",
+        "intro": "",
+        "items": [
+          {
+            "id": "pechat-na-pazlakh",
+            "src": "https://xn--18-6kc5a3bxam.xn--p1ai/upload/iblock/da5/6stdubi7m6t9vxidz1y0g0qd1my3umep.jpg",
+            "name": "Печать на пазлах",
+            "img": "assets/web/pechat-na-pazlakh__6stdubi7m6t9vxidz1y0g0qd1my3umep.jpg",
+            "method": "Печать по носителю",
+            "specs": "Тираж и размер по расчёту"
+          },
+          {
+            "id": "popsokety",
+            "src": "https://xn--18-6kc5a3bxam.xn--p1ai/upload/iblock/4df/9dswuarrigmcmrfz149cboseghei3tvt/popsokety_tipografia_cifra18_izhevsk.gif",
+            "name": "Попсокеты",
+            "img": "assets/web/popsokety__popsokety_tipografia_cifra18_izhevsk.jpg",
+            "method": "Печать по носителю",
+            "specs": "Тираж и размер по расчёту"
+          },
+          {
+            "id": "plaketki",
+            "src": "http://xn--18-6kc5a3bxam.xn--p1ai/upload/iblock/2ed/82ql6os3zuzvwqtfeekekrlf5hf04d6x.jpg",
+            "name": "Плакетка",
+            "img": "assets/web/plaketki__82ql6os3zuzvwqtfeekekrlf5hf04d6x.jpg",
+            "method": "Печать по носителю",
+            "specs": "Тираж и размер по расчёту"
+          },
+          {
+            "id": "kubik-transformer",
+            "src": "http://xn--18-6kc5a3bxam.xn--p1ai/upload/iblock/b9f/42b0hrifo4u5cex2h814hd0fgbnel01p.jpg",
+            "name": "Кубик трансформер",
+            "img": "assets/web/kubik-transformer__42b0hrifo4u5cex2h814hd0fgbnel01p.jpg",
+            "method": "Печать по носителю",
+            "specs": "Тираж и размер по расчёту"
+          }
+        ]
+      },
+      {
+        "id": "aksessuary",
+        "title": "Часы, тубусы, магниты, браслеты",
+        "intro": "",
+        "items": [
+          {
+            "id": "suvenirnye-chasy-na-zakaz",
+            "src": "http://xn--18-6kc5a3bxam.xn--p1ai/upload/iblock/8b6/a3eg5gi51ibm6ykrb1bnafb3bh5ownky.jpg",
+            "name": "Сувенирные часы",
+            "img": "assets/web/suvenirnye-chasy-na-zakaz__a3eg5gi51ibm6ykrb1bnafb3bh5ownky.jpg",
+            "method": "Гравировка и печать",
+            "specs": "Тираж и размер по расчёту"
+          },
+          {
+            "id": "tubus-brendirovannyy",
+            "src": "https://xn--18-6kc5a3bxam.xn--p1ai/upload/iblock/52b/e865fc0mqb9aiaxa5vczcgqnksjimjmf/korobka_dlya_futbolok_tipografia_cifra18_izhevs.jpg",
+            "name": "Тубус брендированный",
+            "img": "assets/web/tubus-brendirovannyy__korobka_dlya_futbolok_tipografia_cifra18_izhevs.jpg",
+            "method": "Гравировка и печать",
+            "specs": "Тираж и размер по расчёту"
+          },
+          {
+            "id": "akrilovye-magnity",
+            "src": "https://xn--18-6kc5a3bxam.xn--p1ai/upload/iblock/0c7/2hc6f9p2lm56a10jpfcxt6b2ixv0u46f/akrilovye_magnity_tipografia_cifra18_izhevsk.jpg",
+            "name": "Акриловые магниты",
+            "img": "assets/web/akrilovye-magnity__akrilovye_magnity_tipografia_cifra18_izhevsk.jpg",
+            "method": "Гравировка и печать",
+            "specs": "Тираж и размер по расчёту"
+          },
+          {
+            "id": "braslety-silikonovye",
+            "src": "https://xn--18-6kc5a3bxam.xn--p1ai/upload/iblock/30d/dc813w0nbtbut60ipj1nhhs1316hmx34/braslety_silikonovye_tipografia_cifra18_izhevsk.jpg",
+            "name": "Браслеты силиконовые",
+            "img": "assets/web/braslety-silikonovye__braslety_silikonovye_tipografia_cifra18_izhevsk.jpg",
+            "method": "Гравировка и печать",
+            "specs": "Тираж и размер по расчёту"
+          }
+        ]
+      }
+    ],
+    "quizCommonFields": {
+      "layoutOptions": [
+        {
+          "value": "ready",
+          "label": "Есть готовый макет"
+        },
+        {
+          "value": "need_design",
+          "label": "Макета нет, нужна разработка"
+        },
+        {
+          "value": "discuss",
+          "label": "Обсудить требования"
+        }
+      ],
+      "deadlineOptions": [
+        {
+          "value": "standard",
+          "label": "Стандартный срок"
+        },
+        {
+          "value": "urgent",
+          "label": "Нужно срочно"
+        }
+      ],
+      "deliveryOptions": [
+        {
+          "value": "izh",
+          "label": "Ижевск, заберу сам"
+        },
+        {
+          "value": "russia",
+          "label": "Другой город, доставка СДЭК"
+        }
+      ]
+    }
+  },
+  "backend": {
+    "mailTo": "izhcifra@yandex.ru"
+  },
+  "sources": {
+    "sliceDate": "2026-10-04",
+    "catalogFile": "landings/_scrape/out/catalog.json",
+    "demand": "Метрика 50863157, срез 2026-10-04, по отдельным ключам: «пазл, попсокет, плакетка, попкет» 40 визитов, «чехлы, карандаши, крафт-ручки» 37, «цифровая печать, лекала» 35, «часы, кубики, браслеты» 25, «USB, флешки» 18, «тубусы, коробки подарок, термос» 17. Ключи перекрываются с общим срезом по сувенирке, поэтому эти числа нельзя складывать и нельзя сравнивать с 374 визитами по разделу.",
+    "rules": [
+      "Позиции и фото взяты из двенадцати подразделов раздела «Сувенирная продукция» сайта цифра18.рф: печать на USB-устройствах, чехлы для ручек, печать на карандашах, печать на крафт-ручках, печать на пазлах, попсокеты, плакетки, кубик трансформер, сувенирные часы, тубус брендированный, магниты акриловые, браслеты силиконовые.",
+      "Названия позиций приведены как в каталоге, с переносом регистра: «КРУЖКА БЕЛАЯ» и «Кружка с логотипом» на карточке выглядели бы криком.",
+      "Восемь подразделов содержат по две позиции с одинаковым названием, это дубли каталога, и дедупликация оставляет по одной карточке.",
+      "Цены не публикуются: на этих подразделах калькулятора тиражей нет.",
+      "«Собственное производство» НЕ написано: поставщик мерча не выбран, см. landings/reports/08_SUPPLIERS_NOT_CHECKED.md.",
+      "Порядок групп внутри лендинга выбран по посещаемости из search_queries_top.csv, а не по размеру подраздела."
+    ],
+    "customerProvided": {
+      "map": {
+        "claim": "Координаты из ссылки на карту в футере сайта, 56.869771, 53.189062",
+        "verifiedOnSite": true
+      },
+      "delivery": {
+        "claim": "Доставка по всей России СДЭК",
+        "givenBy": "заказчик устно, 2026-10-04",
+        "verifiedOnSite": false,
+        "check": "На сайте цифра18.рф «СДЭК» не найдено ни разу. Подтвердить письменно вместе с тарифом и сроками."
+      }
+    },
+    "knownAnomalies": [
+      "Подраздел «Кубик трансформер» содержит две позиции с одинаковым названием, на страницу попадает одна.",
+      "Часть позиций приходит с фотографиями, которые на сайте являются схемами или выносками. Отбор по наличию фото, а не по качеству."
+    ]
+  }
+}

@@ -53,6 +53,25 @@ SLICE_DATE = "2026-10-04"
 JUNK_MARKERS = ("detail.php", "index.php", "list.php")
 
 
+# Аббревиатуры, которые на сайте написаны строчными и должны быть
+# прописными в заголовке карточки. Список закрытый: править чужие
+# названия по общим правилам означало бы догадки о том, что имелось в
+# виду, а здесь только то, что написано буквами.
+ACRONYMS = {
+    "usb": "USB",
+    "qr": "QR",
+    "qr-код": "QR-код",
+    "sim": "SIM",
+    "vip": "VIP",
+    "hd": "HD",
+    "dvd": "DVD",
+    "cd": "CD",
+    "3d": "3D",
+    "led": "LED",
+    "qr-коду": "QR-коду",
+}
+
+
 def slugify(url: str) -> str:
     tail = url.rstrip("/").rsplit("/", 1)[-1]
     return "".join(ch if ch.isalnum() else "-" for ch in tail).strip("-").lower()
@@ -65,12 +84,19 @@ def clean_name(raw: str) -> str:
     «Кружка с логотипом». ВСЕ КАПСЫ на карточке выглядит как крик, а
     перед первым словом ставится большая буква. Внутренние слова не
     трогаются: «из нержавеющей стали» должно остаться строчным.
+
+    Аббревиатуры приводятся в верхний регистр: на сайте есть «Печать на
+    usb-устройствах», и строчное usb в заголовке карточки читается как
+    небрежность. Список закрытый и короткий: общая нормализация слов
+    означала бы правку чужих названий там, где менять нечего.
     """
     s = " ".join(str(raw or "").split()).strip(" ,.;:")
     if not s:
         return s
     if s.isupper():
         s = s.lower().capitalize()
+    for low, up in ACRONYMS.items():
+        s = re.sub(rf"(?<![A-Za-zА-Яа-яЁё]){low}(?![A-Za-zА-Яа-яЁё])", up, s)
     return s
 
 
@@ -107,6 +133,17 @@ def check_subsections(spec: dict, items: list[dict]) -> list[str]:
                 near = difflib.get_close_matches(sub, sorted(known), n=3, cutoff=0.6)
                 hint = ("\n        похожее в выкачке: " + ", ".join(near)) if near else ""
                 problems.append(f"  группа {gs['id']!r}: нет подраздела {sub!r}{hint}")
+        # Лимит меньше числа подразделов означает, что часть подразделов
+        # не получит ни одной позиции, даже при отборе по кругу. Раньше
+        # это проходило молча, и подраздел выпадал со страницы целиком.
+        subs = gs.get("subsections") or []
+        limit = gs.get("limit", 3)
+        if len(subs) > limit:
+            problems.append(
+                f"  группа {gs['id']!r}: подразделов {len(subs)}, а limit {limit}. "
+                f"Подразделы без позиций: "
+                + ", ".join(subs[limit:][:4])
+                + (" и ещё" if len(subs) - limit > 4 else ""))
     return problems
 
 
@@ -147,6 +184,21 @@ def pick_group(items: list[dict], spec: dict) -> list[dict]:
     seen_name: set[str] = set()
     seen: set[str] = set()
     picked: list[dict] = []
+
+    # Отбор по кругу, а не одним проходом по отсортированному списку.
+    #
+    # Зачем. Список позиций склеивается из всех подразделов группы и
+    # сортируется по алфавиту, а лимит применяется один раз в конце. В
+    # группе «Подарочные наборы и игры» два подраздела, десять игр и девять
+    # подарков, лимит 3. Игры по алфавиту шли раньше, и девять позиций
+    # «Корпоративных подарков» не попали на страницу ни одной, хотя
+    # подраздел был честно прописан в спецификации. Выглядело это так,
+    # будто подарков в каталоге нет.
+    #
+    # По кругу каждый подраздел получает свою первую позицию, и только
+    # потом лимит распределяется на остальные. Подраздел не может
+    # остаться пустым, если позиций в нём есть.
+    buckets: dict[str, list[dict]] = {}
     for i in sorted(out, key=lambda x: (0 if x.get("priceTiers") else 1, x["name"])):
         name = clean_name(i["name"])
         photo = i["photos"][0]
@@ -154,9 +206,23 @@ def pick_group(items: list[dict], spec: dict) -> list[dict]:
             continue
         seen_name.add(name)
         seen.add(photo)
-        picked.append(i)
-        if len(picked) >= spec.get("limit", 3):
+        buckets.setdefault(i["subsection"], []).append(i)
+
+    limit = spec.get("limit", 3)
+    round_no = 0
+    while len(picked) < limit:
+        added = False
+        for sub in subs:
+            bucket = buckets.get(sub)
+            if not bucket or round_no >= len(bucket):
+                continue
+            picked.append(bucket[round_no])
+            added = True
+            if len(picked) >= limit:
+                break
+        if not added:
             break
+        round_no += 1
     return picked
 
 

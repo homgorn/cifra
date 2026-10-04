@@ -67,6 +67,15 @@ const CATALOG_GROUPS = [
     "intro": "",
     "items": [
       {
+        "id": "birki-ofsetnaya-pechat",
+        "src": "https://xn--18-6kc5a3bxam.xn--p1ai/upload/iblock/039/ppcz65bzj1i2w8u7rh7u2lf04zu5on1u/birki_ofsetnaya_pechat.gif",
+        "name": "Бирки офсетная печать",
+        "img": "assets/web/birki-ofsetnaya-pechat__birki_ofsetnaya_pechat.jpg",
+        "method": "Печать и закатка",
+        "specs": "Тираж и размер по расчёту",
+        "priceSource": "https://xn--18-6kc5a3bxam.xn--p1ai/catalog/poligrafiya/birki/birki-ofsetnaya-pechat/"
+      },
+      {
         "id": "beydzh-plastikovyy-54kh86mm",
         "src": "https://xn--18-6kc5a3bxam.xn--p1ai/upload/iblock/240/lyu4u5c9kzib20044p42cb7s6lndw0q7/beydzh_plastikovyy_54kh86mm_tipografia_cifra18_izhevsk.jpg",
         "name": "Бейдж пластиковый 54х86мм",
@@ -76,13 +85,12 @@ const CATALOG_GROUPS = [
         "priceSource": "https://xn--18-6kc5a3bxam.xn--p1ai/catalog/poligrafiya/beydzhi/beydzh-plastikovyy-54kh86mm/"
       },
       {
-        "id": "birki-ofsetnaya-pechat",
-        "src": "https://xn--18-6kc5a3bxam.xn--p1ai/upload/iblock/039/ppcz65bzj1i2w8u7rh7u2lf04zu5on1u/birki_ofsetnaya_pechat.gif",
-        "name": "Бирки офсетная печать",
-        "img": "assets/web/birki-ofsetnaya-pechat__birki_ofsetnaya_pechat.jpg",
+        "id": "zakatnye-znachki-glyantsevye",
+        "src": "https://xn--18-6kc5a3bxam.xn--p1ai/upload/iblock/483/y1rb5425b9gdakrwtlynvkfnlbny85qz/zakatnye_znachki_glyantsevye_tipografia_cifra18_izhevsk.jpg",
+        "name": "Закатные значки глянцевые",
+        "img": "assets/web/zakatnye-znachki-glyantsevye__zakatnye_znachki_glyantsevye_tipografia_cifra18_izhevsk.jpg",
         "method": "Печать и закатка",
-        "specs": "Тираж и размер по расчёту",
-        "priceSource": "https://xn--18-6kc5a3bxam.xn--p1ai/catalog/poligrafiya/birki/birki-ofsetnaya-pechat/"
+        "specs": "Тираж и размер по расчёту"
       },
       {
         "id": "birki-tsifrovaya-pechat",
@@ -98,14 +106,6 @@ const CATALOG_GROUPS = [
         "src": "https://xn--18-6kc5a3bxam.xn--p1ai/upload/iblock/1dc/yxxvm07p63dodclkvw8tjkce5xjofu7m/IMG_8204.jpg",
         "name": "Бейдж из оргстекла 30х70мм",
         "img": "assets/web/beydzh-iz-orgstekla-30kh70mm__IMG_8204.jpg",
-        "method": "Печать и закатка",
-        "specs": "Тираж и размер по расчёту"
-      },
-      {
-        "id": "beydzh-laminirovannyy",
-        "src": "https://xn--18-6kc5a3bxam.xn--p1ai/upload/iblock/216/cfnxublfxybee3dcufhnsvcnehq89m30/beydzh_laminirovannyy_tipografia_cifra18_izhevsk.gif",
-        "name": "Бейдж ламинированный",
-        "img": "assets/web/beydzh-laminirovannyy__beydzh_laminirovannyy_tipografia_cifra18_izhevsk.jpg",
         "method": "Печать и закатка",
         "specs": "Тираж и размер по расчёту"
       }

@@ -125,6 +125,14 @@ const CATALOG_GROUPS = [
     "intro": "",
     "items": [
       {
+        "id": "korobka-otkrytka-s-shokoladom-5gr4215",
+        "src": "http://xn--18-6kc5a3bxam.xn--p1ai/upload/iblock/1e8/nrl3jz4np4oplsk3vu2uzqumqa5q22sh/34.gif",
+        "name": "Коробка-открытка с шоколадом 5гр",
+        "img": "assets/web/korobka-otkrytka-s-shokoladom-5gr4215__34.jpg",
+        "method": "Комплектация набора",
+        "specs": "Тираж и размер по расчёту"
+      },
+      {
         "id": "golovolomka-pyatnashki-geometricheskie",
         "src": "https://xn--18-6kc5a3bxam.xn--p1ai/upload/iblock/424/se1g7buv08l31u0va0xy3d553pc86vkz/1600-_2_.jpg",
         "name": "Головоломка «Пятнашки геометрические»",
@@ -133,18 +141,10 @@ const CATALOG_GROUPS = [
         "specs": "Тираж и размер по расчёту"
       },
       {
-        "id": "golovolomka-pyatnashki",
-        "src": "https://xn--18-6kc5a3bxam.xn--p1ai/upload/iblock/85e/q9enfgpxvlhr6d4u2vl0tayryjnn6p53/11019.40_6219_2000x2000.jpg",
-        "name": "Головоломка «Пятнашки»",
-        "img": "assets/web/golovolomka-pyatnashki__11019.40_6219_2000x2000.jpg",
-        "method": "Комплектация набора",
-        "specs": "Тираж и размер по расчёту"
-      },
-      {
-        "id": "domino-numero",
-        "src": "https://xn--18-6kc5a3bxam.xn--p1ai/upload/iblock/f25/zvtibmece34oarp1j91sqocfafzso8yb/20127.00_11_2000x2000.jpg",
-        "name": "Домино Numero",
-        "img": "assets/web/domino-numero__20127.00_11_2000x2000.jpg",
+        "id": "korobki-samosbornye-s-lozhementom",
+        "src": "https://xn--18-6kc5a3bxam.xn--p1ai/upload/iblock/448/s5thm10q3zh8sz6xsjwjpe439hw8awuc/5347db27345c907aa3f99b66a1a74198.jpg",
+        "name": "Коробки самосборные с ложементом",
+        "img": "assets/web/korobki-samosbornye-s-lozhementom__5347db27345c907aa3f99b66a1a74198.jpg",
         "method": "Комплектация набора",
         "specs": "Тираж и размер по расчёту"
       }

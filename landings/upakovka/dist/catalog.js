@@ -108,6 +108,14 @@ const CATALOG_GROUPS = [
         "specs": "Тираж и размер по расчёту"
       },
       {
+        "id": "papka-na-knopke",
+        "src": "https://xn--18-6kc5a3bxam.xn--p1ai/upload/iblock/a6f/0lnzor12e1plsfd17ovzly2ualea5jwp.jpg",
+        "name": "Папка на кнопке",
+        "img": "assets/web/papka-na-knopke__0lnzor12e1plsfd17ovzly2ualea5jwp.jpg",
+        "method": "Печать и фальцовка",
+        "specs": "Тираж и размер по расчёту"
+      },
+      {
         "id": "konvert-mini-pod-kartu-vizitku-sertifikat-6-9sm-120gr",
         "src": "https://xn--18-6kc5a3bxam.xn--p1ai/upload/iblock/a2f/mn04qvlhd947d36vwcwswlz4unex6nya/10.jpg",
         "name": "Конверты МИНИ",
@@ -116,19 +124,58 @@ const CATALOG_GROUPS = [
         "specs": "Тираж и размер по расчёту"
       },
       {
-        "id": "konvert-barkhatnyy",
-        "src": "https://xn--18-6kc5a3bxam.xn--p1ai/upload/iblock/27e/5yhn1ote51hr9k1fjwgmyilzybeokzvl/f0ccae1899a6d32ae5a328389035_otkrytki_konvert_barhatnyj_s5_s6.jpg",
-        "name": "Конверты бархатные",
-        "img": "assets/web/konvert-barkhatnyy__f0ccae1899a6d32ae5a328389035_otkrytki_konvert_barhatnyj_s5_s6.jpg",
+        "id": "papki-na-koltsakh",
+        "src": "https://xn--18-6kc5a3bxam.xn--p1ai/upload/iblock/8de/wvvrx5l0u44bv9fz9oybov7oslbtpdr3/papki_na_koltsakh_tipografia_cifra18_izhevsk.jpg",
+        "name": "Папка на кольцах",
+        "img": "assets/web/papki-na-koltsakh__papki_na_koltsakh_tipografia_cifra18_izhevsk.jpg",
         "method": "Печать и фальцовка",
+        "specs": "Тираж и размер по расчёту"
+      }
+    ]
+  },
+  {
+    "id": "podarki",
+    "title": "Подарочные наборы и коробки",
+    "intro": "",
+    "items": [
+      {
+        "id": "korobka-otkrytka-s-shokoladom-5gr4215",
+        "src": "http://xn--18-6kc5a3bxam.xn--p1ai/upload/iblock/1e8/nrl3jz4np4oplsk3vu2uzqumqa5q22sh/34.gif",
+        "name": "Коробка-открытка с шоколадом 5гр",
+        "img": "assets/web/korobka-otkrytka-s-shokoladom-5gr4215__34.jpg",
+        "method": "Печать, сборка набора",
         "specs": "Тираж и размер по расчёту"
       },
       {
-        "id": "konverty-1",
-        "src": "https://xn--18-6kc5a3bxam.xn--p1ai/upload/iblock/81c/nx6g9hpnxs4yz32kqhnmwcpi5u337gqd.jpg",
-        "name": "Конверты белые",
-        "img": "assets/web/konverty-1__nx6g9hpnxs4yz32kqhnmwcpi5u337gqd.jpg",
-        "method": "Печать и фальцовка",
+        "id": "korobki-samosbornye-s-lozhementom",
+        "src": "https://xn--18-6kc5a3bxam.xn--p1ai/upload/iblock/448/s5thm10q3zh8sz6xsjwjpe439hw8awuc/5347db27345c907aa3f99b66a1a74198.jpg",
+        "name": "Коробки самосборные с ложементом",
+        "img": "assets/web/korobki-samosbornye-s-lozhementom__5347db27345c907aa3f99b66a1a74198.jpg",
+        "method": "Печать, сборка набора",
+        "specs": "Тираж и размер по расчёту"
+      },
+      {
+        "id": "korporativnye-podarki",
+        "src": "https://xn--18-6kc5a3bxam.xn--p1ai/upload/iblock/37d/5wiflv3ls0ezj6p7orphvhp2rtmclha2/shapki_na_slaydy.png",
+        "name": "Корпоративные подарки",
+        "img": "assets/web/korporativnye-podarki__shapki_na_slaydy.jpg",
+        "method": "Печать, сборка набора",
+        "specs": "Тираж и размер по расчёту"
+      },
+      {
+        "id": "kruzhka-v-korobke-s-dvoynym-bortom",
+        "src": "https://xn--18-6kc5a3bxam.xn--p1ai/upload/iblock/d7c/o25l1z77fos567ppriul3s985cbjsm91/nJgVBM7VNzQ.jpg",
+        "name": "Кружка в коробке с двойным бортом",
+        "img": "assets/web/kruzhka-v-korobke-s-dvoynym-bortom__nJgVBM7VNzQ.jpg",
+        "method": "Печать, сборка набора",
+        "specs": "Тираж и размер по расчёту"
+      },
+      {
+        "id": "korobki-samosbornye-s-dvoynym-bortom-dlya-termosa3599",
+        "src": "http://xn--18-6kc5a3bxam.xn--p1ai/upload/iblock/218/kkpks4c8o1puh32vhx09ghf2y6zosi34/05777898_8f72_11ee_adf3_005056ad1cd2.jpg",
+        "name": "Набор товаров в коробке",
+        "img": "assets/web/korobki-samosbornye-s-dvoynym-bortom-dlya-termosa3599__05777898_8f72_11ee_adf3_005056ad1cd2.jpg",
+        "method": "Печать, сборка набора",
         "specs": "Тираж и размер по расчёту"
       }
     ]

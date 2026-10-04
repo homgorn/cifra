@@ -262,6 +262,14 @@
         "intro": "",
         "items": [
           {
+            "id": "faltsovka",
+            "src": "https://xn--18-6kc5a3bxam.xn--p1ai/upload/iblock/a44/l63jic26gtkar4qrcuacazianzgdxtor.jpg",
+            "name": "Фальцовка",
+            "img": "assets/web/faltsovka__l63jic26gtkar4qrcuacazianzgdxtor.jpg",
+            "method": "Обработка готовых листов",
+            "specs": "Тираж и размер по расчёту"
+          },
+          {
             "id": "broshyurovka",
             "src": "https://xn--18-6kc5a3bxam.xn--p1ai/upload/iblock/8f2/cv97s6yo09eoyilf1gkzvr9x4oooxjzp.jpg",
             "name": "Брошюровка",
@@ -270,26 +278,18 @@
             "specs": "Тираж и размер по расчёту"
           },
           {
+            "id": "faltsovka-do-a3",
+            "src": "https://xn--18-6kc5a3bxam.xn--p1ai/upload/iblock/b11/902g8xb4nsjhjg6ryanqqgm7e7u85cfu.jpg",
+            "name": "Фальцовка до А3",
+            "img": "assets/web/faltsovka-do-a3__902g8xb4nsjhjg6ryanqqgm7e7u85cfu.jpg",
+            "method": "Обработка готовых листов",
+            "specs": "Варианты: Фальцовка до А4"
+          },
+          {
             "id": "pereplet-na-metallicheskuyu-pruzhinu-3-1",
             "src": "https://xn--18-6kc5a3bxam.xn--p1ai/upload/iblock/f5f/1g4dm4uev1rnxcb4dxmcokkgptyd1o69.jpg",
             "name": "Переплет на металлическую пружину 3:1",
             "img": "assets/web/pereplet-na-metallicheskuyu-pruzhinu-3-1__1g4dm4uev1rnxcb4dxmcokkgptyd1o69.jpg",
-            "method": "Обработка готовых листов",
-            "specs": "Тираж и размер по расчёту"
-          },
-          {
-            "id": "pereplet-na-plastikovuyu-pruzhinu",
-            "src": "https://xn--18-6kc5a3bxam.xn--p1ai/upload/iblock/bbf/3566ngko0er89wz9nps1cp53lisliavn.jpg",
-            "name": "Переплет на пластиковую пружину",
-            "img": "assets/web/pereplet-na-plastikovuyu-pruzhinu__3566ngko0er89wz9nps1cp53lisliavn.jpg",
-            "method": "Обработка готовых листов",
-            "specs": "Тираж и размер по расчёту"
-          },
-          {
-            "id": "pereplet-na-skobu",
-            "src": "https://xn--18-6kc5a3bxam.xn--p1ai/upload/iblock/c5d/2q54lrs8cn5xqmbfmia0fm7kh6lt397k.jpg",
-            "name": "Переплет на скобу (на степлер)",
-            "img": "assets/web/pereplet-na-skobu__2q54lrs8cn5xqmbfmia0fm7kh6lt397k.jpg",
             "method": "Обработка готовых листов",
             "specs": "Тираж и размер по расчёту"
           }
