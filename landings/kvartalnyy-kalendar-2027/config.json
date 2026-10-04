@@ -27,7 +27,6 @@
     "phone2Tel": "+79658423241",
     "email": "izhcifra@yandex.ru",
     "address": "426069, Удмуртская Респ., г. Ижевск, ул. 7-я Подлесная, д. 34",
-    "mapEmbedUrl": "https://yandex.ru/maps/44/izhevsk/?from=mapframe&ll=53.189062%2C56.869771&mode=usermaps&source=mapframe&um=constructor%3Ad147fe90814645d06a362eb5beed3a1b4af8094cf1216f1b1e942eaf1acf2e6c&utm_source=mapframe&z=14",
     "mapLat": "56.869771",
     "mapLon": "53.189062",
     "mapImage": "assets/web/map.png"
@@ -374,6 +373,12 @@
       "Цифры «18+ лет» и SLA «в течение 15 минут» не использованы: источника нет."
     ],
     "customerProvided": {
+      "whatsapp": {
+        "claim": "Ссылка WhatsApp https://wa.me/79658423241",
+        "givenBy": "собрана из второго телефона +7 (965) 842-32-41",
+        "verifiedOnSite": false,
+        "check": "На сайте цифра18.рф ссылок на WhatsApp нет ни на одной из 457 выкачанных страниц. Сайт ведёт только в VK и MAX. Номер взят из телефона, но WhatsApp на нём может не быть. Спросить заказчика либо убрать ссылку."
+      },
       "map": {
         "claim": "Координаты из ссылки на карту в футере сайта, 56.869771, 53.189062",
         "verifiedOnSite": true
