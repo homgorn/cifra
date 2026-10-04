@@ -88,7 +88,7 @@
   <section class="catalog" id="catalog">
     <div class="wrap">
       <h2 data-reveal>Каталог</h2>
-      <p data-reveal>Реальный ассортимент из нашего коммерческого предложения. Точные параметры уточняйте у менеджера.</p>
+      <p data-reveal>Позиции из нашего каталога. Точные параметры и тираж уточняйте у менеджера.</p>
       <div id="catalog-container"><!-- рендерится из catalog.js --></div>
     </div>
   </section>
@@ -149,6 +149,16 @@
           <div class="field">
             <label>Срок</label>
             <div class="quiz-radio-row" id="q-deadline"></div>
+          </div>
+
+          <!-- Город доставки. Поле нужно не для красоты: заявка из другого
+               региона уходит менеджеру сразу с городом, и доставка считается
+               вместе с заказом, без уточняющего звонка. Блок скрыт, если в
+               config.catalog.quizCommonFields нет deliveryOptions, тогда
+               renderRadioRow на пустом массиве не рисует ничего. -->
+          <div class="field" id="q-delivery-field" hidden>
+            <label>Доставка</label>
+            <div class="quiz-radio-row" id="q-delivery"></div>
           </div>
 
           <div class="field">

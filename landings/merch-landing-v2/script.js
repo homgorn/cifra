@@ -323,7 +323,7 @@
         quizStatus.textContent = 'Готово! Расчёт получен, менеджер свяжется с вами и продублирует его на почту.';
         quizStatus.setAttribute('data-state', 'ok');
         quizForm.reset();
-        if (window.ym) { try { ym(12345678, 'reachGoal', 'quiz_submit'); } catch (_) {} }
+        if (window.ym) { try { ym(50863157, 'reachGoal', 'quiz_submit'); } catch (_) {} }
       } catch (err) {
         quizStatus.textContent = 'Не получилось отправить. Позвоните нам: +7 (3412) 32-32-41';
         quizStatus.setAttribute('data-state', 'error');
@@ -392,7 +392,7 @@
         statusEl.textContent = 'Заявка отправлена, свяжемся в ближайшее время!';
         statusEl.setAttribute('data-state', 'ok');
         form.reset();
-        if (window.ym) { try { ym(12345678, 'reachGoal', 'lead_submit'); } catch (_) {} }
+        if (window.ym) { try { ym(50863157, 'reachGoal', 'lead_submit'); } catch (_) {} }
       } catch (err) {
         statusEl.textContent = 'Не получилось отправить. Позвоните нам: +7 (3412) 32-32-41';
         statusEl.setAttribute('data-state', 'error');

@@ -43,11 +43,24 @@ def safe_name(url: str, prefix: str, index: int) -> str:
     vyrubka.jpg есть у нескольких календарей, и без префикса они бы
     перетирали друг друга. Разбор расширения идёт ДО чистки имени, иначе
     остаётся хвост вида «имя-.jpg» с двумя точками.
+
+    Регистр расширения приводится к нижнему. На сайте встречаются `.GIF`
+    с заглавной, а каталог на Windows их не различает, из-за чего поиск
+    уже скачанного файла не находил его и качал заново.
     """
     raw = urllib.parse.urlparse(url).path.rsplit("/", 1)[-1]
-    stem, dot, ext = raw.partition(".")
+    # Расширение берётся по ПОСЛЕДНЕЙ точке, а не по первой. На сайте
+    # заказчика встречаются имена вида `bumazhnyy_paket....jpg.gif`, где
+    # расширение дописано к настоящему .jpg. По первой точке выходило
+    # расширение `jpggif`, которого нет ни в списке расширений
+    # оптимизатора, ни в списке расширений проверки, и файл молча
+    # проходил мимо обработки: скачивался, но не оптимизировался и не
+    # находился при подстановке пути.
+    dot = raw.rfind(".")
+    stem = raw[:dot] if dot > 0 else raw
+    ext = raw[dot + 1:] if dot > 0 else ""
     stem = re.sub(r"[^A-Za-z0-9._-]+", "-", stem).strip("-.")
-    ext = re.sub(r"[^A-Za-z0-9]+", "", ext) or "jpg"
+    ext = (re.sub(r"[^A-Za-z0-9]+", "", ext) or "jpg").lower()
     stem = stem or f"img-{index}"
     return f"{prefix}__{stem}.{ext}"
 
@@ -61,6 +74,10 @@ def main() -> int:
                     help="брать все фотографии позиции, а не только главную")
     ap.add_argument("--timeout", type=int, default=20,
                     help="таймаут запроса, по умолчанию 20 секунд")
+    ap.add_argument("--config", help="файл config.json лендинга. Качает "
+                                     "ровно те фотографии, на которые "
+                                     "ссылаются карточки, а не все "
+                                     "фотографии подраздела.")
     args = ap.parse_args()
 
     catalog = OUT / "catalog.json"
@@ -69,11 +86,51 @@ def main() -> int:
         return 1
 
     items = json.loads(catalog.read_text(encoding="utf-8"))
-    picked = [i for i in items
-              if i.get("subsection") == args.section and i.get("photos")]
-    if not picked:
-        print(f"По подразделу {args.section} позиций с фото не найдено.")
-        return 1
+
+    if args.config:
+        # Режим по конфигу. Нужен потому, что режим по подразделу тянет
+        # всё: у подраздела «Печать на кружках» 28 позиций, а в лендинг
+        # попадают три. Лишние двадцать пять никуда не идут, но
+        # занимают место и время, а папка ассетов копируется в dist
+        # целиком и раздувает его с 2 МБ до 7 МБ.
+        #
+        # Адрес берётся из поля `src` карточки, а не ищется заново по
+        # id. Поиск заново не работает: id это последний сегмент URL, а
+        # он совпадает у разных товаров. «Конверты белые» и страница
+        # раздела «Конверты» дают один id, словарь из 15 таких
+        # совпадений оставлял бы по одному товару, и вторая карточка
+        # получала бы чужую фотографию. Генератор знает, какую позицию
+        # взял, поэтому адрес должен прийти оттуда.
+        cfg = json.loads(Path(args.config).read_text(encoding="utf-8"))
+        urls: list[tuple[str, str]] = []      # (префикс, адрес)
+        without_src: list[str] = []
+        for group in cfg.get("catalog", {}).get("groups", []):
+            for card in group.get("items", []):
+                src = card.get("src")
+                cid = card.get("id", "?")
+                if src:
+                    urls.append((cid, src))
+                else:
+                    without_src.append(cid)
+        if without_src:
+            print(f"  ! у {len(without_src)} карточек нет поля src, "
+                  f"фото для них не качаются: {', '.join(without_src[:5])}")
+        # Префикс имени файла берётся из id карточки. Раньше он выводился
+        # из адреса фотографии, а в режиме по конфигу адрес это адрес
+        # картинки, и префиксом становилось имя файла вместо id товара.
+        # Тогда файл назывался не тем же именем, которое потом ищет
+        # генератор при подстановке локального пути, и на странице
+        # оказывалась битая картинка при «успешной» сборке.
+        picked = [{"slug": slug, "url": u, "photos": [u]} for slug, u in urls]
+        if not picked:
+            print("В конфиге нет ни одной ссылки на фотографию (поле src).")
+            return 1
+    else:
+        picked = [i for i in items
+                  if i.get("subsection") == args.section and i.get("photos")]
+        if not picked:
+            print(f"По подразделу {args.section} позиций с фото не найдено.")
+            return 1
 
     dest = Path(args.out)
     dest.mkdir(parents=True, exist_ok=True)
@@ -84,7 +141,8 @@ def main() -> int:
     failed: list[str] = []
     for n, item in enumerate(picked, 1):
         photos = item["photos"] if args.all else item["photos"][:1]
-        slug = re.sub(r"[^a-z0-9]+", "-", item["url"].rstrip("/").rsplit("/", 1)[-1]).strip("-")
+        slug = item.get("slug") or re.sub(
+            r"[^a-z0-9]+", "-", item["url"].rstrip("/").rsplit("/", 1)[-1]).strip("-")
         for k, photo in enumerate(photos):
             target = dest / safe_name(photo, slug, k)
             if target.exists() and target.stat().st_size > 2000:

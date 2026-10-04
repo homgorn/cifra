@@ -98,19 +98,41 @@
     const app = document.getElementById('quiz-app');
     if (!app) return;
 
-    const state = { step: 1, groupId: null, itemId: null, qty: 20, layout: null, deadline: null, notes: '' };
+    const state = { step: 1, groupId: null, itemId: null, qty: 20, layout: null, deadline: null, delivery: null, notes: '' };
 
     const groupsEl = document.getElementById('quiz-groups');
     const itemsEl = document.getElementById('quiz-items');
     const layoutEl = document.getElementById('q-layout');
     const deadlineEl = document.getElementById('q-deadline');
+    // Блока доставки может не быть: набор полей задаёт конфиг. Без проверки
+    // движок упал бы на null при первом рендере, как это было с каталогом.
+    const deliveryField = document.getElementById('q-delivery-field');
+    const deliveryEl = document.getElementById('q-delivery');
+    const deliveryOptions = QUIZ_COMMON_FIELDS.deliveryOptions || [];
     const qtyInput = document.getElementById('q-qty');
     const notesInput = document.getElementById('q-notes');
     const selectedItemBox = document.getElementById('quiz-selected-item');
     const finalSummaryBox = document.getElementById('quiz-final-summary');
     const progressFill = document.getElementById('quiz-progress-fill');
 
-    function currentGroup() {
+    /* Согласование числительных с существительным.
+ *
+ * В русском языке 1 позиция, 2 позиции, 5 позиций, но 21 позиция и
+ * 31 позиция снова в единственном числе. Подстановка без формы даёт
+ * «31 позиций», и это видно на странице сразу. Правило то же, что в
+ * landings/_scrape/plural.py, только на JS.
+ *
+ * Хелпер назван plural, чтобы его можно было положить в отдельный файл
+ * при выносе шаблона из сборки: сейчас он живёт здесь, и при копировании
+ * шаблона в другое место его легко забыть. */
+function plural(n, one, few, many) {
+  n = Number(n) || 0;
+  if (n % 10 === 1 && n % 100 !== 11) return one;
+  if (n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % 100 > 14)) return few;
+  return many;
+}
+
+function currentGroup() {
       return CATALOG_GROUPS.find((g) => g.id === state.groupId) || null;
     }
     function currentItem() {
@@ -124,7 +146,7 @@
         const card = document.createElement('button');
         card.type = 'button';
         card.className = 'quiz-card' + (g.id === state.groupId ? ' is-selected' : '');
-        card.innerHTML = `<span class="quiz-card-title">${g.title}</span><span class="quiz-card-sub">${g.items.length} позиций</span>`;
+        card.innerHTML = `<span class="quiz-card-title">${g.title}</span><span class="quiz-card-sub">${g.items.length} ${plural(g.items.length, 'позиция', 'позиции', 'позиций')}</span>`;
         card.addEventListener('click', () => {
           state.groupId = g.id;
           state.itemId = null;
@@ -178,6 +200,17 @@
 
       renderRadioRow(layoutEl, QUIZ_COMMON_FIELDS.layoutOptions, 'q-layout', state.layout, (v) => { state.layout = v; renderStep3(); });
       renderRadioRow(deadlineEl, QUIZ_COMMON_FIELDS.deadlineOptions, 'q-deadline', state.deadline, (v) => { state.deadline = v; renderStep3(); });
+
+      // Блок доставки рисуется только если поле есть И есть варианты.
+      // Иначе на странице без доставки осталась бы пустая подпись.
+      if (deliveryEl && deliveryField) {
+        if (deliveryOptions.length) {
+          deliveryField.hidden = false;
+          renderRadioRow(deliveryEl, deliveryOptions, 'q-delivery', state.delivery, (v) => { state.delivery = v; renderStep3(); });
+        } else {
+          deliveryField.hidden = true;
+        }
+      }
     }
 
     qtyInput.addEventListener('input', () => { state.qty = Number(qtyInput.value) || 0; });
@@ -215,6 +248,10 @@
       const f = QUIZ_COMMON_FIELDS.deadlineOptions.find((o) => o.value === v);
       return f ? f.label : 'не указано';
     }
+    function deliveryLabel(v) {
+      const f = deliveryOptions.find((o) => o.value === v);
+      return f ? f.label : '';
+    }
 
     function buildSummaryText() {
       const g = currentGroup();
@@ -227,6 +264,10 @@
         `Готовность: ${layoutLabel(state.layout)}`,
         `Срок: ${deadlineLabel(state.deadline)}`
       ];
+      // Доставка попадает в текст заявки, но не отдельной строкой «не
+      // указано»: незаполненное поле не должно выглядеть как отказ клиента.
+      const dLabel = deliveryLabel(state.delivery);
+      if (dLabel) parts.push(`Доставка: ${dLabel}`);
       if (state.notes) parts.push(`Пожелания: ${state.notes}`);
       return parts.join('\n');
     }
@@ -317,6 +358,7 @@
           qty: state.qty,
           layout: layoutLabel(state.layout),
           deadline: deadlineLabel(state.deadline),
+          delivery: deliveryLabel(state.delivery),
           notes: state.notes
         },
         summary: buildSummaryText()

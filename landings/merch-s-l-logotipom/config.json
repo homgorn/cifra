@@ -1,0 +1,417 @@
+{
+  "landing": {
+    "slug": "merch-s-l-logotipom",
+    "title": "Мерч с вашим логотипом"
+  },
+  "business": {
+    "name": "Типография Цифра",
+    "legalEntity": {
+      "fullName": "ИП Данилов Константин Леонидович",
+      "inn": "182501416864",
+      "ogrn": "307183731200018",
+      "policyDate": "2026-10-04",
+      "confirmedBy": "письменное подтверждение заказчика, 2026-10-04"
+    }
+  },
+  "site": {
+    "domain": "xn--18-6kc5a3bxam.xn--p1ai"
+  },
+  "meta": {
+    "title": "Мерч с вашим логотипом: кружки, ручки, одежда, магниты, Типография «Цифра», Ижевск",
+    "description": "Сувенирная продукция с нанесением: кружки, ручки, брендированная одежда, магниты, ежедневники, шоколад, значки. Доставка по всей России СДЭК. Расчёт по вашему макету и тиражу."
+  },
+  "contact": {
+    "phoneDisplay": "+7 (3412) 32-32-41",
+    "phoneTel": "+73412323241",
+    "phone2Display": "+7 (965) 842-32-41",
+    "phone2Tel": "+79658423241",
+    "email": "izhcifra@yandex.ru",
+    "address": "426069, Удмуртская Респ., г. Ижевск, ул. 7-я Подлесная, д. 34",
+    "mapLat": "56.869771",
+    "mapLon": "53.189062",
+    "mapImage": "assets/web/map.png"
+  },
+  "analytics": {
+    "yandexMetrikaId": "50863157"
+  },
+  "hero": {
+    "eyebrow": "типография «Цифра», Ижевск · сувенирная продукция",
+    "h1": "Мерч с вашим<br>логотипом",
+    "lead": "Выбираете товар, отмечаете тираж и пожелания, получаете расчёт. Доставка по всей России СДЭК. Точную сумму считаем под ваш макет, тираж и количество.",
+    "photo": "assets/web/belaya-kruzhka-330ml__belaya_kruzhka_330ml_tipografia_cifra18_izhevsk.jpg",
+    "photoAlt": "Белая кружка 330мл"
+  },
+  "heroStats": [
+    {
+      "value": "179",
+      "label": "позиций в разделе «Сувенирная продукция»"
+    },
+    {
+      "value": "7",
+      "label": "групп товаров на странице"
+    },
+    {
+      "value": "РФ",
+      "label": "доставка СДЭК"
+    }
+  ],
+  "usp": [
+    {
+      "title": "Разные способы нанесения",
+      "text": "Печать по кружке, по корпусу ручки, по текстилю, по винилу, по упаковке. Для каждой позиции подскажем, что лучше сработает на конкретном материале."
+    },
+    {
+      "title": "Расчёт, а не прайс",
+      "text": "Стоимость зависит от тиража, материала и количества цветов. Заполните квиз или оставьте заявку, посчитаем под вашу задачу."
+    },
+    {
+      "title": "Макет поможем подготовить",
+      "text": "Если готового макета нет, отметьте это в квизе. Требования к файлам пришлём до запуска в работу."
+    },
+    {
+      "title": "Доставка по всей России",
+      "text": "Отправляем готовый тираж в любой город через СДЭК. Стоимость и срок зависят от города и тиража, считаем вместе с расчётом заказа."
+    }
+  ],
+  "methods": [
+    "УФ-печать",
+    "Лазерная гравировка",
+    "Тиснение",
+    "Печать по ткани",
+    "Закатка значков"
+  ],
+  "process": [
+    {
+      "title": "Выбор",
+      "text": "Отмечаете товар и тираж в квизе."
+    },
+    {
+      "title": "Заявка",
+      "text": "Оставляете имя и телефон, по желанию пожелания к макету."
+    },
+    {
+      "title": "Расчёт",
+      "text": "Считаем стоимость под ваш макет и тираж, присылаем на почту."
+    },
+    {
+      "title": "Согласование",
+      "text": "Подтверждаете состав заказа и макет до запуска в работу."
+    },
+    {
+      "title": "Доставка",
+      "text": "Готовый тираж отправляем в ваш город через СДЭК."
+    }
+  ],
+  "trustBadges": [
+    {
+      "value": "179",
+      "label": "позиций в разделе сувениров"
+    },
+    {
+      "value": "5",
+      "label": "способов нанесения"
+    },
+    {
+      "value": "РФ",
+      "label": "доставка через СДЭК"
+    },
+    {
+      "value": "1",
+      "label": "менеджер на заказ"
+    }
+  ],
+  "faq": [
+    {
+      "q": "Почему на странице нет цен?",
+      "a": "Стоимость зависит от материала, тиража, количества цветов и сложности макета. Фиксированной цены нет, расчёт присылаем после заявки под конкретный заказ."
+    },
+    {
+      "q": "Нужен ли готовый макет?",
+      "a": "Подойдёт и готовый макет, и его отсутствие. Отметьте в квизе, и мы уточним требования к файлам до запуска в работу."
+    },
+    {
+      "q": "Что лучше нанести на кружку?",
+      "a": "Зависит от задачи. Уточните в квизе, что печатаем и на каком носителе, и мы скажем, какой способ нанесения подойдёт конкретно на этом материале."
+    },
+    {
+      "q": "Какой минимальный тираж?",
+      "a": "Зависит от позиции, уточнит менеджер после квиза или заявки. Напишите нужное количество, и мы скажем, возможно ли его сделать."
+    },
+    {
+      "q": "Вы печатаете мерч сами?",
+      "a": "По сувенирной продукции вопрос открыт, и мы не будем утверждать то, чего не подтвердили. Скажите, что нужно, и менеджер ответит по конкретной позиции: своё производство или подряд."
+    },
+    {
+      "q": "Вы доставляете в другие города?",
+      "a": "Да, доставляем по всей России через СДЭК, включая Ижевск и область. Стоимость и срок зависят от города и тиража, посчитаем их вместе с заказом."
+    }
+  ],
+  "contactChannels": [
+    {
+      "label": "WhatsApp",
+      "url": "https://wa.me/79658423241"
+    },
+    {
+      "label": "VK",
+      "url": "https://vk.com/cifraprint18"
+    },
+    {
+      "label": "MAX",
+      "url": "https://max.ru/id182501416864_bot"
+    }
+  ],
+  "catalog": {
+    "showPrices": false,
+    "groups": [
+      {
+        "id": "pechat-na-kruzhkakh",
+        "title": "Кружки и посуда",
+        "intro": "",
+        "items": [
+          {
+            "id": "belaya-kruzhka-330ml",
+            "src": "https://xn--18-6kc5a3bxam.xn--p1ai/upload/iblock/ea4/3sdtwouyotlpd9pmhmfwd0b56vjlkbe6/belaya_kruzhka_330ml_tipografia_cifra18_izhevsk.gif",
+            "name": "Белая кружка 330мл",
+            "img": "assets/web/belaya-kruzhka-330ml__belaya_kruzhka_330ml_tipografia_cifra18_izhevsk.jpg",
+            "method": "Печать по кружке",
+            "specs": "Тираж под заказ"
+          },
+          {
+            "id": "belaya-kruzhka-tsvetnaya-ruchka-dno-330ml",
+            "src": "https://xn--18-6kc5a3bxam.xn--p1ai/upload/iblock/1ce/b11h0p96mukhqv0oreriu4azeftm1ufr/belaya_kruzhka_tsvetnaya_ruchka_dno_330ml_tipografia_cifra18_izhevsk.jpg",
+            "name": "Белая кружка/цветная ручка/дно 330мл",
+            "img": "assets/web/belaya-kruzhka-tsvetnaya-ruchka-dno-330ml__belaya_kruzhka_tsvetnaya_ruchka_dno_330ml_tipografia_cifra18_izhevsk.jpg",
+            "method": "Печать по кружке",
+            "specs": "Тираж под заказ"
+          },
+          {
+            "id": "butylka-dlya-vody-gulp-500ml",
+            "src": "https://xn--18-6kc5a3bxam.xn--p1ai/upload/iblock/9f8/pnzxzqfu4m9rspu4thbwf9tt7iy2m14q/butylka_dlya_vody_gulp_500ml_tipografia_cifra18_izhevs.jpg",
+            "name": "Бутылка для воды Gulp 500мл",
+            "img": "assets/web/butylka-dlya-vody-gulp-500ml__butylka_dlya_vody_gulp_500ml_tipografia_cifra18_izhevs.jpg",
+            "method": "Печать по кружке",
+            "specs": "Тираж под заказ"
+          }
+        ]
+      },
+      {
+        "id": "pechat-na-ruchkakh",
+        "title": "Ручки",
+        "intro": "",
+        "items": [
+          {
+            "id": "pechat-na-ruchkakh",
+            "src": "https://xn--18-6kc5a3bxam.xn--p1ai/upload/iblock/cec/z29059jw6b9nynm3pi1m6rij9jr24slf.png",
+            "name": "Печать на ручках",
+            "img": "assets/web/pechat-na-ruchkakh__z29059jw6b9nynm3pi1m6rij9jr24slf.jpg",
+            "method": "Печать на корпусе",
+            "specs": "Тираж под заказ"
+          },
+          {
+            "id": "ruchka-metallicheskaya-dallas-touch",
+            "src": "https://xn--18-6kc5a3bxam.xn--p1ai/upload/iblock/3fc/v35s8mbg1byhjckze0gsivvjvmsx74s0/ruchka_metallicheskaya_dallas_touch_tipografia_cifra18_izhevsk.jpg",
+            "name": "Ручка металлическая Dallas Touch",
+            "img": "assets/web/ruchka-metallicheskaya-dallas-touch__ruchka_metallicheskaya_dallas_touch_tipografia_cifra18_izhevsk.jpg",
+            "method": "Печать на корпусе",
+            "specs": "Тираж под заказ"
+          },
+          {
+            "id": "ruchka-metallicheskaya-legend",
+            "src": "https://xn--18-6kc5a3bxam.xn--p1ai/upload/iblock/878/y14hvhp88ef69pd2lg78dr8b7pcbgl24/ruchka_metallicheskaya_s_pokrytiem_soft_tach_legend_tipografia_cifra18_izhevsk.jpg",
+            "name": "Ручка металлическая Legend",
+            "img": "assets/web/ruchka-metallicheskaya-legend__ruchka_metallicheskaya_s_pokrytiem_soft_tach_legend_tipografia_cifra18_izhevsk.jpg",
+            "method": "Печать на корпусе",
+            "specs": "Тираж под заказ"
+          }
+        ]
+      },
+      {
+        "id": "brendirovanie-odezhdy",
+        "title": "Брендированная одежда",
+        "intro": "",
+        "items": [
+          {
+            "id": "dtf-dtf-pechat",
+            "src": "https://xn--18-6kc5a3bxam.xn--p1ai/upload/iblock/a38/jybcwkfzrbm9gvpw1abuuj7uqaw57rur/DTF_Xpress_Ink_Cost_Reduction.jpg",
+            "name": "DTF ДТФ печать",
+            "img": "assets/web/dtf-dtf-pechat__DTF_Xpress_Ink_Cost_Reduction.jpg",
+            "method": "Печать на текстиле",
+            "specs": "Тираж под заказ"
+          },
+          {
+            "id": "brendirovanie-beysbolki-kepki",
+            "src": "https://xn--18-6kc5a3bxam.xn--p1ai/upload/iblock/b8b/a8t1i0x73vu3689qngf6pdg64t72ohtp/brendirovanie_beysbolki_kepki_tipografia_cifra18_izhevsk.gif",
+            "name": "Брендирование бейсболки, кепки",
+            "img": "assets/web/brendirovanie-beysbolki-kepki__brendirovanie_beysbolki_kepki_tipografia_cifra18_izhevsk.jpg",
+            "method": "Печать на текстиле",
+            "specs": "Тираж под заказ"
+          }
+        ]
+      },
+      {
+        "id": "magnity-vinilovye",
+        "title": "Магниты",
+        "intro": "",
+        "items": [
+          {
+            "id": "vinilovye-magnity-10kh15sm",
+            "src": "https://xn--18-6kc5a3bxam.xn--p1ai/upload/iblock/d83/2ynr5cklnd1g2jo2b5dfzs0nb6lthfdj.jpg",
+            "name": "Виниловые магниты 10х15см",
+            "img": "assets/web/vinilovye-magnity-10kh15sm__2ynr5cklnd1g2jo2b5dfzs0nb6lthfdj.jpg",
+            "method": "Печать по винилу",
+            "specs": "Размеры: Магниты виниловые, Виниловые магниты 15х21см, Виниловые магниты 21х30см, Виниловые магниты 30х42см, Виниловые магниты 5х5см/ 4,5х4,5см/ 4х6см, Виниловые магниты 5х7см /6х6см/ 5,5х5,5см и ещё 3"
+          },
+          {
+            "id": "figurnye-vinilovye-magnity",
+            "src": "https://xn--18-6kc5a3bxam.xn--p1ai/upload/iblock/e61/qregtrn1xf6x1o1llrf028ma2n0k4asm/photo_2025_09_27_12_41_37.jpg",
+            "name": "Фигурные виниловые магниты",
+            "img": "assets/web/figurnye-vinilovye-magnity__photo_2025_09_27_12_41_37.jpg",
+            "method": "Печать по винилу",
+            "specs": "Тираж под заказ"
+          }
+        ]
+      },
+      {
+        "id": "shokolad",
+        "title": "Шоколад и кондитерка",
+        "intro": "",
+        "items": [
+          {
+            "id": "shokolad-s-logotipom",
+            "src": "https://xn--18-6kc5a3bxam.xn--p1ai/upload/iblock/a5b/kx7e49201b2ej2pjvtiabch38qo4bg2z.jpg",
+            "name": "Шоколад с логотипом 5гр",
+            "img": "assets/web/shokolad-s-logotipom__kx7e49201b2ej2pjvtiabch38qo4bg2z.jpg",
+            "method": "Печать на упаковке",
+            "specs": "Тираж под заказ",
+            "priceFrom": "от 14 ₽/шт.",
+            "priceSource": "https://xn--18-6kc5a3bxam.xn--p1ai/catalog/suvenirnaya-produktsiya/shokolad/shokolad-s-logotipom/"
+          },
+          {
+            "id": "korobka-otkrytka-s-shokoladom-5gr",
+            "src": "https://xn--18-6kc5a3bxam.xn--p1ai/upload/iblock/1e8/nrl3jz4np4oplsk3vu2uzqumqa5q22sh/34.gif",
+            "name": "Коробка-открытка с шоколадом 5гр",
+            "img": "assets/web/korobka-otkrytka-s-shokoladom-5gr__34.jpg",
+            "method": "Печать на упаковке",
+            "specs": "Тираж под заказ"
+          }
+        ]
+      },
+      {
+        "id": "ezhednevniki1738",
+        "title": "Ежедневники и блокноты",
+        "intro": "",
+        "items": [
+          {
+            "id": "ezhednevniki1738",
+            "src": "https://xn--18-6kc5a3bxam.xn--p1ai/upload/iblock/db4/4324wzmjr7crqxvhcizbrtzimjfgg7mm.jpg",
+            "name": "Ежедневники",
+            "img": "assets/web/ezhednevniki1738__4324wzmjr7crqxvhcizbrtzimjfgg7mm.jpg",
+            "method": "Печать обложки",
+            "specs": "Тираж под заказ"
+          },
+          {
+            "id": "tisnenie-blintovoe",
+            "src": "https://xn--18-6kc5a3bxam.xn--p1ai/upload/iblock/a15/hq81kglpc1wv8xaijgmc7d0e5yiobcnq/tisnenie_blintovoe_tipografia_cifra18_izhevsk.jpg",
+            "name": "Тиснение блинтовое",
+            "img": "assets/web/tisnenie-blintovoe__tisnenie_blintovoe_tipografia_cifra18_izhevsk.jpg",
+            "method": "Печать обложки",
+            "specs": "Тираж под заказ"
+          }
+        ]
+      },
+      {
+        "id": "znachki-zakatnye9558",
+        "title": "Значки и медали",
+        "intro": "",
+        "items": [
+          {
+            "id": "zakatnye-znachki-glyantsevye",
+            "src": "https://xn--18-6kc5a3bxam.xn--p1ai/upload/iblock/483/y1rb5425b9gdakrwtlynvkfnlbny85qz/zakatnye_znachki_glyantsevye_tipografia_cifra18_izhevsk.jpg",
+            "name": "Закатные значки глянцевые",
+            "img": "assets/web/zakatnye-znachki-glyantsevye__zakatnye_znachki_glyantsevye_tipografia_cifra18_izhevsk.jpg",
+            "method": "Печать и закатка",
+            "specs": "Тираж под заказ"
+          },
+          {
+            "id": "zakatnye-znachki-matovye",
+            "src": "https://xn--18-6kc5a3bxam.xn--p1ai/upload/iblock/d11/yrvwragf67utr549gjaw5gr4lygrlllt/photo_2025_01_15_11_35_01.jpg",
+            "name": "Закатные значки матовые",
+            "img": "assets/web/zakatnye-znachki-matovye__photo_2025_01_15_11_35_01.jpg",
+            "method": "Печать и закатка",
+            "specs": "Тираж под заказ"
+          }
+        ]
+      }
+    ],
+    "quizCommonFields": {
+      "layoutOptions": [
+        {
+          "value": "ready",
+          "label": "Есть готовый макет"
+        },
+        {
+          "value": "need_design",
+          "label": "Макета нет, нужна разработка"
+        },
+        {
+          "value": "discuss",
+          "label": "Обсудить требования"
+        }
+      ],
+      "deadlineOptions": [
+        {
+          "value": "standard",
+          "label": "Стандартный срок"
+        },
+        {
+          "value": "urgent",
+          "label": "Нужно срочно"
+        }
+      ],
+      "deliveryOptions": [
+        {
+          "value": "izh",
+          "label": "Ижевск, заберу сам"
+        },
+        {
+          "value": "russia",
+          "label": "Другой город, доставка СДЭК"
+        }
+      ]
+    }
+  },
+  "backend": {
+    "mailTo": "izhcifra@yandex.ru"
+  },
+  "sources": {
+    "sliceDate": "2026-10-04",
+    "catalogFile": "landings/_scrape/out/catalog.json",
+    "rules": [
+      "Названия позиций и фотографии взяты со страниц товаров раздела «Сувенирная продукция» сайта цифра18.рф.",
+      "Порядок блоков выбран по посещаемости из search_queries_top.csv. Абсолютные цифры посещаемости на страницу не выносятся: ключи в этой выгрузке дают разные оценки, сопоставлять их нельзя.",
+      "В блок взято 16 позиций из 179. Остальные остаются на сайте заказчика: лендинг на 178 карточек не читается, SKILL.md ограничивает блок 15-20 позициями.",
+      "Цены не публикуются: catalog.showPrices = false.",
+      "Контакты, счётчик Метрика 50863157 и ссылки на мессенджеры взяты из футера и разметки сайта заказчика.",
+      "Реквизиты ИП получены письменно 2026-10-04.",
+      "«Собственное производство» НЕ написано: поставщик мерча не выбран, см. 08_SUPPLIERS_NOT_CHECKED.md.",
+      "«18+ лет», «13+ видов» и SLA «15 минут» не использованы: источников нет."
+    ],
+    "customerProvided": {
+      "map": {
+        "claim": "Координаты из ссылки на карту в футере сайта, 56.869771, 53.189062",
+        "verifiedOnSite": true
+      },
+      "delivery": {
+        "claim": "Доставка по всей России СДЭК",
+        "givenBy": "заказчик устно, 2026-10-04",
+        "verifiedOnSite": false,
+        "check": "На сайте цифра18.рф «СДЭК» не найдено ни разу. Подтвердить письменно вместе с тарифом и сроками."
+      }
+    },
+    "knownAnomalies": [
+      "Доставка СДЭК подана как факт, но на сайте подтверждения нет.",
+      "Калькулятор тиражей на сайте есть у 4 позиций из 178 в разделе, поэтому цены почти нигде не выгрузились. На лендинг не идут.",
+      "Фото товаров разного качества: часть снимков это схемы и выноски с сайта, а не предмет на белом. Отбор по наличию фото, а не по качеству."
+    ]
+  }
+}

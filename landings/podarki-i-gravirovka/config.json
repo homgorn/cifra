@@ -1,0 +1,386 @@
+{
+  "landing": {
+    "slug": "podarki-i-gravirovka",
+    "title": "Подарки, гравировка, медали"
+  },
+  "business": {
+    "name": "Типография Цифра",
+    "legalEntity": {
+      "fullName": "ИП Данилов Константин Леонидович",
+      "inn": "182501416864",
+      "ogrn": "307183731200018",
+      "policyDate": "2026-10-04",
+      "confirmedBy": "письменное подтверждение заказчика, 2026-10-04"
+    }
+  },
+  "site": {
+    "domain": "xn--18-6kc5a3bxam.xn--p1ai"
+  },
+  "meta": {
+    "title": "Подарочная сувенирная продукция, лазерная гравировка, медали, Типография «Цифра», Ижевск",
+    "description": "Сувенирная продукция в Ижевске: брелки, сумки, рюкзаки, награды, подарочные наборы, лазерная гравировка и маркировка. Расчёт по тиражу. Доставка по всей России СДЭК."
+  },
+  "contact": {
+    "phoneDisplay": "+7 (3412) 32-32-41",
+    "phoneTel": "+73412323241",
+    "phone2Display": "+7 (965) 842-32-41",
+    "phone2Tel": "+79658423241",
+    "email": "izhcifra@yandex.ru",
+    "address": "426069, Удмуртская Респ., г. Ижевск, ул. 7-я Подлесная, д. 34",
+    "mapLat": "56.869771",
+    "mapLon": "53.189062",
+    "mapImage": "assets/web/map.png"
+  },
+  "analytics": {
+    "yandexMetrikaId": "50863157"
+  },
+  "hero": {
+    "eyebrow": "типография «Цифра», Ижевск · подарки и гравировка",
+    "h1": "Подарки, гравировка,<br>медали",
+    "lead": "Брелки, сумки и рюкзаки, награды и кубки, подарочные наборы, игры, лазерная гравировка и маркировка. Отмечаете товар и тираж, получаете расчёт.",
+    "photo": "assets/web/lazernaya-gravirovka__Skrinshot-16_02_2025-205832.jpg",
+    "photoAlt": "Лазерная гравировка"
+  },
+  "heroStats": [
+    {
+      "value": "5",
+      "label": "групп товаров на странице"
+    },
+    {
+      "value": "14",
+      "label": "позиций в блоке на странице"
+    },
+    {
+      "value": "РФ",
+      "label": "доставка СДЭК"
+    }
+  ],
+  "usp": [
+    {
+      "title": "Гравировка и маркировка",
+      "text": "Отдельная позиция каталога. Что можно нанести и на каком материале, уточним под вашу задачу."
+    },
+    {
+      "title": "Награды и кубки",
+      "text": "Двенадцать позиций: медали, кубки, награды. Форма и объём под вашу номинацию."
+    },
+    {
+      "title": "Рюкзаки и сумки",
+      "text": "Десять позиций с печатью по ткани. Что лучше смотрится на чёрной ткани, а что на светлой, скажем после заявки."
+    },
+    {
+      "title": "Подарочные наборы",
+      "text": "Отдельная позиция каталога. Соберём набор под повод: день рождения, защита диплома, корпоративный подарок."
+    }
+  ],
+  "methods": [
+    "Лазерная гравировка",
+    "УФ-печать",
+    "Печать по ткани",
+    "Штампование",
+    "Закатка значков"
+  ],
+  "process": [
+    {
+      "title": "Выбор",
+      "text": "Отмечаете товар и тираж в квизе."
+    },
+    {
+      "title": "Заявка",
+      "text": "Оставляете имя и телефон, по желанию пожелания к макету."
+    },
+    {
+      "title": "Расчёт",
+      "text": "Считаем стоимость под ваш макет и тираж, присылаем на почту."
+    },
+    {
+      "title": "Согласование",
+      "text": "Подтверждаете состав заказа и макет до запуска в работу."
+    },
+    {
+      "title": "Доставка",
+      "text": "Готовый тираж отправляем в ваш город через СДЭК."
+    }
+  ],
+  "trustBadges": [
+    {
+      "value": "63",
+      "label": "позиции в блоке подарков и гравировки"
+    },
+    {
+      "value": "5",
+      "label": "способов нанесения"
+    },
+    {
+      "value": "РФ",
+      "label": "доставка через СДЭК"
+    },
+    {
+      "value": "1",
+      "label": "менеджер на заказ"
+    }
+  ],
+  "faq": [
+    {
+      "q": "Что можно выгравировать?",
+      "a": "Зависит от материала. Опишите, что нужно пометить и на чём, и мы скажем, какой способ подойдёт конкретно на этом материале."
+    },
+    {
+      "q": "Собираете ли подарочные наборы?",
+      "a": "Да, «Корпоративные подарки» есть отдельной позицией каталога. Напишите, для кого и по какому поводу, и мы предложим состав."
+    },
+    {
+      "q": "Есть ли игры и головоломки?",
+      "a": "Да, отдельная позиция каталога, около десяти штук. Подберём под тематику мероприятия."
+    },
+    {
+      "q": "Нужен ли готовый макет?",
+      "a": "Подойдёт и готовый макет, и его отсутствие. Отметьте в квизе, и мы уточним требования к файлам до запуска в работу."
+    },
+    {
+      "q": "Сколько стоит?",
+      "a": "Зависит от товара, тиража, материала и способа нанесения. Фиксированной цены нет, расчёт присылаем после заявки под конкретный заказ."
+    },
+    {
+      "q": "Вы печатаете мерч сами?",
+      "a": "По сувенирной продукции вопрос открытый, и мы не будем утверждать то, чего не подтвердили. Скажите, что нужно, и менеджер ответит по конкретной позиции: своё производство или подряд."
+    }
+  ],
+  "contactChannels": [
+    {
+      "label": "WhatsApp",
+      "url": "https://wa.me/79658423241"
+    },
+    {
+      "label": "VK",
+      "url": "https://vk.com/cifraprint18"
+    },
+    {
+      "label": "MAX",
+      "url": "https://max.ru/id182501416864_bot"
+    }
+  ],
+  "catalog": {
+    "showPrices": false,
+    "groups": [
+      {
+        "id": "gravirovka",
+        "title": "Лазерная гравировка и маркировка",
+        "intro": "",
+        "items": [
+          {
+            "id": "lazernaya-gravirovka",
+            "src": "https://xn--18-6kc5a3bxam.xn--p1ai/upload/iblock/69f/afifgznd72f361e3saxtw5wda1qtstc4/Skrinshot-16_02_2025-205832.jpg",
+            "name": "Лазерная гравировка",
+            "img": "assets/web/lazernaya-gravirovka__Skrinshot-16_02_2025-205832.jpg",
+            "method": "Лазерная гравировка",
+            "specs": "Тираж и размер по расчёту"
+          },
+          {
+            "id": "gravirovka-na-dereve",
+            "src": "https://xn--18-6kc5a3bxam.xn--p1ai/upload/iblock/251/lszj3nkz484we0n3458whk63sw5c6brt/gravirovka_na_dereve_tipografia_cifra18_izhevs.jpg",
+            "name": "Лазерная гравировка на дереве",
+            "img": "assets/web/gravirovka-na-dereve__gravirovka_na_dereve_tipografia_cifra18_izhevs.jpg",
+            "method": "Лазерная гравировка",
+            "specs": "Тираж и размер по расчёту"
+          },
+          {
+            "id": "gravirovka-na-ezhednevnike-kozha-kozh-zam",
+            "src": "https://xn--18-6kc5a3bxam.xn--p1ai/upload/iblock/79b/nyiu3o1tpauaa7hinkxdgzzhlihom27i/gravirovka_na_ezhednevnike_kozha_kozh_zam_tipografia_cifra18_izhevs.jpg",
+            "name": "Лазерная гравировка на ежедневнике (кожа/кож.зам)",
+            "img": "assets/web/gravirovka-na-ezhednevnike-kozha-kozh-zam__gravirovka_na_ezhednevnike_kozha_kozh_zam_tipografia_cifra18_izhevs.jpg",
+            "method": "Лазерная гравировка",
+            "specs": "Тираж и размер по расчёту"
+          }
+        ]
+      },
+      {
+        "id": "nagrady",
+        "title": "Награды и кубки",
+        "intro": "",
+        "items": [
+          {
+            "id": "medal-pod-nanesenie-d-5-sm-s-lentoy",
+            "src": "https://xn--18-6kc5a3bxam.xn--p1ai/upload/iblock/80a/lcu2zaxvrjgy7nrh1l7ovay3u5mzxb40/700-_3_.jpg",
+            "name": "Медаль под нанесение d=5 см, с лентой",
+            "img": "assets/web/medal-pod-nanesenie-d-5-sm-s-lentoy__700-_3_.jpg",
+            "method": "Гравировка и закалка",
+            "specs": "Тираж и размер по расчёту",
+            "priceFrom": "от 66 ₽/шт.",
+            "priceSource": "https://xn--18-6kc5a3bxam.xn--p1ai/catalog/suvenirnaya-produktsiya/medali-kubki-nagradnaya-produktsiya/medal-pod-nanesenie-d-5-sm-s-lentoy/"
+          },
+          {
+            "id": "medal-pod-nanesenie-d-7-sm-s-lentoy",
+            "src": "http://xn--18-6kc5a3bxam.xn--p1ai/upload/iblock/146/gor7i5n3m54ytn3s3r5gbav6lg7b26fd/1600-_6_.jpg",
+            "name": "Медаль под нанесение d=7 см, с лентой",
+            "img": "assets/web/medal-pod-nanesenie-d-7-sm-s-lentoy__1600-_6_.jpg",
+            "method": "Гравировка и закалка",
+            "specs": "Тираж и размер по расчёту",
+            "priceFrom": "от 66 ₽/шт.",
+            "priceSource": "https://xn--18-6kc5a3bxam.xn--p1ai/catalog/suvenirnaya-produktsiya/medali-kubki-nagradnaya-produktsiya/medal-pod-nanesenie-d-7-sm-s-lentoy/"
+          },
+          {
+            "id": "kubki",
+            "src": "http://xn--18-6kc5a3bxam.xn--p1ai/upload/iblock/a42/223083vs9t1hg0sp2qh188kv3wjpxrqh.jpg",
+            "name": "Кубки",
+            "img": "assets/web/kubki__223083vs9t1hg0sp2qh188kv3wjpxrqh.jpg",
+            "method": "Гравировка и закалка",
+            "specs": "Тираж и размер по расчёту"
+          }
+        ]
+      },
+      {
+        "id": "sumki",
+        "title": "Рюкзаки и сумки",
+        "intro": "",
+        "items": [
+          {
+            "id": "sumka-shopper-belyy",
+            "src": "https://xn--18-6kc5a3bxam.xn--p1ai/upload/iblock/fad/tek7e67ofw11c93s6gyk4ransali5szu/sumka_shopper_belaya_tipografia_cifra18_izhevsk.jpg",
+            "name": "Сумка шоппер белый",
+            "img": "assets/web/sumka-shopper-belyy__sumka_shopper_belaya_tipografia_cifra18_izhevsk.jpg",
+            "method": "Печать по ткани",
+            "specs": "Тираж и размер по расчёту",
+            "priceFrom": "от 290 ₽/шт.",
+            "priceSource": "https://xn--18-6kc5a3bxam.xn--p1ai/catalog/suvenirnaya-produktsiya/ryukzaki-i-sumki/sumka-shopper-belyy/"
+          },
+          {
+            "id": "ryukzak-basis",
+            "src": "https://xn--18-6kc5a3bxam.xn--p1ai/upload/iblock/10a/3xxrpckcmg0sixr20m7mpulwqvtw0h5t/c8142f86_2967_11ef_aeb9_005056ad1cd2_2.jpg",
+            "name": "Рюкзак BASIS",
+            "img": "assets/web/ryukzak-basis__c8142f86_2967_11ef_aeb9_005056ad1cd2_2.jpg",
+            "method": "Печать по ткани",
+            "specs": "Тираж и размер по расчёту"
+          },
+          {
+            "id": "ryukzak-beavis",
+            "src": "https://xn--18-6kc5a3bxam.xn--p1ai/upload/iblock/187/22mbxcupppjpg4wp62585r8qg2sa9642/91ebe440_2d69_11ef_aebe_005056ad1cd2.jpg",
+            "name": "Рюкзак BEAVIS",
+            "img": "assets/web/ryukzak-beavis__91ebe440_2d69_11ef_aebe_005056ad1cd2.jpg",
+            "method": "Печать по ткани",
+            "specs": "Тираж и размер по расчёту"
+          }
+        ]
+      },
+      {
+        "id": "breloki",
+        "title": "Брелки",
+        "intro": "",
+        "items": [
+          {
+            "id": "brelok-convert-allyuminievyy-serebro",
+            "src": "https://xn--18-6kc5a3bxam.xn--p1ai/upload/iblock/b57/xyhg754j51t8vlxtabftkhssgbvf1jdq/edf42aff_3228_11ef_aec4_005056ad1cd2.jpg",
+            "name": "Брелок Convert аллюминиевый, серебро",
+            "img": "assets/web/brelok-convert-allyuminievyy-serebro__edf42aff_3228_11ef_aec4_005056ad1cd2.jpg",
+            "method": "Гравировка и печать",
+            "specs": "Тираж и размер по расчёту"
+          },
+          {
+            "id": "brelok-hors",
+            "src": "https://xn--18-6kc5a3bxam.xn--p1ai/upload/iblock/da7/o26mvo0b8nrf5qophn3ocbsl63ss3tl1/brelok_hors_tipografia_cifra18_izhevsk.jpg",
+            "name": "Брелок Hors",
+            "img": "assets/web/brelok-hors__brelok_hors_tipografia_cifra18_izhevsk.jpg",
+            "method": "Гравировка и печать",
+            "specs": "Тираж и размер по расчёту"
+          }
+        ]
+      },
+      {
+        "id": "podarki",
+        "title": "Подарочные наборы и игры",
+        "intro": "",
+        "items": [
+          {
+            "id": "golovolomka-pyatnashki-geometricheskie",
+            "src": "https://xn--18-6kc5a3bxam.xn--p1ai/upload/iblock/424/se1g7buv08l31u0va0xy3d553pc86vkz/1600-_2_.jpg",
+            "name": "Головоломка «Пятнашки геометрические»",
+            "img": "assets/web/golovolomka-pyatnashki-geometricheskie__1600-_2_.jpg",
+            "method": "Комплектация набора",
+            "specs": "Тираж и размер по расчёту"
+          },
+          {
+            "id": "golovolomka-pyatnashki",
+            "src": "https://xn--18-6kc5a3bxam.xn--p1ai/upload/iblock/85e/q9enfgpxvlhr6d4u2vl0tayryjnn6p53/11019.40_6219_2000x2000.jpg",
+            "name": "Головоломка «Пятнашки»",
+            "img": "assets/web/golovolomka-pyatnashki__11019.40_6219_2000x2000.jpg",
+            "method": "Комплектация набора",
+            "specs": "Тираж и размер по расчёту"
+          },
+          {
+            "id": "domino-numero",
+            "src": "https://xn--18-6kc5a3bxam.xn--p1ai/upload/iblock/f25/zvtibmece34oarp1j91sqocfafzso8yb/20127.00_11_2000x2000.jpg",
+            "name": "Домино Numero",
+            "img": "assets/web/domino-numero__20127.00_11_2000x2000.jpg",
+            "method": "Комплектация набора",
+            "specs": "Тираж и размер по расчёту"
+          }
+        ]
+      }
+    ],
+    "quizCommonFields": {
+      "layoutOptions": [
+        {
+          "value": "ready",
+          "label": "Есть готовый макет"
+        },
+        {
+          "value": "need_design",
+          "label": "Макета нет, нужна разработка"
+        },
+        {
+          "value": "discuss",
+          "label": "Обсудить требования"
+        }
+      ],
+      "deadlineOptions": [
+        {
+          "value": "standard",
+          "label": "Стандартный срок"
+        },
+        {
+          "value": "urgent",
+          "label": "Нужно срочно"
+        }
+      ],
+      "deliveryOptions": [
+        {
+          "value": "izh",
+          "label": "Ижевск, заберу сам"
+        },
+        {
+          "value": "russia",
+          "label": "Другой город, доставка СДЭК"
+        }
+      ]
+    }
+  },
+  "backend": {
+    "mailTo": "izhcifra@yandex.ru"
+  },
+  "sources": {
+    "sliceDate": "2026-10-04",
+    "catalogFile": "landings/_scrape/out/catalog.json",
+    "demand": "Метрика 50863157, срез 2026-10-04: спрос виден через смежные запросы про сувениры и брендирование, суммарно 374 визита на весь раздел. Первый мерч-лендинг закрыл кружки, ручки, одежду, магниты, шоколад, ежедневники и значки. Этот закрывает остаток раздела.",
+    "rules": [
+      "Позиции и фото взяты из подразделов «Лазерная гравировка и маркировка», «Медали, кубки, награды», «Рюкзаки и сумки», «Брелки», «Корпоративные подарки», «Игры и головоломки» раздела «Сувенирная продукция» сайта цифра18.рф.",
+      "Число позиций по каждому подразделу текстом не названо: оно берётся скриптом из выкачки и меняется вместе с ней.",
+      "Цены не публикуются: на этих подразделах калькулятора тиражей нет.",
+      "«Собственное производство» НЕ написано: поставщик мерча не выбран, см. landings/reports/08_SUPPLIERS_NOT_CHECKED.md."
+    ],
+    "customerProvided": {
+      "map": {
+        "claim": "Координаты из ссылки на карту в футере сайта, 56.869771, 53.189062",
+        "verifiedOnSite": true
+      },
+      "delivery": {
+        "claim": "Доставка по всей России СДЭК",
+        "givenBy": "заказчик устно, 2026-10-04",
+        "verifiedOnSite": false,
+        "check": "На сайте цифра18.рф «СДЭК» не найдено ни разу. Подтвердить письменно вместе с тарифом и сроками."
+      }
+    },
+    "knownAnomalies": [
+      "Подраздел «Игры и головоломки» содержит 10 позиций, но одна без фотографии, в подборку она не вошла."
+    ]
+  }
+}

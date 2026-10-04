@@ -1,0 +1,368 @@
+{
+  "landing": {
+    "slug": "vizitki-i-identifikaciya",
+    "title": "Визитки и идентификация"
+  },
+  "business": {
+    "name": "Типография Цифра",
+    "legalEntity": {
+      "fullName": "ИП Данилов Константин Леонидович",
+      "inn": "182501416864",
+      "ogrn": "307183731200018",
+      "policyDate": "2026-10-04",
+      "confirmedBy": "письменное подтверждение заказчика, 2026-10-04"
+    }
+  },
+  "site": {
+    "domain": "xn--18-6kc5a3bxam.xn--p1ai"
+  },
+  "meta": {
+    "title": "Визитки, бирки, пластиковые карты, бейджи, Типография «Цифра», Ижевск",
+    "description": "Печать визиток, бирок, бейджей и пластиковых карт в Ижевске. Расчёт по тиражу и способу печати. Доставка по всей России СДЭК."
+  },
+  "contact": {
+    "phoneDisplay": "+7 (3412) 32-32-41",
+    "phoneTel": "+73412323241",
+    "phone2Display": "+7 (965) 842-32-41",
+    "phone2Tel": "+79658423241",
+    "email": "izhcifra@yandex.ru",
+    "address": "426069, Удмуртская Респ., г. Ижевск, ул. 7-я Подлесная, д. 34",
+    "mapLat": "56.869771",
+    "mapLon": "53.189062",
+    "mapImage": "assets/web/map.png"
+  },
+  "analytics": {
+    "yandexMetrikaId": "50863157"
+  },
+  "hero": {
+    "eyebrow": "типография «Цифра», Ижевск · визитки и идентификация",
+    "h1": "Визитки и<br>идентификация",
+    "lead": "Визитки, бирки для персонала, бейджи, пластиковые карты. Отмечаете тираж и способ печати, получаете расчёт под ваш макет.",
+    "photo": "assets/web/vizitki-na-dizaynerskom-kartone__vizitki_na_dizaynerskom_kartone_tipografia_cifra18_izhevsk.jpg",
+    "photoAlt": "Визитки на дизайнерском картоне"
+  },
+  "heroStats": [
+    {
+      "value": "3",
+      "label": "группы товаров на странице"
+    },
+    {
+      "value": "12",
+      "label": "позиций в блоке на странице"
+    },
+    {
+      "value": "РФ",
+      "label": "доставка СДЭК"
+    }
+  ],
+  "usp": [
+    {
+      "title": "Визитки, бейджи, бирки",
+      "text": "Классические визитки, бейджи для мероприятий и бирки для персонала. Всё в одном заказе, если нужно и то и другое."
+    },
+    {
+      "title": "Пластиковые карты",
+      "text": "Отдельная позиция в каталоге: печать на пластике. Расчёт под ваш размер и тираж."
+    },
+    {
+      "title": "Высечка и закатка",
+      "text": "Формы бывают круглые, овальные, прямоугольные, квадратные. Что доступно под вашу идею, уточним по позиции."
+    },
+    {
+      "title": "Расчёт по тиражу",
+      "text": "Цена зависит от бумаги, тиража и способа печати. Считаем под ваш макет, присылаем на почту."
+    }
+  ],
+  "methods": [
+    "Офсетная печать",
+    "Цифровая печать",
+    "Высечка",
+    "Закатка",
+    "Ламинация"
+  ],
+  "process": [
+    {
+      "title": "Выбор",
+      "text": "Отмечаете вид изделия и тираж в квизе."
+    },
+    {
+      "title": "Заявка",
+      "text": "Оставляете имя и телефон, по желанию пожелания к макету."
+    },
+    {
+      "title": "Расчёт",
+      "text": "Считаем стоимость под ваш макет и тираж, присылаем на почту."
+    },
+    {
+      "title": "Согласование",
+      "text": "Подтверждаете бумагу, форму и макет до запуска в работу."
+    },
+    {
+      "title": "Доставка",
+      "text": "Готовый тираж отправляем в ваш город через СДЭК."
+    }
+  ],
+  "trustBadges": [
+    {
+      "value": "31",
+      "label": "позиция: визитки, бирки, бейджи, карты"
+    },
+    {
+      "value": "5",
+      "label": "способов нанесения"
+    },
+    {
+      "value": "РФ",
+      "label": "доставка через СДЭК"
+    },
+    {
+      "value": "1",
+      "label": "менеджер на заказ"
+    }
+  ],
+  "faq": [
+    {
+      "q": "Какие размеры визиток?",
+      "a": "Стандартный визитный формат 90 на 50 мм. Другие размеры и нестандартные формы обсудим по вашему макету, напишите, что нужно."
+    },
+    {
+      "q": "Чем офсет отличается от цифры?",
+      "a": "Офсет выгоднее на больших тиражах, цифровая печать подходит под малые тиражи и не требует большого запаса. Что лучше под ваш объём, скажем после заявки."
+    },
+    {
+      "q": "Нужна ли ламинация?",
+      "a": "По визиткам она обычна, по бейджам и биркам зависит от задачи. Отметьте в квизе, нужен ли матовый или глянцевый слой, мы подскажем."
+    },
+    {
+      "q": "Что нужно прислать для макета?",
+      "a": "Готовый макет или его отсутствие, обсудим оба варианта. Если макета нет, отметьте в квизе, и мы уточним требования к файлам до запуска в работу."
+    },
+    {
+      "q": "Сколько стоит?",
+      "a": "Зависит от бумаги, тиража, способа печати и отделки. Фиксированной цены нет, расчёт присылаем после заявки под конкретный заказ."
+    },
+    {
+      "q": "Доставляете в другие города?",
+      "a": "Да, доставляем по всей России через СДЭК, включая Ижевск и область. Стоимость и срок зависят от города и тиража, посчитаем их вместе с заказом."
+    }
+  ],
+  "contactChannels": [
+    {
+      "label": "WhatsApp",
+      "url": "https://wa.me/79658423241"
+    },
+    {
+      "label": "VK",
+      "url": "https://vk.com/cifraprint18"
+    },
+    {
+      "label": "MAX",
+      "url": "https://max.ru/id182501416864_bot"
+    }
+  ],
+  "catalog": {
+    "showPrices": false,
+    "groups": [
+      {
+        "id": "vizitki",
+        "title": "Визитки",
+        "intro": "",
+        "items": [
+          {
+            "id": "vizitki-na-dizaynerskom-kartone",
+            "src": "https://xn--18-6kc5a3bxam.xn--p1ai/upload/iblock/916/nl7k632o2rbu05u3wc2riwageyli234e/vizitki_na_dizaynerskom_kartone_tipografia_cifra18_izhevsk.jpg",
+            "name": "Визитки на дизайнерском картоне",
+            "img": "assets/web/vizitki-na-dizaynerskom-kartone__vizitki_na_dizaynerskom_kartone_tipografia_cifra18_izhevsk.jpg",
+            "method": "Печать визиток",
+            "specs": "Тираж и размер по расчёту",
+            "priceFrom": "от 9 ₽/шт.",
+            "priceSource": "https://xn--18-6kc5a3bxam.xn--p1ai/catalog/poligrafiya/vizitki/vizitki-na-dizaynerskom-kartone/"
+          },
+          {
+            "id": "vizitki-na-krafte",
+            "src": "https://xn--18-6kc5a3bxam.xn--p1ai/upload/iblock/f04/ck902u78lge7unbyv82g0oecoii8f2lx/vizitki_na_krafte_tipografia_cifra18_izhevsk.jpg",
+            "name": "Визитки на крафте",
+            "img": "assets/web/vizitki-na-krafte__vizitki_na_krafte_tipografia_cifra18_izhevsk.jpg",
+            "method": "Печать визиток",
+            "specs": "Тираж и размер по расчёту",
+            "priceFrom": "от 6 ₽/шт.",
+            "priceSource": "https://xn--18-6kc5a3bxam.xn--p1ai/catalog/poligrafiya/vizitki/vizitki-na-krafte/"
+          },
+          {
+            "id": "vizitki-na-prozrachnom-plastike",
+            "src": "https://xn--18-6kc5a3bxam.xn--p1ai/upload/iblock/769/ixw9ul9zjushu163g03cca7ctkedx9kk/vizitki_na_prozrachnom_plastike_tipografia_cifra18_izhevsk.jpg",
+            "name": "Визитки на прозрачном пластике",
+            "img": "assets/web/vizitki-na-prozrachnom-plastike__vizitki_na_prozrachnom_plastike_tipografia_cifra18_izhevsk.jpg",
+            "method": "Печать визиток",
+            "specs": "Тираж и размер по расчёту",
+            "priceFrom": "от 50 ₽/шт.",
+            "priceSource": "https://xn--18-6kc5a3bxam.xn--p1ai/catalog/poligrafiya/vizitki/vizitki-na-prozrachnom-plastike/"
+          },
+          {
+            "id": "vizitki-na-tsvetnom-plastike",
+            "src": "https://xn--18-6kc5a3bxam.xn--p1ai/upload/iblock/8a7/h342qrta36d6xlgqsrf3tux2pwmda3xw/Skrinshot-30_05_2026-203057.jpg",
+            "name": "Визитки на цветном пластике",
+            "img": "assets/web/vizitki-na-tsvetnom-plastike__Skrinshot-30_05_2026-203057.jpg",
+            "method": "Печать визиток",
+            "specs": "Тираж и размер по расчёту",
+            "priceFrom": "от 12 ₽/шт.",
+            "priceSource": "https://xn--18-6kc5a3bxam.xn--p1ai/catalog/poligrafiya/vizitki/vizitki-na-tsvetnom-plastike/"
+          },
+          {
+            "id": "vizitki-na-chernom-kartone",
+            "src": "https://xn--18-6kc5a3bxam.xn--p1ai/upload/iblock/cdc/391x8i05d2ddvzbn6y0utyvdj6uoas7s/vizitki_na_chernom_kartone_tipografia_cifra18_izhevsk.jpg",
+            "name": "Визитки на черном картоне",
+            "img": "assets/web/vizitki-na-chernom-kartone__vizitki_na_chernom_kartone_tipografia_cifra18_izhevsk.jpg",
+            "method": "Печать визиток",
+            "specs": "Тираж и размер по расчёту",
+            "priceFrom": "от 9 ₽/шт.",
+            "priceSource": "https://xn--18-6kc5a3bxam.xn--p1ai/catalog/poligrafiya/vizitki/vizitki-na-chernom-kartone/"
+          },
+          {
+            "id": "vizitki-plastikovye",
+            "src": "https://xn--18-6kc5a3bxam.xn--p1ai/upload/iblock/97f/0472sowp4dr5sm2wg9dnlfg28veckzrs/vizitki_plastikovye_tipografia_cifra18_izhevsk.jpg",
+            "name": "Визитки пластиковые",
+            "img": "assets/web/vizitki-plastikovye__vizitki_plastikovye_tipografia_cifra18_izhevsk.jpg",
+            "method": "Печать визиток",
+            "specs": "Тираж и размер по расчёту",
+            "priceFrom": "от 15 ₽/шт.",
+            "priceSource": "https://xn--18-6kc5a3bxam.xn--p1ai/catalog/poligrafiya/vizitki/vizitki-plastikovye/"
+          }
+        ]
+      },
+      {
+        "id": "birki",
+        "title": "Бирки и бейджи",
+        "intro": "",
+        "items": [
+          {
+            "id": "beydzh-plastikovyy-54kh86mm",
+            "src": "https://xn--18-6kc5a3bxam.xn--p1ai/upload/iblock/240/lyu4u5c9kzib20044p42cb7s6lndw0q7/beydzh_plastikovyy_54kh86mm_tipografia_cifra18_izhevsk.jpg",
+            "name": "Бейдж пластиковый 54х86мм",
+            "img": "assets/web/beydzh-plastikovyy-54kh86mm__beydzh_plastikovyy_54kh86mm_tipografia_cifra18_izhevsk.jpg",
+            "method": "Печать и закатка",
+            "specs": "Тираж и размер по расчёту",
+            "priceFrom": "от 15 ₽/шт.",
+            "priceSource": "https://xn--18-6kc5a3bxam.xn--p1ai/catalog/poligrafiya/beydzhi/beydzh-plastikovyy-54kh86mm/"
+          },
+          {
+            "id": "birki-ofsetnaya-pechat",
+            "src": "https://xn--18-6kc5a3bxam.xn--p1ai/upload/iblock/039/ppcz65bzj1i2w8u7rh7u2lf04zu5on1u/birki_ofsetnaya_pechat.gif",
+            "name": "Бирки офсетная печать",
+            "img": "assets/web/birki-ofsetnaya-pechat__birki_ofsetnaya_pechat.jpg",
+            "method": "Печать и закатка",
+            "specs": "Тираж и размер по расчёту",
+            "priceFrom": "от 72 ₽/шт.",
+            "priceSource": "https://xn--18-6kc5a3bxam.xn--p1ai/catalog/poligrafiya/birki/birki-ofsetnaya-pechat/"
+          },
+          {
+            "id": "birki-tsifrovaya-pechat",
+            "src": "https://xn--18-6kc5a3bxam.xn--p1ai/upload/iblock/1bb/y90oks4qsdyi4pbjawfp4wv0ch3nnwi1/birki_tsifrovaya_pechat_tipografia_cifra18_izhevsk.gif",
+            "name": "Бирки цифровая печать",
+            "img": "assets/web/birki-tsifrovaya-pechat__birki_tsifrovaya_pechat_tipografia_cifra18_izhevsk.jpg",
+            "method": "Печать и закатка",
+            "specs": "Тираж и размер по расчёту",
+            "priceFrom": "от 3 ₽/шт.",
+            "priceSource": "https://xn--18-6kc5a3bxam.xn--p1ai/catalog/poligrafiya/birki/birki-tsifrovaya-pechat/"
+          },
+          {
+            "id": "beydzh-iz-orgstekla-30kh70mm",
+            "src": "https://xn--18-6kc5a3bxam.xn--p1ai/upload/iblock/1dc/yxxvm07p63dodclkvw8tjkce5xjofu7m/IMG_8204.jpg",
+            "name": "Бейдж из оргстекла 30х70мм",
+            "img": "assets/web/beydzh-iz-orgstekla-30kh70mm__IMG_8204.jpg",
+            "method": "Печать и закатка",
+            "specs": "Тираж и размер по расчёту"
+          },
+          {
+            "id": "beydzh-laminirovannyy",
+            "src": "https://xn--18-6kc5a3bxam.xn--p1ai/upload/iblock/216/cfnxublfxybee3dcufhnsvcnehq89m30/beydzh_laminirovannyy_tipografia_cifra18_izhevsk.gif",
+            "name": "Бейдж ламинированный",
+            "img": "assets/web/beydzh-laminirovannyy__beydzh_laminirovannyy_tipografia_cifra18_izhevsk.jpg",
+            "method": "Печать и закатка",
+            "specs": "Тираж и размер по расчёту"
+          }
+        ]
+      },
+      {
+        "id": "karty",
+        "title": "Пластиковые карты",
+        "intro": "",
+        "items": [
+          {
+            "id": "karty-plastikovye",
+            "src": "https://xn--18-6kc5a3bxam.xn--p1ai/upload/iblock/6ed/b1b1wosz0octjt9sdprcchgnz0lnz5mm/karty_plastikovye.jpg",
+            "name": "Карты пластиковые",
+            "img": "assets/web/karty-plastikovye__karty_plastikovye.jpg",
+            "method": "Печать на пластике",
+            "specs": "Тираж и размер по расчёту"
+          }
+        ]
+      }
+    ],
+    "quizCommonFields": {
+      "layoutOptions": [
+        {
+          "value": "ready",
+          "label": "Есть готовый макет"
+        },
+        {
+          "value": "need_design",
+          "label": "Макета нет, нужна разработка"
+        },
+        {
+          "value": "discuss",
+          "label": "Обсудить требования"
+        }
+      ],
+      "deadlineOptions": [
+        {
+          "value": "standard",
+          "label": "Стандартный срок"
+        },
+        {
+          "value": "urgent",
+          "label": "Нужно срочно"
+        }
+      ],
+      "deliveryOptions": [
+        {
+          "value": "izh",
+          "label": "Ижевск, заберу сам"
+        },
+        {
+          "value": "russia",
+          "label": "Другой город, доставка СДЭК"
+        }
+      ]
+    }
+  },
+  "backend": {
+    "mailTo": "izhcifra@yandex.ru"
+  },
+  "sources": {
+    "sliceDate": "2026-10-04",
+    "catalogFile": "landings/_scrape/out/catalog.json",
+    "demand": "Метрика 50863157, срез 2026-10-04: 175 визитов по запросам про визитки, бирки, пластиковые карты, бейджи, удостоверения и пропуска, 125 строк запросов. Внутри полиграфии это самая частая группа.",
+    "rules": [
+      "Позиции и фото взяты из подразделов «Визитки», «Бирки», «Бейджи» и «Карты пластиковые» раздела «Полиграфия» сайта цифра18.рф.",
+      "Формат 90 на 50 мм назван как стандарт визитки, а не взят из каталога: в названиях позиций формат не указан.",
+      "Цены не публикуются: на позициях этого блока калькулятор тиражей есть только у части, и значения не подтверждены письменно.",
+      "Заявки на идентификацию персонала: раздел «Бирки» есть в каталоге, какие именно документы печатаем и с какими данными, уточнит менеджер."
+    ],
+    "customerProvided": {
+      "map": {
+        "claim": "Координаты из ссылки на карту в футере сайта, 56.869771, 53.189062",
+        "verifiedOnSite": true
+      },
+      "delivery": {
+        "claim": "Доставка по всей России СДЭК",
+        "givenBy": "заказчик устно, 2026-10-04",
+        "verifiedOnSite": false,
+        "check": "На сайте цифра18.рф «СДЭК» не найдено ни разу. Подтвердить письменно вместе с тарифом и сроками."
+      }
+    },
+    "knownAnomalies": [
+      "Из 20 позиций блока с калькулятором тиражей единицы, поэтому цен почти нигде нет."
+    ]
+  }
+}

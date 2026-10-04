@@ -54,6 +54,14 @@ IMG.mkdir(parents=True, exist_ok=True)
 # robots.txt отдаёт Crawl-delay: 3. Держимся, это не наш сайт.
 DELAY = 3.0
 TIMEOUT = 45
+# Один сетевой обрыв не должен выбрасывать страницу из выгрузки навсегда.
+# При Crawl-delay 3 полный проход занимает около двух часов, и пять попыток
+# на страницу дают пережить всплеск таймаутов, не раздувая это до суток.
+RETRIES = 5
+RETRY_BACKOFF = 8.0
+# Файл меньше этого размера считается недокачанным. Страница каталога весит
+# 80-170 КБ, так что 2 КБ это надёжный порог отсечения обрезанных ответов.
+MIN_HTML_BYTES = 2000
 
 S = requests.Session()
 S.headers.update({"User-Agent": UA, "Accept-Language": "ru-RU,ru;q=0.9"})
@@ -270,19 +278,74 @@ def extract(soup: BeautifulSoup, url: str) -> dict:
     return d
 
 def fetch_html(u: str) -> str | None:
+    """Скачивает страницу с повторами. Один таймаут не считается отказом.
+
+    Ночной прогон умер на 180-й странице из 457 именно здесь: раньше был
+    единственный попытка на URL, и ConnectTimeout означал, что страница
+    выпадает из выгрузки навсегда, пока не запустят обход заново. При
+    Crawl-delay 3 полный проход это около двух часов, и терять из-за
+    одного обрыва две трети работы неправильно.
+
+    Теперь до RETRIES попыток с растущей паузой. Файл считается недокачанным
+    только если он меньше 2 КБ или это HTML-заглушка: сайт на таймаутах
+    иногда отдаёт страницу без товара, и такой файл выглядит успешным.
+    """
     p = RAW / local_name(u)
-    if p.exists() and p.stat().st_size > 2000:
-        return p.read_text(encoding="utf-8", errors="replace")
+    if p.exists() and p.stat().st_size > MIN_HTML_BYTES:
+        body = p.read_text(encoding="utf-8", errors="replace")
+        if not looks_like_stub(body):
+            return body
+        log(f"  ~ файл есть, но похож на заглушку, перекачиваю: {p.name}")
+
+    last: str | None = None
+    for attempt in range(1, RETRIES + 1):
+        try:
+            r = S.get(u, timeout=TIMEOUT)
+        except Exception as e:
+            last = f"{type(e).__name__}: {e}"
+            log(f"  ! попытка {attempt}/{RETRIES} {u}")
+            log(f"    {last}")
+            # Пауза растёт с попыткой: после сетевого обрыва повторять
+            # сразу бессмысленно, нужно дать соединению подняться.
+            time.sleep(min(RETRY_BACKOFF * attempt, 60))
+            continue
+        if r.status_code != 200:
+            last = f"HTTP {r.status_code}"
+            log(f"  ! попытка {attempt}/{RETRIES} код {r.status_code} на {u}")
+            time.sleep(RETRY_BACKOFF * attempt)
+            continue
+        r.encoding = r.encoding or "utf-8"
+        if looks_like_stub(r.text):
+            last = "отдана заглушка без товара"
+            log(f"  ! попытка {attempt}/{RETRIES} заглушка на {u}")
+            time.sleep(RETRY_BACKOFF * attempt)
+            continue
+        p.write_text(r.text, encoding="utf-8")
+        return r.text
+
+    log(f"  ! не скачано после {RETRIES} попыток: {u} ({last})")
+    return None
+
+
+def looks_like_stub(body: str) -> bool:
+    """Отличает настоящую карточку товара от заглушки.
+
+    Обрыв на ConnectTimeout иногда возвращает валидный, но пустой HTML:
+    страница отдаётся, статус 200, размер нормальный, а товара на ней нет.
+    Такой файл проходит проверку размера и молча попадает в выгрузку как
+    позиция без названия. Размером это не лечится, нужно смотреть h1.
+    """
     try:
-        r = S.get(u, timeout=TIMEOUT)
-    except Exception as e:
-        log(f"  ! {e}")
-        return None
-    if r.status_code != 200:
-        return None
-    r.encoding = r.encoding or "utf-8"
-    p.write_text(r.text, encoding="utf-8")
-    return r.text
+        soup = BeautifulSoup(body, "lxml")
+    except Exception:
+        return True
+    if soup.find("h1"):
+        return False
+    # Разделы каталога не имеют h1 товара, но у них есть заголовок h2 или
+    # канонический URL с /catalog/. Проверяем признаки страницы раздела.
+    if soup.find("h2") or "catalog" in (soup.find("link", rel="canonical") or {}).get("href", ""):
+        return False
+    return True
 
 
 def write_outputs(items: list[dict], targets_total: int) -> None:
@@ -412,6 +475,10 @@ def main() -> int:
 
     t0 = time.time()
     items: list[dict] = []
+    # Страницы, которые не удалось скачать после всех попыток. Раньше они
+    # просто молча терялись, и по выгрузке нельзя было понять, полная она
+    # или нет. Список пишется на диск, повторный запуск их добирает.
+    failed: list[str] = []
     for i, u in enumerate(targets, 1):
         h = fetch_html(u)
         if h:
@@ -419,12 +486,21 @@ def main() -> int:
                 items.append(extract(BeautifulSoup(h, "lxml"), u))
             except Exception as e:
                 log(f"  ! разбор не удался {u}: {e}")
+                failed.append(u)
             done[u] = local_name(u)
+            if u in failed:
+                failed.remove(u)
+        else:
+            failed.append(u)
         if i % 10 == 0 or i == len(targets):
             prog_path.write_text(json.dumps(done, ensure_ascii=False, indent=1), encoding="utf-8")
+            (OUT / "failed.json").write_text(
+                json.dumps(sorted(set(failed)), ensure_ascii=False, indent=1),
+                encoding="utf-8")
             rate = (time.time() - t0) / i
             left = rate * (len(targets) - i)
-            log(f"  {i}/{len(targets)}  {rate:.1f}с/стр  осталось {left/60:.0f} мин")
+            log(f"  {i}/{len(targets)}  {rate:.1f}с/стр  осталось {left/60:.0f} мин"
+                f"  не скачано {len(set(failed))}")
         # Раз в 25 страниц фиксируем разобранное, а не только в конце: обход
         # обрывается по таймауту сайта, и несохранённый прогон не даёт ничего.
         if i % 25 == 0:
@@ -432,6 +508,10 @@ def main() -> int:
         time.sleep(DELAY)
 
     write_outputs(items, len(targets))
+    (OUT / "failed.json").write_text(
+        json.dumps(sorted(set(failed)), ensure_ascii=False, indent=1), encoding="utf-8")
+    log(f"Не скачано после {RETRIES} попыток: {len(set(failed))}. Список в out/failed.json, "
+        "повторный запуск их докачает.")
 
     log(f"Готово. Скачано {len(items)}, "
         f"с ценой {sum(1 for i in items if i['price']['value'])}")

@@ -127,18 +127,43 @@ function buildDirectionsUrl(contact) {
   }
   return null;
 }
+// ---------- карта: статичная картинка, не iframe ----------
+// Раньше карта вставлялась iframe'ом со ссылкой на Яндекс.Карты, и она
+// не показывалась: yandex.ru отдаёт 301 на yandex.com, а у него в
+// заголовке X-Frame-Options: DENY. Браузер отказывается встраивать
+// страницу во фрейм, и на месте карты оставалось пустое белое поле.
+// Запрет стоит на стороне Яндекса, поэтому ссылкой его не обойти.
+//
+// Теперь используется статичная картинка, собранная из тайлов
+// OpenStreetMap скриптом make_map.py при сборке. Плюсы: работает
+// везде, не грузит сторонний iframe, не отправляет посетителя на
+// чужой домен, работает без JavaScript. Кнопка маршрута по-прежнему
+// ведёт на Яндекс.Карты, где карта интерактивная.
 function renderMapEmbed(contact) {
-  if (!contact.mapEmbedUrl) {
-    return '      <!-- config.contact.mapEmbedUrl не задан — TODO: добавить ссылку из Яндекс.Карт (Поделиться → Код для вставки) -->';
-  }
   const directionsUrl = buildDirectionsUrl(contact);
   const directionsButton = directionsUrl
-    ? `<a class="map-route-btn" href="${esc(directionsUrl)}" target="_blank" rel="noopener">Проложить маршрут →</a>`
+    ? `<a class="map-route-btn" href="${esc(directionsUrl)}" target="_blank" rel="noopener">Проложить маршрут</a>`
     : '';
-  return `      <div class="map-embed-wrap">
-        <iframe src="${esc(contact.mapEmbedUrl)}" title="Карта: ${esc(contact.address)}" loading="lazy" allowfullscreen></iframe>
-      </div>
+  // Атрибуция обязательна по условиям использования тайлов OSM.
+  const attribution = 'Данные карты: <a href="https://www.openstreetmap.org/copyright" '
+    + 'target="_blank" rel="noopener">OpenStreetMap</a>, участники';
+
+  if (contact.mapImage) {
+    return `      <figure class="map-embed-wrap">
+        <img src="${esc(contact.mapImage)}" alt="Карта: ${esc(contact.address)}" loading="lazy" width="768" height="512">
+        <figcaption class="map-attr">${attribution}</figcaption>
+      </figure>
       ${directionsButton}`;
+  }
+
+  // Запасной путь для лендинга без собранной картинки: ставим честную
+  // заглушку с адресом и кнопкой маршрута, а не пустой iframe.
+  return `      <div class="map-embed-wrap map-placeholder">
+        <p>${esc(contact.address)}</p>
+        ${directionsButton}
+        <p class="map-attr">${attribution}</p>
+      </div>
+      <!-- TODO: собрать карту, python landings/_scrape/make_map.py --lat ... --lon ... --out assets/web/map.png --label "${esc(contact.businessName || 'Мы здесь')}", и вписать contact.mapImage в config.json -->`;
 }
 
 // ---------- реквизиты оператора ПДн в подвале ----------
@@ -248,6 +273,58 @@ for (const [marker, value] of Object.entries(markerMap)) {
 }
 
 fs.mkdirSync(outDir, { recursive: true });
+
+// Ассеты копируются рядом со страницей. Раньше рендер писал только
+// index.html, styles.css и скрипты, и пути вида assets/web/... из конфига
+// вели в пустоту: в собранном dist фотографий не было вообще, и страница
+// показывала битые превью, хотя гейт их наличия проверял в исходной папке.
+// Копия делается один раз и только если файл ещё не там: перезапуск
+// рендера не должен заново читать десятки мегабайт картинок.
+// Путь к папке лендинга. Слаг из конфига и имя папки на диске обязаны
+// совпадать: слаг уходит в URL страницы и в SOURCE_DESCRIPTION лида. Если
+// не совпали, ассеты молча не копировались: страница собиралась, а
+// фотографии на ней оказывались битыми. Отсюда явное предупреждение,
+// если папки нет.
+function findLandingDir(slug) {
+  if (!slug) return null;
+  const p = path.join(__dirname, '..', slug);
+  return fs.existsSync(path.join(p, 'assets', 'web')) ? p : null;
+}
+
+function copyAssets() {
+  const landingDir = findLandingDir(config.landing?.slug || '');
+  if (!landingDir) {
+    console.warn(`WARN: папка лендинга для slug "${config.landing?.slug || ''}" не найдена, `
+      + 'ассеты не скопированы. Фотографии на странице будут битыми.');
+    return 0;
+  }
+  const assetsDir = path.join(landingDir, 'assets');
+  // Копируется ТОЛЬКО web/, а не весь assets. Оригиналы весят 39 МБ, это
+  // полноразмерные снимки с сайта заказчика, и в собранном лендинге им
+  // не место: он грузит assets/web/. Копия оригиналов раздувала dist
+  // с 1 МБ до 40 МБ, и это уехало бы на хостинг клиента.
+  const src = path.join(assetsDir, 'web');
+  const dst = path.join(outDir, 'assets', 'web');
+  if (!fs.existsSync(src)) return 0;
+  let copied = 0;
+  const walk = (from, to) => {
+    fs.mkdirSync(to, { recursive: true });
+    for (const name of fs.readdirSync(from)) {
+      const s = path.join(from, name);
+      const d = path.join(to, name);
+      if (fs.statSync(s).isDirectory()) {
+        walk(s, d);
+      } else if (!fs.existsSync(d)) {
+        fs.copyFileSync(s, d);
+        copied++;
+      }
+    }
+  };
+  walk(src, dst);
+  return copied;
+}
+
+const assetsCopied = copyAssets();
 fs.writeFileSync(path.join(outDir, 'index.html'), html);
 
 // ---------- 1b. privacy.html (152-ФЗ) ----------
@@ -351,6 +428,7 @@ fs.writeFileSync(path.join(outDir, 'backend', 'server.js'), server);
 fs.copyFileSync(path.join(__dirname, 'templates', 'backend', 'package.json'), path.join(outDir, 'backend', 'package.json'));
 
 console.log(`OK: собрано в ${outDir}/ (index.html, styles.css, script.js, catalog.js, backend/server.js, backend/package.json)`);
+console.log(assetsCopied ? `Ассеты скопированы: ${assetsCopied}.` : 'Ассеты уже на месте.');
 if (missing.length === 0) {
   console.log('Не забыть: node --check + curl-тесты backend перед сдачей (см. reference/fact-checking-checklist.md)');
 }

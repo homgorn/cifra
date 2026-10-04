@@ -266,6 +266,9 @@ app.post('/api/quiz-lead', async (req, res) => {
     quiz.qty && `Тираж: ${String(quiz.qty).slice(0, 20)} шт.`,
     quiz.layout && `Макет: ${String(quiz.layout).slice(0, 120)}`,
     quiz.deadline && `Срок: ${String(quiz.deadline).slice(0, 120)}`,
+    // Доставка идёт в карточку лида отдельной строкой: по ней видно,
+    // из какого города заявка, и она же объясняет, считать ли доставку.
+    quiz.delivery && `Доставка: ${String(quiz.delivery).slice(0, 120)}`,
     quiz.notes && `Пожелания: ${String(quiz.notes).slice(0, 500)}`
   ].filter(Boolean).join('\n');
 

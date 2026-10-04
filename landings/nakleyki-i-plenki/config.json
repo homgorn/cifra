@@ -1,0 +1,342 @@
+{
+  "landing": {
+    "slug": "nakleyki-i-plenki",
+    "title": "Наклейки, плёнки, этикетки"
+  },
+  "business": {
+    "name": "Типография Цифра",
+    "legalEntity": {
+      "fullName": "ИП Данилов Константин Леонидович",
+      "inn": "182501416864",
+      "ogrn": "307183731200018",
+      "policyDate": "2026-10-04",
+      "confirmedBy": "письменное подтверждение заказчика, 2026-10-04"
+    }
+  },
+  "site": {
+    "domain": "xn--18-6kc5a3bxam.xn--p1ai"
+  },
+  "meta": {
+    "title": "Наклейки, стикеры, этикетки, плёнка, Типография «Цифра», Ижевск",
+    "description": "Печать на самоклеящихся материалах в Ижевске: наклейки, этикетки, плёнка, печать белым тонером. Расчёт по тиражу. Доставка по всей России СДЭК."
+  },
+  "contact": {
+    "phoneDisplay": "+7 (3412) 32-32-41",
+    "phoneTel": "+73412323241",
+    "phone2Display": "+7 (965) 842-32-41",
+    "phone2Tel": "+79658423241",
+    "email": "izhcifra@yandex.ru",
+    "address": "426069, Удмуртская Респ., г. Ижевск, ул. 7-я Подлесная, д. 34",
+    "mapLat": "56.869771",
+    "mapLon": "53.189062",
+    "mapImage": "assets/web/map.png"
+  },
+  "analytics": {
+    "yandexMetrikaId": "50863157"
+  },
+  "hero": {
+    "eyebrow": "типография «Цифра», Ижевск · наклейки и плёнки",
+    "h1": "Наклейки, плёнки,<br>этикетки",
+    "lead": "Печать по самоклеящимся материалам: наклейки, этикетки, плёнка, печать белым тонером по цвету. Отмечаете материал и тираж, получаете расчёт.",
+    "photo": "assets/web/listovaya-pechat-na-samokleyushcheysya-bumage-a3__r503b8zb2vhevvxhnusonkz8p19azlsm.jpg",
+    "photoAlt": "Листовая печать на самоклеющейся бумаге А3+"
+  },
+  "heroStats": [
+    {
+      "value": "3",
+      "label": "группы товаров на странице"
+    },
+    {
+      "value": "11",
+      "label": "позиций в блоке на странице"
+    },
+    {
+      "value": "РФ",
+      "label": "доставка СДЭК"
+    }
+  ],
+  "usp": [
+    {
+      "title": "Самый большой блок полиграфии",
+      "text": "Восемнадцать позиций по печати на самоклеящихся материалах: плёнки, бумаги, этикетки. Выбор шире, чем в остальных разделах."
+    },
+    {
+      "title": "Печать белым тонером",
+      "text": "Отдельная позиция каталога. Нужна, когда печатаете по цветному носителю и надо выделить элемент белым."
+    },
+    {
+      "title": "Режка по контуру",
+      "text": "Плоттерная режка есть отдельной позицией. Форма вырезается по вашему контуру, а не по прямоугольнику."
+    },
+    {
+      "title": "Расчёт по тиражу",
+      "text": "Цена зависит от материала, размера и тиража. Считаем под ваш макет, присылаем на почту."
+    }
+  ],
+  "methods": [
+    "Цифровая печать",
+    "Печать белым тонером",
+    "УФ-печать",
+    "Резка",
+    "Ламинация"
+  ],
+  "process": [
+    {
+      "title": "Выбор",
+      "text": "Отмечаете материал и тираж в квизе."
+    },
+    {
+      "title": "Заявка",
+      "text": "Оставляете имя и телефон, по желанию пожелания к макету."
+    },
+    {
+      "title": "Расчёт",
+      "text": "Считаем стоимость под ваш материал и тираж, присылаем на почту."
+    },
+    {
+      "title": "Согласование",
+      "text": "Подтверждаете материал, размер и макет до запуска в работу."
+    },
+    {
+      "title": "Доставка",
+      "text": "Готовый тираж отправляем в ваш город через СДЭК."
+    }
+  ],
+  "trustBadges": [
+    {
+      "value": "23",
+      "label": "позиции: самоклейка, белый тонер, резка"
+    },
+    {
+      "value": "5",
+      "label": "способов нанесения"
+    },
+    {
+      "value": "РФ",
+      "label": "доставка через СДЭК"
+    },
+    {
+      "value": "1",
+      "label": "менеджер на заказ"
+    }
+  ],
+  "faq": [
+    {
+      "q": "Какие материалы есть?",
+      "a": "Самоклеящаяся плёнка, бумага, этикетки. Точный список носителей уточним по вашей задаче: опишите, куда клеите и на чём, и мы скажем, что подойдёт."
+    },
+    {
+      "q": "Зачем печать белым тонером?",
+      "a": "Чтобы выделить элемент белым по цветному носителю: без него в этих местах будет цвет подложки. Отдельная позиция в каталоге."
+    },
+    {
+      "q": "Можно ли вырезать по форме?",
+      "a": "Плоттерная режка есть отдельной позицией, по вашему контуру. Пришлите контур или файл, и мы проверим, что режется."
+    },
+    {
+      "q": "Нужен ли готовый макет?",
+      "a": "Подойдёт и готовый макет, и его отсутствие. Отметьте в квизе, и мы уточним требования к файлам и к контуру до запуска в работу."
+    },
+    {
+      "q": "Сколько стоит?",
+      "a": "Зависит от материала, размера, тиража и наличия вырубки. Фиксированной цены нет, расчёт присылаем после заявки под конкретный заказ."
+    },
+    {
+      "q": "Доставляете в другие города?",
+      "a": "Да, доставляем по всей России через СДЭК, включая Ижевск и область. Стоимость и срок зависят от города и тиража, посчитаем их вместе с заказом."
+    }
+  ],
+  "contactChannels": [
+    {
+      "label": "WhatsApp",
+      "url": "https://wa.me/79658423241"
+    },
+    {
+      "label": "VK",
+      "url": "https://vk.com/cifraprint18"
+    },
+    {
+      "label": "MAX",
+      "url": "https://max.ru/id182501416864_bot"
+    }
+  ],
+  "catalog": {
+    "showPrices": false,
+    "groups": [
+      {
+        "id": "samokleyaushchiesya",
+        "title": "Печать по самоклеящимся материалам",
+        "intro": "",
+        "items": [
+          {
+            "id": "listovaya-pechat-na-samokleyushcheysya-bumage-a3",
+            "src": "http://xn--18-6kc5a3bxam.xn--p1ai/upload/iblock/6fa/r503b8zb2vhevvxhnusonkz8p19azlsm.jpg",
+            "name": "Листовая печать на самоклеющейся бумаге А3+",
+            "img": "assets/web/listovaya-pechat-na-samokleyushcheysya-bumage-a3__r503b8zb2vhevvxhnusonkz8p19azlsm.jpg",
+            "method": "Печать и резка",
+            "specs": "Тираж и размер по расчёту"
+          },
+          {
+            "id": "listovaya-pechat-na-samokleyushcheysya-plenke-do-sra3",
+            "src": "https://xn--18-6kc5a3bxam.xn--p1ai/upload/iblock/6fa/r503b8zb2vhevvxhnusonkz8p19azlsm.jpg",
+            "name": "Листовая печать на самоклеющейся пленке SRA3",
+            "img": "assets/web/listovaya-pechat-na-samokleyushcheysya-plenke-do-sra3__r503b8zb2vhevvxhnusonkz8p19azlsm.jpg",
+            "method": "Печать и резка",
+            "specs": "Тираж и размер по расчёту"
+          },
+          {
+            "id": "pechat-na-samokleyashchikhsya-materialakh",
+            "src": "http://xn--18-6kc5a3bxam.xn--p1ai/upload/iblock/bb1/1it7hylzyi35i1m1w0xiamzf6xx74zsy.jpg",
+            "name": "Печать на самоклеящихся материалах",
+            "img": "assets/web/pechat-na-samokleyashchikhsya-materialakh__1it7hylzyi35i1m1w0xiamzf6xx74zsy.jpg",
+            "method": "Печать и резка",
+            "specs": "Тираж и размер по расчёту"
+          },
+          {
+            "id": "stikerpaki-na-samokleyushcheysya-bumage",
+            "src": "https://xn--18-6kc5a3bxam.xn--p1ai/upload/iblock/bf4/zt6lor2e3y8u3q4mrkfyj3nafrec0ry7.jpg",
+            "name": "Стикерпаки на самоклеющейся бумаге",
+            "img": "assets/web/stikerpaki-na-samokleyushcheysya-bumage__zt6lor2e3y8u3q4mrkfyj3nafrec0ry7.jpg",
+            "method": "Печать и резка",
+            "specs": "Тираж и размер по расчёту"
+          },
+          {
+            "id": "stikerpaki-na-samokleyushcheysya-plenke",
+            "src": "https://xn--18-6kc5a3bxam.xn--p1ai/upload/iblock/6eb/5zdp461mqhkcjqbc71vd8jqihain4t34/IMG_2601.jpg",
+            "name": "Стикерпаки на самоклеющейся пленке",
+            "img": "assets/web/stikerpaki-na-samokleyushcheysya-plenke__IMG_2601.jpg",
+            "method": "Печать и резка",
+            "specs": "Тираж и размер по расчёту"
+          },
+          {
+            "id": "figurnye-nakleyki-na-golograficheskoy-plenke",
+            "src": "https://xn--18-6kc5a3bxam.xn--p1ai/upload/iblock/35f/l1w5eemzwdjueya46d3hw84wykl2umqf/lbJlj7u_8aE.jpg",
+            "name": "Фигурные наклейки на голографической пленке (широкоформатная печать от 1кв.м.)",
+            "img": "assets/web/figurnye-nakleyki-na-golograficheskoy-plenke__lbJlj7u_8aE.jpg",
+            "method": "Печать и резка",
+            "specs": "Тираж и размер по расчёту"
+          },
+          {
+            "id": "figurnye-nakleyki-na-golograficheskoy-plenke-uf-pechat",
+            "src": "https://xn--18-6kc5a3bxam.xn--p1ai/upload/iblock/9c0/29oujfjxvj7463lltogs2didgagsum1g/IMG_5685.jpg",
+            "name": "Фигурные наклейки на голографической пленке УФ печать",
+            "img": "assets/web/figurnye-nakleyki-na-golograficheskoy-plenke-uf-pechat__IMG_5685.jpg",
+            "method": "Печать и резка",
+            "specs": "Тираж и размер по расчёту"
+          },
+          {
+            "id": "figurnye-nakleyki-shirokoformatnaya-pechat-na-plenke-ot-1kv-m",
+            "src": "https://xn--18-6kc5a3bxam.xn--p1ai/upload/iblock/cfc/e2pgxjlaqjjkpsk2v5mb26qnfgr28qas.jpg",
+            "name": "Фигурные наклейки на пленке (широкоформатная печать от 1кв.м.)",
+            "img": "assets/web/figurnye-nakleyki-shirokoformatnaya-pechat-na-plenke-ot-1kv-m__e2pgxjlaqjjkpsk2v5mb26qnfgr28qas.jpg",
+            "method": "Печать и резка",
+            "specs": "Тираж и размер по расчёту"
+          }
+        ]
+      },
+      {
+        "id": "belym-tonerom",
+        "title": "Печать белым тонером",
+        "intro": "",
+        "items": [
+          {
+            "id": "pechat-belym-tonerom",
+            "src": "https://xn--18-6kc5a3bxam.xn--p1ai/upload/iblock/3a7/wkog070ah7q8vh31xdtaalddp44rocb6/pechatbelymtonerom.jpg",
+            "name": "Печать белым тонером",
+            "img": "assets/web/pechat-belym-tonerom__pechatbelymtonerom.jpg",
+            "method": "Печать белым по цвету",
+            "specs": "Тираж и размер по расчёту"
+          }
+        ]
+      },
+      {
+        "id": "rezka",
+        "title": "Режка и высечка",
+        "intro": "",
+        "items": [
+          {
+            "id": "plotternaya-rezka",
+            "src": "http://xn--18-6kc5a3bxam.xn--p1ai/upload/iblock/ba3/psobhv9pjulyn018d0pjy5eag8kms7sl.jpg",
+            "name": "Плоттерная резка",
+            "img": "assets/web/plotternaya-rezka__psobhv9pjulyn018d0pjy5eag8kms7sl.jpg",
+            "method": "Режка по контуру",
+            "specs": "Тираж и размер по расчёту"
+          },
+          {
+            "id": "plotternaya-rezka-listami-sra3",
+            "src": "https://xn--18-6kc5a3bxam.xn--p1ai/upload/iblock/03e/v3kai56tt398qjlatlpev2l24kw4hime.jpg",
+            "name": "Плоттерная резка листами SRA3",
+            "img": "assets/web/plotternaya-rezka-listami-sra3__v3kai56tt398qjlatlpev2l24kw4hime.jpg",
+            "method": "Режка по контуру",
+            "specs": "Варианты: Рулонная плоттерная резка пленки до 1.6м"
+          }
+        ]
+      }
+    ],
+    "quizCommonFields": {
+      "layoutOptions": [
+        {
+          "value": "ready",
+          "label": "Есть готовый макет"
+        },
+        {
+          "value": "need_design",
+          "label": "Макета нет, нужна разработка"
+        },
+        {
+          "value": "discuss",
+          "label": "Обсудить требования"
+        }
+      ],
+      "deadlineOptions": [
+        {
+          "value": "standard",
+          "label": "Стандартный срок"
+        },
+        {
+          "value": "urgent",
+          "label": "Нужно срочно"
+        }
+      ],
+      "deliveryOptions": [
+        {
+          "value": "izh",
+          "label": "Ижевск, заберу сам"
+        },
+        {
+          "value": "russia",
+          "label": "Другой город, доставка СДЭК"
+        }
+      ]
+    }
+  },
+  "backend": {
+    "mailTo": "izhcifra@yandex.ru"
+  },
+  "sources": {
+    "sliceDate": "2026-10-04",
+    "catalogFile": "landings/_scrape/out/catalog.json",
+    "demand": "Метрика 50863157, срез 2026-10-04: 93 визита по запросам про наклейки, стикеры, этикетки, плёнку и скотч, 89 строк запросов. Это самый большой подраздел полиграфии: 18 позиций на печать по самоклеящимся материалам.",
+    "rules": [
+      "Позиции и фото взяты из подразделов «Печать на самоклеящихся материалах», «Печать белым тонером», «Плоттерная резка» раздела «Полиграфия» сайта цифра18.рф.",
+      "Число позиций в подразделе самоклеящихся материалов взято из выкачки: 18.",
+      "Цены не публикуются: значения не подтверждены письменно.",
+      "Конкретные марки и плотности плёнки не перечисляются: в названиях позиций их нет, а выдумывать свойства нельзя."
+    ],
+    "customerProvided": {
+      "map": {
+        "claim": "Координаты из ссылки на карту в футере сайта, 56.869771, 53.189062",
+        "verifiedOnSite": true
+      },
+      "delivery": {
+        "claim": "Доставка по всей России СДЭК",
+        "givenBy": "заказчик устно, 2026-10-04",
+        "verifiedOnSite": false,
+        "check": "На сайте цифра18.рф «СДЭК» не найдено ни разу. Подтвердить письменно вместе с тарифом и сроками."
+      }
+    },
+    "knownAnomalies": [
+      "Название подраздела на сайте написано с опечаткой, «самоклеящихся», и в этом тексте оно исправлено молча. Если для точности это важно, поправить написание на сайте."
+    ]
+  }
+}
