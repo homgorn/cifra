@@ -11,6 +11,25 @@
   const CONTACT_EMAIL = '{{EMAIL}}';
   const SITE_DOMAIN = '{{SITE_DOMAIN}}';
 
+  // ---------- Экранирование данных каталога ----------
+  //
+  // Названия позиций приходят с сайта заказчика и вставляются в разметку
+  // строкой шаблона. Четыре позиции календарей содержат кавычку:
+  // КВАРТАЛЬНЫЙ КАЛЕНДАРЬ "PREMIUM" 1 рекл. поле светодиодный. Без
+  // экранирования атрибут alt обрывался на первой кавычке, то есть на
+  // «КВАРТАЛЬНЫЙ КАЛЕНДАРЬ », а остаток имени утекал в разметку как
+  // посторонние атрибуты. Имя в угловых скобках сделало бы то же, и уже с
+  // другими последствиями.
+  //
+  // Экранируются все пять символов, а не только кавычка: значения из
+  // внешнего источника не должны быть вставляемы как разметка в принципе.
+  // apply не используется сознательно: разметка собирается строками, и
+  // textContent здесь неприменим без переписывания рендера на узлы.
+  const ESC = { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' };
+  function esc(value) {
+    return String(value == null ? '' : value).replace(/[&<>"']/g, (ch) => ESC[ch]);
+  }
+
   // ---------- Рендер каталога (блок 4, витрина) ----------
   // Каждая функция инициализации проверяет свой корень и молча выходит, если его
   // нет. Раньше проверял только initQuiz, а renderCatalog() начинал с
@@ -45,13 +64,13 @@
         const card = document.createElement('article');
         card.className = 'item-card';
         card.innerHTML = `
-          <div class="thumb"><img src="${item.img}" alt="${item.name}" loading="lazy" width="1100" height="777"></div>
+          <div class="thumb"><img src="${esc(item.img)}" alt="${esc(item.name)}" loading="lazy" width="1100" height="777"></div>
           <div class="body">
-            <h4>${item.name}</h4>
-            <p class="specs">${item.specs}</p>
+            <h4>${esc(item.name)}</h4>
+            <p class="specs">${esc(item.specs)}</p>
             <div class="item-card-footer">
-              <span class="method-tag">${item.method}</span>
-              ${item.priceFrom ? `<span class="price-tag">${item.priceFrom}</span>` : ''}
+              <span class="method-tag">${esc(item.method)}</span>
+              ${item.priceFrom ? `<span class="price-tag">${esc(item.priceFrom)}</span>` : ''}
             </div>
           </div>`;
         grid.appendChild(card);
@@ -146,7 +165,7 @@ function currentGroup() {
         const card = document.createElement('button');
         card.type = 'button';
         card.className = 'quiz-card' + (g.id === state.groupId ? ' is-selected' : '');
-        card.innerHTML = `<span class="quiz-card-title">${g.title}</span><span class="quiz-card-sub">${g.items.length} ${plural(g.items.length, 'позиция', 'позиции', 'позиций')}</span>`;
+        card.innerHTML = `<span class="quiz-card-title">${esc(g.title)}</span><span class="quiz-card-sub">${g.items.length} ${plural(g.items.length, 'позиция', 'позиции', 'позиций')}</span>`;
         card.addEventListener('click', () => {
           state.groupId = g.id;
           state.itemId = null;
@@ -167,9 +186,9 @@ function currentGroup() {
         card.type = 'button';
         card.className = 'quiz-card quiz-card-item' + (item.id === state.itemId ? ' is-selected' : '');
         card.innerHTML = `
-          <img src="${item.img}" alt="" loading="lazy">
-          <span class="quiz-card-title">${item.name}</span>
-          <span class="quiz-card-sub">${item.method}${item.priceFrom ? ' · ' + item.priceFrom : ''}</span>`;
+          <img src="${esc(item.img)}" alt="" loading="lazy">
+          <span class="quiz-card-title">${esc(item.name)}</span>
+          <span class="quiz-card-sub">${esc(item.method)}${item.priceFrom ? ' · ' + esc(item.priceFrom) : ''}</span>`;
         card.addEventListener('click', () => {
           state.itemId = item.id;
           renderItems();
@@ -186,7 +205,7 @@ function currentGroup() {
         const id = `${groupName}-${opt.value}`;
         const label = document.createElement('label');
         label.className = 'quiz-radio' + (currentValue === opt.value ? ' is-selected' : '');
-        label.innerHTML = `<input type="radio" name="${groupName}" id="${id}" value="${opt.value}"${currentValue === opt.value ? ' checked' : ''}> ${opt.label}`;
+        label.innerHTML = `<input type="radio" name="${esc(groupName)}" id="${esc(id)}" value="${esc(opt.value)}"${currentValue === opt.value ? ' checked' : ''}> ${esc(opt.label)}`;
         label.querySelector('input').addEventListener('change', () => onPick(opt.value));
         container.appendChild(label);
       });
@@ -195,7 +214,7 @@ function currentGroup() {
     function renderStep3() {
       const item = currentItem();
       selectedItemBox.innerHTML = item
-        ? `<b>${item.name}</b>${item.priceFrom ? ` <span class="price-tag">${item.priceFrom}</span>` : ''}<br><span>${item.method} · ${item.specs}</span>`
+        ? `<b>${esc(item.name)}</b>${item.priceFrom ? ` <span class="price-tag">${esc(item.priceFrom)}</span>` : ''}<br><span>${esc(item.method)} · ${esc(item.specs)}</span>`
         : '';
 
       renderRadioRow(layoutEl, QUIZ_COMMON_FIELDS.layoutOptions, 'q-layout', state.layout, (v) => { state.layout = v; renderStep3(); });
@@ -258,8 +277,8 @@ function currentGroup() {
       const item = currentItem();
       if (!g || !item) return '';
       const parts = [
-        `Категория: ${g.title}`,
-        `Товар: ${item.name} (${item.method})`,
+        `Категория: ${esc(g.title)}`,
+        `Товар: ${esc(item.name)} (${esc(item.method)})`,
         `Количество: ${state.qty} шт.`,
         `Готовность: ${layoutLabel(state.layout)}`,
         `Срок: ${deadlineLabel(state.deadline)}`
@@ -272,8 +291,12 @@ function currentGroup() {
       return parts.join('\n');
     }
 
-    function renderFinalSummary() {
-      finalSummaryBox.innerHTML = buildSummaryText().split('\n').map((l) => `<div>${l}</div>`).join('');
+    // Экранирование именно здесь, а не в buildSummaryText: тот же текст
+  // уходит в письмо по кнопке «Получить расчёт», и там нужны исходные
+  // символы, а не HTML-сущности. Строка с пожеланиями посетителя в
+  // разметку попадает как текст, а не как разметка.
+  function renderFinalSummary() {
+      finalSummaryBox.innerHTML = buildSummaryText().split('\n').map((l) => `<div>${esc(l)}</div>`).join('');
       updateMailtoLink();
     }
 
@@ -284,7 +307,7 @@ function currentGroup() {
       const name = (document.getElementById('q-name') || {}).value || '';
       const phone = (document.getElementById('q-phone') || {}).value || '';
 
-      const subject = `Расчёт с сайта ${SITE_DOMAIN}${item ? ' — ' + item.name : ''}`;
+      const subject = `Расчёт с сайта ${SITE_DOMAIN}${item ? ' — ' + esc(item.name) : ''}`;
       const bodyLines = [
         'Здравствуйте!',
         '',

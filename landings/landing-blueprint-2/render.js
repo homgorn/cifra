@@ -227,6 +227,34 @@ function buildStaticMailto(cfg) {
   return `mailto:${cfg.contact.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 }
 
+// ---------- Абсолютные адреса для мета ----------
+// Open Graph и canonical требуют абсолютного адреса, относительный не
+// понимается ни одной площадкой. Сайт ещё не развёрнут, и путь будущей
+// страницы неизвестен, поэтому он задаётся явно: config.site.basePath.
+// Если поле не задано, страница считается лежащей в корне домена, и это
+// написано в отчёте, а не угадано.
+//
+// Домен хранится в punycode, xn--18-6kc5a3bxam.xn--p1ai, и вставляется
+// как есть: запись кириллицей в URL невалидна.
+function absoluteUrl(path) {
+  const domain = (config.site && config.site.domain) || '';
+  const base = (config.site && config.site.basePath) || '';
+  const slug = (config.landing && config.landing.slug) || '';
+  const clean = String(path || '').replace(/^\/+/, '');
+  // Каталог лежит рядом со страницей, то есть по тому же адресу, что и
+  // canonical. Без slug картинка уезжала в корень домена, а страница
+  // оставалась в папке, и og:image указывал бы в несуществующее место.
+  return `https://${domain}${base}/${slug}/${clean}`;
+}
+
+// Канонический адрес самой страницы. slug берётся из landing, а не из
+// имени папки, иначе при переносе папки адрес поменялся бы молча.
+function canonicalUrl() {
+  const slug = (config.landing && config.landing.slug) || '';
+  const base = (config.site && config.site.basePath) || '';
+  return `https://${(config.site && config.site.domain) || ''}${base}/${slug}/`;
+}
+
 // ---------- 1. index.html ----------
 let html = readTemplate('index.template.html');
 
@@ -234,6 +262,8 @@ const scalarMap = {
   BUSINESS_NAME: esc(config.business.name),
   META_TITLE: esc(config.meta.title),
   META_DESCRIPTION: esc(config.meta.description),
+  CANONICAL_URL: esc(canonicalUrl()),
+  OG_IMAGE_URL: esc(absoluteUrl((config.hero && config.hero.photo) || 'assets/web/map.png')),
   PHONE_DISPLAY: esc(config.contact.phoneDisplay),
   PHONE_TEL: esc(config.contact.phoneTel),
   PHONE2_LINE: config.contact.phone2Display

@@ -516,7 +516,6 @@ def build(spec: dict, items: list[dict]) -> dict:
         "trustBadges": [badge(b, nums) for b in spec["trustBadges"]],
         "faq": spec["faq"],
         "contactChannels": [
-            {"label": "WhatsApp", "url": "https://wa.me/79658423241"},
             {"label": "VK", "url": "https://vk.com/cifraprint18"},
             {"label": "MAX", "url": "https://max.ru/id182501416864_bot"},
         ],
@@ -546,12 +545,6 @@ def build(spec: dict, items: list[dict]) -> dict:
             "demand": spec["demand"],
             "rules": spec["rules"],
             "customerProvided": {
-              "whatsapp": {
-                "claim": "Ссылка WhatsApp https://wa.me/79658423241",
-                "givenBy": "собрана из второго телефона +7 (965) 842-32-41",
-                "verifiedOnSite": False,
-                "check": "На сайте цифра18.рф ссылок на WhatsApp нет ни на одной из 457 выкачанных страниц. Сайт ведёт только в VK и MAX. Номер взят из телефона, но WhatsApp на нём может не быть. Спросить заказчика либо убрать ссылку.",
-              },
                 "map": {"claim": "Координаты из ссылки на карту в футере сайта, "
                                  "56.869771, 53.189062",
                         "verifiedOnSite": True},
